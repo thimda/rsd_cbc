@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0">
+    <BorderLayout id="0001">
+        <BorderPanel id="0002" position="center">
+            <Splitter boundMode="0" divideSize="25" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+                <SplitterOne id="0003">
+                    <Border id="0004" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                        <BorderTrue id="0005">
+                            <FlowvLayout id="0006" autoFill="0">
+                                <FlowvPanel id="0007" height="5">
+                                </FlowvPanel>
+                                <FlowvPanel id="0008" height="20">
+                                    <TextField id="text_group" type="1" widgetId="main">
+                                    </TextField>
+                                </FlowvPanel>
+                                <FlowvPanel id="0009">
+                                    <TreeViewComp id="tree_frmcat" widgetId="main">
+                                    </TreeViewComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </BorderTrue>
+                    </Border>
+                </SplitterOne>
+                <SplitterTwo id="00010">
+                    <Border id="00011" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                        <BorderTrue id="00012">
+                            <FormComp id="frm_frmcat" widgetId="main">
+                            </FormComp>
+                        </BorderTrue>
+                    </Border>
+                </SplitterTwo>
+            </Splitter>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

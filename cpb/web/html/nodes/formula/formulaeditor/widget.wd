@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.formulaeditor.ViewController" dialog="false" id="formulaeditor" refId="formulaeditor" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                <Widget cardSubmit="false" id="formulaeditor" panelSubmit="false" tabSubmit="false">
+                </Widget>
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="controlformulads" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="propertyds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="commonds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="financeds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="mathds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="selfdefineds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="dateds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="datasetds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDatasetDsAfterSelect" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="formulaeditor" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="datasetds" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="stringds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="databaseds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="description" nullAble="true" primaryKey="false" text="description">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="propertyds" editable="false" enabled="true" id="propertygrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="false" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onPropertyGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onPropertyGirdDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="stringds" editable="true" enabled="true" id="stringgrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onStringGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onStringGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="databaseds" editable="true" enabled="true" id="databasegrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDatabaseGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDatabaseDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="controlformulads" editable="true" enabled="true" id="controlformulagrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onControlformulaGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onControlformulaGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="financeds" editable="true" enabled="true" id="financegrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onFinanceGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onFinanceGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="dateds" editable="true" enabled="true" id="dategrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDateGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDateGridDbClidk" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="selfdefineds" editable="true" enabled="true" id="selfdefinegrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onSelfgridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onSelfGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="mathds" editable="true" enabled="true" id="mathgrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="false" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onMathGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onMathGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="commonds" editable="true" enabled="true" id="commongrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onCommonGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onCommonGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <GridComp dataset="datasetds" editable="true" enabled="true" id="datasetgrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="数据集" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="description" textAlign="left" visible="false" width="120">
+            </Column>
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDatasetGridSelect" name="onRowSelected" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[setDescription(gridRowEvent);]]>
+                    </Action>
+                </Event>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.GridRowListener" methodName="onDatasetGridDbClick" name="onRowDbClick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>gridRowEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.GridRowEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onFormulaDbClick(gridRowEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </GridComp>
+        <TextAreaComp cols="400" editorType="TextArea" enabled="true" focus="false" id="edit_textarea" rows="200" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <TextAreaComp cols="400" editorType="TextArea" enabled="true" focus="false" id="status_textarea" rows="40" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <ButtonComp enabled="true" id="no9_btn" text="9" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo9Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_dot_btn" text="." visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNodotClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no00_btn" text="00" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo00Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_le_btn" text="&lt;=" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoleClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_lt_btn" text="&lt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoltClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_right_quot_btn" text=")" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoquotClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_gt_btn" text="&gt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNogtClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no0_btn" text="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo0Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_add_btn" text="+" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoaddClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_minus_btn" text="-" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNominusClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_multi_btn" text="*" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNomultiClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no7_btn" text="7" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo7Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="validate_btn" text="验证" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_equals_btn" text="==" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoequalsClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no5_btn" text="5" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo5Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no8_btn" text="8" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo8Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no6_btn" text="6" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo6Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="ok_btn" text="确定" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_divid_btn" text="/" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNodividClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no3_btn" text="3" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo3Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no1_btn" text="1" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo1Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_ge_btn" text="&gt;=" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNogeClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no4_btn" text="4" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo4Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="returntype_btn" text="返回类型" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_left_quot_btn" text="(" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNoleftquotClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="cancel_btn" text="取消" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="allselect_btn" text="全选" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no_right_btn" text="-&gt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNorightClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="clear_btn" text="清空" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onClearBtnClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[var widget = pageUI.getWidget("formulaeditor");
+var edit_area = widget.getComponent("edit_textarea");
+edit_area.setValue("");]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="no2_btn" text="2" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onNo2Click" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[onValueBtnClick(mouseEvent);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

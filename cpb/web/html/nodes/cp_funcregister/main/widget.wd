@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.funcregister.MainController" dialog="false" id="main" refId="main" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+<PluginDescs>
+        <PluginDesc id="edit_node_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="appscategory_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="appscategory_click">
+            </PluginDescItem>
+        </PluginDesc>
+     <PluginDesc id="simpleQuery_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginsimpleQuery_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginedit_node_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginappscategory_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+            </DatasetRelations>
+            <MdDataset caption="模块" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_module" lazyLoad="true" objMeta="uapcp.cp_module" voMeta="nc.uap.cpb.org.vos.CpModuleVO">
+                <Fields>
+                </Fields>                
+            </MdDataset>
+            <MdDataset caption="协同功能节点" controloperatorStatus="true" controlwidgetopeStatus="true"  enabled="false" id="ds_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                    <ModifyField id="id" nullAble="false">
+                    </ModifyField>
+                    <ModifyField id="title" nullAble="false">
+                    </ModifyField>
+                    <ModifyField id="url" nullAble="false">
+                    </ModifyField>
+                </Fields>  
+                 <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect_ds_appsnode" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>    
+                     </Events>         
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controloperatorStatus="true" controlwidgetopeStatus="true" enabled="false" id="ds_appscategory" lazyLoad="true" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>                
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同功能节点" fullclassName="1783c073-08ee-44e4-9704-ee6cfbd955d2" id="combo_cp_appsnode_type">
+            </MDComboDataConf>            
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp caption="协同功能节点" dataset="ds_appsnode" editable="true" enabled="true" height="100%" id="appsnodegrid" left="0" multiSelect="true" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="title" fixedHeader="false" id="title" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="false" editorType="ComboBox" field="type" fixedHeader="false" id="type" imageOnly="false" nullAble="true" refComboData="combo_cp_appsnode_type" renderType="ComboRender" sortable="true" sumCol="false" text="类型" textAlign="left" visible="true" width="120">
+            </Column>
+			<Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="appid" fixedHeader="false" id="appid" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="appid" textAlign="left" visible="true" width="80">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="url" fixedHeader="false" id="url" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="url" textAlign="left" visible="true" width="240">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="activeflag" fixedHeader="false" id="activeflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启用" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="specialflag" fixedHeader="false" id="specialflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="允许个性化" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="i18nname" fixedHeader="false" id="i18nname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="i18nname" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_appsnode" fixedHeader="false" id="pk_appsnode" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>            
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_appscategory" fixedHeader="false" id="pk_appscategory" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="分组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>        
+        <MenuBarComp id="funcnode_menu">
+            <MenuItem id="add" modifiers="3" stateManager="nc.uap.lfw.core.bm.dft.Init_Ss_Ms_StateManager"  text="新建功能节点">                
+            <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAdd" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="edit" modifiers="3" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="修改">                
+            <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onEdit" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager" text="删除">                
+            <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDel" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

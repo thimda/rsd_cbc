@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-12-26 16:52:07" creator="" description="" displayName="自定义函数" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="4efe817c-2f57-4c12-959a-4218a4698d6f" isbizmodel="false" mainEntity="21ba0aed-681c-4efd-9f2a-673edab3c5c7" modifier="" modifyTime="2012-03-19 09:32:27" name="自定义函数" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_selffunc" resid="" version="10" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="4efe817c-2f57-4c12-959a-4218a4698d6f" createTime="2011-12-26 16:52:29" creator="" czlist="" description="" displayName="自定义函数" fullClassName="nc.uap.wfm.vo.WfmSelfFunVO" height="144" help="" id="21ba0aed-681c-4efd-9f2a-673edab3c5c7" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="1b6f7b37-1088-4eb9-ba72-b28fc77f604c" modInfoClassName="" modifier="" modifyTime="2012-03-19 09:32:50" name="自定义函数" resid="" stereoType="" tableName="wfm_selffunc" userDefClassName="" versionType="0" visibility="public" width="147" x="110" y="125">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="21ba0aed-681c-4efd-9f2a-673edab3c5c7" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_selffunc" fieldType="char" fixedLength="false" forLocale="false" help="" id="1b6f7b37-1088-4eb9-ba72-b28fc77f604c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_selffunc" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="21ba0aed-681c-4efd-9f2a-673edab3c5c7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="函数名称" dynamic="false" dynamicTable="" fieldName="funname" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="93db84f1-5360-471f-928f-85fd664a6826" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="funname" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="21ba0aed-681c-4efd-9f2a-673edab3c5c7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="实现类" dynamic="false" dynamicTable="" fieldName="clazz" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="66ec38e1-4b27-43c3-8c89-b80c9bc29665" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="200" maxValue="" minValue="" name="clazz" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="21ba0aed-681c-4efd-9f2a-673edab3c5c7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="函数编码" dynamic="false" dynamicTable="" fieldName="funcode" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="0541e13f-0507-4ace-9511-81cd35362eeb" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="funcode" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

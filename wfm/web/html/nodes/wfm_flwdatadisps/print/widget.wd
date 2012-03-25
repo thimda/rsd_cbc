@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="320" i18nName="打印模板选择" width="400">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_suitprint" lazyLoad="true" voMeta="nc.portal.pwfm.vo.SuitPrintVO">
+                <Fields>
+                    <Field dataType="String" field="pk_suitprint" id="pk_suitprint" isPrimaryKey="false" nullAble="true" precision="0" text="主键">
+                    </Field>
+                    <Field dataType="SelfDefine" field="code" id="code" isPrimaryKey="false" nullAble="true" precision="0" text="编码">
+                    </Field>
+                    <Field dataType="SelfDefine" field="name" id="name" isPrimaryKey="false" nullAble="true" precision="0" text="名称">
+                    </Field>
+                    <Field dataType="String" field="pk_formdefinition" id="pk_formdefinition" isPrimaryKey="false" nullAble="true" precision="0" text="表单定义">
+                    </Field>
+                    <Field dataType="String" field="orderstr" id="orderstr" isPrimaryKey="false" nullAble="true" precision="0" text="排序号">
+                    </Field>
+                    <Field dataType="Object" field="suitprinttmp" id="contents" isPrimaryKey="false" nullAble="true" precision="0" text="模板内容">
+                    </Field>
+                    <Field dataType="SelfDefine" field="serverclass" id="serverclass" isPrimaryKey="false" nullAble="true" precision="0" text="服务器类">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="print" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_suitprint" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_suitprint" editable="true" enabled="true" height="100%" id="grid_suitprint" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="SelfDefine" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="SuitPrintButtonListener" serverClazz="nc.portal.pwfm.listener.SuitPrintButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="print" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_suitprint" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value></Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

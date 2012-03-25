@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.funcregister.EditNodeController" dialog="false" id="edit_node" refId="edit_node" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="edit_node_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="ok" source="ds_appsnode" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="okbtn" source="btn_ok" type="Button.onclick">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+          <MdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="true"  enabled="false" id="ds_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+          </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同功能节点" fullclassName="1783c073-08ee-44e4-9704-ee6cfbd955d2" id="combo_cp_appsnode_type">
+            </MDComboDataConf>            
+        </ComboDatas>
+    </Models>
+    <Components>
+     <FormComp caption="协同功能节点" columnCount="2" dataset="ds_appsnode" enabled="true" id="appsnodeform" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" height="22" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="title" height="22" id="title" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true" width="">
+            </Element>   
+             <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="type" id="type" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_appsnode_type" rowSpan="1" selectOnly="true" text="类型" visible="true">
+            </Element>        
+             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="appid" height="22" id="appid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="appid" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="activeflag" height="22" id="activeflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启用" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="specialflag" height="22" id="specialflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否允许个性化" visible="true" width="">
+            </Element>
+             <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="url" height="22" id="url" imageOnly="false" nextLine="true" nullAble="true" rowSpan="1" selectOnly="true" text="url" visible="true" width="330">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="i18nname" height="22" id="i18nname" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="i18nname" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appsnode" height="22" id="pk_appsnode" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>            
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appscategory" height="22" id="pk_appscategory" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="分组" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="22" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

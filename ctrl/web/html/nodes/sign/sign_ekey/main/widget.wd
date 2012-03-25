@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.controller.EKeyControl" dialog="false" id="main" refId="main" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="signedit_pluginin">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="simpleQuery_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginsimpleQuery_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="EKey" controlwidgetopeStatus="false" enabled="false" id="ekeyds" lazyLoad="false" notNullBody="false" objMeta="uapcp.Ekey" voMeta="nc.uap.portal.ctrl.office.data.sign.EkeyVO">
+                <FieldRelations>
+                    <FieldRelation id="owneruser_pk_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="owneruser_pk_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="owneruser_pk">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ekeylist" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                 </Events> 
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_ekeyds_owneruser_pk_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="true" selLeafOnly="false" text="EKey_协同用户" usePower="false" writeDs="ekeyds" writeFields="owneruser_pk,owneruser_pk_user_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <SelfDefComp id="selfsign" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="signoncreate" name="oncreate" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>selfDefEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[// 自定义控件
+var comp = selfDefEvent.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new SignControlComp();
+comp.setContent(content);
+content.InitControl();]]>
+                    </Action>
+                </Event>
+            </Events>
+        </SelfDefComp>
+        <GridComp caption="EKey" dataset="ekeyds" editable="true" enabled="true" id="ekeygrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" fixedHeader="false" id="editsign" imageOnly="false" nullAble="true" renderType="ekeyEditRender" sortable="true" sumCol="false" text="编辑" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" fixedHeader="false" id="deletesign" imageOnly="false" nullAble="true" renderType="ekeyDeleteRender" sortable="true" sumCol="false" text="删除" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_ekey" fixedHeader="false" id="pk_ekey" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="sn" fixedHeader="false" id="sn" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="序列号" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="createtime" fixedHeader="false" id="createtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="注册时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="createby" fixedHeader="false" id="createby" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="owneruser_pk" fixedHeader="false" id="owneruser_pk" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户PK" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="owneruser_pk_user_name" fixedHeader="false" id="owneruser_pk_user_name" imageOnly="false" nullAble="true" refNode="refnode_ekeyds_owneruser_pk_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户PK" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+        <MenuBarComp id="signmenu">
+            <MenuItem id="newmenu" modifiers="3" text="注册">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="newonclick" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="pswMenu" modifiers="3" text="口令">
+                <MenuItem id="changeUserPswMenu" modifiers="3" text="修改用户口令">
+                <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="changeuserpswonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[
+                            	var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.ShowChangePsw(false,false);
+                            ]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="changeAdminPswMenu" modifiers="3" text="修改管理员口令">
+                	<Events>
+                		<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="changeadminpswonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[
+                            	var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.ShowChangePsw(true,false);
+                            ]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="resetUserPswSign" modifiers="2" text="重置用户口令">
+                <Events>
+                		<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="Resetpswonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[
+                            	var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.ShowChangePsw(false,true);
+                            ]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem id="signMenu" modifiers="3" text="印章">
+                <MenuItem id="NewEkey" modifiers="2" text="新增印章">
+	                <Events>
+	                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="newsignonclick" name="onclick" onserver="true">
+	                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+	                        </SubmitRule>
+	                        <Params>
+	                            <Param>
+	                                <Name>mouseEvent</Name>
+	                                <Value>
+	                                </Value>
+	                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+	                                </Desc>
+	                            </Param>
+	                        </Params>
+	                        <Action>
+	                        </Action>
+	                    </Event>
+	                </Events>
+                </MenuItem>
+                <MenuItem id="openSignMenu" modifiers="2" text="编辑印章">
+                <Events>
+                	<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="editsignonclick" name="onclick" onserver="true">
+	                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+	                        </SubmitRule>
+	                        <Params>
+	                            <Param>
+	                                <Name>mouseEvent</Name>
+	                                <Value>
+	                                </Value>
+	                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+	                                </Desc>
+	                            </Param>
+	                        </Params>
+	                        <Action>
+	                        </Action>
+	                    </Event>
+	                </Events>
+                </MenuItem>
+                <MenuItem id="deleteSignMenu" modifiers="2" text="删除印章">
+                <Events>
+                		<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="deletesignonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[
+                            	var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.DeleteFromEkey();
+                            ]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="clearSignMenu" modifiers="2" text="清除印章">
+                <Events>
+                		<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="resetekeyonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[
+                            	var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.ResetEkeySigns();
+                            ]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

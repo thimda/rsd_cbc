@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout3516" widgetId="main">
+        <FlowvPanel height="23" id="panelv03516" widgetId="main">
+            <Menubar id="menu" widgetId="main">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel  height="200" id="panelv13516" widgetId="main">
+            <ExcelComp id="test" widgetId="main">
+            </ExcelComp>
+        </FlowvPanel>
+        <FlowvPanel  height="10" id="panelv33516" widgetId="main">
+        </FlowvPanel>
+        <FlowvPanel  height="200" id="panelv23516" widgetId="main">
+            <GridComp id="gridtest" widgetId="main">
+            </GridComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

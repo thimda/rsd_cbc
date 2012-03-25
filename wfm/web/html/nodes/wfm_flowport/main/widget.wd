@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" id="main" refId="main" sourcePackage="">
+    <Attributes>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="流程节点属性控制" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flowport" lazyLoad="true" objMeta="uapcp.wfm_flowtype" voMeta="nc.uap.wfm.vo.WfmFlowPortVO">
+                <Fields>
+                </Fields>
+            </MdDataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="pid" nullAble="true" primaryKey="false" text="pid">
+                    </Field>
+                </Fields>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_humact" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="pid" nullAble="true" primaryKey="false" text="pid">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_humact" editable="true" enabled="true" id="grid_humact" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="name" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pid" fixedHeader="false" id="pid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pid" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="流程节点属性控制" dataset="ds_flowport" editable="true" enabled="true" id="grid_flowport" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_flowport" fixedHeader="false" id="pk_flowport" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ctrlitem" fixedHeader="false" id="ctrlitem" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="控制项" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ctrlstate" fixedHeader="false" id="ctrlstate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="状态值" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="tree_prodef" rootOpen="true" visible="true" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_prodef" id="level1" labelFields="name" masterKeyField="id" recursiveKeyField="id" recursivePKeyField="pid">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu_flowport">
+            <MenuItem id="save" modifiers="2" text="保存">
+            </MenuItem>
+            <MenuItem id="modify" modifiers="2" text="修改">
+            </MenuItem>
+            <MenuItem id="cancel" modifiers="2" text="取消">
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

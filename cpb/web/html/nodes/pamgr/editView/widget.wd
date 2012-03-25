@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.pamgr.PaMgrEditViewController" dialog="false" id="editView" refId="editView" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="edit_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="selectRow" source="ds_template" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="okBtnTrigger" source="ok_btn" type="Button.onclick">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="beforeShowEvent" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_template" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" field="pk_template" id="pk_template" nullAble="true" precision="0" primaryKey="true" text="pk_template">
+                    </Field>
+                    <Field dataType="String" field="templatename" id="templatename" nullAble="true" precision="0" primaryKey="false" text="templatename">
+                    </Field>
+                    <Field dataType="String" field="windowid" id="windowid" nullAble="true" precision="0" primaryKey="false" text="windowid">
+                    </Field>
+                    <Field dataType="UFBoolean" field="isactive" id="isactive" nullAble="true" precision="0" primaryKey="false" text="isactive">
+                    </Field>
+                    <Field dataType="String" field="appid" id="appid" nullAble="true" precision="0" primaryKey="false" text="appid">
+                    </Field>
+                    <Field dataType="Integer" field="priority" id="priority" nullAble="true" precision="0" primaryKey="false" text="priority">
+                    </Field>
+                    <Field dataType="String" field="pk_group" id="pk_group" nullAble="true" precision="0" primaryKey="false" text="pk_group">
+                    </Field>
+                    <Field dataType="String" field="pk_funcnode" id="pk_funcnode" nullAble="true" precision="0" primaryKey="false" text="pk_funcnode">
+                    </Field>
+                    <Field dataType="Integer" field="dr" id="dr" nullAble="true" precision="0" primaryKey="false" text="dr">
+                    </Field>
+                    <Field dataType="UFDate" field="ts" id="ts" nullAble="true" precision="0" primaryKey="false" text="ts">
+                    </Field>
+                    <Field dataType="String" field="action" id="action" nullAble="true" primaryKey="false" text="action">
+                    </Field>
+                    <Field dataType="String" field="busiid" id="busiid" nullAble="true" primaryKey="false" text="busiid">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="editView" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_template" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <FormComp columnCount="2" dataset="ds_template" eleWidth="120" enabled="false" id="form_template" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_template" id="pk_template" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="模板主键" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="templatename" id="templatename" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="模板名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="windowid" id="windowid" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="window的id" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="UFBoolean" editable="true" editorType="CheckBox" enabled="true" field="isactive" id="isactive" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="是否激活" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="appid" id="appid" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="app的id" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="Integer" editable="true" editorType="IntegerText" enabled="true" field="priority" id="priority" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="优先级" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_group" id="pk_group" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="pk_group" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_funcnode" id="pk_funcnode" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="节点pk" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="action" id="action" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="action" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="busiid" id="busiid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务ID" visible="true" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp enabled="true" id="cancel_btn" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelEvent" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="ok_btn" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onOkEvent" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

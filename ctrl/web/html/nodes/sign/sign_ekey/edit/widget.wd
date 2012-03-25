@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.controller.EKeyEditorControl" dialog="false" id="edit" refId="edit" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="signedit_pluginout">
+            <PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="ekeyds" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="signedit_pluginin">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                    <Dataset id="ekeyds" type="ds_current_line">
+                    </Dataset>
+                </Widget>
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset caption="加密狗列表" controlwidgetopeStatus="false" enabled="true" id="ekeyds" lazyLoad="false" notNullBody="false" pageSize="10" voMeta="nc.uap.portal.ctrl.office.data.sign.EkeyVO">
+                <FieldRelations>
+                    <FieldRelation id="owneruser_pk" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="owneruser_pk_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="owneruser_pk" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_ekey" id="pk_ekey" nullAble="true" primaryKey="true" text="主键">
+                    </Field>
+                    <Field dataType="String" field="createby" id="createby" nullAble="true" primaryKey="false" text="创建人">
+                    </Field>
+                    <Field dataType="UFDateTime" field="createtime" id="createtime" nullAble="true" primaryKey="false" text="创建时间">
+                    </Field>
+                    <Field dataType="String" field="sn" id="sn" nullAble="true" primaryKey="false" text="印章序号">
+                    </Field>
+                    <Field dataType="String" field="owneruser_pk" id="owneruser_pk" nullAble="true" primaryKey="false" text="所属用户">
+                    </Field>
+                    <Field dataType="String" id="owneruser_pk_user_name" nullAble="true" primaryKey="false" sourceField="owneruser_pk" text="所属 用户">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.pubrefrence.UserReferenceController" dialog="true" i18nName="" id="refnode_user" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="所属用户" usePower="false" writeDs="ekeyds" writeFields="owneruser_pk,owneruser_pk_user_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="EditBtnCancel" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="$refds_uapcp_cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="ekeyds" type="ds_current_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <SelfDefComp id="selfsign" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="signoncreate" name="oncreate" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>selfDefEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[// 自定义控件
+var comp = selfDefEvent.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new SignControlComp();
+comp.setContent(content);
+content.InitControl();]]>
+                    </Action>
+                </Event>
+            </Events>
+        </SelfDefComp>
+        <FormComp caption="加密狗列表" columnCount="2" dataset="ekeyds" eleWidth="120" enabled="true" id="ekeyform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_ekey" height="" id="pk_ekey" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="createby" height="" id="createby" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateTimeText" enabled="false" field="createtime" height="" id="createtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="sn" height="" id="sn" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章序号" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="owneruser_pk" height="" id="owneruser_pk" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属用户" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="owneruser_pk_user_name" height="" id="owneruser_pk_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_user" rowSpan="1" selectOnly="true" text="用户名称" visible="true" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="EditBtnOk" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="$refds_uapcp_cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="ekeyds" type="ds_current_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="cp_appsnode" detailForeignKey="pk_appscategory" id="cp_funnode_appscategory_cp_appsnode" masterDataset="cp_funnode_appscategory" masterKeyField="pk_appscategory">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="协同菜单项" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_menuitem" lazyLoad="true" objMeta="uapcp.cp_menuitem" voMeta="nc.uap.cpb.org.vos.CpMenuItemVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.cpb.org.funnode.CpMenuitemLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_menuitem" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_funnode_appscategory" lazyLoad="false" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.cpb.org.funnode.CpFunCategoryLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_funnode_appscategory" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_funnode_appscategory" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.cpb.org.funnode.CpFunnodeLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_appsnode" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="funnodetree" left="0" position="relative" rootOpen="true" text="节点管理" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="cp_funnode_appscategory" id="level1" labelFields="title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="parentid">
+                <RecursiveTreeLevel dataset="ds_menuitem" detailKeyParameter="pk_appscategory" id="level2" labelFields="name" masterKeyField="pk_menuitem" recursiveKeyField="pk_menuitem" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

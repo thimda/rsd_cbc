@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <Splitter boundMode="0" divideSize="20" hideBar="true" id="spliter8" inverse="0" oneTouch="true" orientation="h" spliterWidth="4">
+        <SplitterOne id="000001">
+            <TreeViewComp id="tree_queryclass" widgetId="main">
+            </TreeViewComp>
+        </SplitterOne>
+        <SplitterTwo id="000002">
+            <Splitter boundMode="0" divideSize="50" hideBar="true" id="spliter11" inverse="0" oneTouch="true" orientation="v" spliterWidth="4">
+                <SplitterOne id="000003">
+                    <GridComp id="grid_querytemplate" widgetId="main">
+                    </GridComp>
+                </SplitterOne>
+                <SplitterTwo id="000004">
+                    <GridComp id="grid_templaterole" widgetId="main">
+                    </GridComp>
+                </SplitterTwo>
+            </Splitter>
+        </SplitterTwo>
+    </Splitter>
+</UIMeta>

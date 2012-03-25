@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-10-12 08:57:11" creator="" description="" displayName="ctrl_officefileuser" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="105361c8-2fbb-40c6-bb9d-5f48ae55f10b" isbizmodel="false" mainEntity="423bd9ca-d063-466a-bce5-a2a4062616a5" modifier="" modifyTime="2011-10-12 08:57:46" name="ctrl_officefileuser" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="ctrl_officefileuser" resid="" version="1" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="105361c8-2fbb-40c6-bb9d-5f48ae55f10b" createTime="2011-10-12 08:57:46" creator="" czlist="" description="" displayName="文档用户关联表" fullClassName="nc.uap.portal.ctrl.office.data.OfficeFileUserVO" height="130" help="" id="423bd9ca-d063-466a-bce5-a2a4062616a5" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="a72dcde1-e4b8-412f-a458-f6ed11c9f290" modInfoClassName="" modifier="" modifyTime="2011-10-12 09:00:00" name="OfficeFileUser" resid="" stereoType="" tableName="uapcp_OfficeFileUser" userDefClassName="" versionType="0" visibility="public" width="96" x="112" y="115">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="423bd9ca-d063-466a-bce5-a2a4062616a5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_fileuser" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="a72dcde1-e4b8-412f-a458-f6ed11c9f290" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_fileuser" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="423bd9ca-d063-466a-bce5-a2a4062616a5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="用户名" dynamic="false" dynamicTable="" fieldName="usercode" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="88ed6acc-843d-4c98-8ade-92266d31b7ae" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="false" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="usercode" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="423bd9ca-d063-466a-bce5-a2a4062616a5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="文档主键" dynamic="false" dynamicTable="" fieldName="pk_file" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="0824b0e3-7f1c-413a-982c-9ebc2d87009a" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_file" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

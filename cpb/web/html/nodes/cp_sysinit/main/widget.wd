@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.sysinit.MainController" dialog="false" id="main" refId="main" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="模块" controlwidgetopeStatus="false" enabled="false" id="cp_moudle_ds" lazyLoad="false" notNullBody="false" objMeta="uapcp.cp_module" voMeta="nc.uap.cpb.org.vos.CpModuleVO">
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_cp_moudle_ds" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controlwidgetopeStatus="false" enabled="false" id="cp_appscategory_ds" lazyLoad="false" notNullBody="false" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_cp_appscategory_ds" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect_cp_appscategory_ds" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <MdDataset caption="web参数设置" controlwidgetopeStatus="false" enabled="false" id="cp_sysinit_ds" lazyLoad="false" notNullBody="false" objMeta="uapcp.cp_sysinit" voMeta="nc.uap.cpb.org.vos.CpSysinitVO">
+                <Fields>
+                    <Field dataType="String" field="valuelist" id="valuelist" nullAble="true" primaryKey="false" text="取值范围">
+                    </Field>
+                    <Field dataType="String" field="defaultvalue" id="defaultvalue" nullAble="true" primaryKey="false" text="默认值">
+                    </Field>
+                    <Field dataType="String" field="remark" id="remark" nullAble="true" primaryKey="false" text="注释">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_cp_systinit_ds" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect_cp_sysinit_ds" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterDataChange_cp_sysinit_ds" name="onAfterDataChange" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetCellEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetCellEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="web参数设置" fullclassName="2e8fa516-2b27-4ac5-981b-264f7e34cb09" id="combo_cp_sysinit_ds_dataoriginflag">
+            </MDComboDataConf>
+            <StaticComboData caption="标题" id="combo_sysinit_value">
+            </StaticComboData>
+        </ComboDatas>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="ref_org" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="全局+当前集团+当前集团下的所有组织(所有)" refnodeDelegator="" refresh="false" selLeafOnly="false" text="选择组织:" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <TreeViewComp checkBoxModel="0" dragEnable="false" enabled="true" id="appnodes_tree" rootOpen="true" text="节点选择:" visible="true" withCheckBox="false" withRoot="true">
+            <SimpleTreeLevel dataset="cp_moudle_ds" id="level1" labelFields="title" masterKeyField="pk_module">
+                <RecursiveTreeLevel dataset="cp_appscategory_ds" detailKeyParameter="pk_module" id="level2" labelFields="title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </SimpleTreeLevel>
+        </TreeViewComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="ref_org_textfield" refcode="ref_org" text="组织单元：" textAlign="left" textWidth="0" visible="true" extendCellEditor="sysinitCellEditor">
+        </ReferenceComp>
+        <GridComp caption="web参数设置" dataset="cp_sysinit_ds" editable="true" enabled="true" id="sysinit_grid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true" extendCellEditor="sysinitCellEditor">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="initcode" fixedHeader="false" id="initcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="参数编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="initname" fixedHeader="false" id="initname" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="参数名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="value" fixedHeader="false" id="value" imageOnly="false" nullAble="true" refComboData="combo_sysinit_value" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="参数值" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="controlflag" fixedHeader="false" id="controlflag" imageOnly="false" nullAble="true" renderType="BooleanRender" showCheckBox="true" sortable="true" sumCol="false" text="是否控制下级" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="valuelist" fixedHeader="false" id="valuelist" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="取值范围" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="false" editorType="StringText" field="remark" fixedHeader="false" id="remark" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="注释" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="modifier" fixedHeader="false" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="修改人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="false" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="修改时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="pk_sysinit" fixedHeader="false" id="pk_sysinit" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="defaultvalue" fixedHeader="false" id="defaultvalue" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="默认值" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="组织主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="false" editorType="CheckBox" field="editflag" fixedHeader="false" id="editflag" imageOnly="false" nullAble="true" renderType="BooleanRender" showCheckBox="true" sortable="true" sumCol="false" text="是否可编辑" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="false" editorType="ComboBox" field="dataoriginflag" fixedHeader="false" id="dataoriginflag" imageOnly="false" nullAble="true" refComboData="combo_cp_sysinit_ds_dataoriginflag" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="Integer" editable="false" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="sysinit" fixedHeader="false" id="sysinit" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="关联模板" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+        <MenuBarComp id="menu_list">
+            <MenuItem id="edit" modifiers="3" stateManager="nc.uap.cpb.org.sysinit.EditStateManager" text="修改">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onMenuEdit" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="cp_sysinit_ds" type="ds_all_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="save" modifiers="3" stateManager="nc.uap.cpb.org.sysinit.SaveStateManager" text="保存">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onMenuSave" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="cp_sysinit_ds" type="ds_current_page">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="cancel" modifiers="3" stateManager="nc.uap.cpb.org.sysinit.CancelStateManager" text="取消">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onMenuCancel" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="cp_sysinit_ds" type="ds_current_page">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

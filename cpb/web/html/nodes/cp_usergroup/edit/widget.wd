@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.usergroup.EditController" dialog="false" id="edit" refId="edit">
+    <PlugoutDescs>
+        <PlugoutDesc id="edit_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="ok" source="cp_usergroup" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="okbtn" source="btn_ok" type="Button.onclick">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同用户组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_usergroup" lazyLoad="true" objMeta="uapcp.cp_usergroup" voMeta="nc.uap.cpb.org.vos.CpUserGroupVO">
+                <FieldRelations>
+                    <FieldRelation id="createduser_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="createduser_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="createduser">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>                    
+                     <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_parent_rel" refDataset="cp_usergroup">
+                        <MatchFields>
+                            <Field readField="group_name" writeField="pk_parent_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_usergroup" value="pk_parent">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="协同用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org" lazyLoad="true" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_usergroup_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="业务单元+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="业务单元+集团" usePower="false" writeDs="cp_usergroup" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_usergroup_usergroupuser_pk_user_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户组_协同用户" usePower="false" writeDs="cp_usergroup_usergroupuser" writeFields="pk_user,pk_user_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.pubrefrence.UserReferenceController" dialog="true" i18nName="" id="refnode_cp_usergroup_createduser_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户组_协同用户" usePower="false" writeDs="cp_usergroup" writeFields="createduser,createduser_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_usergroup_usergrouprole_pk_role_rolename" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同角色" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户组_协同角色" usePower="false" writeDs="cp_usergroup_usergrouprole" writeFields="pk_role,pk_role_rolename">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.pubrefrence.UserGroupReferenceController" dialog="true" i18nName="" id="refnode_cp_usergroup_pk_usergroup_group_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_usergroup,group_name" refId="" refcode="协同用户组"  refresh="false" selLeafOnly="false" text="协同用户组" usePower="false" writeDs="cp_usergroup" writeFields="pk_parent,pk_parent_group_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+        </ButtonComp>
+        <FormComp caption="协同用户组" columnCount="2" dataset="cp_usergroup" eleWidth="120" enabled="true" id="form_usergroup" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="group_name" id="group_name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组名称" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="group_code" id="group_code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="Reference" enabled="true" field="pk_org_name" id="pk_org_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_usergroup_pk_org_name" rowSpan="1" selectOnly="true" text="所属组织" visible="true">
+            </Element>
+             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_parent" id="pk_parent" imageOnly="false" nextLine="false" nullAble="true"  rowSpan="1" selectOnly="true" text="上级用户组" visible="false">
+            </Element>
+             <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_parent_group_name" id="pk_parent_group_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_usergroup_pk_usergroup_group_name" rowSpan="1" selectOnly="true" text="上级用户组" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="false" field="createddate" id="createddate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建日期" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="false" field="createduser" id="createduser" imageOnly="false" nextLine="false" nullAble="true"  rowSpan="1" selectOnly="true" text="创建用户" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="false" field="createduser_user_name" id="createduser_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_usergroup_createduser_user_name" rowSpan="1" selectOnly="true" text="创建用户" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="pk_org" id="pk_org" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属组织" visible="false">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.ctrl.tpl.print.CpPrintInitCtrl" dialog="false" id="condition" refId="condition" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="conditionBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同打印模板" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_print_template" lazyLoad="true" objMeta="uapcp.cp_print_template" voMeta="nc.uap.ctrl.tpl.print.base.CpPrintTemplateVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同打印条件" controlwidgetopeStatus="false" enabled="false" id="conditionds" lazyLoad="true" objMeta="uapcp.cp_print_condition" voMeta="nc.uap.ctrl.tpl.print.base.CpPrintConditionVO">
+                <FieldRelations>
+                    <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pkcorp_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pkcorp">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="查询模板" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_QueryTemplet" lazyLoad="true" objMeta="uap.QueryTemplet" voMeta="nc.vo.pub.query.md.MDQueryTempletVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="entityds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="pid" nullAble="true" primaryKey="false" text="pid">
+                    </Field>
+                    <Field dataType="String" id="loadfield" nullAble="true" primaryKey="false" text="loadfield">
+                    </Field>
+                    <Field dataType="String" id="tablename" nullAble="true" primaryKey="false" text="tablename">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_conditionds_pkcorp_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同打印条件_集团" usePower="false" writeDs="conditionds" writeFields="pkcorp,pkcorp_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="toleftbt" text="向左" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="toLeftBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                            <Dataset id="entityds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="entitytree" rootOpen="true" text="元数据" visible="true" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="entityds" id="level1" labelFields="name,id" masterKeyField="id" recursiveKeyField="id" recursivePKeyField="pid">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <ButtonComp enabled="true" id="cancelbt" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="conditionCancelBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="okbt" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="conditionOkBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="torightbt" text="向右" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="toRightBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                            <Dataset id="entityds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <GridComp caption="协同打印条件" dataset="conditionds" editable="false" enabled="true" id="conditiongrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_varcondition" fixedHeader="false" id="pk_varcondition" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键ID" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pkcorp" fixedHeader="false" id="pkcorp" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="公司编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pkcorp_name" fixedHeader="false" id="pkcorp_name" imageOnly="false" nullAble="true" refNode="refnode_conditionds_pkcorp_name" renderType="DefaultRender" sortable="true" sumCol="false" text="公司编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="datatype" fixedHeader="false" id="datatype" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="数据类型" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="userdefflag" fixedHeader="false" id="userdefflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="自定义项标志" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="tabcode" fixedHeader="false" id="tabcode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="表编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="resid" fixedHeader="false" id="resid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源ID" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_print_template" fixedHeader="false" id="pk_print_template" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板主键" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="varexpress" fixedHeader="false" id="varexpress" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="变量表达式" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="varname" fixedHeader="false" id="varname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="变量名" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="tablename" fixedHeader="false" id="tablename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="表名" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

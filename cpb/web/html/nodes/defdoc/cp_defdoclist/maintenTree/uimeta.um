@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="maintenTree_um" jquery="0">
+    <FlowvLayout id="flowvlayout1830" widgetId="maintenTree">
+        <FlowvPanel height="50" id="panelv01830" widgetId="maintenTree">
+            <FlowhLayout autoFill="false" id="flowhlayout3168" widgetId="maintenTree">
+                <FlowhPanel id="panelh03168" widgetId="maintenTree" width="250">
+                    <Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    </Menubar>
+                </FlowhPanel>
+                <FlowhPanel id="panelh13168" widgetId="maintenTree">
+                    <Menubar height="100%" id="defdocSaveMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    </Menubar>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel id="panelv11830" widgetId="maintenTree">
+            <FlowhLayout autoFill="false" id="flowhlayout5252" widgetId="maintenTree">
+                <FlowhPanel id="panelh05252" widgetId="maintenTree" width="150px">
+                    <TreeViewComp height="100%" id="defdocTree" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    </TreeViewComp>
+                </FlowhPanel>
+                <FlowhPanel id="panelh15252" widgetId="maintenTree">
+                    <FormComp height="100%" id="defdocForm" label_position="" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    </FormComp>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

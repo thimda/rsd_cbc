@@ -1,0 +1,29 @@
+package nc.uap.ctrl.tpl.print.impl;
+
+import java.util.ArrayList;
+
+import nc.bs.dao.DAOException;
+import nc.bs.logging.Logger;
+import nc.jdbc.framework.processor.ColumnListProcessor;
+import nc.uap.cpb.persist.dao.PtBaseDAO;
+import nc.uap.ctrl.tpl.exp.TplBusinessException;
+import nc.uap.ctrl.tpl.print.ICpPrintConditionService;
+
+public class ICpPrintConditionServiceImpl implements ICpPrintConditionService {
+
+	private ArrayList list = new ArrayList();
+	@Override
+	public ArrayList getMetaFieldVlaue(String fieldName, String tableName) throws TplBusinessException {
+		// TODO Auto-generated method stub
+		PtBaseDAO baseDAO = new PtBaseDAO();
+		String sql = "select "+fieldName+" from "+tableName;
+		try{
+			list = (ArrayList)baseDAO.executeQuery(sql, new ColumnListProcessor(fieldName));
+		}catch(DAOException e){
+			Logger.error(e.getMessage(), e);
+			throw new PortalServiceException(e);
+		}
+		return list;
+	}
+
+}

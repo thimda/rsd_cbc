@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="flowv1jokkkl">
+        <FlowvPanel id="0001" height="30">
+            <Menubar id="menu_querytemplate">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel id="0002">
+            <Widget id="main">
+            </Widget>
+        </FlowvPanel>
+    </FlowvLayout>
+    <Dialog id="relateRole">
+    </Dialog>
+</UIMeta>

@@ -1,0 +1,63 @@
+package nc.uap.wfm.frmbillnummgr;
+import nc.uap.lfw.core.comp.MenuItem;
+import nc.uap.lfw.core.data.Dataset;
+import nc.uap.lfw.core.data.Row;
+import nc.uap.lfw.core.event.DataLoadEvent;
+import nc.uap.lfw.core.event.MouseEvent;
+import nc.uap.lfw.core.page.LfwWidget;
+import nc.uap.lfw.core.serializer.impl.Dataset2SuperVOSerializer;
+import nc.uap.wfm.facility.WfmServiceFacility;
+import nc.uap.wfm.utils.PwfmUtil;
+import nc.uap.wfm.vo.WfmFrmNumRuleVO;
+import nc.vo.pub.SuperVO;
+public class WfmFrmNumMainCtrl {
+	public void wfmFrmNumOnload(DataLoadEvent se) {}
+	public void dateElem(MouseEvent<MenuItem> e) {
+		
+	}
+	public void codeElem(MouseEvent<MenuItem> e) {}
+	public void constElem(MouseEvent<MenuItem> e) {}
+	public void modifyElem(MouseEvent<MenuItem> e) {}
+	public void deleteElem(MouseEvent<MenuItem> e) {}
+	public void downElem(MouseEvent<MenuItem> e) {}
+	public void upElem(MouseEvent<MenuItem> e) {
+		
+		
+	}
+	public void addRule(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = PwfmUtil.getWidget("main");
+		Dataset dsRule = widgetMain.getViewModels().getDataset("ds_rule");
+		Row emptyRow = dsRule.getEmptyRow();
+		dsRule.addRow(emptyRow);
+		dsRule.setEnabled(true);
+		dsRule.setRowSelectIndex(0);
+	}
+	public void modifyRule(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = PwfmUtil.getWidget("main");
+		Dataset dsRule = widgetMain.getViewModels().getDataset("ds_rule");
+		dsRule.setEnabled(true);
+	}
+	public void deleteRule(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = PwfmUtil.getWidget("main");
+		Dataset dsRule = widgetMain.getViewModels().getDataset("ds_rule");
+		Row selectedRow = dsRule.getSelectedRow();
+		String frmNumRulePk = (String) selectedRow.getValue(dsRule.nameToIndex(WfmFrmNumRuleVO.PK_FRMNUMRULE));
+		WfmServiceFacility.getFrmNumRuleBill().deleteFrmNumRuleByPk(frmNumRulePk);
+	}
+	public void saveRule(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = PwfmUtil.getWidget("main");
+		Dataset dsRule = widgetMain.getViewModels().getDataset("ds_rule");
+		Row selectedRow = dsRule.getSelectedRow();
+		SuperVO[] vos = new Dataset2SuperVOSerializer().serialize(dsRule, selectedRow);
+		if (vos == null || vos.length == 0) {
+			return;
+		}
+		WfmServiceFacility.getFrmNumRuleBill().saveOrUpdateFrmNumRule((WfmFrmNumRuleVO) vos[0]);
+		dsRule.setEnabled(false);
+	}
+	public void cancelRule(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = PwfmUtil.getWidget("main");
+		Dataset dsRule = widgetMain.getViewModels().getDataset("ds_rule");
+		dsRule.setEnabled(false);
+	}
+}

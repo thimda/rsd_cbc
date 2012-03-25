@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.history.WfmHistroyCtrl" dialog="false" id="pubview_history" refId="pubview_hisotry" sourcePackage="wfm/src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+        <ComboDatas>
+        </ComboDatas>
+        <RefNodes>
+        </RefNodes>
+    </Models>
+    <Components>
+        <WebPartComp contentFetcher="nc.uap.wfm.history.WebPartContentFetcherImpl" id="htmlcontent4539">
+        </WebPartComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

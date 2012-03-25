@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.ctrl.tpl.gz.CpGzInitCtrl" dialog="false" id="condition" refId="condition" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="conditionBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value></Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同查询条件" controlwidgetopeStatus="false" enabled="false" id="conditionds" lazyLoad="true" objMeta="uapcp.cp_gz_condition" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzConditionVO">
+                <FieldRelations>
+                    <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pkcorp_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pkcorp">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField id="pk_query_template" text="协同查询模板_主键">
+                    </ModifyField>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="查询模板" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_QueryTemplet" lazyLoad="true" objMeta="uap.QueryTemplet" voMeta="nc.vo.pub.query.md.MDQueryTempletVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="entityds" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="pid" nullAble="true" primaryKey="false" text="pid">
+                    </Field>
+                    <Field dataType="String" id="loadfield" nullAble="true" primaryKey="false" text="loadfield">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_conditionds_pkcorp_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同查询条件_集团" usePower="false" writeDs="conditionds" writeFields="pkcorp,pkcorp_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="toleftbt" text="向左" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="toLeftBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                            <Dataset id="entityds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="entitytree" rootOpen="true" text="元数据" visible="true" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="entityds" id="level1" labelFields="name,id" masterKeyField="id" recursiveKeyField="id" recursivePKeyField="pid">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <ButtonComp enabled="true" id="cancelbt" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="conditionCancelBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="okbt" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="conditionOkBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="torightbt" text="向右" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="toRightBt" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="condition" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="conditionds" type="ds_all_line">
+                            </Dataset>
+                            <Dataset id="entityds" type="ds_all_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <GridComp caption="协同查询条件" dataset="conditionds" editable="false" enabled="true" id="conditiongrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_query_condition" fixedHeader="false" id="pk_query_condition" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="查询模板ID" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pkcorp" fixedHeader="false" id="pkcorp" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="公司编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pkcorp_name" fixedHeader="false" id="pkcorp_name" imageOnly="false" nullAble="true" refNode="refnode_conditionds_pkcorp_name" renderType="DefaultRender" sortable="true" sumCol="false" text="公司编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fieldcode" fixedHeader="false" id="fieldcode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fieldname" fixedHeader="false" id="fieldname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="operacode" fixedHeader="false" id="operacode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="操作符编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="operaname" fixedHeader="false" id="operaname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="操作符名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="value" fixedHeader="false" id="value" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="取值" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifdefault" fixedHeader="false" id="ifdefault" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否缺省显示" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifused" fixedHeader="false" id="ifused" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否使用" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="datatype" fixedHeader="false" id="datatype" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="数据类型" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifimmobility" fixedHeader="false" id="ifimmobility" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否固定条件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="consultcode" fixedHeader="false" id="consultcode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="参照编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifsum" fixedHeader="false" id="ifsum" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否合计" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifgroup" fixedHeader="false" id="ifgroup" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否分组" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="iforder" fixedHeader="false" id="iforder" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否排序" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifdesc" fixedHeader="false" id="ifdesc" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否降序" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="ordersequence" fixedHeader="false" id="ordersequence" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="排序顺序" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="maxlength" fixedHeader="false" id="maxlength" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="取值最大长度" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifautocheck" fixedHeader="false" id="ifautocheck" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="自动检查" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifmust" fixedHeader="false" id="ifmust" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否必输条件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="disptype" fixedHeader="false" id="disptype" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="显示类别" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="returntype" fixedHeader="false" id="returntype" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="返回类别" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="dispvalue" fixedHeader="false" id="dispvalue" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="显示值" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dispsequence" fixedHeader="false" id="dispsequence" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="显示顺序" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="userdefflag" fixedHeader="false" id="userdefflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="自定义项标志" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="tabcode" fixedHeader="false" id="tabcode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="表编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="tabname" fixedHeader="false" id="tabname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="表名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifdatapower" fixedHeader="false" id="ifdatapower" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启用数据权限" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="resid" fixedHeader="false" id="resid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源ID" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="iscondition" fixedHeader="false" id="iscondition" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否查询条件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="instrumentsql" fixedHeader="false" id="instrumentsql" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="自定义查询语句" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="prerestrict" fixedHeader="false" id="prerestrict" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="预置限制条件" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="guideline" fixedHeader="false" id="guideline" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="指标条件" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifsubincluded" fixedHeader="false" id="ifsubincluded" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="参照是否包含下级" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifsysfuncrefused" fixedHeader="false" id="ifsysfuncrefused" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="参照是否使用系统函数" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifattrrefused" fixedHeader="false" id="ifattrrefused" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="参照是否使用库表属性" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="ifnotmdcondition" fixedHeader="false" id="ifnotmdcondition" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否元数据模板的非元数据条件" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="limit" fixedHeader="false" id="limit" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="数目限制" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_query_template" fixedHeader="false" id="pk_query_template" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="协同查询模板_主键" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

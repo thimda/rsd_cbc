@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_querytemplate" detailForeignKey="pk_queryclass" id="ds_queryclass_ds_querytemplate" masterDataset="ds_queryclass" masterKeyField="pk_queryclass">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="ds_templaterole" detailForeignKey="pk_querytemplate" id="ds_querytemplate_ds_templaterole" masterDataset="ds_querytemplate" masterKeyField="pk_querytemplate">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="查询分类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_queryclass" lazyLoad="true" objMeta="uapcp.wfm_queryclass" voMeta="nc.uap.wfm.vo.WfmQueryclassVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.querytemplate.QueryClassDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_queryclass" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_queryclass" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.querytemplate.GroupDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <RefMdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="模板角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_templaterole" lazyLoad="true" objMeta="uapcp.wfm_templaterole" voMeta="nc.uap.wfm.vo.WfmTemplateroleVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_role_rel" refDataset="$refds_uapcp_cp_role">
+                        <MatchFields>
+                            <Field readField="rolename" writeField="pk_role_rolename">
+                            </Field>
+                            <Field readField="rolecode" writeField="pk_role_rolecode">
+                            </Field>
+                            <Field readField="comments" writeField="pk_role_comments">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="pk_role">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_role_rolecode" isPrimaryKey="false" nullAble="true" sourceField="pk_role" text="角色编码">
+                    </Field>
+                    <Field dataType="String" id="pk_role_comments" isPrimaryKey="false" nullAble="true" sourceField="pk_role" text="角色备注">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_templaterole" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="查询模板" controloperatorStatus="true" controlwidgetopeStatus="false" enabled="false" id="ds_querytemplate" lazyLoad="true" objMeta="uapcp.wfm_querytemplate" voMeta="nc.uap.wfm.vo.WfmQuerytemplateVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_formdefinition_rel" refDataset="$refds_uapcp_dbl_formdefinition">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_formdefinition_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_formdefinition" value="pk_formdefinition">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField id="pk_formdefinition" text="关联表单">
+                    </ModifyField>
+                    <ModifyField id="pk_formdefinition_name" text="关联表单">
+                    </ModifyField>
+                    <ModifyField id="pk_querytemplate" nullAble="true">
+                    </ModifyField>
+                    <ModifyField id="pk_querytemplate3" nullAble="true">
+                    </ModifyField>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_querytemplate" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_querytemplate" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <RefMdDataset caption="表单定义" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_dbl_formdefinition" lazyLoad="true" objMeta="uapcp.dbl_formdefinition" voMeta="nc.uap.dbl.vo.DblFormDefinitionVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="查询模板_表单定义" dataListener="nc.uap.wfm.querytemplate.FormdefinitionRefDatasetServerListener" dialog="false" i18nName="" id="refnode_ds_querytemplate_pk_formdefinition_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_formdefinition,name" refId="" refcode="表单定义" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_querytemplate" writeFields="pk_formdefinition,pk_formdefinition_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="模板角色_协同角色" dataListener="" dialog="false" i18nName="" id="refnode_ds_templaterole_pk_role_rolename" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同角色" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_templaterole" writeFields="pk_role,pk_role_rolename">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="模板角色" dataset="ds_templaterole" editable="true" enabled="true" height="100%" id="grid_templaterole" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role_rolecode" fixedHeader="false" id="pk_role_rolecode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_role_rolename" fixedHeader="false" id="pk_role_rolename" imageOnly="false" nullAble="true" refNode="refnode_ds_templaterole_pk_role_rolename" renderType="DefaultRender" sortable="true" sumCol="false" text="角色名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role_comments" fixedHeader="false" id="pk_role_comments" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色备注" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_role" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templaterole" fixedHeader="false" id="pk_templaterole" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_templaterole" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_querytemplate" fixedHeader="false" id="pk_querytemplate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="查询模板_主键" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="查询模板" dataset="ds_querytemplate" editable="true" enabled="true" height="100%" id="grid_querytemplate" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_formdefinition_name" fixedHeader="false" id="pk_formdefinition_name" imageOnly="false" nullAble="true" refNode="refnode_ds_querytemplate_pk_formdefinition_name" renderType="DefaultRender" sortable="true" sumCol="false" text="关联表单" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="templatename" fixedHeader="false" id="templatename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="templatetype" fixedHeader="false" id="templatetype" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="templatedesc" fixedHeader="false" id="templatedesc" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板描述" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="url" fixedHeader="false" id="url" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="url" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="listener" fixedHeader="false" id="listener" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="监听器" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pagemodel" fixedHeader="false" id="pagemodel" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pagemodel" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext0" fixedHeader="false" id="ext0" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="排序字段1" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext1" fixedHeader="false" id="ext1" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="排序字段2" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_querytemplate" fixedHeader="false" id="pk_querytemplate" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_formdefinition" fixedHeader="false" id="pk_formdefinition" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="关联表单" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="refclass" fixedHeader="false" id="refclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="refclass" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_queryclass" fixedHeader="false" id="pk_queryclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="分组主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_queryclass" left="0" position="relative" rootOpen="true" text="查询分类" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_group" id="level1" labelFields="name" masterKeyField="pk_group" recursiveKeyField="pk_group" recursivePKeyField="pk_fathergroup">
+                <SimpleTreeLevel dataset="ds_queryclass" detailKeyParameter="pk_group" id="level2" labelFields="queryclassname" masterKeyField="pk_queryclass">
+                </SimpleTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

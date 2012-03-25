@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="400" i18nName="角色关联" width="600">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="relate_roleds" detailForeignKey="pk_rolegroup" id="relate_rolegroups_relate_roleds" masterDataset="relate_rolegroups" masterKeyField="pk_rolegroup">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="协同角色组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="relate_rolegroups" lazyLoad="true" objMeta="uapcp.cp_rolegroup" voMeta="nc.uap.cpb.org.vos.CpRoleGroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="relate_rolegroups" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="relate_rolegroups" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="relate_roleds" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="relate_roleds" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="组织" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="relate_orgds" lazyLoad="false" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.querytemplate.RelateDataDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="relate_orgds" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="relate_rolegroups" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="relate_roleds" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="relate_orgds" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp caption="协同角色" dataset="relate_roleds" editable="true" enabled="true" height="100%" id="relate_rolegrid" left="0" multiSelect="true" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="rolename" fixedHeader="false" id="rolename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="rolecode" fixedHeader="false" id="rolecode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="comments" fixedHeader="false" id="comments" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色备注" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="issealed" fixedHeader="false" id="issealed" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="是否封存" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="DateText" field="datecreated" fixedHeader="false" id="datecreated" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="创建日期" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="usercreated" fixedHeader="false" id="usercreated" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建用户" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="usercreated_user_name" fixedHeader="false" id="usercreated_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建用户" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_rolegroup" fixedHeader="false" id="pk_rolegroup" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属角色组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_rolegroup_groupname" fixedHeader="false" id="pk_rolegroup_groupname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属角色组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role1" fixedHeader="false" id="pk_role1" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_role1" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role2" fixedHeader="false" id="pk_role2" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_role2" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="org_rolegrouptree" left="0" position="relative" rootOpen="true" text="组织" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="relate_orgds" id="level1" labelFields="name" masterKeyField="pk_org" recursiveKeyField="pk_org" recursivePKeyField="pk_fatherorg">
+                <SimpleTreeLevel dataset="relate_rolegroups" detailKeyParameter="pk_org" id="level2" labelFields="groupname" masterKeyField="pk_rolegroup">
+                </SimpleTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <ButtonComp align="left" enabled="true" height="22" id="okbtn" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="menu_item_ok_listener" serverClazz="nc.uap.wfm.querytemplate.QueryTemplateRefOkListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="relate_roleds" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="relate_orgds" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="cancelbtn" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="menu_item_cancel_listener" serverClazz="nc.uap.wfm.querytemplate.QueryTemplateRefCancelListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="relateRole" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="relate_roleds" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="relate_orgds" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

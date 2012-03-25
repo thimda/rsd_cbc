@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.word.WordMainCtrl" dialog="false" height="100%" id="pubview_word" refId="pubview_word" sourcePackage="ctrl/src/public/" width="100%">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+        <IframeComp enabled="true" height="100%" id="tmp_word" left="0" position="relative" scrolling="" src="/core/word.jsp?pageId=officeedit" top="0" visible="true" width="100%">
+        </IframeComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

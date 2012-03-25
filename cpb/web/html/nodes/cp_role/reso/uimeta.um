@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="320" id="flowv11">
+            <GridComp id="grid_resource" widgetId="reso">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="flowv12">
+            <FlowhLayout id="flowv13">
+                <FlowhPanel id="flowv14">
+                </FlowhPanel>
+                <FlowhPanel id="flowv15">
+                </FlowhPanel>
+                <FlowhPanel id="flowv16">
+                    <Button id="btn_ok" widgetId="reso">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="flowv17">
+                    <Button id="btn_cancel" widgetId="reso">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel  id="flowv18">
+                </FlowhPanel>
+                <FlowhPanel  id="flowv19">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

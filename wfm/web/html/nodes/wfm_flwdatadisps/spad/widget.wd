@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="320" i18nName="便签" width="400">
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+        <TextAreaComp editorType="TextArea" enabled="false" focus="false" height="250" id="text_opinion" left="0" position="relative" text="签收意见" textAlign="left" textWidth="0" top="0" visible="true" width="400">
+        </TextAreaComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="ScratchpadClosMouseListener" serverClazz="nc.portal.pwfm.listener.ScratchpadClosMouseListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="spad" panelSubmit="false" tabSubmit="false">
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

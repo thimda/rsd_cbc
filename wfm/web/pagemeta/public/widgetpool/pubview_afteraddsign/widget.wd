@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.afteraddsign.AfterAddSignCtrl" dialog="false" id="pubview_afteraddsign" refId="pubview_afteraddsign" sourcePackage="wfm/src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="plugin_afteraddsign">
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginplugin_afteraddsign" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_afteraddsignuser" langDir="" multiSel="true" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="true" selLeafOnly="false" text="" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_opinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+        </ButtonComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_addsignuser" refcode="refnode_afteraddsignuser" text="请选择用户" textAlign="left" textWidth="0" visible="true">
+        </ReferenceComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

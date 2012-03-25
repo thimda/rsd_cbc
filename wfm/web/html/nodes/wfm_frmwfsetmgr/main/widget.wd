@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flwprt" lazyLoad="true" refId="nc.portal.pwfm.ds_flwprt">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwprt" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_attach" lazyLoad="true">
+                <Fields>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachList_Add" isPrimaryKey="false" nullAble="true" text="纸质附件新增">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachList_Delete" isPrimaryKey="false" nullAble="true" text="纸质附件删除">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachList_Modify" isPrimaryKey="false" nullAble="true" text="纸质附件修改">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachFile_Upload" isPrimaryKey="false" nullAble="true" text="附件上传">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachFile_Download" isPrimaryKey="false" nullAble="true" text="附件下载">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachFile_Modify" isPrimaryKey="false" nullAble="true" text="附件改名">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachFile_Brower" isPrimaryKey="false" nullAble="true" text="附件浏览">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_WrodFile_Enable" isPrimaryKey="false" nullAble="true" text="正文是否可编辑">
+                    </Field>
+                    <Field dataType="String" id="pk_prodef" isPrimaryKey="false" nullAble="true" text="流程定义PK">
+                    </Field>
+                    <Field dataType="String" id="prodef_id" isPrimaryKey="false" nullAble="true" text="流程定义编码">
+                    </Field>
+                    <Field dataType="String" id="port_id" isPrimaryKey="false" nullAble="true" text="流程节点编码">
+                    </Field>
+                    <Field dataType="UFBoolean" id="AttachPurview_AttachFile_Delete" isPrimaryKey="false" nullAble="true" text="附件删除">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_attach" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="port_id" isPrimaryKey="false" nullAble="true" text="port_id">
+                    </Field>
+                    <Field dataType="String" id="name" isPrimaryKey="false" nullAble="true" text="name">
+                    </Field>
+                    <Field dataType="String" id="parent_id" isPrimaryKey="false" nullAble="true" text="parent_id">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="FlwFrmPrtDsLoadListener" serverClazz="nc.uap.wfm.frmwfsetmgr.FlwFrmPrtDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="prodefds" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="frmitmprtds" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flwfrm" lazyLoad="true" refId="nc.portal.pwfm.ds_flwfrm">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwfrm" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_flwfrm" editable="true" enabled="true" height="100%" id="grid_flwfrm" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="占用域" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="namezh" fixedHeader="false" id="namezh" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="中文名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isnotwrite" fixedHeader="false" id="isnotwrite" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否可写" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isnotreadonly" fixedHeader="false" id="isnotreadonly" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否只读" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isnotrequired" fixedHeader="false" id="isnotrequired" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否必填" textAlign="center" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_prodef" left="0" position="relative" rootOpen="true" text="流程定义" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_prodef" id="level1" labelDelims="" labelFields="name" masterKeyField="port_id" recursiveKeyField="port_id" recursivePKeyField="parent_id">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <FormComp columnCount="2" dataset="ds_flwprt" enabled="true" id="frm_flwprt" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotdispword" height="22" id="isnotdispword" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否显示正文" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotdispattach" height="22" id="isnotdispattach" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否显示附件区" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotdisphistory" height="22" id="isnotdisphistory" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否显示流程历史" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotdispimage" height="22" id="isnotdispimage" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否显示流程图" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotdispsubfrm" height="22" id="isnotdispsubfrm" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否显示子单据" visible="true" width="">
+            </Element>
+        </FormComp>
+        <FormComp columnCount="2" dataset="ds_attach" enabled="true" id="frm_attach" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachList_Add" height="22" id="AttachPurview_AttachList_Add" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="纸质附件新增" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachList_Delete" height="22" id="AttachPurview_AttachList_Delete" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="纸质附件删除" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachList_Modify" height="22" id="AttachPurview_AttachList_Modify" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="纸质附件修改" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachFile_Upload" height="22" id="AttachPurview_AttachFile_Upload" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="附件上传" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachFile_Download" height="22" id="AttachPurview_AttachFile_Download" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="附件下载" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachFile_Modify" height="22" id="AttachPurview_AttachFile_Modify" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="附件改名" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachFile_Brower" height="22" id="AttachPurview_AttachFile_Brower" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="附件浏览" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_WrodFile_Enable" height="22" id="AttachPurview_WrodFile_Enable" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="正文是否可编辑" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="AttachPurview_AttachFile_Delete" height="22" id="AttachPurview_AttachFile_Delete" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="附件删除" visible="true" width="">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu_flwfrm">
+            <MenuItem id="save" modifiers="2" text="保存">
+                <Listeners>
+                    <MouseListener id="FlwFrmPrtDsEditListener" serverClazz="nc.uap.wfm.frmwfsetmgr.FlwFrmPrtDsEditListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwprt" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmitmprt" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwfrm" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="modify" modifiers="2" text="修改">
+                <Listeners>
+                    <MouseListener id="FlwFrmPrtDsEditListener" serverClazz="nc.portal.pwfm.listener.FlwFrmPrtDsEditListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmitmprt" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="cancel" modifiers="2" text="取消">
+                <Listeners>
+                    <MouseListener id="FlwFrmPrtDsEditListener" serverClazz="nc.portal.pwfm.listener.FlwFrmPrtDsEditListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmitmprt" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

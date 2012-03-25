@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-09-07 09:00:43" creator="" description="" displayName="常用语" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="0e69124d-a82f-4769-9fdc-8fdf76f90e93" isbizmodel="false" mainEntity="ec7863f9-1f00-43dc-bc9e-674ef87d232b" modifier="" modifyTime="2011-11-25 16:06:57" name="wfm_commonword" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_commonword" resid="" version="4" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="0e69124d-a82f-4769-9fdc-8fdf76f90e93" createTime="2011-09-07 09:00:46" creator="" czlist="" description="" displayName="常用语" fullClassName="nc.uap.wfm.vo.WfmCommonWordVO" height="100" help="" id="ec7863f9-1f00-43dc-bc9e-674ef87d232b" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="5cb46043-112d-47ea-8e91-499e7dae9d18" modInfoClassName="" modifier="" modifyTime="2011-11-25 16:07:29" name="wfm_commonword" resid="" stereoType="" tableName="wfm_commonword" userDefClassName="" versionType="0" visibility="public" width="80" x="230" y="91">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="ec7863f9-1f00-43dc-bc9e-674ef87d232b" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="内容" dynamic="false" dynamicTable="" fieldName="contents" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="6add02f4-c44b-47f6-853c-7ce62d320b41" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="1000" maxValue="" minValue="" name="contents" notSerialize="false" precise="0" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="ec7863f9-1f00-43dc-bc9e-674ef87d232b" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_commonword" fieldType="char" fixedLength="false" forLocale="false" help="" id="5cb46043-112d-47ea-8e91-499e7dae9d18" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_commonword" notSerialize="false" precise="0" refModelName="" resid="" sequence="1" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="ec7863f9-1f00-43dc-bc9e-674ef87d232b" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="常用语对应对象主键" dynamic="false" dynamicTable="" fieldName="pk_obj" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="ec819313-765e-4ba9-a8a8-1bd8d938fc9c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_obj" notSerialize="false" precise="0" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="ec7863f9-1f00-43dc-bc9e-674ef87d232b" dataType="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" dataTypeStyle="SINGLE" dbtype="" defaultValue="" description="" displayName="所属范围" dynamic="false" dynamicTable="" fieldName="scope" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="da3189f9-fa5c-4713-a919-1f6873d9ad4f" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="scope" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="所属范围" typeName="enum" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+        <Enumerate componentID="0e69124d-a82f-4769-9fdc-8fdf76f90e93" createTime="2011-09-07 09:11:25" creator="" dataType="BS000010000100001001" dbtype="varchar" description="" displayName="所属范围" fullClassName="nc.vouapcp.wfm_commonword.enum" height="100" help="" id="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" modInfoClassName="" modifier="" modifyTime="2011-11-25 16:06:57" name="enum" resid="" typeDisplayName="String" typeName="String" versionType="0" visibility="public" width="80" x="86" y="82">
+            <enumitemlist>
+                <enumitem description="" enumDisplay="用户" enumID="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" enumValue="0" hidden="false" id="1a179d47-fbaa-46cc-aca2-0c198096a9ba" resid="" sequence="0" versionType="0"/>
+                <enumitem description="" enumDisplay="角色" enumID="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" enumValue="1" hidden="false" id="877e3424-9880-42a4-bd6b-793f85948679" resid="" sequence="1" versionType="0"/>
+                <enumitem description="" enumDisplay="组织" enumID="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" enumValue="2" hidden="false" id="75790807-58a4-4278-85ef-1e380330d1cb" resid="" sequence="2" versionType="0"/>
+                <enumitem description="" enumDisplay="集团" enumID="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" enumValue="3" hidden="false" id="155e5f71-9eba-4b37-beb8-5388255a41f3" resid="" sequence="3" versionType="0"/>
+                <enumitem description="" enumDisplay="系统" enumID="fecf78fb-c6f6-4aeb-bb96-4e3de4dbed86" enumValue="4" hidden="false" id="693c097b-d240-44d4-ba33-b5344f349d1d" resid="" sequence="4" versionType="0"/>
+            </enumitemlist>
+        </Enumerate>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

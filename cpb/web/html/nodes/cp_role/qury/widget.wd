@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget  controllerClazz="nc.uap.cpb.org.role.QueryController" dialog="false" id="query" refId="query">
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <FieldRelations>
+                    <FieldRelation id="usercreated_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="usercreated_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="usercreated">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_rolegroup_rel" refDataset="$refds_uapcp_cp_rolegroup">
+                        <MatchFields>
+                            <Field readField="groupname" writeField="pk_rolegroup_groupname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_rolegroup" value="pk_rolegroup">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="qury" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_role" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <RefMdDataset caption="协同角色组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_rolegroup" lazyLoad="true" objMeta="uapcp.cp_rolegroup" voMeta="nc.uap.cpb.org.vos.CpRoleGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同用户角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_role_userrole" lazyLoad="true" objMeta="uapcp.cp_role_userrole" voMeta="nc.uap.cpb.org.vos.CpUserRoleVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_user_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_user_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="qury" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_role_userrole" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同角色资源" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_role_roleres" lazyLoad="true" objMeta="uapcp.cp_role_roleres" voMeta="nc.uap.cpb.org.vos.CpRoleResVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="qury" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_role_roleres" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="协同角色_协同角色组" dataListener="" dialog="false" i18nName="" id="refnode_cp_role_pk_rolegroup_groupname" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_rolegroup,groupname" refId="" refcode="协同角色组" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="cp_role" writeFields="pk_rolegroup,pk_rolegroup_groupname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="协同用户角色_协同用户" dataListener="" dialog="false" i18nName="" id="refnode_cp_role_userrole_pk_user_user_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="cp_role_userrole" writeFields="pk_user,pk_user_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="协同角色_协同用户" dataListener="" dialog="false" i18nName="" id="refnode_cp_role_usercreated_user_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="cp_role" writeFields="usercreated,usercreated_user_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <FormComp caption="协同角色" columnCount="2" dataset="cp_role" enabled="true" id="form_role" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="rolename" height="22" id="rolename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="rolecode" height="22" id="rolecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色编码" visible="true" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="RoleQueryOkListener" serverClazz="nc.uap.cpb.org.role.RoleQueryOkListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="qury" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="$refds_uapcp_cp_user" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="cp_role" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="$refds_uapcp_cp_rolegroup" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="cp_role_userrole" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="cp_role_roleres" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.data.sign.signlog.ShowLinkContent" dialog="false" id="showLinkContent" refId="showLinkContent" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="beforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="签章日志" controlwidgetopeStatus="false" enabled="false" id="signLogDetail" lazyLoad="false" notNullBody="false" objMeta="uapcp.signlog" voMeta="nc.uap.portal.ctrl.office.data.sign.SignlogVO">
+                <FieldRelations>
+                    <FieldRelation id="operby_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="operby_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="operby">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="showLinkContent" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="signLogDetail" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_signLogDetail" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_signLogDetail_operby_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="true" selLeafOnly="false" text="签章日志_协同用户" usePower="false" writeDs="signLogDetail" writeFields="operby,operby_user_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <FormComp caption="签章日志" columnCount="2" dataset="signLogDetail" eleWidth="120" enabled="false" id="showLink" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_signlog" height="" id="pk_signlog" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="operby" height="" id="operby" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作人" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="operby_user_name" height="" id="operby_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_signLogDetail_operby_user_name" rowSpan="1" selectOnly="true" text="操作人" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="operbycode" height="" id="operbycode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作人编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="UFDateTime" editable="true" editorType="DateTimeText" enabled="true" field="opertime" height="" id="opertime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_funnode" height="" id="pk_funnode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="功能节点主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="funnodecode" height="" id="funnodecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="功能节点编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="funnodename" height="" id="funnodename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="功能节点名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="data_pk" height="" id="data_pk" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="当前数据主键" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="signtype" height="" id="signtype" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章类型" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="signsn" height="" id="signsn" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章序号" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="signname" height="" id="signname" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="signoper" height="" id="signoper" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作类型" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_lfwfile" height="" id="pk_lfwfile" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="当前文档PK" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="clientip" height="" id="clientip" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="客户端IP" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="doclocal" height="" id="doclocal" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="签章位置" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="2" dataType="String" editable="true" editorType="TextArea" enabled="true" field="detail" height="100%" id="detail" imageOnly="false" nextLine="false" nullAble="true" rowSpan="5" selectOnly="true" text="详细信息" visible="true" width="380">
+            </Element>
+        </FormComp>
+        <TextAreaComp editorType="TextArea" enabled="false" focus="false" id="showDetail" rows="8" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <LabelComp enabled="true" id="label9552" text="详细信息" visible="true">
+        </LabelComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

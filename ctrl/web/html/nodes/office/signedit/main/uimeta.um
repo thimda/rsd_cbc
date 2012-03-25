@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv3">
+        <FlowvPanel height="23">
+            <Menubar id="signmenu" widgetId="main">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel height="23">
+            <TextField id="signname" type="1" widgetId="main">
+            </TextField>
+        </FlowvPanel>
+        <FlowvPanel height="23">
+            <TextField id="usercode" type="1" widgetId="main">
+            </TextField>
+        </FlowvPanel>
+        <FlowvPanel height="23">
+            <TextField id="signpsw" type="1" widgetId="main">
+            </TextField>
+        </FlowvPanel>
+        <FlowvPanel height="23">
+            <TextField id="confirmpsw" type="1" widgetId="main">
+            </TextField>
+        </FlowvPanel>
+        <FlowvPanel height="23">
+            <SelfDefComp id="selffile" widgetId="main">
+            </SelfDefComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

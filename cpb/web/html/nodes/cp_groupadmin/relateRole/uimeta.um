@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="relate_flowv1">
+        <FlowvPanel>
+            <GridComp id="relate_rolegrid" widgetId="relateRole">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel height="30">
+            <FlowhLayout>
+                <FlowhPanel>
+                </FlowhPanel>
+                <FlowhPanel>
+                    <Button id="ok2btn" widgetId="relateRole">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel>
+                    <Button id="cancel2btn" widgetId="relateRole">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

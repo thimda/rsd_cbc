@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel id="flowv456453fd2">  
+                     <FormComp id="appsnodeform" widgetId="edit_node">
+                     </FormComp>
+        </FlowvPanel>
+        <FlowvPanel height="30"  id="paneljhjv153012" widgetId="edit_node">
+            <FlowhLayout id="flowhlayout12">
+               <FlowhPanel id="flowhpanel12">
+                </FlowhPanel>
+                <FlowhPanel id="flowhpanel22">
+                </FlowhPanel>                
+                <FlowhPanel id="flowhpanel52">
+                </FlowhPanel>
+                 <FlowhPanel id="flowhpanel32">
+                    <Button id="btn_ok" widgetId="edit_node">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="flowhpanel42">
+                    <Button id="btn_cancel" widgetId="edit_node">
+                    </Button>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

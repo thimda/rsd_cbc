@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="null">
+        <BorderPanel position="center">
+            <Border bottomWidth="" id="border6" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                <BorderTrue>                   
+                            <Border bottomWidth="" id="border8" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                                <BorderTrue>
+                                    <FlowvLayout autoFill="0" id="null">
+                                        <FlowvPanel>
+                                            <GridComp id="grid_users" widgetId="users"></GridComp>
+                                        </FlowvPanel>
+                                        <FlowvPanel height="30">
+                                            <FlowhLayout>
+                                                <FlowhPanel>
+                                                </FlowhPanel>
+                                                <FlowhPanel width="100">
+                                                    <Button id="btn_ok" widgetId="users">
+                                                    </Button>
+                                                </FlowhPanel>
+                                                <FlowhPanel width="100">
+                                                    <Button id="btn_cancel" widgetId="users">
+                                                    </Button>
+                                                </FlowhPanel>
+                                                <FlowhPanel>
+                                                </FlowhPanel>
+                                            </FlowhLayout>
+                                        </FlowvPanel>
+                                    </FlowvLayout>
+                                </BorderTrue>
+                            </Border>
+                </BorderTrue>
+            </Border>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

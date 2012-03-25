@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="pubview_assign_um" jquery="0" jsEditor="0" jsExcel="0">
+	<FlowvLayout autoFill="0" id="flowvlayout0191" widgetId="pubview_assign">
+		<FlowvPanel height="100" id="panelv00191" widgetId="pubview_assign">
+			<Border bottomColor="" bottomWidth="5" className="" color="" id="border2040" leftColor="" leftWidth="1" rightColor="" rightWidth="1" showBottom="true" showLeft="true" showRight="true" showTop="true" topColor="" topWidth="1" widgetId="pubview_assign" width="100">
+				<BorderTrue id="bordertrue2040" widgetId="pubview_assign">
+					<GridComp id="grid_nexthumact" widgetId="pubview_assign">
+					</GridComp>
+				</BorderTrue>
+			</Border>
+		</FlowvPanel>
+		<FlowvPanel id="panelv10191" widgetId="pubview_assign" height="250">
+			<FlowhLayout id="a5">
+				<FlowhPanel id="a6">
+					<GridComp id="grid_allactors" widgetId="pubview_assign">
+					</GridComp>
+				</FlowhPanel>
+				<FlowhPanel width="20" id="a7">
+				</FlowhPanel>
+				<FlowhPanel width="80" id="a8">
+					<FlowvLayout autoFill="0" id="a9">
+						<FlowvPanel id="a10">
+						</FlowvPanel>
+						<FlowvPanel id="a11">
+							<Button id="btn_right_one" widgetId="pubview_assign">
+							</Button>
+						</FlowvPanel>
+						<FlowvPanel id="a12">
+							<Button id="btn_rigth_all" widgetId="pubview_assign">
+							</Button>
+						</FlowvPanel>
+						<FlowvPanel id="a13">
+							<Button id="btn_left_one" widgetId="pubview_assign">
+							</Button>
+						</FlowvPanel>
+						<FlowvPanel id="a14">
+							<Button id="btn_left_all" widgetId="pubview_assign">
+							</Button>
+						</FlowvPanel>
+						<FlowvPanel id="a15">
+						</FlowvPanel>
+					</FlowvLayout>
+				</FlowhPanel>
+				<FlowhPanel width="10" id="a16">
+				</FlowhPanel>
+				<FlowhPanel id="a17">
+					<GridComp id="grid_selecteds" widgetId="pubview_assign">
+					</GridComp>
+				</FlowhPanel>
+			</FlowhLayout>
+		</FlowvPanel>
+		<FlowvPanel id="panelv20191" widgetId="pubview_assign" height="25">
+			<FlowhLayout id="a19">
+				<FlowhPanel id="a20">
+				</FlowhPanel>
+				<FlowhPanel id="a24">
+				</FlowhPanel>
+				<FlowhPanel id="a21">
+					<Button id="btn_ok" widgetId="pubview_assign">
+					</Button>
+				</FlowhPanel>
+				<FlowhPanel id="a22">
+					<Button id="btn_cancel" widgetId="pubview_assign">
+					</Button>
+				</FlowhPanel>
+				<FlowhPanel id="a23">
+				</FlowhPanel>
+				<FlowhPanel id="a25">
+				</FlowhPanel>
+			</FlowhLayout>
+		</FlowvPanel>
+	</FlowvLayout>
+</UIMeta>

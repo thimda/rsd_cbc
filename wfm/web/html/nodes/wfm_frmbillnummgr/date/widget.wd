@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.frmbillnummgr.WfmFrmNumDateCtrl" dialog="false" id="date" refId="date" sourcePackage="wfm/src/public/">
+     <PluginDescs>
+        <PluginDesc id="date_pluginin1">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <PlugoutDescs>
+        <PlugoutDesc id="date_pluginout1">
+             <PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="ds_date" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="制单号规则元素" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_date" lazyLoad="true" objMeta="uapcp.wfm_frmnumelem" voMeta="nc.uap.wfm.vo.WfmFrmNumElemVO">
+                <Fields>
+                </Fields>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="制单号规则元素" fullclassName="ab19108b-bfb1-405a-b9c9-2d88a41d0de1" id="combo_ds_date_filltype">
+            </MDComboDataConf>
+            <MDComboDataConf caption="制单号规则元素" fullclassName="7dd18e19-f6c3-4a2d-bff9-9a7895e268a1" id="combo_ds_date_datepartten">
+            </MDComboDataConf>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <FormComp caption="制单号规则元素" columnCount="2" dataset="ds_date" enabled="true" id="frm_date" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="1" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="code" height="22" id="code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" height="22" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="元素名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="filltype" height="22" id="filltype" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_ds_date_filltype" rowSpan="1" selectOnly="true" text="补位类型" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="fillvalue" height="22" id="fillvalue" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="补位值" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="alllength" height="22" id="alllength" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="总长度" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="datepartten" height="22" id="datepartten" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_ds_date_datepartten" rowSpan="1" selectOnly="true" text="时间格式" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="startvalue" height="22" id="startvalue" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="开始值" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="stepvalue" height="22" id="stepvalue" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="步长值" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="constvalue" height="22" id="constvalue" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="常量值" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="orderstr" height="22" id="orderstr" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="排序号" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="type" height="22" id="type" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="元素类型" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_frmnumelem" height="22" id="pk_frmnumelem" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_frmnumrule" height="22" id="pk_frmnumrule" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码规则主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="22" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Events>
+                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnCancel_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                        <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Events>
+                  <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnOk_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                        <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

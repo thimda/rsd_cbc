@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="1">
+        <BorderPanel position="center" id="2">
+            <FlowvLayout autoFill="0" id="3">
+                <FlowvPanel id="4">
+                    <GridComp id="grid_uerge" widgetId="uerge"></GridComp>
+                </FlowvPanel>
+                <FlowvPanel height="5" id="5">
+                </FlowvPanel>
+                <FlowvPanel height="25" id="6">
+                    <FlowhLayout id="7">
+                        <FlowhPanel id="8">
+                        </FlowhPanel>
+                        <FlowhPanel id="9">
+                        </FlowhPanel>
+                        <FlowhPanel id="10">
+                            <Button id="btn_ok" widgetId="uerge">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="11">
+                        </FlowhPanel>
+                        <FlowhPanel id="12">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

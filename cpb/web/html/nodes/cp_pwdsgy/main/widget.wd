@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" id="main" width="100%">
+    <Attributes>
+        <Attribute>
+            <Key>$MODIFY_TS</Key>
+            <Value>-1</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="密码策略" controloperatorStatus="true" controlwidgetopeStatus="true" enabled="false" id="ds_pwdsgy" lazyLoad="true" objMeta="uapcp.cp_pwdsyg" voMeta="nc.uap.cpb.org.vos.CpPwdSygVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_pwdsgy" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_pwdsgy" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="combox_sgy">
+                <ComboItem i18nName="锁定" value="-1">
+                </ComboItem>
+                <ComboItem i18nName="10分钟后重试" value="1">
+                </ComboItem>
+                <ComboItem i18nName="30分钟后重试" value="2">
+                </ComboItem>
+                <ComboItem i18nName="1小时后重试" value="3">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp caption="密码策略" dataset="ds_pwdsgy" editable="true" enabled="true" height="100%" id="grid_pwdsgy" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="dftpwd" fixedHeader="false" id="dftpwd" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="默认密码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="minlen" fixedHeader="false" id="minlen" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="最小长度" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="errorlen" fixedHeader="false" id="errorlen" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="错误允许数" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="valdays" fixedHeader="false" id="valdays" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="有效天数" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="valtipdays" fixedHeader="false" id="valtipdays" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="有效提示天数" textAlign="right" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isforcemod" fixedHeader="false" id="isforcemod" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否强制修改" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="overtimesyg" fixedHeader="false" id="overtimesyg" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="过期策略" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="serverclass" fixedHeader="false" id="serverclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="服务类" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

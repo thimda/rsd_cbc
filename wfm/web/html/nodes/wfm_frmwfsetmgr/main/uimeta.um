@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="flowv1" widgetId="null">
+        <FlowvPanel height="25">
+            <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                <BorderTrue>
+                    <Menubar id="menu_flwfrm" widgetId="main"></Menubar>
+                </BorderTrue>
+            </Border>
+        </FlowvPanel>
+        <FlowvPanel>
+            <FlowhLayout>
+                <FlowhPanel width="200">
+                    <Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                        <BorderTrue>
+                            <TreeViewComp id="tree_prodef" widgetId="main">
+                            </TreeViewComp>
+                        </BorderTrue>
+                    </Border>
+                </FlowhPanel>
+                <FlowhPanel>
+                    <Border id="border3" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                        <BorderTrue>
+                            <FlowvLayout autoFill="0" id="flowv1">
+                                <FlowvPanel height="80">
+                                    <FormComp id="frm_flwprt" widgetId="main">
+                                    </FormComp>
+                                </FlowvPanel>
+                                <FlowvPanel height="120">
+                                    <FormComp id="frm_attach" widgetId="main">
+                                    </FormComp>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <GridComp id="grid_flwfrm" widgetId="main">
+                                    </GridComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </BorderTrue>
+                    </Border>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

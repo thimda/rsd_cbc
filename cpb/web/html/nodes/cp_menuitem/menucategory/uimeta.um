@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="menucategory_um" jquery="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel id="flowv456453fd">
+             <TreeViewComp id="menucategorytree" widgetId="menucategory"></TreeViewComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

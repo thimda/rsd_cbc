@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <Splitter boundMode="0" divideSize="20" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+        <SplitterOne>
+            <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                <BorderTrue id="bordertrue11">
+                    <FlowvLayout autoFill="0" id="flowv1">
+                        <FlowvPanel height="5" id="flowvpanel1">
+                        </FlowvPanel>
+                        <FlowvPanel id="flowvpanel2">
+                            <TreeViewComp id="tree_group" widgetId="main">
+                            </TreeViewComp>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </BorderTrue>
+            </Border>
+        </SplitterOne>
+        <SplitterTwo>
+            <Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                <BorderTrue id="bordertrue1">
+                    <FlowvLayout autoFill="0" id="flowv2">
+                        <FlowvPanel height="23" id="flowvpanel11">
+                            <Menubar id="menu_resource" widgetId="main">
+                            </Menubar>
+                        </FlowvPanel>
+                        <FlowvPanel id="flowvpanel12">
+                            <GridComp id="grid_resource" widgetId="main">
+                            </GridComp>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </BorderTrue>
+            </Border>
+        </SplitterTwo>
+    </Splitter>
+</UIMeta>

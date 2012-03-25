@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.menuitem.MenucategoryController" dialog="false" id="menucategory" refId="menucategory" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="menucategory_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="afterselected" source="ds_menucategory" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="afterselect" source="ds_menucategory" type="Dataset.onAfterRowSelect">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="菜单分组" controloperatorStatus="false" controlwidgetopeStatus="true" enabled="false" id="ds_menucategory" lazyLoad="false" objMeta="uapcp.cp_menucategory" voMeta="nc.uap.cpb.org.vos.CpMenuCategoryVO">
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ds_menucategory" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>                    
+                </Events>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" id="menucategorytree" rootOpen="true" text="菜单分组" visible="true" withCheckBox="false" withRoot="false">
+            <SimpleTreeLevel dataset="ds_menucategory" id="level1" labelFields="title" masterKeyField="pk_menucategory">
+            </SimpleTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

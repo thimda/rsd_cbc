@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.pamgr.PaMgrLeftViewController" dialog="false" id="leftView" refId="leftView" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="nav_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="navRow" source="ds_funcnode" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="afterRowSelectTrigger" source="ds_funcnode" type="Dataset.onAfterRowSelect">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_funcnode" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="id" nullAble="true" primaryKey="false" text="id">
+                    </Field>
+                    <Field dataType="String" id="title" nullAble="true" primaryKey="false" text="title">
+                    </Field>
+                    <Field dataType="String" id="pk_funcnode" nullAble="true" primaryKey="false" text="pk_funcnode">
+                    </Field>
+                    <Field dataType="String" id="pk_parent" nullAble="true" primaryKey="false" text="pk_parent">
+                    </Field>
+                    <Field dataType="String" id="pk_group" nullAble="true" primaryKey="false" text="pk_group">
+                    </Field>
+                    <Field dataType="String" id="url" nullAble="true" primaryKey="false" text="url">
+                    </Field>
+                    <Field dataType="String" id="i18nname" nullAble="true" primaryKey="false" text="i18nname">
+                    </Field>
+                    <Field dataType="String" id="windowId" nullAble="true" primaryKey="false" text="windowId">
+                    </Field>
+                    <Field dataType="String" id="appId" nullAble="true" primaryKey="false" text="appId">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="leftView" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_funcnode" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" id="tree_funcnode" rootOpen="true" visible="true" withCheckBox="false" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_funcnode" id="level1" labelDelims="" labelFields="title" masterKeyField="pk_funcnode" recursiveKeyField="pk_funcnode" recursivePKeyField="pk_parent">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,7 @@
+#
+#Tue Oct 25 15:19:04 CST 2011
+module.name=uapcp
+module.webContext=portal
+bcp.manifest.ts=1318924473000
+module.defConfig=module.xml
+module.editorVersion=NEW_VERSION

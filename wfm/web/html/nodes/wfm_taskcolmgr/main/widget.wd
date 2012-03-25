@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_taskcolright" detailForeignKey="pk_prodef" id="ds_prodef_ds_taskcolright" masterDataset="ds_prodef" masterKeyField="pk_prodef">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="ds_taskcolleft" detailForeignKey="pk_prodef" id="ds_prodef_ds_taskcolleft" masterDataset="ds_prodef" masterKeyField="pk_prodef">
+                </DatasetRelation>
+            </DatasetRelations>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_taskcolright" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="code" isPrimaryKey="false" nullAble="true" text="字段编码">
+                    </Field>
+                    <Field dataType="String" id="name" isPrimaryKey="false" nullAble="true" text="字段名称">
+                    </Field>
+                    <Field dataType="String" id="pk_prodef" isPrimaryKey="false" nullAble="true" text="流程定义">
+                    </Field>
+                    <Field dataType="String" id="prodef_id" isPrimaryKey="false" nullAble="true" text="prodef_id">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColRightDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_taskcolright" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_taskcolleft" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="code" isPrimaryKey="false" nullAble="true" text="字段编码">
+                    </Field>
+                    <Field dataType="String" id="name" isPrimaryKey="false" nullAble="true" text="字段名称">
+                    </Field>
+                    <Field dataType="String" id="pk_prodef" isPrimaryKey="false" nullAble="true" text="流程定义">
+                    </Field>
+                    <Field dataType="String" id="prodef_id" isPrimaryKey="false" nullAble="true" text="prodef_id">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColLeftDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_taskcolleft" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="pk_prodef" isPrimaryKey="false" nullAble="true" text="pk_prodef">
+                    </Field>
+                    <Field dataType="String" id="name" isPrimaryKey="false" nullAble="true" text="name">
+                    </Field>
+                    <Field dataType="String" id="prodef_id" isPrimaryKey="false" nullAble="true" text="prodef_id">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="ProDefDsLoadListener" serverClazz="nc.uap.wfm.taskcolmgr.ProDefDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="comboxdata_tabctrl">
+                <ComboItem text="待办" value="undne">
+                </ComboItem>
+                <ComboItem text="已办" value="cmplt">
+                </ComboItem>
+                <ComboItem text="办结" value="ended">
+                </ComboItem>
+                <ComboItem text="发出" value="sended">
+                </ComboItem>
+                <ComboItem text="未阅" value="undeliver">
+                </ComboItem>
+                <ComboItem text="已阅" value="delivered">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_taskcolleft" editable="true" enabled="true" height="100%" id="grid_taskcolleft" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" id="code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp dataset="ds_taskcolright" editable="true" enabled="true" height="100%" id="grid_taskcolright" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" id="code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_prodef" left="0" position="relative" rootOpen="true" text="流程定义" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <SimpleTreeLevel dataset="ds_prodef" id="level1" labelFields="name" masterKeyField="pk_prodef">
+            </SimpleTreeLevel>
+        </TreeViewComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" height="22" id="text_tabctrl" left="0" position="relative" refComboData="comboxdata_tabctrl" selectOnly="true" text="页签控制" textAlign="left" textWidth="0" top="0" visible="true" width="120">
+            <Listeners>
+                <TextListener id="TabCtrlTextListener" serverClazz="nc.uap.wfm.taskcolmgr.TabCtrlTextListener">
+                    <Events>
+                        <Event async="true" name="valueChanged" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_taskcolleft" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_prodef" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>valueChangeEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TextListener>
+            </Listeners>
+        </ComBoBoxComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonOkistener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_edit" left="0" position="relative" text="编辑" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonCancleListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_down" left="0" position="relative" text="下移" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="downButtonListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_right" left="0" position="relative" text="--&gt;" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="rightButtonListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_left" left="0" position="relative" text="&lt;--" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonleftListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_up" left="0" position="relative" text="上移" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="upButtonListener" serverClazz="nc.uap.wfm.taskcolmgr.TaskColBtnMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskcolright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

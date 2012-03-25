@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel id="200001" height="275">
+            <FormComp id="frm_date" widgetId="date">
+            </FormComp>
+        </FlowvPanel>
+        <FlowvPanel id="200002" height="30">
+            <FlowhLayout id="200003">
+                <FlowhPanel id="200004">
+                </FlowhPanel>
+                <FlowhPanel id="200005">
+                    <Button id="btn_ok" widgetId="date">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="200006">
+                    <Button id="btn_cancel" widgetId="date">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="200007">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <MdDataset caption="查询条件" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_formitem" lazyLoad="false" objMeta="uapcp.wfm_querycondition" voMeta="nc.uap.wfm.vo.WfmQueryconditionVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.querycondition.FormItemLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_formitem" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_formitem" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="查询条件" controloperatorStatus="true" controlwidgetopeStatus="false" enabled="false" id="ds_querycondition" lazyLoad="true" objMeta="uapcp.wfm_querytemplate_querycondition" voMeta="nc.uap.wfm.vo.WfmQueryconditionVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.querycondition.QueryConditionDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_querycondition" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_querycondition" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="查询条件" fullclassName="0460d15d-a112-43c1-b6b4-e87f02e0b0dc" id="combo_ds_formitem_operator">
+            </MDComboDataConf>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp caption="查询条件" dataset="ds_querycondition" editable="true" enabled="true" height="100%" id="grid_querycondition" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" id="code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="type" fixedHeader="false" id="type" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="字段类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="operator" fixedHeader="false" id="operator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="操作符" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="defautvalue" fixedHeader="false" id="defautvalue" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="默认数据" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="options" fixedHeader="false" id="options" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="选项" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isconst" fixedHeader="false" id="isconst" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否固定" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="iseditable" fixedHeader="false" id="iseditable" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否可编辑" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isvisible" fixedHeader="false" id="isvisible" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否可见" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_querycondition" fixedHeader="false" id="pk_querycondition" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_querytemplate" fixedHeader="false" id="pk_querytemplate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_querytemplate" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_formitem" left="0" position="relative" rootOpen="true" text="表单字段" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <SimpleTreeLevel dataset="ds_formitem" id="level1" labelFields="namezh" masterKeyField="pk_formitem">
+            </SimpleTreeLevel>
+            <Listeners>
+                <TreeNodeListener id="detailListener" serverClazz="nc.uap.wfm.querycondition.TemplateDetailTreeListener">
+                    <Events>
+                        <Event async="true" name="ondbclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_formitem" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_querycondition" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>treeNodeMouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TreeNodeListener>
+            </Listeners>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="main_um" jquery="1">
+  <FlowvLayout autoFill="0" id="flowvlayout2111" widgetId="main">
+    <FlowvPanel id="panelv12111" widgetId="main">
+      <FlowhLayout id="user_flowhlayout01">
+        <FlowhPanel id="user_flowhpane011" width="250" height="200">
+          <FlowvLayout autoFill="0" id="flowvlayout0455" widgetId="main">
+            <FlowvPanel height="35" id="panelv00455" widgetId="main">
+              <TextField height="22" id="textuser" left="0" position="relative" top="10" type="text" widgetId="main" width="230" readOnly="true">
+              </TextField>
+            </FlowvPanel>
+            <FlowvPanel height="25" id="panelv10455" widgetId="main">
+              <TextField height="22" id="textname" left="0" position="relative" top="0" type="text" widgetId="main" width="230">
+              </TextField>
+            </FlowvPanel>
+            <FlowvPanel height="25" id="panelv20455" widgetId="main">
+              <TextField height="22" id="textpsw" left="0" position="relative" top="0" type="text" widgetId="main" width="230" >
+              </TextField>
+            </FlowvPanel>
+            <FlowvPanel height="25" id="panelv40455" widgetId="main">
+              <TextField height="22" id="textsn" left="0" position="relative" top="0" type="text" widgetId="main" width="230" readOnly="true">
+              </TextField>
+            </FlowvPanel>
+            <FlowvPanel height="25" id="panelv50455" widgetId="main">
+              <SelfDefComp height="100%" id="selffile" left="0" position="relative" top="0" widgetId="main" width="230">
+              </SelfDefComp>
+            </FlowvPanel>
+              <FlowvPanel height="0" id="panelv70455" widgetId="main">
+                <SelfDefComp height="0" id="selfform" left="0" position="relative" top="0" widgetId="main" width="0">
+                </SelfDefComp>
+              </FlowvPanel>
+          
+          </FlowvLayout>
+        </FlowhPanel>
+        <FlowhPanel id="user_flowhpane012" width="310">
+        	<FlowvLayout autoFill="0" id="flowvlayout1455" widgetId="main">
+          <FlowhPanel height="260" id="panelv60455" widgetId="main">
+            <SelfDefComp height="250" id="selfsign" left="0" position="relative" top="0" widgetId="main" width="300">
+            </SelfDefComp>
+          </FlowhPanel>
+          </FlowvLayout>
+        </FlowhPanel>
+      </FlowhLayout>
+    </FlowvPanel>
+    <FlowvPanel id="panelv02111" widgetId="main">
+
+      <FlowhLayout id="user_flowhlayout12">
+      	<FlowhPanel width="300" id="user_flowhpanel25">
+        </FlowhPanel>
+        <FlowhPanel width="80" id="user_flowhpanel23">
+          <Button id="btngen" widgetId="user">
+          	
+          </Button>
+        </FlowhPanel>
+        <FlowhPanel width="80" id="user_flowhpanel22">
+          <Button id="btnok" widgetId="user">
+          </Button>
+        </FlowhPanel>
+        <FlowhPanel width="80" id="user_flowhpanel21">
+          <Button id="btncancel" widgetId="user">
+          </Button>
+        </FlowhPanel>
+        <FlowhPanel id="user_flowhpanel24">
+        </FlowhPanel>
+      </FlowhLayout>
+
+    </FlowvPanel>
+  </FlowvLayout>
+</UIMeta>

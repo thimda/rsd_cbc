@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.log.datalog.ShowLinkContent" dialog="false" id="showLinkContent" refId="showLinkContent" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="beforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同业务日志" controlwidgetopeStatus="false" enabled="false" id="dataLogDetail" lazyLoad="true" notNullBody="false" objMeta="uapcp.cpb_business_log" voMeta="nc.uap.cpb.log.datalog.DataLogVO">
+                <Fields>
+                </Fields>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <FormComp caption="协同业务日志" columnCount="2" dataset="dataLogDetail" eleWidth="120" enabled="false" id="showLink" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_businesslog" height="" id="pk_businesslog" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="clientip" height="" id="clientip" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="客户端IP" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="busobjtype" height="" id="busobjtype" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务对象类型" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="UFDateTime" editable="true" editorType="DateTimeText" enabled="true" field="opertime" height="" id="opertime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="operate" height="" id="operate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="businessobject" height="" id="businessobject" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务对象" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="UFBoolean" editable="true" editorType="CheckBox" enabled="true" field="operresult" height="" id="operresult" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="操作结果" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="busobjcode" height="" id="busobjcode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务对象编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="busobjorganization" height="" id="busobjorganization" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务对象组织" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="logingrop" height="" id="logingrop" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="登录集团" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="username" height="" id="username" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="truename" height="" id="truename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="真实姓名" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_busobj" height="" id="pk_busobj" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="业务对象主键" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_logingrop" height="" id="pk_logingrop" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="登录集团主键" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="logingropcode" height="" id="logingropcode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="登录集团编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_user" height="" id="pk_user" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户pk" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="sessionid" height="" id="sessionid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="sessionID" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="2" dataType="String" editable="true" editorType="TextArea" enabled="true" field="detail" height="100%" id="detail" imageOnly="false" nextLine="false" nullAble="true" rowSpan="5" selectOnly="true" text="详细信息" visible="true" width="380">
+            </Element>
+        </FormComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

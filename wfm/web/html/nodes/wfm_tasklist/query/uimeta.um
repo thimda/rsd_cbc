@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout  id="1">
+        <BorderPanel position="center" id="2">
+            <FlowvLayout autoFill="0" id="3">
+                <FlowvPanel height="350" id="4">
+                    <FormComp id="frm_taskattr" widgetId="query">
+                    </FormComp>
+                </FlowvPanel>
+                <FlowvPanel height="30" id="5">
+                    <FlowhLayout id="6">
+                        <FlowhPanel id="7">
+                        </FlowhPanel>
+                        <FlowhPanel id="8">
+                            <Button id="btn_ok" widgetId="query">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="9">
+                            <Button id="btn_cancel" widgetId="query">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="10">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

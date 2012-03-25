@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout>
+        <BorderPanel position="center">
+            <FlowvLayout autoFill="0" id="flowv1">
+                <FlowvPanel height="20">
+                    <MenuGroup id="menugroup1">
+                        <MenuGroupItem state="1">
+                            <Menubar id="menu_card">
+                            </Menubar>
+                        </MenuGroupItem>
+                        <MenuGroupItem state="2">
+                            <Menubar id="menu_list">
+                            </Menubar>
+                        </MenuGroupItem>
+                    </MenuGroup>
+                </FlowvPanel>
+                <FlowvPanel>
+                    <Widget id="main">
+                    </Widget>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+    <Dialog id="group" height="400" width="600">
+    </Dialog>
+    <Dialog id="relateRole" height="400" width="600">
+    </Dialog>
+</UIMeta>

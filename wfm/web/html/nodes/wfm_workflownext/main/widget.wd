@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.next.WfmNextMainCtrl" dialog="false" id="main" refId="main" sourcePackage="">
+    <Attributes>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="ds_nexthumact" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="port_id" nullAble="true" primaryKey="false" text="流程活动编码">
+                    </Field>
+                    <Field dataType="String" id="port_name" nullAble="true" primaryKey="false" text="流程活动名称">
+                    </Field>
+                    <Field dataType="String" id="pk_prodef" nullAble="true" primaryKey="false" text="流程定义标识">
+                    </Field>
+                    <Field dataType="String" id="prodef_id" nullAble="true" primaryKey="false" text="流程定义编码">
+                    </Field>
+                    <Field dataType="String" id="userpks" nullAble="true" primaryKey="false" text="用户名称标识">
+                    </Field>
+                    <Field dataType="String" id="usernames" nullAble="true" primaryKey="false" text="用户集合名称">
+                    </Field>
+                    <Field dataType="String" id="isassign" nullAble="true" primaryKey="false" text="是否需要指派">
+                    </Field>
+                    <Field dataType="String" id="actiontype" nullAble="true" primaryKey="false" text="活动类型">
+                    </Field>
+                </Fields>
+                 <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataload" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="combox_msgtype">
+                <ComboItem text="短信提醒" value="taskcreatedphone">
+                </ComboItem>
+                <ComboItem text="邮件提醒" value="taskcreatedemail">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="combox_action">
+                <ComboItem text="会签" value="countersign">
+                </ComboItem>
+                <ComboItem text="签发" value="signstart">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="combox_myvisa">
+            </StaticComboData>
+            <StaticComboData id="combox_channel">
+                <ComboItem text="快速通道" value="startup">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="combox_common">
+            </StaticComboData>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_nexthumact" editable="true" enabled="true" id="grid_nexthumact" multiSelect="false" pagenationTop="false" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="port_name" fixedHeader="false" id="port_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程活动名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="usernames" fixedHeader="false" id="usernames" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户集合名称" textAlign="left" visible="true" width="180">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="SelfDef" field="isassign" fixedHeader="false" id="isassign" imageOnly="false" nullAble="true" renderType="EleNameRender" sortable="true" sumCol="false" text="是否需要指派" textAlign="left" visible="true" width="100">
+            </Column>
+        </GridComp>
+        <LabelComp enabled="true" id="label_pad_common" text="常用语：" visible="true">
+        </LabelComp>
+        <LabelComp enabled="true" id="label_opinion_common" text="常用语：" visible="true">
+        </LabelComp>
+        <LabelComp enabled="true" id="label_myvisa" text="签章：" visible="true">
+        </LabelComp>
+        <LabelComp enabled="true" id="label_opinion" text="意见：" visible="true">
+        </LabelComp>
+        <LabelComp enabled="true" id="label_pad" text="便签：" visible="true">
+        </LabelComp>
+        <ImageComp enabled="true" floatLeft="false" floatRight="false" id="image_myvisa" visible="true">
+        </ImageComp>
+        <CheckboxGroupComp comboDataId="combox_channel" editorType="CheckboxGroup" enabled="true" focus="false" id="text_channel" sepWidth="0" tabIndex="0" textAlign="left" textWidth="0" visible="true">
+        </CheckboxGroupComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_pad" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_opinion_common" refComboData="combox_common" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+        </ComBoBoxComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_myvisa" refComboData="combox_myvisa" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+        </ComBoBoxComp>
+        <RadioGroupComp comboDataId="combox_action" editorType="RadioGroup" enabled="true" focus="false" id="text_action" index="0" sepWidth="0" tabIndex="0" textAlign="left" textWidth="0" visible="true">
+        </RadioGroupComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_opinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <CheckboxGroupComp comboDataId="combox_msgtype" editorType="CheckboxGroup" enabled="true" focus="false" id="text_msgtype" sepWidth="0" tabIndex="0" textAlign="left" textWidth="0" visible="true">
+        </CheckboxGroupComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_pad_common" refComboData="combox_common" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+        </ComBoBoxComp>
+        <ButtonComp enabled="true" id="btn_ok" text="提交" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnOk_onclick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_interim" text="保存" visible="true">
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.controller.SignEditControl" dialog="false" id="main" refId="main" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="sign_plugout">
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+        <SelfDefComp id="selfform" visible="false">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="formoncreate" name="oncreate" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>selfDefEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[// 自定义控件
+var comp = selfDefEvent.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new SignFormComp();
+comp.setContent(content);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </SelfDefComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="textuser" text="用户" textAlign="left" visible="true">
+        </TextComp>
+        <SelfDefComp id="selffile" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="fileoncreate" name="oncreate" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>selfDefEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[// 自定义控件
+var comp = selfDefEvent.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new FileControlComp();
+comp.setContent(content);]]>
+                    </Action>
+                </Event>
+            </Events>
+        </SelfDefComp>
+        <SelfDefComp id="selfsign" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="signoncreate" name="oncreate" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>selfDefEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                        <![CDATA[// 自定义控件
+var comp = selfDefEvent.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new SignControlComp();
+comp.setContent(content);
+content.InitControl();]]>
+                    </Action>
+                </Event>
+            </Events>
+        </SelfDefComp>
+        <ButtonComp enabled="true" id="btnok" text="确定" visible="true">
+        	<Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onOkClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                    
+                     <![CDATA[var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.SaveSign();]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btncancel" text="取消" visible="true">
+        	<Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="textsn" text="序号" textAlign="left" visible="true">
+        </TextComp>
+        <ButtonComp enabled="true" id="btngen" text="生成" visible="true">
+        	<Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="genonclick" name="onclick" onserver="false">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>                            <![CDATA[var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.GenSign();]]>
+                        </Action>
+                    </Event>
+                </Events>
+        </ButtonComp>
+        <TextComp editorType="PwdText" enabled="true" focus="false" id="textpsw" text="密码" textAlign="left" visible="true">
+        </TextComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="textname" text="名称" textAlign="left" visible="true">
+        </TextComp>
+    </Components>
+    <Menus>
+        <MenuBarComp id="signmenu">
+            <MenuItem id="newmenu" modifiers="3" text="新增">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="newonclick" name="onclick" onserver="false">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>                            <![CDATA[var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.reset();]]>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="createmenu" modifiers="3" text="生成印章">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="genonclick" name="onclick" onserver="false">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>                            <![CDATA[var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.GenSign();]]>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="remoteMenu" modifiers="3" text="服务器印章">
+                <MenuItem id="openRemoteMenu" modifiers="3" text="打开印章">
+                </MenuItem>
+                <MenuItem id="saveRemoteMenu" modifiers="3" text="保存印章">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="saveremoteonclick" name="onclick" onserver="false">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[var mainWidget = pageUI.getWidget("main");
+var selfsign = mainWidget.getComponent("selfsign");
+selfsign.contentObj.saveRemoteSign();]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="deleteRemoteSign" modifiers="2" text="删除印章">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem id="ekeyMenu" modifiers="3" text="Ekey印章">
+                <MenuItem id="openEkeyMenu" modifiers="2" text="打开印章">
+                </MenuItem>
+                <MenuItem id="saveEkeyMenu" modifiers="2" text="保存印章">
+                </MenuItem>
+                <MenuItem id="changeEkeypswMenu" modifiers="2" text="修改口令">
+                </MenuItem>
+                <MenuItem id="resetEkeypswMenu" modifiers="2" text="重置口令">
+                </MenuItem>
+                <MenuItem id="deleteEkeysignMenu" modifiers="2" text="删除印章">
+                </MenuItem>
+                <MenuItem id="resetEkey" modifiers="2" text="重置Ekey">
+                </MenuItem>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

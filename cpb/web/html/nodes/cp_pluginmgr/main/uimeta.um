@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true">
+	<FlowhLayout id="flowh1" autoFill="true">
+		<FlowhPanel id="flowhp1" width="220" rightBorder="#">
+			<FlowvLayout autoFill="0" id="flowv2" widgetId="null">
+	            <FlowvPanel id="0004">
+	            	<CanvasLayout id="titlecanvas" className="leftcanvas" title="扩展点">
+						<CanvasPanel id="canvasp1">
+						</CanvasPanel>
+					</CanvasLayout>
+	            </FlowvPanel>
+            	<FlowvPanel id="0003">
+                	<TreeViewComp id="ptree" widgetId="main"></TreeViewComp>
+                </FlowvPanel>
+            </FlowvLayout>
+	    </FlowhPanel>
+		<FlowhPanel id="flowhp3">
+            <FlowvLayout autoFill="0" id="flowv3" widgetId="null">
+                <FlowvPanel id="rcanvas">
+	            	<CanvasLayout id="righttitlecanvas" className="rightcanvas">
+						<CanvasPanel id="canvasp1">
+						</CanvasPanel>
+					</CanvasLayout>
+	            </FlowvPanel>
+                <FlowvPanel id="0007" height="200">
+                    <FormComp id="pointform" widgetId="main">
+                    </FormComp>
+                </FlowvPanel>
+                <FlowvPanel id="0008">
+                    <FlowvLayout autoFill="0" id="flowv5" widgetId="null">
+                        <FlowvPanel id="0009" height="41">
+                            <CanvasLayout id="menuback" className="fullcanvas">
+								<CanvasPanel id="canvasp1">
+                            		<Menubar id="exmenu" widgetId="main"></Menubar>
+                            	</CanvasPanel>
+							</CanvasLayout>
+                        </FlowvPanel>
+                        <FlowvPanel id="00010">
+                            <GridComp id="exgrid" widgetId="main">
+                            </GridComp>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+		</FlowhPanel>
+    </FlowhLayout>
+</UIMeta>

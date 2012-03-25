@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" refId="main" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_prodef" detailForeignKey="flwtype" id="ds_flwtype_ds_prodef" masterDataset="ds_flwtype" masterKeyField="pk_flwtype">
+                </DatasetRelation>
+            </DatasetRelations>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程大类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flwcat" lazyLoad="false" objMeta="uapcp.wfm_flwcat" voMeta="nc.uap.wfm.vo.FlwCatVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="流程类型" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flwtype" lazyLoad="true" objMeta="uapcp.wfm_flwtype" voMeta="nc.uap.wfm.vo.FlwTypeVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.wfm.wfdesign.WfFlowTypeDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <RefMdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程定义" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="true" objMeta="uapcp.wfm_prodef" voMeta="nc.uap.wfm.vo.WfmProdefVO">
+                <FieldRelations>
+                    <FieldRelation id="watchrolepks_rel" refDataset="$refds_uapcp_cp_role">
+                        <MatchFields>
+                            <Field readField="rolename" writeField="watchrolepks_rolename">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="watchrolepks">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+             <NCRefNode allowInput="false" caption="流程类型_业务单元+集团" dataListener="" dialog="true" i18nName="" id="refnode_ds_flowtype_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="业务单元+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" >
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="流程类型_集团" dataListener="" dialog="true" i18nName="" id="refnode_ds_flwtype_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_flwtype" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="流程定义_协同角色" dataListener="" dialog="true" i18nName="" id="refnode_ds_prodef_watchrolepks_rolename" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同角色" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_prodef" writeFields="watchrolepks,watchrolepks_rolename">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="流程定义" dataset="ds_prodef" editable="true" enabled="true" height="100%" id="grid_prodef" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="serverclass" fixedHeader="false" id="serverclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="服务类" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="watchrolepks" fixedHeader="false" id="watchrolepks" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程监听" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="Reference" field="watchrolepks_rolename" fixedHeader="false" id="watchrolepks_rolename" imageOnly="false" nullAble="true" refNode="refnode_ds_prodef_watchrolepks_rolename" renderType="DefaultRender" sortable="true" sumCol="false" text="流程监听" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isnotstartup" fixedHeader="false" id="isnotstartup" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启动" textAlign="center" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp text="工作流定义" dragEnable="false" enabled="true" height="100%" id="tree_flwtype" left="0" position="relative" rootOpen="true" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <SimpleTreeLevel dataset="ds_flwcat" id="level1" labelFields="catname" masterKeyField="pk_flwcat">
+                <RecursiveTreeLevel dataset="ds_flwtype" detailKeyParameter="pk_flwcat" id="level2" labelFields="typename" masterKeyField="pk_flwtype" recursiveKeyField="pk_flwtype" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </SimpleTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu_prodef">
+            <MenuItem id="add" modifiers="2" text="新建">
+                <Listeners>
+                    <MouseListener id="AddWfMouseServerListener" serverClazz="nc.uap.wfm.wfdesign.AddWfMouseServerListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="$refds_uap_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="2" text="删除">
+                <Listeners>
+                    <MouseListener id="DeleteWfMouseServerListener" serverClazz="nc.uap.wfm.wfdesign.DeleteWfMouseServerListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="$refds_uap_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="modify" modifiers="2" text="修改">
+                <Listeners>
+                    <MouseListener id="EditWfMouseServerListener" serverClazz="nc.uap.wfm.wfdesign.EditWfMouseServerListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="$refds_uap_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="design" modifiers="2" text="流程设计">
+                <Listeners>
+                    <MouseListener id="DocwfDesignMouseListener" serverClazz="nc.uap.wfm.wfdesign.DocwfDesignMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="$refds_uap_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="view" modifiers="2" text="查看流程">
+                <Listeners>
+                    <MouseListener id="DocwfLookMouseListener" serverClazz="nc.uap.wfm.wfdesign.DocwfLookMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="$refds_uap_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwcat" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_flwtype" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

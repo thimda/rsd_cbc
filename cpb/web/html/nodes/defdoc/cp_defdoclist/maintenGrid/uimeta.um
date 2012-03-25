@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="maintenGrid_um" jquery="0">
+    <FlowvLayout id="flowvlayout5826" widgetId="maintenGrid">
+        <FlowvPanel height="50" id="panelv05826" widgetId="maintenGrid">
+            <FlowhLayout autoFill="false" id="flowhlayout1072" widgetId="maintenGrid">
+                <FlowhPanel id="panelh01072" widgetId="maintenGrid" width="250">
+                    <Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+                    </Menubar>
+                </FlowhPanel>
+                <FlowhPanel id="panelh11072" widgetId="maintenGrid">
+                    <Menubar height="100%" id="defdocSavaMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+                    </Menubar>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel id="panelv15826" widgetId="maintenGrid">
+            <GridComp height="100%" id="defdocGrid" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+            </GridComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

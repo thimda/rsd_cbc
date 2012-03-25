@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.responsibility.RelateController" dialog="false" id="relate" refId="relate" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">                
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_selecting_funcres" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="pk_busifunc" nullAble="true" primaryKey="false" text="pk_busifunc">
+                    </Field>
+                    <Field dataType="String" id="pk_funcres" nullAble="true" primaryKey="false" text="pk_funcres">
+                    </Field>
+                    <Field dataType="String" id="pk_parent" nullAble="true" primaryKey="false" text="pk_parent">
+                    </Field>
+                    <Field dataType="String" id="code" nullAble="true" primaryKey="false" text="code">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="type" nullAble="true" primaryKey="false" text="type">
+                    </Field>
+                   <Field dataType="String" id="isVirtual" nullAble="true" primaryKey="false" text="isVirtual">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ds_selecting_funcres" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_selected_funcres" lazyLoad="true">
+                <Fields>
+                    <Field dataType="String" id="pk_busifunc" nullAble="true" primaryKey="false" text="pk_busifunc">
+                    </Field>
+                    <Field dataType="String" id="pk_funcres" nullAble="true" primaryKey="false" text="pk_funcres">
+                    </Field>
+                    <Field dataType="String" id="pk_parent" nullAble="true" primaryKey="false" text="pk_parent">
+                    </Field>
+                    <Field dataType="String" id="code" nullAble="true" primaryKey="false" text="code">
+                    </Field>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="name">
+                    </Field>
+                    <Field dataType="String" id="type" nullAble="true" primaryKey="false" text="type">
+                    </Field>
+                   <Field dataType="String" id="isVirtual" nullAble="true" primaryKey="false" text="isVirtual">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" id="selected_funcres_tree" rootOpen="true" text="功能资源树"  visible="true" checkBoxModel="1" withCheckBox="true" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_selected_funcres" id="level1" labelFields="name" masterKeyField="pk_funcres" recursiveKeyField="pk_funcres" recursivePKeyField="pk_parent">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="selecting_funcres_tree" rootOpen="true" text="功能资源树" visible="true" checkBoxModel="2" withCheckBox="true" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_selecting_funcres" id="level1" labelFields="name" masterKeyField="pk_funcres" recursiveKeyField="pk_funcres" recursivePKeyField="pk_parent">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <LabelComp enabled="true" id="selected_label" text="已选功能资源" visible="true">
+        </LabelComp>
+        <LabelComp enabled="true" id="selecting_label" text="待选功能资源" visible="true">
+        </LabelComp>
+        <ButtonComp enabled="true" id="all_del_btn" text="&lt;&lt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAllDelBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="relate" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="ds_selected_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Tree id="selected_funcres_tree" type="tree_all">
+                            </Tree>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="cancel_btn" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="ok_btn" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onOkBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="relate" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="ds_selected_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Tree id="selected_funcres_tree" type="tree_all">
+                            </Tree>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="del_btn" text="&lt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDelBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="relate" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="ds_selecting_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Tree id="selected_funcres_tree" type="tree_all">
+                            </Tree>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="add_btn" text="&gt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAddBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="relate" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="ds_selecting_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Dataset id="ds_selected_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Tree id="selecting_funcres_tree" type="tree_all">
+                            </Tree>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="all_add_btn" text="&gt;&gt;" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAllAddBtnClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="relate" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="ds_selecting_funcres" type="ds_all_line">
+                            </Dataset>
+                            <Tree id="selecting_funcres_tree" type="tree_all">
+                            </Tree>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

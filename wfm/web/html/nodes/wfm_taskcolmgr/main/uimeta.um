@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+	<BorderLayout  id="000001">
+		<BorderPanel id="000002" position="center">
+			<Splitter boundMode="0" divideSize="20" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+				<SplitterOne id="000003">
+					<Border id="border1kjlj" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+						<BorderTrue id="000005">
+							<TreeViewComp id="tree_prodef" widgetId="main"></TreeViewComp>
+						</BorderTrue>
+					</Border>
+				</SplitterOne>
+				<SplitterTwo id="000006">
+					<Border id="border2ljklj" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+						<BorderTrue id="000007">
+							<FlowvLayout autoFill="0" id="flowv1jkjkjk">
+								<FlowvPanel id="000008" height="30">
+									<Border id="border1jklljkjklkljjkl" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+										<BorderTrue id="000009">
+											<TextField id="text_tabctrl" type="2" widgetId="main">
+											</TextField>
+										</BorderTrue>
+									</Border>
+								</FlowvPanel>
+								<FlowvPanel id="0000010">
+									<FlowvLayout autoFill="0" id="a">
+										<FlowvPanel id="0000011">
+											<FlowhLayout id="0000012">
+												<FlowhPanel id="0000013">
+													<Border id="jkljkjla1" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+														<BorderTrue id="0000014">
+															<GridComp id="grid_taskcolleft" widgetId="main">
+															</GridComp>
+														</BorderTrue>
+													</Border>
+												</FlowhPanel>
+												<FlowhPanel id="0000015" width="20">
+												</FlowhPanel>
+												<FlowhPanel id="0000016" width="80">
+													<FlowvLayout autoFill="0" id="a2">
+														<FlowvPanel id="0000017" height="60">
+														</FlowvPanel>
+														<FlowvPanel id="0000018">
+															<Button id="button_right" widgetId="main">
+															</Button>
+														</FlowvPanel>
+														<FlowvPanel id="0000019">
+															<Button id="button_left" widgetId="main">
+															</Button>
+														</FlowvPanel>
+														<FlowvPanel id="0000020">
+															<Button id="button_up" widgetId="main">
+															</Button>
+														</FlowvPanel>
+														<FlowvPanel id="0000021">
+															<Button id="button_down" widgetId="main">
+															</Button>
+														</FlowvPanel>
+														<FlowvPanel id="0000022" height="60">
+														</FlowvPanel>
+													</FlowvLayout>
+												</FlowhPanel>
+												<FlowhPanel id="0000023">
+													<Border id="a3jkljlkjkl" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+														<BorderTrue id="0000024">
+															<GridComp id="grid_taskcolright" widgetId="main">
+															</GridComp>
+														</BorderTrue>
+													</Border>
+												</FlowhPanel>
+											</FlowhLayout>
+										</FlowvPanel>
+										<FlowvPanel id="0000025" height="10"></FlowvPanel>
+										<FlowvPanel id="0000026" height="30">
+											<FlowhLayout id="0000027">
+												<FlowhPanel id="0000028">
+												</FlowhPanel>
+												<FlowhPanel id="0000029">
+												</FlowhPanel>
+												<FlowhPanel id="0000030">
+												</FlowhPanel>
+												<FlowhPanel id="0000031">
+													<Button id="button_ok" widgetId="main">
+													</Button>
+												</FlowhPanel>
+												<FlowhPanel id="0000032">
+													<Button id="button_edit" widgetId="main">
+													</Button>
+												</FlowhPanel>
+												<FlowhPanel id="0000033">
+												</FlowhPanel>
+												<FlowhPanel id="0000034">
+												</FlowhPanel>
+												<FlowhPanel id="0000035">
+												</FlowhPanel>
+											</FlowhLayout>
+										</FlowvPanel>
+										<FlowvPanel id="0000036" height="5">
+										</FlowvPanel>
+									</FlowvLayout>
+								</FlowvPanel>
+							</FlowvLayout>
+						</BorderTrue>
+					</Border>
+				</SplitterTwo>
+			</Splitter>
+		</BorderPanel>
+	</BorderLayout>
+</UIMeta>

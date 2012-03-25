@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_resource" detailForeignKey="pk_group" id="ds_group_ds_resource" masterDataset="ds_group" masterKeyField="pk_group">
+                </DatasetRelation>
+            </DatasetRelations>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="CpResourceGroupDsLoadListener" serverClazz="nc.uap.cpb.org.resource.CpResourceGroupDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同资源" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_resource" lazyLoad="true" objMeta="uapcp.cp_resource" voMeta="nc.uap.cpb.org.vos.CpResourceVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_resource" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="协同资源_集团" dataListener="" dialog="false" i18nName="" id="refnode_ds_resource_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_resource" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="协同资源" dataset="ds_resource" editable="true" enabled="true" height="100%" id="grid_resource" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="集团" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_ds_resource_pk_group_name" renderType="DefaultRender" sortable="true" sumCol="false" text="集团" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="shareflag" fixedHeader="false" id="shareflag" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="是否共享" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="iscontrol" fixedHeader="false" id="iscontrol" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="是否弃用" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="resourcename" fixedHeader="false" id="resourcename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="resourcetype" fixedHeader="false" id="resourcetype" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="originalid" fixedHeader="false" id="originalid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源来源" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="operator" fixedHeader="false" id="operator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="操作" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_group" left="0" position="relative" rootOpen="true" text="集团" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_group" id="level1" labelFields="name" masterKeyField="pk_group" recursiveKeyField="pk_group" recursivePKeyField="pk_fathergroup">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu_resource">
+            <MenuItem id="save" modifiers="2" text="保存">
+            </MenuItem>
+            <MenuItem id="asyn" modifiers="2" text="同步">
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

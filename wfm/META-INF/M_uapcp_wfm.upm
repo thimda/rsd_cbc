@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="nc.uap.portal.CPBEJB">
+  <public>
+      <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmVirtualRoleQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmVirtualRoleQry</implementation>
+	</component>
+	  <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmVirtualRoleBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmVirtualRoleBill</implementation>
+	</component>
+
+	 <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmWorkDayQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmWorkDayQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmWorkDayBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmWorkDayBill</implementation>
+	</component>
+
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmNumElemQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmNumElemQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmNumElemBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmNumElemBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmNumRuleQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmNumRuleQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmNumRuleBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmNumRuleBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmTaskTabColQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmTaskTabColQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmTaskTabColBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmTaskTabColBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmAttachPurviewQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmAttachPurviewQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmAttachPurviewBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmAttachPurviewBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFlwFrmQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwFrmQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFlwFrmBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwFrmBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFlwPrtQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwPrtQry</implementation>
+	</component>
+
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFlwPrtBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwPrtBill</implementation>
+	</component>
+
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmItmDeviceQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmItmDeviceQry</implementation>
+	</component>
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFrmItmDeviceBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFrmItmDeviceBill</implementation>
+	</component>
+	
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmTmpQry</interface>
+		<implementation>nc.uap.dbl.impl.FrmTmpQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmTmpBill</interface>
+		<implementation>nc.uap.dbl.impl.FrmTmpBill</implementation>
+	</component>
+	
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmItmQry</interface>
+		<implementation>nc.uap.dbl.impl.FrmItmQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmItmBill</interface>
+		<implementation>nc.uap.dbl.impl.FrmItmBill</implementation>
+	</component>
+	
+	
+    <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmFlwTypeQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwTypeQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+	     <interface>nc.uap.wfm.itf.IWfmFlwTypeBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmFlwTypeBill</implementation>
+	</component>
+    <component singleton="true" tx="CMT" remote="true">
+	     <interface>nc.uap.wfm.engine.IFlwEngine</interface>
+		<implementation>nc.uap.wfm.service.FlwEngineImpl</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+	     <interface>nc.uap.wfm.engine.IFrmEngine</interface>
+		<implementation>nc.uap.wfm.service.FrmEngineImpl</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+	     <interface>nc.uap.wfm.engine.IFrmFlwEngine</interface>
+		<implementation>nc.uap.wfm.service.FrmFlwEngineImpl</implementation>
+	</component>
+    <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmProDefQry</interface>
+		<implementation>nc.uap.wfm.impl.WfmProDefQry</implementation>
+	</component>
+	 <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.wfm.itf.IWfmProDefBill</interface>
+		<implementation>nc.uap.wfm.impl.WfmProDefBill</implementation>
+	</component>
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmProInsQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmProInsQry</implementation>
+     </component> 
+      <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmProInsBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmProInsBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmHumActInsQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmHumActInsQry</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmHumActInsBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmHumActInsBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmTaskQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmTaskQry</implementation>
+     </component>
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmTaskBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmTaskBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmAssignActorsQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmAssignActorsQry</implementation>
+     </component>
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmAssignActorsBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmAssignActorsBill</implementation>
+     </component> 
+    <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmProInsStateQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmProInsStateQry</implementation>
+     </component>
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmProInsStateBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmProInsStateBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmMyVisaQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmMyVisaQry</implementation>
+     </component>
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmMyVisaBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmMyVisaBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmAddSignQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmAddSignQry</implementation>
+     </component>
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmAddSignBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmAddSignBill</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.facade.IPwfmUtilFacade</interface>
+        <implementation>nc.uap.wfm.impl.PwfmUtilFacade</implementation>
+     </component> 
+     
+     
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmFlowCateQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmFlowCateQry</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.facade.IWfmFlowCateBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmFlowCateBill</implementation>
+     </component> 
+     
+     
+     <component remote="true" singleton="true" tx="NONE">
+        <interface>nc.uap.wfm.itf.IWfmFlowAgentQry</interface>
+        <implementation>nc.uap.wfm.impl.WfmFlowAgentQry</implementation>
+     </component> 
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.itf.IWfmFlowAgentBill</interface>
+        <implementation>nc.uap.wfm.impl.WfmFlowAgentBill</implementation>
+     </component> 
+     
+     <component remote="true" singleton="true" tx="CMT">
+        <interface>nc.uap.wfm.engine.IProcessEngine</interface>
+        <implementation>nc.uap.wfm.dftimpl.ProcessEngine</implementation>
+     </component> 
+   </public>
+   <private>
+   </private>
+</module>
+

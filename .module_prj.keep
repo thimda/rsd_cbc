@@ -1,0 +1,6 @@
+#
+#Fri Sep 16 08:58:25 CST 2011
+module.name=uapcp
+module.webContext=portal
+bcp.manifest.ts=4
+module.defConfig=module.xml

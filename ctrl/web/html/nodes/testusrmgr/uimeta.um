@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="testusrmgr_um" jquery="0">
+    <FlowhLayout autoFill="false" id="flowhlayout5668">
+        <FlowhPanel id="panelh05668" width="200">
+            <FlowvLayout id="flowvlayout7103">
+                <FlowvPanel id="panelv07103">
+                    <Widget id="pubview_simplequery">
+                    </Widget>
+                </FlowvPanel>
+                <FlowvPanel id="panelv17103">
+                    <Widget id="pubview_queryplan">
+                    </Widget>
+                </FlowvPanel>
+            </FlowvLayout>
+        </FlowhPanel>
+        <FlowhPanel id="panelh15668">
+            <Widget id="main">
+            </Widget>
+        </FlowhPanel>
+    </FlowhLayout>
+</UIMeta>

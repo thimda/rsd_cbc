@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.responsibility.MainController" dialog="false" id="main" refId="main">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="afteradd">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="manage_type_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="manage_type_row">
+            </PluginDescItem>
+        </PluginDesc>
+     <PluginDesc id="simpleQuery_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginsimpleQuery_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginafteradd" onserver="true">
+            <Params>
+                <Param> 
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginmanage_type_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_resp_func" detailForeignKey="pk_responsibility" id="ds_responsibility_ds_resp_func" masterDataset="ds_responsibility" masterKeyField="pk_responsibility">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="协同职责功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_resp_func" lazyLoad="true" objMeta="uapcp.cp_resp_func" voMeta="nc.uap.cpb.org.vos.CpRespFuncVO">
+                <Fields>
+                    <Field dataType="String" id="creator_user_name" nullAble="true" primaryKey="false" sourceField="creator" text="用户名称">
+                    </Field>
+                    <Field dataType="String" id="busi_pk_title" nullAble="true" primaryKey="false" sourceField="busi_pk" text="名称">
+                    </Field>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="协同用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同职责" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_responsibility" lazyLoad="false" objMeta="uapcp.cp_responsibility"  pageSize="10" voMeta="nc.uap.cpb.org.vos.CpResponsibilityVO">
+                <FieldRelations>
+                    <FieldRelation id="ds_responsibility_ds_user2" refDataset="ds_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="modifier_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="modifier">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="ds_responsibility_ds_user" refDataset="ds_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="creator_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="creator">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField id="pk_responsibility" nullAble="true">
+                    </ModifyField>
+                    <Field dataType="String" id="creator_user_name" nullAble="true" primaryKey="false" sourceField="creator" text="用户名称">
+                    </Field>
+                    <Field dataType="String" id="modifier_user_name" nullAble="true" primaryKey="false" sourceField="modifier" text="用户名称">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect_ds_responsibility" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_responsibility" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同职责" fullclassName="ead8b6a0-fae7-42f4-a250-81e903f2e7dd" id="combo_ds_responsibility_type">
+            </MDComboDataConf>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <FormComp caption="协同职责" columnCount="2" dataset="ds_responsibility" eleWidth="120" enabled="true" id="responsibility_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="code" id="code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="type" id="type" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_ds_responsibility_type" rowSpan="1" selectOnly="true" text="类型" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="creator" id="creator" imageOnly="false" nextLine="true" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="creationtime" id="creationtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="modifier" id="modifier" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="修改人" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="modifiedtime" id="modifiedtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="修改时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="descipt" id="descipt" imageOnly="false" nextLine="true" nullAble="true" rowSpan="4" selectOnly="true" text="备注" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="dataoriginflag" id="dataoriginflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="DATAORIGINFLAG" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name2" id="name2" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME2" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name3" id="name3" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME3" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name4" id="name4" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME4" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name5" id="name5" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME5" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name6" id="name6" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME6" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_group" id="pk_group" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="集团" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_org" id="pk_org" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组织" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_responsibility" id="pk_responsibility" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+        </FormComp>
+        <GridComp caption="协同职责" dataset="ds_responsibility" editable="true" enabled="true" id="responsibility_grid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" id="code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="type" fixedHeader="false" id="type" imageOnly="false" nullAble="true" refComboData="combo_ds_responsibility_type" renderType="ComboRender" sortable="true" sumCol="false" text="类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="DateText" field="creationtime" fixedHeader="false" id="creationtime" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator_user_name" fixedHeader="false" id="creator_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="DateText" field="modifiedtime" fixedHeader="false" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="修改时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier_user_name" fixedHeader="false" id="modifier_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="修改人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="descipt" fixedHeader="false" id="descipt" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="描述" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="dataoriginflag" fixedHeader="false" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="DATAORIGINFLAG" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="修改人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name2" fixedHeader="false" id="name2" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="NAME2" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name3" fixedHeader="false" id="name3" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="NAME3" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name4" fixedHeader="false" id="name4" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="NAME4" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name5" fixedHeader="false" id="name5" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="NAME5" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name6" fixedHeader="false" id="name6" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="NAME6" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="集团" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="组织" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_responsibility" fixedHeader="false" id="pk_responsibility" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="协同职责功能节点" dataset="ds_resp_func" editable="true" enabled="true" id="resp_func_grid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="busi_name" fixedHeader="false" id="busi_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="功能资源" textAlign="left" visible="true" width="120">
+            </Column>
+             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="授权人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator_user_name" fixedHeader="false" id="creator_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="授权人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="DateText" field="creationtime" fixedHeader="false" id="creationtime" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="授权时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="type" fixedHeader="false" id="type" imageOnly="false" nullAble="true" renderType="respFuncRender" sortable="true" sumCol="false" text="类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="busi_pk" fixedHeader="false" id="busi_pk" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="功能主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="授权人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="dataoriginflag" fixedHeader="false" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="DATAORIGINFLAG" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="集团" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_resp_func" fixedHeader="false" id="pk_resp_func" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_responsibility" fixedHeader="false" id="pk_responsibility" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="协同职责_主键" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="responsibility_tree" rootOpen="true" text="职责" visible="true" withCheckBox="false" withRoot="true">
+            <SimpleTreeLevel dataset="ds_responsibility" id="level1" labelFields="code,name" masterKeyField="pk_responsibility">
+            </SimpleTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="resp_menu">
+            <MenuItem id="add" modifiers="3"  stateManager="nc.uap.lfw.core.bm.dft.Init_Ss_Ms_StateManager"  text="增加">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAdd" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="edit" modifiers="3"  stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager"  text="修改">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onEdit" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_responsibility" type="ds_all_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="3"  stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager"  text="删除">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDel" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_responsibility" type="ds_all_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="relateFunc" modifiers="3" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="分配功能">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onRelateFunc" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_responsibility" type="ds_all_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

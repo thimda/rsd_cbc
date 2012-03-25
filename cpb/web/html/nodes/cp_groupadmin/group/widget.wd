@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="400" i18nName="授权集团" width="600">
+    <Models>
+        <Datasets>
+            <MdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.cpb.org.groupadmin.GroupDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="group" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_group" left="0" position="relative" rootOpen="true" top="0" visible="true" width="100%" withCheckBox="true" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_group" id="level1" labelFields="name" masterKeyField="pk_group" recursiveKeyField="pk_group" recursivePKeyField="pk_fathergroup">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="menu_item_cancel_listener" serverClazz="nc.uap.cpb.org.groupadmin.GroupRefCancelListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="group" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_group" type="ds_current_page">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="menu_item_ok_listener" serverClazz="nc.uap.cpb.org.groupadmin.GroupRefOkListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="group" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_group" type="ds_current_page">
+                                    </Dataset>
+                                </Widget>
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="cp_admingroup" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

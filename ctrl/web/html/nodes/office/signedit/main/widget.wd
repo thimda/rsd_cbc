@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" refId="main" width="100%">
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+        <TextComp editorType="StringText" enabled="true" focus="false" height="22" id="signname" left="0" position="relative" text="印章名称" textAlign="left" top="0" visible="true" width="300">
+        </TextComp>
+        <TextComp editorType="StringText" enabled="false" focus="false" height="22" id="usercode" left="0" position="relative" text="用户编码" textAlign="left" top="0" visible="true" width="300">
+        </TextComp>
+        <TextComp editorType="PwdText" enabled="true" focus="false" height="22" id="signpsw" left="0" position="relative" text="印章密码" textAlign="left" top="0" visible="true" width="300">
+        </TextComp>
+        <TextComp editorType="PwdText" enabled="true" focus="false" height="22" id="confirmpsw" left="0" position="relative" text="确认密码" textAlign="left" top="0" visible="true" width="300">
+        </TextComp>
+        <SelfDefComp className="file" height="100%" id="selffile" left="0" position="relative" top="0" visible="true" width="300">
+            <Listeners>
+                <SelfDefListener id="lis">
+                    <Events>
+                        <Event async="true" name="oncreate" onserver="false">
+                            <Params>
+                                <Param>
+                                    <Name>oncreate</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[// 自定义控件
+var comp = oncreate.obj;
+// 自定义控件内容对象（该对象构造方法在include.js中定义）
+var content = new FileControlComp();
+comp.setContent(content);]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </SelfDefListener>
+            </Listeners>
+        </SelfDefComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="signmenu">
+            <MenuItem id="newmenu" modifiers="3" text="新增">
+                <Listeners>
+                    <MouseListener id="createListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="false">
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>                                    <![CDATA[reset();]]>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="createmenu" modifiers="3" text="生成印章">
+                <Listeners>
+                    <MouseListener id="createlsn">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="false">
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>                                    <![CDATA[GenSign();]]>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="localMenu" modifiers="3" text="本地印章">
+                <MenuItem id="openLocalMenu" modifiers="3" text="打开印章">
+                    <Listeners>
+                        <MouseListener id="openLocalListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[openLocalSign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+                <MenuItem id="saveLocalMenu" modifiers="3" text="保存印章">
+                    <Listeners>
+                        <MouseListener id="saveListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[saveLocalSign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem id="remoteMenu" modifiers="3" text="服务器印章">
+                <MenuItem id="openRemoteMenu" modifiers="3" text="打开印章">
+                    <Listeners>
+                        <MouseListener id="remoteOpenListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[openRemoteSign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+                <MenuItem id="saveRemoteMenu" modifiers="3" text="保存印章">
+                    <Listeners>
+                        <MouseListener id="remoteSaveListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[saveRemoteSign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+                <MenuItem id="deleteRemoteSign" modifiers="2" text="删除印章">
+                    <Listeners>
+                        <MouseListener id="deleteRemoteListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[deleteRemoteSign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem id="ekeyMenu" modifiers="3" text="Ekey印章">
+                <MenuItem id="openEkeyMenu" modifiers="2" text="打开印章">
+                    <Listeners>
+                        <MouseListener id="ekeyOpenListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[openEkeySign();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+                <MenuItem id="saveEkeyMenu" modifiers="2" text="保存印章">
+                    <Listeners>
+                        <MouseListener id="saveEkeyListener">
+                            <Events>
+                                <Event async="true" name="onclick" onserver="false">
+                                    <Params>
+                                        <Param>
+                                            <Name>mouseEvent</Name>
+                                            <Value></Value>
+                                            <Desc>                                                <![CDATA[]]>
+                                            </Desc>
+                                        </Param>
+                                    </Params>
+                                    <Action>                                        <![CDATA[savetoEkey();]]>
+                                    </Action>
+                                </Event>
+                            </Events>
+                        </MouseListener>
+                    </Listeners>
+                </MenuItem>
+                <MenuItem id="changeEkeypswMenu" modifiers="2" text="修改口令">
+                </MenuItem>
+                <MenuItem id="resetEkeypswMenu" modifiers="2" text="重置口令">
+                </MenuItem>
+                <MenuItem id="deleteEkeysignMenu" modifiers="2" text="删除印章">
+                </MenuItem>
+                <MenuItem id="resetEkey" modifiers="2" text="重置Ekey">
+                </MenuItem>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

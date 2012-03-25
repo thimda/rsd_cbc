@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0" flowmode="true">
+    <BorderLayout id="fff1">
+        <BorderPanel position="center" id="ff2">
+            <FlowvLayout autoFill="0" id="ff3">
+                <FlowvPanel  id="ff4">
+                    <Menubar id="menu_task" widgetId="main"></Menubar>
+                </FlowvPanel>
+                <FlowvPanel id="ff5">
+                         <TabLayout id="tab_task" oneTabHide="false" widgetId="main">
+                            <TabItem i18nName="" id="itm_undnetask" text="待办的文件">
+                                <GridComp id="grid_undnetask" widgetId="main">
+                                </GridComp>
+                            </TabItem>
+                            <TabItem i18nName="" id="itm_cmplttask" text="已办的文件">
+                                <GridComp id="grid_cmplttask" widgetId="main">
+                                </GridComp>
+                            </TabItem>
+                            <TabItem i18nName="" id="itm_endedtask" text="办结的文件">
+                                <GridComp id="grid_endedtask" widgetId="main">
+                                </GridComp>
+                            </TabItem>
+                            <TabItem i18nName="" id="itm_sendtask" text="发出的文件">
+                                <GridComp id="grid_sendtask" widgetId="main">
+                                </GridComp>
+                            </TabItem>
+                        </TabLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

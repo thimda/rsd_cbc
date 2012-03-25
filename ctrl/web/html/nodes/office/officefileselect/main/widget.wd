@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="filesvo" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" field="fileType" id="fileType" isPrimaryKey="false" nullAble="false" text="文件类型">
+                    </Field>
+                    <Field dataType="String" field="templeteType" id="templeteType" isPrimaryKey="false" nullAble="true" text="模板类型">
+                    </Field>
+                    <Field dataType="String" field="fileUrl" id="fileUrl" isPrimaryKey="false" nullAble="true" text="模板地址">
+                    </Field>
+                    <Field dataType="String" field="displayName" id="displayName" isPrimaryKey="false" nullAble="true" text="展示名称">
+                    </Field>
+                    <Field dataType="String" field="pk_file" id="pk_file" isPrimaryKey="false" nullAble="true" text="pk_file">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="dslistener" serverClazz="nc.uap.portal.ctrl.office.data.TempleteFileDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="filesvo" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="filesvo" editable="false" enabled="false" height="100%" id="filesgrid" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="displayName" fixedHeader="false" id="displayName" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="展示名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="fileUrl" fixedHeader="false" id="fileUrl" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板地址" textAlign="left" visible="true" width="300">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fileType" fixedHeader="false" id="fileType" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="文件类型" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="templeteType" fixedHeader="false" id="templeteType" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板类型" textAlign="left" visible="false" width="0">
+            </Column>
+        </GridComp>
+        <ButtonComp align="right" enabled="true" height="22" i18nName="取消" id="btnCancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="CancelListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="false">
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[parent.hideDialog();
+//window.returnValue = false ;
+//window.close();]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="right" enabled="true" height="22" i18nName="确定" id="btnOK" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="oklistener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="false">
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>                                <![CDATA[var ds = pageUI.getWidget("main").getDataset("filesvo");
+var row = ds.getSelectedRow();
+
+if(row == null)
+{
+alert ("请选择模板");
+return;
+}
+var tempfile = {};
+
+tempfile.name = row.getCellValue(ds.nameToIndex("name"));
+tempfile.url = row.getCellValue(ds.nameToIndex("url"));
+tempfile.pk= row.getCellValue(ds.nameToIndex("pk_file"));
+//window.returnValue = tempfile ;
+//window.close();
+parent.fileCallback(tempfile);]]>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

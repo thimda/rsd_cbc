@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="template_relation_um" jquery="0">
+    <TabLayout currentItem="0" id="tag9043" oneTabHide="false" widgetId="template_relation">
+        <TabItems>
+            <TabItem active="" i18nName="" id="UITabItem09043" showCloseIcon="" text="模板组织关系" widgetId="template_relation">
+                <GridComp height="100%" id="grid_templateorg" left="0" position="relative" top="0" widgetId="template_relation" width="100%">
+                </GridComp>
+            </TabItem>
+            <TabItem active="" i18nName="" id="UITabItem19043" showCloseIcon="" text="模板角色关系" widgetId="template_relation">
+                <GridComp height="100%" id="grid_templaterole" left="0" position="relative" top="0" widgetId="template_relation" width="100%">
+                </GridComp>
+            </TabItem>
+            <TabItem active="" i18nName="" id="UITabItem29043" showCloseIcon="" text="模板用户关系" widgetId="template_relation">
+                <GridComp height="100%" id="grid_templateuser" left="0" position="relative" top="0" widgetId="template_relation" width="100%">
+                </GridComp>
+            </TabItem>
+        </TabItems>
+        <Events>
+            <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TabListener" methodName="afterActivedTabItemChange" name="afterActivedTabItemChange" onserver="true">
+                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                	<Widget cardSubmit="false" id="template_relation" panelSubmit="false" tabSubmit="true">
+                    </Widget>
+                </SubmitRule>
+                <Params>
+                    <Param>
+                        <Name>tabEvent</Name>
+                        <Desc>                            <![CDATA[nc.uap.lfw.core.event.TabEvent]]>
+                        </Desc>
+                    </Param>
+                </Params>
+                <Action>
+                </Action>
+            </Event>
+        </Events>
+    </TabLayout>
+</UIMeta>

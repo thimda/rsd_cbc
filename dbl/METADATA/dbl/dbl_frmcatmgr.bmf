@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-08-29 09:13:26" creator="" description="" displayName="dbl_frmcatmgr" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="dff2e36d-eaa9-4e54-a406-3def2ba04cbe" isbizmodel="false" mainEntity="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" modifier="" modifyTime="2011-08-29 11:02:39" name="dbl_frmcatmgr" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="dbl_frmcatmgr" resid="" version="2" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="dff2e36d-eaa9-4e54-a406-3def2ba04cbe" createTime="2011-08-29 09:14:00" creator="" czlist="" description="" displayName="表单分组" fullClassName="nc.uap.dbl.vo.DblFormCategoryVO" height="100" help="" id="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="736fbcf1-36fd-41b4-875a-1f5345e0b75b" modInfoClassName="" modifier="" modifyTime="2011-08-29 11:03:35" name="dbl_formcategory" resid="" stereoType="" tableName="dbl_formcategory" userDefClassName="" versionType="0" visibility="public" width="80" x="200" y="171">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="分组名称" dynamic="false" dynamicTable="" fieldName="name" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="87386de8-232e-4b51-b912-7fbced2cda2c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="name" notSerialize="false" precise="0" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_formcategory" fieldType="char" fixedLength="false" forLocale="false" help="" id="736fbcf1-36fd-41b4-875a-1f5345e0b75b" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_formcategory" notSerialize="false" precise="0" refModelName="" resid="" sequence="1" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="所属集团" dynamic="false" dynamicTable="" fieldName="pk_group" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="79d54381-e705-4d26-abee-05c2a4393674" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_group" notSerialize="false" precise="0" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7e2fef76-f0a7-4d20-a52d-a18daccdecb7" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="父分组主键" dynamic="false" dynamicTable="" fieldName="pk_parent" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="252b6dc5-6841-434c-b5c7-cb4572827ac2" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_parent" notSerialize="false" precise="0" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

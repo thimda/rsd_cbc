@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="400" i18nName="资源授权" refId="reso" width="600">
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同资源" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_resource" lazyLoad="false" objMeta="uapcp.cp_resource" voMeta="nc.uap.cpb.org.vos.CpResourceVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="RelateResourceDatasetServerListener" serverClazz="nc.uap.cpb.org.role.RelateResourceDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="reso" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="cp_resource" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="协同资源_集团" dataListener="" dialog="false" i18nName="" id="refnode_cp_resource_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="cp_resource" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="协同资源" dataset="cp_resource" editable="true" enabled="true" height="100%" id="grid_resource" left="0" multiSelect="true" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="resourcename" fixedHeader="false" id="resourcename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="resourcetype" fixedHeader="false" id="resourcetype" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="originalid" fixedHeader="false" id="originalid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源来源" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+        <Listeners>
+                <MouseListener id="RoleRefResourceCancelListener" serverClazz="nc.uap.cpb.org.role.RoleRefResourceCancelListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="reso" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="cp_resource" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="$refds_uap_group" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+</ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="RoleRefResourceOkListener" serverClazz="nc.uap.cpb.org.role.RoleRefResourceOkListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="reso" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="cp_resource" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="$refds_uap_group" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

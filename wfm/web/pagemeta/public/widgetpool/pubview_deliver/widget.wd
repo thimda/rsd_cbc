@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.deliver.DeliverCtrl" dialog="false" id="pubview_deliver" refId="pubview_deliver" sourcePackage="wfm/src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+        <PlugoutDesc id="deliver_pluginout">
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_deliveruser" langDir="" multiSel="true" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="true" selLeafOnly="false" text="" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_opinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnok_onclick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_deliveruser" refcode="refnode_deliveruser" text="请选择用户" textAlign="left" textWidth="0" visible="true">
+        </ReferenceComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

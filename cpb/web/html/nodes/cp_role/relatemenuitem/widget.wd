@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" i18nName="新增关联功能节点" id="relatemenuitem" refId="relatemenuitem">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_funnode" detailForeignKey="pk_appscategory" id="ds_funnodecategory_ds_funnode" masterDataset="ds_funnodecategory" masterKeyField="pk_appscategory">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_funnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_funnodecategory" lazyLoad="true" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relatemenuitem" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_funnodecategory" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="relatemenuitem" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_funnodecategory" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp caption="协同功能节点" dataset="ds_funnode" editable="true" enabled="true" id="grid_funnode" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="id" fixedHeader="false" id="id" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="id" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="title" fixedHeader="false" id="title" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="activeflag" fixedHeader="false" id="activeflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启用" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="i18nname" fixedHeader="false" id="i18nname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="i18nname" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_appsnode" fixedHeader="false" id="pk_appsnode" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>           
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="url" fixedHeader="false" id="url" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="url" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_appscategory" fixedHeader="false" id="pk_appscategory" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="分组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="specialflag" fixedHeader="false" id="specialflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否允许个性化" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="tree_funnodecategory" rootOpen="true" text="选择功能节点" visible="true" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_funnodecategory" id="level1" labelFields="id,title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="pk_parent">
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Listeners>
+                <MouseListener id="relate_funnode_cancel_listener" serverClazz="nc.uap.cpb.org.role.RoleRefFunnodeCancelListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="relatemenuitem" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_funnode" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_menuitem" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_funnodecategory" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_menucategory" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                                <Widget cardSubmit="false" id="relateorg" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_org" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Listeners>
+                <MouseListener id="relate_funnode_ok_listener" serverClazz="nc.uap.cpb.org.role.RoleRefFunnodeOkListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="reso" panelSubmit="false" tabSubmit="false">
+                                </Widget>
+                                <Widget cardSubmit="false" id="relatemenuitem" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_funnode" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_menuitem" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_funnodecategory" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_menucategory" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                                <Widget cardSubmit="false" id="relateorg" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_org" type="ds_all_line">
+                                    </Dataset>
+                                    <Tree id="org_tree" type="tree_current_parent_root">
+                                    </Tree>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

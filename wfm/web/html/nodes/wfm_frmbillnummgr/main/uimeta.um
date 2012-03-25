@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" jquery="0">
+    <FlowvLayout autoFill="0" id="flowv1hbj" >
+        <FlowvPanel  id="000005" height="200">
+            <FlowvLayout autoFill="0" id="flowv15454">
+                <FlowvPanel id="000006" >
+                    <Menubar id="menu_rule" widgetId="main">
+                    </Menubar>
+                </FlowvPanel>
+                <FlowvPanel id="000007">
+                    <FormComp id="frm_rule" widgetId="main">
+                    </FormComp>
+                </FlowvPanel>
+            </FlowvLayout>
+        </FlowvPanel>
+        <FlowvPanel id="000008">
+            <FlowvLayout autoFill="0" id="flowv45452">
+                <FlowvPanel id="000009" >
+                    <Menubar id="menu_elem" widgetId="main">
+                    </Menubar>
+                </FlowvPanel>
+                <FlowvPanel id="0000010">
+                    <GridComp id="grid_elem" widgetId="main">
+                    </GridComp>
+                </FlowvPanel>
+            </FlowvLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

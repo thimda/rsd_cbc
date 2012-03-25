@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="tw.v1.Tc" dialog="false" id="v1" refId="v1" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

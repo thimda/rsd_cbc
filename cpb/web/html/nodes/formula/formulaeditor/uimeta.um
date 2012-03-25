@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="formulaeditor_um" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout7287" widgetId="formulaeditor">
+        <FlowvPanel height="250" id="panelv07287" widgetId="formulaeditor">
+            <FlowvLayout autoFill="0" id="flowvlayout9148" widgetId="formulaeditor">
+                <FlowvPanel height="250" id="panelv09148" widgetId="formulaeditor">
+                    <FlowhLayout id="flowhlayout4129" widgetId="formulaeditor">
+                        <FlowhPanel id="panelh04129" widgetId="formulaeditor">
+                            <FlowvLayout autoFill="0" id="flowvlayout4836" widgetId="formulaeditor">
+                                <FlowvPanel id="panelv04836" widgetId="formulaeditor">
+                                    <TextField height="300" id="edit_textarea" left="0" position="relative" top="0" type="text" widgetId="formulaeditor" width="880">
+                                    </TextField>
+                                </FlowvPanel>
+                                <FlowvPanel height="40" id="panelv14836" widgetId="formulaeditor">
+                                    <FlowhLayout id="flowhlayout3287" widgetId="formulaeditor">
+                                        <FlowhPanel id="panelh03287" widgetId="formulaeditor">
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh13287" widgetId="formulaeditor">
+                                            <Button height="23" id="ok_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh23287" widgetId="formulaeditor">
+                                            <Button height="23" id="cancel_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh33287" widgetId="formulaeditor">
+                                            <Button height="23" id="validate_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh43287" widgetId="formulaeditor">
+                                            <Button height="23" id="returntype_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh53287" widgetId="formulaeditor">
+                                            <Button height="23" id="allselect_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh63287" widgetId="formulaeditor">
+                                            <Button height="23" id="clear_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                            </Button>
+                                        </FlowhPanel>
+                                    </FlowhLayout>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel id="panelh14129" widgetId="formulaeditor" width="300">
+                            <FlowvLayout autoFill="0" id="flowvlayout7085" widgetId="formulaeditor">
+                                <FlowvPanel id="panelv07085" widgetId="formulaeditor">
+                                    <GridLayout border="1" colcount="4" id="gridlayout6623" rowcount="3" widgetId="formulaeditor">
+                                        <GridRow colcount="4" id="row06623" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell006623" widgetId="formulaeditor">
+                                                <Button height="23" id="no7_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell016623" widgetId="formulaeditor">
+                                                <Button height="23" id="no8_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell026623" widgetId="formulaeditor">
+                                                <Button height="23" id="no9_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell036623" widgetId="formulaeditor">
+                                                <Button height="23" id="no0_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                        <GridRow colcount="4" id="row16623" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell106623" widgetId="formulaeditor">
+                                                <Button height="23" id="no4_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell116623" widgetId="formulaeditor">
+                                                <Button height="23" id="no5_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell126623" widgetId="formulaeditor">
+                                                <Button height="23" id="no6_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell136623" widgetId="formulaeditor">
+                                                <Button height="23" id="no_dot_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                        <GridRow colcount="4" id="row26623" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell206623" widgetId="formulaeditor">
+                                                <Button height="23" id="no1_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell216623" widgetId="formulaeditor">
+                                                <Button height="23" id="no2_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell226623" widgetId="formulaeditor">
+                                                <Button height="23" id="no3_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell236623" widgetId="formulaeditor">
+                                                <Button height="23" id="no00_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                    </GridLayout>
+                                </FlowvPanel>
+                                <FlowvPanel id="panelv17085" widgetId="formulaeditor">
+                                    <GridLayout border="1" colcount="4" id="gridlayout3492" rowcount="3" widgetId="formulaeditor">
+                                        <GridRow colcount="4" id="row03492" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell003492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_add_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell013492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_minus_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell023492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_multi_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell033492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_divid_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                        <GridRow colcount="4" id="row13492" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell103492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_right_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell113492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_equals_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell123492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_left_quot_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell133492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_right_quot_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                        <GridRow colcount="4" id="row23492" widgetId="formulaeditor">
+                                            <GridPanel colHeight="30" colWidth="120" id="cell203492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_lt_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell213492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_gt_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell223492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_le_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                            <GridPanel colHeight="30" colWidth="120" id="cell233492" widgetId="formulaeditor">
+                                                <Button height="23" id="no_ge_btn" left="0" position="relative" top="0" widgetId="formulaeditor" width="64">
+                                                </Button>
+                                            </GridPanel>
+                                        </GridRow>
+                                    </GridLayout>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </FlowvPanel>
+        <FlowvPanel id="panelv17287" widgetId="formulaeditor">
+            <FlowvLayout autoFill="0" id="flowvlayout5706" widgetId="formulaeditor">
+                <FlowvPanel id="panelv05706" widgetId="formulaeditor">
+                    <FlowhLayout id="flowhlayout4862" widgetId="formulaeditor">
+                        <FlowhPanel id="panelh04862" widgetId="formulaeditor">
+                            <TabLayout currentItem="0" id="tag1984" oneTabHide="false" widgetId="formulaeditor">
+                                <TabItems>
+                                    <TabItem i18nName="" id="UITabItem01984" showCloseIcon="" text="数学" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="mathgrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem11984" showCloseIcon="" text="日期" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="dategrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem21984" showCloseIcon="" text="数据库" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="databasegrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem31984" showCloseIcon="" text="字符串" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="stringgrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem41984" showCloseIcon="" text="财务" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="financegrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem51984" showCloseIcon="" text="自定义" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="selfdefinegrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem61984" showCloseIcon="" text="常用" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="commongrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                    <TabItem i18nName="" id="UITabItem71984" showCloseIcon="" text="控制公式" widgetId="formulaeditor">
+                                        <GridComp height="100%" id="controlformulagrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                        </GridComp>
+                                    </TabItem>
+                                </TabItems>
+                            </TabLayout>
+                        </FlowhPanel>
+                        <FlowhPanel id="panelh14862" widgetId="formulaeditor">
+                            <TabLayout currentItem="0" id="tag8157" oneTabHide="false" widgetId="formulaeditor">
+                                <TabItems>
+                                    <TabItem i18nName="" id="UITabItem08157" showCloseIcon="" text="数据集和字段" widgetId="formulaeditor">
+                                        <FlowhLayout id="flowhlayout0585" widgetId="formulaeditor">
+                                            <FlowhPanel id="panelh00585" widgetId="formulaeditor">
+                                                <Border bottomColor="" bottomWidth="1" className="" color="" id="border0075" leftColor="" leftWidth="1" rightColor="" rightWidth="1" showBottom="true" showLeft="true" showRight="true" showTop="true" topColor="" topWidth="1" widgetId="formulaeditor" width="100">
+                                                    <BorderTrue id="bordertrue0075" widgetId="formulaeditor">
+                                                        <GridComp height="100%" id="datasetgrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                                        </GridComp>
+                                                    </BorderTrue>
+                                                </Border>
+                                            </FlowhPanel>
+                                            <FlowhPanel id="panelh10585" widgetId="formulaeditor">
+                                                <Border bottomColor="" bottomWidth="1" className="" color="" id="border3730" leftColor="" leftWidth="1" rightColor="" rightWidth="1" showBottom="true" showLeft="true" showRight="true" showTop="true" topColor="" topWidth="1" widgetId="formulaeditor" width="100">
+                                                    <BorderTrue id="bordertrue3730" widgetId="formulaeditor">
+                                                        <GridComp height="100%" id="propertygrid" left="0" position="relative" top="0" widgetId="formulaeditor" width="100%">
+                                                        </GridComp>
+                                                    </BorderTrue>
+                                                </Border>
+                                            </FlowhPanel>
+                                        </FlowhLayout>
+                                    </TabItem>
+                                </TabItems>
+                            </TabLayout>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="40" id="panelv15706" widgetId="formulaeditor">
+                    <TextField height="50" id="status_textarea" left="0" position="relative" top="0" type="text" widgetId="formulaeditor" width="880">
+                    </TextField>
+                </FlowvPanel>
+            </FlowvLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

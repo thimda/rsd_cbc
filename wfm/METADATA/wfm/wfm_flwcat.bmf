@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-09-29 10:22:27" creator="" description="" displayName="流程大类" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="752fb191-a1bd-4daa-8d52-d4e655c1e0e1" isbizmodel="false" mainEntity="c5b2ef84-0dc6-430e-aed0-cc60455acea5" modifier="" modifyTime="2011-10-21 16:00:04" name="wfm_flwcat" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_flwcat" resid="" version="13" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="752fb191-a1bd-4daa-8d52-d4e655c1e0e1" createTime="2011-09-29 10:22:54" creator="" czlist="" description="" displayName="流程大类" fullClassName="nc.uap.wfm.vo.WfmFlwCatVO" height="211" help="" id="c5b2ef84-0dc6-430e-aed0-cc60455acea5" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="097af0e3-f44f-4823-aa45-a323097d4c97" modInfoClassName="" modifier="" modifyTime="2011-10-21 16:00:14" name="wfm_flwcat" resid="" stereoType="" tableName="wfm_flwcat" userDefClassName="" versionType="0" visibility="public" width="188" x="172" y="205">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="c5b2ef84-0dc6-430e-aed0-cc60455acea5" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_flwcat" fieldType="char" fixedLength="false" forLocale="false" help="" id="097af0e3-f44f-4823-aa45-a323097d4c97" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_flwcat" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="c5b2ef84-0dc6-430e-aed0-cc60455acea5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="大类名称" dynamic="false" dynamicTable="" fieldName="catname" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="a927f01e-05ed-4d94-8288-8e01859c72aa" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="catname" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="c5b2ef84-0dc6-430e-aed0-cc60455acea5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="大类编码" dynamic="false" dynamicTable="" fieldName="catcode" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="c09dd2e5-50d4-4ff9-8a04-01098baa232a" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="catcode" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="c5b2ef84-0dc6-430e-aed0-cc60455acea5" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="扩张处理类" dynamic="false" dynamicTable="" fieldName="serverclass" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="d213254f-74f7-48fc-9661-e1f5a96daf85" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="serverclass" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" id="" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv2">
+        <FlowvPanel id="flow6">
+            <Menubar id="menu_role" left="0" position="relative" top="0" widgetId="main" width="100%">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel id="flow7">
+            <GridComp height="100%" id="grid_role" left="0" position="relative" top="0" widgetId="main" width="100%">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel id="flow_8" height="6">
+        </FlowvPanel>
+        <FlowvPanel id="flow9">
+            <TabLayout currentItem="0" id="tab1" oneTabHide="false" widgetId="main">
+                <TabItem i18nName="" id="item1" showCloseIcon="" text="已有用户">
+                    <GridComp height="100%" id="grid_user" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    </GridComp>
+                </TabItem>                                
+                <TabItem i18nName="" id="item3" showCloseIcon="" text="已关联组织">
+                    <GridComp height="100%" id="grid_org" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    </GridComp>
+                </TabItem>
+              <TabItem i18nName="" id="item6" showCloseIcon="" text="已关联职责">
+                    <GridComp height="100%" id="grid_resp" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    </GridComp>
+                </TabItem>
+            </TabLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

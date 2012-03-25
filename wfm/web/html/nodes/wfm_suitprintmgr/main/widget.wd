@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_suitprint" detailForeignKey="pk_formdefinition" id="ds_frmdef_ds_suitprint" masterDataset="ds_frmdef" masterKeyField="pk_formdefinition">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="表单定义" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_frmdef" lazyLoad="true" objMeta="uapcp.dbl_formdefinition" voMeta="nc.uap.dbl.vo.DblFormDefinitionVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="FrmDefDsServerListener" serverClazz="nc.uap.wfm.suitprintmgr.FrmDefDsServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="套打模板" controloperatorStatus="true" controlwidgetopeStatus="false" enabled="false" id="ds_suitprint" lazyLoad="true" objMeta="uapcp.wfm_suitprint" voMeta="nc.uap.wfm.vo.WfmSuitPrintVO">
+                <Fields>
+<ModifyField id="contents" field="suitPrintTmp" dataType="String" text="XML"/>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="SuitPrintDsServerListener" serverClazz="nc.uap.wfm.suitprintmgr.SuitPrintDsServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_suitprint" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_suitprint" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="表单分组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_frmcat" lazyLoad="false" objMeta="uapcp.dbl_formcategory" voMeta="nc.uap.dbl.vo.DblFormCategoryVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <RefNode allowInput="false" dataListener="nc.portal.org.group.refrence.GroupRefDatasetServerListener" dialog="false" i18nName="" id="ref_group" isDialog="false" isRefresh="false" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="refrence/reftree.jsp" readDs="masterDs" readFields="pk_group,groupname" refId="" refModel="nc.portal.org.group.refrence.PtGroupRefModel" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" writeDs="" writeFields="">
+            </RefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="套打模板" dataset="ds_suitprint" editable="true" enabled="true" height="100%" id="grid_suitprint" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" id="code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="orderstr" fixedHeader="false" id="orderstr" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="排序号" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="serverclass" fixedHeader="false" id="serverclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="服务类" textAlign="left" visible="true" width="300">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="contents" fixedHeader="false" id="contents" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板内容" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_formdefinition" fixedHeader="false" id="pk_formdefinition" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="表单主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_suitprint" fixedHeader="false" id="pk_suitprint" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_frmdef" left="0" position="relative" rootOpen="true" top="0" visible="true" width="100%" withCheckBox="false" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_frmcat" id="level1" labelFields="name" masterKeyField="pk_formcategory" recursiveKeyField="pk_formcategory" recursivePKeyField="pk_parent">
+                <SimpleTreeLevel dataset="ds_frmdef" detailKeyParameter="pk_formcategory" id="level2" labelFields="name" masterKeyField="pk_formdefinition">
+                </SimpleTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <LabelComp enabled="true" height="22" id="label_content" left="0" position="relative" text="模板内容：" top="0" visible="true" width="100">
+        </LabelComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" height="300" id="txt_content" left="0" position="relative" text="模板内容" textAlign="left" textWidth="0" top="0" visible="true" width="645">
+        </TextAreaComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

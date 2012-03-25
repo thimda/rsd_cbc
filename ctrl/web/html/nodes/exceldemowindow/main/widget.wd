@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.controller.ExcelDemoMainCtrl" dialog="false" height="100%" id="main" refId="main" sourcePackage="" width="100%">
+    <Attributes>
+        <Attribute>
+            <Key>DYN$UNIQUE_TS</Key>
+            <Value>1322123006271</Value>
+        </Attribute>
+        <Attribute>
+            <Key>DYN$MODIFY_TS</Key>
+            <Value>1322123006271</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="数据格式" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_formatdoc" lazyLoad="false" objMeta="uap.formatdoc" voMeta="nc.vo.bd.format.FormatDocVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_user" lazyLoad="false" objMeta="uap.user" voMeta="nc.vo.sm.UserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_group" lazyLoad="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_org" lazyLoad="false" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="用户组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_userGroup" lazyLoad="true" objMeta="uap.userGroup" voMeta="nc.vo.uap.rbac.UserGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="pt_user" lazyLoad="false" objMeta="uap.user" voMeta="nc.vo.sm.UserVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org_name">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="creator_rel" refDataset="$refds_uap_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="creator_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="creator">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="modifier_rel" refDataset="$refds_uap_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="modifier_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="modifier">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_usergroupforcreate_rel" refDataset="$refds_uap_userGroup">
+                        <MatchFields>
+                            <Field readField="groupname" writeField="pk_usergroupforcreate_groupname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_usergroup" value="pk_usergroupforcreate">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="format_rel" refDataset="$refds_uap_formatdoc">
+                        <MatchFields>
+                            <Field readField="name" writeField="format_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_formatdoc" value="format">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="contentlang_rel" refDataset="$refds_uap_MultiLang">
+                        <MatchFields>
+                            <Field readField="dislpayname" writeField="contentlang_dislpayname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_multilang" value="contentlang">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField defaultValue="test" id="user_name">
+                    </ModifyField>
+                    <ModifyField defaultValue="test" id="user_code" nullAble="true">
+                    </ModifyField>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onload" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <RefMdDataset caption="语种信息" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="true" id="$refds_uap_MultiLang" lazyLoad="true" objMeta="uap.MultiLang" voMeta="nc.vo.ml.LanguageVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="用户" fullclassName="d010879b-9319-4445-8c2b-878edebd593c" id="combo_pt_user_base_doc_type">
+            </MDComboDataConf>
+            <MDComboDataConf caption="用户" fullclassName="afbc8333-a275-4eae-ae04-12832119d19a" id="combo_pt_user_user_type">
+            </MDComboDataConf>
+            <MDComboDataConf caption="用户" fullclassName="6b533ffa-3e43-4147-8670-ba0f5471fd40" id="combo_pt_user_enablestate">
+            </MDComboDataConf>
+            <MDComboDataConf caption="用户" fullclassName="204d19d2-7256-4359-b843-cc45d003e0a7" id="combo_pt_user_identityverifycode">
+            </MDComboDataConf>
+            <MDComboDataConf caption="用户" fullclassName="50e94e73-d3df-47cc-a175-4b72b2d27e4d" id="combo_pt_user_pwdlevelcode">
+            </MDComboDataConf>
+        </ComboDatas>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="用户_用户" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_modifier_user_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="modifier,modifier_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_用户组" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_pk_usergroupforcreate_groupname" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_usergroup,groupname" refId="" refcode="用户组" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="pk_usergroupforcreate,pk_usergroupforcreate_groupname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_用户" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_creator_user_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="creator,user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_项目组织+全局+集团" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_pk_org_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="项目组织+全局+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_语种" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_contentlang_dislpayname" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_multilang,dislpayname" refId="" refcode="语种" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="contentlang,contentlang_dislpayname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_数据格式" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_format_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_formatdoc,name" refId="" refcode="数据格式" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="format,format_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="用户_集团" dataListener="" dialog="false" i18nName="" id="refnode_pt_user_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="pt_user" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="用户" dataset="pt_user" editable="true" enabled="true" height="100%" id="gridtest" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="cuserid" fixedHeader="false" i18nName="2USERM-000015" id="cuserid" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="用户主键" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_org_name" fixedHeader="false" i18nName="2UC000-000360" id="pk_org_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_pk_org_name" renderType="DefaultRender" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_name" fixedHeader="false" i18nName="2USERM-000008" id="user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_code" fixedHeader="false" i18nName="2USERM-000005" id="user_code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_password" fixedHeader="false" i18nName="2USERM-000014" id="user_password" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户密码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_note" fixedHeader="false" i18nName="2UC000-000258" id="user_note" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="备注" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="pwdlevelcode" fixedHeader="false" i18nName="2USERM-000018" id="pwdlevelcode" imageOnly="false" nullAble="true" refComboData="combo_pt_user_pwdlevelcode" renderType="ComboRender" sortable="true" sumCol="false" text="密码安全级别编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pwdparam" fixedHeader="false" i18nName="2USERM-000011" id="pwdparam" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="密码参数" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="identityverifycode" fixedHeader="false" i18nName="2USERM-000019" id="identityverifycode" imageOnly="false" nullAble="true" refComboData="combo_pt_user_identityverifycode" renderType="ComboRender" sortable="true" sumCol="false" text="认证类型" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate_begin" editable="true" editorType="DateText" field="abledate" fixedHeader="false" i18nName="2UC000-000632" id="abledate" imageOnly="false" nullAble="false" renderType="DateRender" sortable="true" sumCol="false" text="生效日期" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate_begin" editable="true" editorType="DateText" field="disabledate" fixedHeader="false" i18nName="2UC000-000261" id="disabledate" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="失效日期" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="islocked" fixedHeader="false" i18nName="2USERM-000012" id="islocked" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="锁定" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_base_doc" fixedHeader="false" i18nName="2USERM-000003" id="pk_base_doc" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="身份" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="base_doc_type" fixedHeader="false" i18nName="2USERM-000020" id="base_doc_type" imageOnly="false" nullAble="true" refComboData="combo_pt_user_base_doc_type" renderType="ComboRender" sortable="true" sumCol="false" text="身份类型" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" i18nName="2UC000-000360" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" i18nName="2UC000-000367" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" i18nName="2UC000-000367" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_pk_group_name" renderType="DefaultRender" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" i18nName="2UC000-000155" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="creator_user_name" fixedHeader="false" i18nName="2UC000-000155" id="creator_user_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_creator_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="creationtime" fixedHeader="false" i18nName="2UC000-000157" id="creationtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" i18nName="2UC000-000490" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="modifier_user_name" fixedHeader="false" i18nName="2UC000-000490" id="modifier_user_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_modifier_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" i18nName="2UC000-000491" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="user_type" fixedHeader="false" i18nName="2USERM-000000" id="user_type" imageOnly="false" nullAble="true" refComboData="combo_pt_user_user_type" renderType="ComboRender" sortable="true" sumCol="false" text="用户类型" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_usergroupforcreate" fixedHeader="false" i18nName="2USERM-000022" id="pk_usergroupforcreate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_usergroupforcreate_groupname" fixedHeader="false" i18nName="2USERM-000022" id="pk_usergroupforcreate_groupname" imageOnly="false" nullAble="true" refNode="refnode_pt_user_pk_usergroupforcreate_groupname" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="format" fixedHeader="false" i18nName="2UC000-000456" id="format" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="数据格式" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="format_name" fixedHeader="false" i18nName="2UC000-000456" id="format_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_format_name" renderType="DefaultRender" sortable="true" sumCol="false" text="数据格式" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isca" fixedHeader="false" i18nName="2USERM-000001" id="isca" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="CA用户" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="enablestate" fixedHeader="false" i18nName="2UC000-000249" id="enablestate" imageOnly="false" nullAble="true" refComboData="combo_pt_user_enablestate" renderType="ComboRender" sortable="true" sumCol="false" text="启用状态" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="contentlang" fixedHeader="false" i18nName="2USERM-000021" id="contentlang" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="内容语种" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="contentlang_dislpayname" fixedHeader="false" i18nName="2USERM-000021" id="contentlang_dislpayname" imageOnly="false" nullAble="true" refNode="refnode_pt_user_contentlang_dislpayname" renderType="DefaultRender" sortable="true" sumCol="false" text="内容语种" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_code_q" fixedHeader="false" i18nName="2USERM-000009" id="user_code_q" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码（查询）" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" i18nName="2UC000-000151" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <ExcelComp caption="用户" dataset="pt_user" editable="true" enabled="true" height="100%" id="test" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="cuserid" fixedHeader="false" id="cuserid" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="用户主键" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_org_name" fixedHeader="false" id="pk_org_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_creator_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="user_name" fixedHeader="false" id="user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户名称" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_code" fixedHeader="false" id="user_code" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_password" fixedHeader="false" id="user_password" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户密码" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_note" fixedHeader="false" id="user_note" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="备注" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="pwdlevelcode" fixedHeader="false" id="pwdlevelcode" imageOnly="false" nullAble="true" refComboData="combo_pt_user_pwdlevelcode" renderType="ComboRender" sortable="true" sumCol="false" text="密码安全级别编码" textAlign="left" visible="true" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pwdparam" fixedHeader="false" id="pwdparam" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="密码参数" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="identityverifycode" fixedHeader="false" id="identityverifycode" imageOnly="false" nullAble="true" refComboData="combo_pt_user_identityverifycode" renderType="ComboRender" sortable="true" sumCol="false" text="认证类型" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate_begin" editable="true" editorType="DateText" field="abledate" fixedHeader="false" id="abledate" imageOnly="false" nullAble="false" renderType="DateRender" sortable="true" sumCol="false" text="生效日期" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate_begin" editable="true" editorType="DateText" field="disabledate" fixedHeader="false" id="disabledate" imageOnly="false" nullAble="true" renderType="DateRender" sortable="true" sumCol="false" text="失效日期" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="islocked" fixedHeader="false" id="islocked" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="锁定" textAlign="center" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_base_doc" fixedHeader="false" id="pk_base_doc" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="身份" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" columBgColor="red" dataType="Integer" editable="true" editorType="ComboBox" field="base_doc_type" fixedHeader="false" id="base_doc_type" imageOnly="false" nullAble="true" refComboData="combo_pt_user_base_doc_type" renderType="ComboRender" sortable="true" sumCol="false" text="身份类型" textAlign="right" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_pk_group_name" renderType="DefaultRender" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="creator_user_name" fixedHeader="false" id="creator_user_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_creator_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="creationtime" fixedHeader="false" id="creationtime" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="modifier_user_name" fixedHeader="false" id="modifier_user_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_modifier_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="user_type" fixedHeader="false" id="user_type" imageOnly="false" nullAble="true" refComboData="combo_pt_user_user_type" renderType="ComboRender" sortable="true" sumCol="false" text="用户类型" textAlign="right" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_usergroupforcreate" fixedHeader="false" id="pk_usergroupforcreate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户组" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_usergroupforcreate_groupname" fixedHeader="false" id="pk_usergroupforcreate_groupname" imageOnly="false" nullAble="true" refNode="refnode_pt_user_pk_usergroupforcreate_groupname" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户组" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="format" fixedHeader="false" id="format" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="数据格式" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="format_name" fixedHeader="false" id="format_name" imageOnly="false" nullAble="true" refNode="refnode_pt_user_format_name" renderType="DefaultRender" sortable="true" sumCol="false" text="数据格式" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isca" fixedHeader="false" id="isca" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="CA用户" textAlign="center" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="enablestate" fixedHeader="false" id="enablestate" imageOnly="false" nullAble="true" refComboData="combo_pt_user_enablestate" renderType="ComboRender" sortable="true" sumCol="false" text="启用状态" textAlign="right" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="contentlang" fixedHeader="false" id="contentlang" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="内容语种" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="contentlang_dislpayname" fixedHeader="false" id="contentlang_dislpayname" imageOnly="false" nullAble="true" refNode="refnode_pt_user_contentlang_dislpayname" renderType="DefaultRender" sortable="true" sumCol="false" text="内容语种" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="user_code_q" fixedHeader="false" id="user_code_q" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码（查询）" textAlign="left" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="false" width="20">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="20">
+            </Column>
+        </ExcelComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu">
+            <MenuItem id="addcolumn" modifiers="2" text="增加列">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="Addcolumn_onclick" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="pt_user" type="ds_all_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value></Value>
+                                <Desc>                                    <![CDATA[]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.role.MainController" dialog="false" id="main" refId="main" sourcePackage="src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$MODIFY_TS</Key>
+            <Value>-1</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="edit_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="resp_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="org_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+        <PluginDesc id="user_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+         <PluginDesc id="enabledate_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+<PluginDesc id="simpleQuery_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginsimpleQuery_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginedit_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginresp_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginorg_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginuser_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginenabledate_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_rolegroup" detailForeignKey="pk_org" id="ds_orgs_ds_rolegroup" masterDataset="ds_orgs" masterKeyField="pk_org">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="cp_role" detailForeignKey="pk_rolegroup" id="ds_rolegroup_cp_role" masterDataset="ds_rolegroup" masterKeyField="pk_rolegroup">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="cp_role_userrole" detailForeignKey="pk_role" id="cp_role_cp_role_userrole" masterDataset="cp_role" masterKeyField="pk_role">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="cp_role_roleorg" detailForeignKey="pk_role" id="cp_role_cp_role_roleorg" masterDataset="cp_role" masterKeyField="pk_role">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="ds_role_roleresp" detailForeignKey="pk_role" id="cp_role_ds_role_roleresp" masterDataset="cp_role" masterKeyField="pk_role">
+                </DatasetRelation>
+            </DatasetRelations>
+            <MdDataset caption="协同角色组织" controlwidgetopeStatus="false" enabled="false" id="cp_role_roleorg" lazyLoad="true" objMeta="uapcp.cp_roleorg" voMeta="nc.uap.cpb.org.vos.CpRoleOrgVO">
+                <FieldRelations>
+                    <FieldRelation id="cp_role_roleorg_org" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="code" writeField="pk_org_code">
+                            </Field>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" i18nName="2UC000-000721" id="pk_org_code" nullAble="true" primaryKey="false" sourceField="pk_org" text="编码">
+                    </Field>
+                    <Field dataType="String" i18nName="2UC000-000244" id="pk_org_name" nullAble="true" primaryKey="false" sourceField="pk_org" text="名称">
+                    </Field>
+                </Fields>                
+            </MdDataset>
+            <RefMdDataset caption="协同用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="协同角色组" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_rolegroup" lazyLoad="true" objMeta="uapcp.cp_rolegroup" voMeta="nc.uap.cpb.org.vos.CpRoleGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>                
+            </MdDataset>           
+            <RefMdDataset caption="协同职责" controlwidgetopeStatus="false" enabled="false" id="ds_responsibility" lazyLoad="true" objMeta="uapcp.cp_responsibility" voMeta="nc.uap.cpb.org.vos.CpResponsibilityVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="组织" controlwidgetopeStatus="false" enabled="false" id="ds_orgs" lazyLoad="true" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>                
+            </MdDataset>
+            <RefMdDataset caption="协同角色" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="false" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同角色职责" controlwidgetopeStatus="false" enabled="false" id="ds_role_roleresp" lazyLoad="true" objMeta="uapcp.cp_roleresp" voMeta="nc.uap.cpb.org.vos.CpRoleRespVO">
+                <FieldRelations>
+                    <FieldRelation id="ds_role_roleresp_ds_responsibility" refDataset="ds_responsibility">
+                        <MatchFields>
+                            <Field readField="code" writeField="pk_responsibility_code">
+                            </Field>
+                            <Field readField="descipt" writeField="pk_responsibility_descipt">
+                            </Field>
+                            <Field readField="name" writeField="pk_responsibility_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_responsibility" value="pk_responsibility">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_responsibility_code" nullAble="true" primaryKey="false" sourceField="pk_responsibility" text="编码">
+                    </Field>
+                    <Field dataType="String" id="pk_responsibility_name" nullAble="true" primaryKey="false" sourceField="pk_responsibility" text="名称">
+                    </Field>
+                    <Field dataType="String" id="pk_responsibility_descipt" nullAble="true" primaryKey="false" sourceField="pk_responsibility" text="描述">
+                    </Field>
+                </Fields>                
+            </MdDataset>
+            <RefMdDataset caption="协同功能节点" controlwidgetopeStatus="false" enabled="false" id="ds_funnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同角色" controlwidgetopeStatus="true" enabled="false" id="cp_role" lazyLoad="false" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO"  pageSize="10">
+                <FieldRelations>
+                    <FieldRelation id="usercreated_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="usercreated_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="usercreated">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_rolegroup_rel" refDataset="$refds_uapcp_cp_rolegroup">
+                        <MatchFields>
+                            <Field readField="groupname" writeField="pk_rolegroup_groupname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_rolegroup" value="pk_rolegroup">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_cp_role" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="cp_role" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <MdDataset caption="协同角色组" controlwidgetopeStatus="false" enabled="false" id="ds_rolegroup" lazyLoad="true" objMeta="uapcp.cp_rolegroup" voMeta="nc.uap.cpb.org.vos.CpRoleGroupVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>                
+            </MdDataset>
+            <MdDataset caption="协同角色功能节点" controlwidgetopeStatus="false" enabled="false" id="cp_role_rolefunnode" lazyLoad="true" objMeta="uapcp.cp_rolefunnode" voMeta="nc.uap.cpb.org.vos.CpRoleFunnodeVO">
+                <FieldRelations>
+                    <FieldRelation id="cp_role_rolefunnode_ds_funnode" refDataset="ds_funnode">
+                        <MatchFields>
+                            <Field readField="id" writeField="pk_funnode_id">
+                            </Field>
+                            <Field iscontains="Y" ismatch="Y" readField="pk_appsnode" writeField="pk_funnode">
+                            </Field>
+                            <Field readField="title" writeField="pk_funnode_title">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_appsnode" value="pk_funnode">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_funnode_id" nullAble="true" primaryKey="false" sourceField="pk_funnode" text="id">
+                    </Field>
+                    <Field dataType="String" id="pk_funnode_title" nullAble="true" primaryKey="false" sourceField="pk_funnode" text="名称">
+                    </Field>
+                </Fields>                
+            </MdDataset>
+            <RefMdDataset caption="组织" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org" lazyLoad="true" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同用户角色" controlwidgetopeStatus="false" enabled="false" id="cp_role_userrole" lazyLoad="true" objMeta="uapcp.cp_role_userrole" voMeta="nc.uap.cpb.org.vos.CpUserRoleVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_user_cuserid" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_user_user_name">
+                            </Field>
+                            <Field readField="user_code" writeField="pk_user_user_code">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_user_user_code" nullAble="true" primaryKey="false" sourceField="pk_user" text="用户编码">
+                    </Field>
+                </Fields>                
+            </MdDataset>
+            <MdDataset caption="协同角色资源" controlwidgetopeStatus="false" enabled="false" id="cp_role_roleres" lazyLoad="true" objMeta="uapcp.cp_role_roleres" voMeta="nc.uap.cpb.org.vos.CpRoleResVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_resource_pk_resouce" refDataset="$refds_uapcp_cp_resource">
+                        <MatchFields>
+                            <Field readField="resourcename" writeField="pk_resource_resourcename">
+                            </Field>
+                            <Field readField="resourcetype" writeField="pk_resource_resourcetype">
+                            </Field>
+                            <Field readField="originalid" writeField="pk_resource_originalid">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_resource" value="pk_resource">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_resource_resourcename" nullAble="true" primaryKey="false" sourceField="pk_resource" text="资源名称">
+                    </Field>
+                    <Field dataType="Integer" id="pk_resource_resourcetype" nullAble="true" primaryKey="false" sourceField="pk_resource" text="资源类型">
+                    </Field>
+                    <Field dataType="String" id="pk_resource_originalid" nullAble="true" primaryKey="false" sourceField="pk_resource" text="资源来源">
+                    </Field>
+                </Fields>                
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同角色" fullclassName="10d20ab3-0f51-40e8-9c5f-b3a46877d2a6" id="combo_cp_role_type">
+            </MDComboDataConf>
+            <StaticComboData id="combox_isleased">
+                <ComboItem text="是" value="1">
+                </ComboItem>
+                <ComboItem text="否" value="0">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="roletypeds">
+                <ComboItem i18nName="管理员角色" value="0">
+                </ComboItem>
+                <ComboItem i18nName="集团角色" value="1">
+                </ComboItem>
+                <ComboItem i18nName="组织角色" value="2">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+        <RefNodes>
+            <RefNode allowInput="false" dataListener="nc.uap.cpb.org.refrence.GroupRefDatasetServerListener" dialog="false" i18nName="" id="ref_group" isDialog="false" isRefresh="false" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="refrence/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refModel="nc.uap.cpb.org.refrence.PtGroupRefModel" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" writeDs="" writeFields="">
+            </RefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_role_pk_rolegroup_groupname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_rolegroup,groupname" refId="" refcode="协同角色组" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色_协同角色组" usePower="false" writeDs="cp_role" writeFields="pk_rolegroup,pk_rolegroup_groupname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_role_usercreated_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色_协同用户" usePower="false" writeDs="cp_role" writeFields="usercreated,usercreated_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="false" i18nName="" id="refnode_ds_rolegroup_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="项目组织+全局+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色组_项目组织+全局+集团" usePower="false" writeDs="ds_rolegroup" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_role_rolemenuitem_pk_user_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色_协同用户" usePower="false" writeDs="cp_role_rolemenuitem" writeFields="pk_user,pk_user_user_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp caption="协同角色职责" dataset="ds_role_roleresp" editable="true" enabled="true" id="grid_resp" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_responsibility_code" fixedHeader="false" id="pk_responsibility_code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_responsibility_name" fixedHeader="false" id="pk_responsibility_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_responsibility_descipt" fixedHeader="false" id="pk_responsibility_descipt" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="描述" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_roleresp" fixedHeader="false" id="pk_roleresp" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_responsibility" fixedHeader="false" id="pk_responsibility" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="职责" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="协同角色_主键" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="协同角色用户" dataset="cp_role_userrole" editable="true" enabled="true" id="grid_user" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user_user_name" fixedHeader="false" id="pk_user_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user_user_code" fixedHeader="false" id="pk_user_user_code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="true" width="120">
+            </Column>
+             <Column autoExpand="true" dataType="String" editable="true" editorType="DateText" field="enabledate" fixedHeader="false" id="enabledate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="生效日期" textAlign="left" visible="true" width="120">
+            </Column>
+             <Column autoExpand="true" dataType="String" editable="true" editorType="DateText" field="disabledate" fixedHeader="false" id="disabledate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="失效日期" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="协同角色" dataset="cp_role" editable="false" enabled="true" id="grid_role" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="rolename" fixedHeader="false" id="rolename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="rolecode" fixedHeader="false" id="rolecode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="false" editorType="ComboBox" field="type" fixedHeader="false" id="type" imageOnly="false" nullAble="true" refComboData="combo_cp_role_type" renderType="ComboRender" sortable="true" sumCol="false" text="类型" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="comments" fixedHeader="false" id="comments" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="角色备注" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="ComboBox" field="issealed" fixedHeader="false" id="issealed" imageOnly="false" nullAble="true" refComboData="combox_isleased" renderType="ComboRender" sortable="true" sumCol="false" text="是否封存" textAlign="left" visible="true" width="100">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="datecreated" fixedHeader="false" id="datecreated" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建日期" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="usercreated" fixedHeader="false" id="usercreated" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建用户" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="Reference" field="usercreated_user_name" fixedHeader="false" id="usercreated_user_name" imageOnly="false" nullAble="true" refNode="refnode_cp_role_usercreated_user_name" renderType="DefaultRender" sortable="true" sumCol="false" text="创建用户" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_rolegroup" fixedHeader="false" id="pk_rolegroup" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属角色组" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="Reference" field="pk_rolegroup_groupname" fixedHeader="false" id="pk_rolegroup_groupname" imageOnly="false" nullAble="true" refNode="refnode_cp_role_pk_rolegroup_groupname" renderType="DefaultRender" sortable="true" sumCol="false" text="所属角色组" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" id="tree_orgs" rootOpen="true" visible="true" withCheckBox="false" withRoot="false">
+            <RecursiveTreeLevel dataset="ds_orgs" id="level1" labelFields="name" masterKeyField="pk_org" recursiveKeyField="pk_org" recursivePKeyField="pk_fatherorg">
+                <RecursiveTreeLevel dataset="ds_rolegroup" detailKeyParameter="pk_org" id="level2" labelFields="groupname" masterKeyField="pk_rolegroup" recursiveKeyField="pk_rolegroup" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <GridComp caption="协同角色组织" dataset="cp_role_roleorg" editable="true" enabled="true" id="grid_org" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_org_code" fixedHeader="false" i18nName="2UC000-000721" id="pk_org_code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_org_name" fixedHeader="false" i18nName="2UC000-000244" id="pk_org_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_roleorg" fixedHeader="false" id="pk_roleorg" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="组织" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="协同角色_主键" textAlign="left" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+        <MenuBarComp id="menu_role_user">            
+            <MenuItem id="set_disabledate" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Init_Ss_Ms_StateManager" text="设置生效-失效日期">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="setEnaDisbleDate" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+        <MenuBarComp id="menu_role">
+            <MenuItem id="add" modifiers="2"  stateManager="nc.uap.lfw.core.bm.dft.Init_Ss_Ms_StateManager" text="新建">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onAdd" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="3" stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager"  text="删除">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDel" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="edit" modifiers="3"  stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="修改">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onEdit" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="relate" modifiers="2"  stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager"  text="关联操作">
+                <MenuItem id="relate_user_menu" modifiers="3" text="新增关联用户">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onRelateUser" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="del_relate_user_menu" modifiers="3" text="删除关联用户">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDelRelateUser" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="role_relate_org" modifiers="3" text="新增关联组织">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onRelateOrg" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="delrelateorg" modifiers="3" text="删除关联组织">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDelRelateOrg" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="role_relate_resp" modifiers="3" text="新增关联职责">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onRelateResp" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+                <MenuItem id="delrelateresp" modifiers="3" text="删除关联职责">
+                    <Events>
+                        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onDelRelateResp" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem id="commonword" modifiers="3"  stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager"  text="常用语维护">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCommonWord" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

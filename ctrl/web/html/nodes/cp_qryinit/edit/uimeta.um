@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="false" id="edit_um" jquery="0">
+    <FlowvLayout autoFill="0" id="flowvlayout8773" widgetId="edit">
+        <FlowvPanel id="panelv08773" widgetId="edit">
+            <FormComp height="100%" id="qryform" label_position="" left="0" position="relative" top="0" widgetId="edit" width="100%">
+            </FormComp>
+        </FlowvPanel>
+        <FlowvPanel height="40" id="panelv18773" widgetId="edit">
+            <FlowhLayout id="flowhlayout3735" widgetId="edit">
+                <FlowhPanel id="panelh03735" widgetId="edit">
+                </FlowhPanel>
+                <FlowhPanel id="panelh13735" widgetId="edit">
+                    <Button height="23" id="okbt" left="0" position="relative" top="0" widgetId="edit" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh23735" widgetId="edit">
+                </FlowhPanel>
+                <FlowhPanel id="panelh33735" widgetId="edit">
+                    <Button height="23" id="cancelbt" left="0" position="relative" top="0" widgetId="edit" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh43735" widgetId="edit">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" jquery="0" jsEditor="0" jsExcel="0">
+            <Border id="flow7" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                <BorderTrue id="flow14">
+                    <FlowvLayout autoFill="0" id="flow8">
+                        <FlowvPanel  id="flow9">
+                            <CanvasLayout id="titlecanvas" className="rightcanvas">
+								<CanvasPanel id="canvasp1">
+		                            <Menubar id="menu_user" widgetId="main">
+		                            </Menubar>
+		                       	</CanvasPanel>
+							</CanvasLayout>
+                        </FlowvPanel>
+                        <FlowvPanel id="flow10">
+                            <GridComp id="grid_user" widgetId="main">
+                            </GridComp>
+                        </FlowvPanel>
+                        <FlowvPanel id="flow11">
+                            <TabLayout currentItem="0" id="tab_user" oneTabHide="false" widgetId="main">
+                            	<TabRight>
+                            		<Menubar id="menu_role_user" left="0" position="relative" top="0" widgetId="main">
+					                </Menubar>
+                            	</TabRight>
+                                <TabItem i18nName="" id="item_userrole" text="用户角色">                                    
+                                    <FlowvLayout autoFill="0" id="flowvlayout7528" widgetId="main">
+						                <FlowvPanel id="panelv17528" widgetId="main">
+							                <GridComp id="grid_userrole" widgetId="main">
+	                                    	</GridComp>
+					                	</FlowvPanel>
+				                	</FlowvLayout>		
+                                </TabItem>
+                            </TabLayout>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </BorderTrue>
+            </Border>
+</UIMeta>

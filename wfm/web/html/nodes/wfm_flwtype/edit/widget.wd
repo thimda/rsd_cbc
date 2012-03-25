@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="400" id="edit" refId="edit" sourcePackage="" width="600" i18nName="流程类型维护">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程类型" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flwtype" lazyLoad="true" objMeta="uapcp.wfm_flwtype" voMeta="nc.uap.wfm.vo.WfmFlwTypeVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pageid_rel" refDataset="$refds_uapcp_cp_appsnode">
+                        <MatchFields>
+                            <Field readField="title" writeField="pageid_title">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_appsnode" value="pageid">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="流程类型_集团" dataListener="" dialog="true" i18nName="" id="refnode_ds_flwtype_pk_group_name" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_flwtype" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" caption="流程类型_功能节点" dataListener="" dialog="true" i18nName="" id="refnode_ds_flwtype_pageid_title" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_appsnode,title" refId="" refcode="功能节点" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_flwtype" writeFields="pageid,pageid_title">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <FormComp caption="流程类型" columnCount="2" dataset="ds_flwtype" enabled="true" id="frm_flwtype" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="typename" height="22" id="typename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="类型名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="typecode" height="22" id="typecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="类型编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="serverclass" height="22" id="serverclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="服务类" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pageid" height="22" id="pageid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="功能节点ID" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pageid_title" height="22" id="pageid_title" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_flwtype_pageid_title" rowSpan="1" selectOnly="true" text="功能节点ID" visible="true" width="">
+            </Element>
+        </FormComp>
+         <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="BtnMouserServerListener" serverClazz="nc.uap.wfm.flwtypemgr.BtnMouserServerListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_flwtype" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="BtnMouserServerListener" serverClazz="nc.uap.wfm.flwtypemgr.BtnMouserServerListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_flwtype" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

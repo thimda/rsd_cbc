@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="navg_um" jquery="0">
+    <FlowvLayout autoFill="0" id="flowasdf">
+        <FlowvPanel id="flowasdf1">
+            <TreeViewComp id="tree_flowcate" widgetId="navg">
+            </TreeViewComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.portal.ctrl.office.controller.SignSelectControl" dialog="false" id="main" refId="main" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="服务器印章" controlwidgetopeStatus="false" enabled="true" id="signds" lazyLoad="false" objMeta="uapcp.serversign" pageSize="10" voMeta="nc.uap.portal.ctrl.office.data.sign.ServersignVO">
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ekeys" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btnok" text="确定" visible="true">
+        <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onOkClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                    
+                      <![CDATA[var ds = pageUI.getWidget("main").getDataset("signds");
+var row = ds.getSelectedRow();
+if(row == null)
+{
+showErrorDialog("请选择印章");
+return;
+}
+var tempfile = {};
+
+tempfile.name = row.getCellValue(ds.nameToIndex("name"));
+tempfile.pk = row.getCellValue(ds.nameToIndex("pk_lfwfile"));
+tempfile.url = window.globalPath + "/pt/file/down?id=" + tempfile.pk;
+parent.fileCallback(tempfile,"sign");]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btncancel" text="取消" visible="true">
+                <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onOkClick" name="onclick" onserver="false">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>                    
+                      <![CDATA[parent.hideDialog();
+//window.returnValue = false ;
+//window.close();]]>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <GridComp caption="服务器印章" dataset="signds" editable="true" enabled="true" id="signgrid" multiSelect="false" pageSize="10" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="no" fixedHeader="false" id="no" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="序列号" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="owneruser_pk" fixedHeader="false" id="owneruser_pk" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户PK" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="owneruser_code" fixedHeader="false" id="owneruser_code" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="所属用户" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="createby" fixedHeader="false" id="createby" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="创建者" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="createtime" fixedHeader="false" id="createtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="pk_sign" fixedHeader="false" id="pk_sign" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="modifertime" fixedHeader="false" id="modifertime" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_lfwfile" fixedHeader="false" id="pk_lfwfile" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="文件存储ID" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

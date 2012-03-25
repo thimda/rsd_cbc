@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <MdDataset caption="模块" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_module" lazyLoad="false" objMeta="uapcp.cp_module" voMeta="nc.uap.cpb.org.vos.CpModuleVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controloperatorStatus="true" controlwidgetopeStatus="true" enabled="false" id="ds_appscategory" lazyLoad="true" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="moduletree" left="0" position="relative" rootOpen="true" text="节点分组管理" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_module" id="level1" labelFields="id,title" masterKeyField="pk_module" recursiveKeyField="pk_module" recursivePKeyField="pk_parent">
+                <RecursiveTreeLevel dataset="ds_appscategory" detailKeyParameter="pk_module" id="level2" labelFields="title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <FormComp caption="协同功能节点分类" columnCount="2" dataset="ds_appscategory" enabled="true" id="appscategoryform" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" height="22" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="title" height="22" id="title" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="activeflag" height="22" id="activeflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启用" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="i18nname" height="22" id="i18nname" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="i18nname" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_module" height="22" id="pk_module" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模块" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_parent" height="22" id="pk_parent" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="上级分组" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appscategory" height="22" id="pk_appscategory" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>            
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="prototypeid" height="22" id="prototypeid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="prototypeid" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="22" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+<Menus>
+        <MenuBarComp id="menu">
+            <MenuItem id="add" modifiers="2" operatorStatusArray="0,1,2" text="新建">
+                <Listeners>
+                    <MouseListener id="menu_item_add_listener" serverClazz="nc.uap.cpb.org.appscategory.AppscategoryUifAddMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="true" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+<Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="edit" modifiers="2" operatorStatusArray="1" text="修改">
+                <Listeners>
+                    <MouseListener id="menu_item_edit_listener" serverClazz="nc.uap.cpb.org.appscategory.AppscategoryUifEditMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="true" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+<Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="2" operatorStatusArray="1,2" text="删除">
+                <Listeners>
+                    <MouseListener id="menu_item_delete_listener" serverClazz="nc.uap.cpb.org.appscategory.AppscategoryUifDelMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="save" modifiers="2" operatorStatusArray="4,3" text="保存">
+                <Listeners>
+                    <MouseListener id="menu_item_save_listener" serverClazz="nc.uap.cpb.org.appscategory.AppscategoryUifSaveMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="cancel" modifiers="2" operatorStatusArray="3,4" text="取消">
+                <Listeners>
+                    <MouseListener id="menu_item_cancel_listener" serverClazz="nc.uap.cpb.org.appscategory.AppscategoryUifCancelMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_appscategory" type="ds_all_line">
+                                        </Dataset>
+<Dataset id="ds_module" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

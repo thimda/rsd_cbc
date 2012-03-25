@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <TabLayout currentItem="0" id="tab1" oneTabHide="false">
+        <TabItem i18nName="" id="item1" text="休息日">
+            <Widget id="xd"></Widget>
+        </TabItem>
+        <TabItem i18nName="" id="item2" text="工作日">
+            <Widget id="gd">
+            </Widget>
+        </TabItem>
+        <TabItem i18nName="" id="item3" text="周末">
+            <Widget id="wd">
+            </Widget>
+        </TabItem>
+    </TabLayout>
+</UIMeta>

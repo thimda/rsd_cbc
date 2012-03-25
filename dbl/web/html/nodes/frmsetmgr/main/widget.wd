@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <DatasetRelations>
+                <DatasetRelation detailDataset="ds_frmdef" detailForeignKey="pk_formcategory" id="ds_frmcat_ds_frmdef" masterDataset="ds_frmcat" masterKeyField="pk_formcategory">
+                </DatasetRelation>
+                <DatasetRelation detailDataset="ds_frmtmp" detailForeignKey="pk_formdefinition" id="ds_frmdef_ds_frmtmp" masterDataset="ds_frmdef" masterKeyField="pk_formdefinition">
+                </DatasetRelation>
+            </DatasetRelations>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="true" enabled="true" id="ds_frmdef" lazyLoad="true" refId="nc.portal.pdbl.ds_frmdef" voMeta="nc.portal.pdbl.vo.FormDefinitionVO">
+                <FieldRelations>
+                    <FieldRelation id="frmdef_frmcat" refDataset="ds_frmcat">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_formcategory_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_formcategory" value="pk_formcategory">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_formcategory_name" isPrimaryKey="false" nullAble="true" sourceField="pk_formcategory" text="name">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_frmtmp" lazyLoad="true" refId="nc.portal.pdbl.ds_frmtmp" voMeta="nc.portal.pdbl.vo.FormTemplateVO">
+                <FieldRelations>
+                    <FieldRelation id="frmtmp_frmdef" refDataset="ds_frmdef">
+                        <MatchFields>
+                            <Field iscontains="Y" ismatch="Y" readField="pk_formdefinition" writeField="pk_formdefinition">
+                            </Field>
+                            <Field readField="name" writeField="pk_formdefinition_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_formdefinition" value="pk_formdefinition">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" id="pk_formdefinition_name" isPrimaryKey="false" nullAble="true" sourceField="pk_formdefinition" text="name">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_group" lazyLoad="true" refId="nc.portal.org.groupds" voMeta="nc.portal.org.vo.PtGroupVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_frmcat" lazyLoad="true" refId="nc.portal.pdbl.ds_frmcat" voMeta="nc.portal.pdbl.vo.FormCategoryVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                            <Event async="true" name="onAfterRowSelect" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>rowSelectEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="enableCombo">
+                <ComboItem text="是" value="Y">
+                </ComboItem>
+                <ComboItem text="否" value="N">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+        <RefNodes>
+            <RefNode allowInput="false" dataListener="nc.portal.org.group.refrence.GroupRefDatasetServerListener" dialog="false" i18nName="" id="ref_group" isDialog="false" isRefresh="false" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="refrence/reftree.jsp" readDs="masterDs" readFields="pk_group,groupname" refId="" refModel="nc.portal.org.group.refrence.PtGroupRefModel" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" writeDs="" writeFields="">
+            </RefNode>
+            <RefNode allowInput="false" dataListener="nc.portal.pwfm.listener.RefRolesDsLoadListener" dialog="true" i18nName="" id="ref_roles" isDialog="true" isRefresh="false" langDir="" multiSel="true" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,rolename" refId="" refModel="nc.portal.cms.refrence.PtRoleRefModel" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" writeDs="ds_frmdef" writeFields="rolepks,rolenames">
+            </RefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_frmtmp" editable="true" enabled="true" height="100%" id="grid_frmtmp" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="UFID" editable="true" editorType="StringText" field="pk_formtemplate" fixedHeader="false" id="pk_formtemplate" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="false" sumCol="false" text="表单模板标识" visible="false" width="150">
+            </Column>
+            <Column autoExpand="false" dataType="UFID" editable="true" editorType="StringText" field="pk_formdefinition_name" fixedHeader="false" id="pk_formdefinition_name" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="false" sumCol="false" text="表单定义名称" visible="true" width="160">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="versionstr" fixedHeader="false" id="versionstr" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="false" sumCol="false" text="模板版本号" visible="true" width="160">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="isnotenable" fixedHeader="false" id="isnotenable" imageOnly="false" nullAble="false" refComboData="enableCombo" renderType="ComboRender" sortable="false" sumCol="false" text="是否启用" visible="true" width="160">
+            </Column>
+        </GridComp>
+        <GridComp dataset="ds_frmdef" editable="false" enabled="true" height="100%" id="grid_frmdef" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="UFID" editable="false" editorType="StringText" field="pk_formcategory_name" fixedHeader="false" id="pk_formcategory_name" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="表单分类名称" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFID" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="表单定义名称" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFID" editable="true" editorType="StringText" field="tabname" fixedHeader="false" id="tabname" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="数据库表名称" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="rolenames" fixedHeader="false" id="rolenames" imageOnly="false" nullAble="false" refNode="ref_roles" renderType="DefaultRender" sortable="true" sumCol="false" text="角色集合" visible="true" width="150">
+            </Column>
+            <Column autoExpand="false" dataType="UFID" editable="true" editorType="StringText" field="selfdefclass" fixedHeader="false" id="selfdefclass" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="渲染类全名" visible="true" width="160">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="orderstr" fixedHeader="false" id="orderstr" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="排序号" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_frmcat" left="0" position="relative" rootOpen="true" text="可管理分类" top="0" visible="true" width="100%" withCheckBox="false" withRoot="false">
+            <SimpleTreeLevel dataset="ds_group" id="level1" labelFields="groupcode,groupname" masterKeyField="pk_group">
+                <RecursiveTreeLevel dataset="ds_frmcat" detailKeyParameter="pk_group" id="level2" labelFields="name" masterKeyField="pk_formcategory" recursiveKeyField="pk_formcategory" recursivePKeyField="pk_parent">
+                </RecursiveTreeLevel>
+            </SimpleTreeLevel>
+        </TreeViewComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" height="22" id="txt_group" left="0" position="relative" refcode="ref_group" text="选择集团" textAlign="left" textWidth="0" visible="true" width="150">
+            <Listeners>
+                <TextListener id="text_listener" serverClazz="nc.portal.pdbl.listener.GroupRefrenceChangeListener">
+                    <Events>
+                        <Event async="true" name="valueChanged" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_group" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>valueChangeEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TextListener>
+            </Listeners>
+        </ReferenceComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="dmenu">
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="add" modifiers="3" operatorStatusArray="0,1,2" text="新增">
+                <Listeners>
+                    <MouseListener id="addLis" serverClazz="nc.portal.pdbl.listener.FrmDefMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="edit" modifiers="3" operatorStatusArray="1" text="修改">
+                <Listeners>
+                    <MouseListener id="edit" serverClazz="nc.portal.pdbl.listener.FrmDefMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="save" modifiers="3" operatorStatusArray="3,4" text="保存">
+                <Listeners>
+                    <MouseListener id="saveLis" serverClazz="nc.portal.pdbl.listener.FrmDefMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="del" modifiers="3" operatorStatusArray="1,2" text="删除">
+                <Listeners>
+                    <MouseListener id="delLis" serverClazz="nc.portal.pdbl.listener.FrmDefMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="cancel" modifiers="3" operatorStatusArray="3,4" text="取消">
+                <Listeners>
+                    <MouseListener id="calcelLis" serverClazz="nc.portal.pdbl.listener.FrmDefMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_all_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+        <MenuBarComp id="tmenu">
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="add" modifiers="3" operatorStatusArray="0,1,2" text="新增">
+                <Listeners>
+                    <MouseListener id="addLis" serverClazz="nc.portal.pdbl.listener.FrmTmpMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="edit" modifiers="3" operatorStatusArray="1" text="编辑">
+                <Listeners>
+                    <MouseListener id="editLis" serverClazz="nc.portal.pdbl.listener.FrmTmpMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="del" modifiers="3" operatorStatusArray="1,2" text="删除">
+                <Listeners>
+                    <MouseListener id="delLis" serverClazz="nc.portal.pdbl.listener.FrmTmpMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem displayHotKey="CTRL+SHIFT+" id="enable" modifiers="3" operatorStatusArray="1,2" text="启用">
+                <Listeners>
+                    <MouseListener id="enableLis" serverClazz="nc.portal.pdbl.listener.FrmTmpMgrListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_frmdef" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_group" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_frmtmp" type="ds_current_page">
+                                        </Dataset>
+                                        <Dataset id="ds_frmcat" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

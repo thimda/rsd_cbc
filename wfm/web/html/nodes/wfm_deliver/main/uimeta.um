@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="null">
+        <BorderPanel position="center">
+            <FlowvLayout autoFill="0" id="flowv1">
+                <FlowvPanel height="10"></FlowvPanel>
+                <FlowvPanel height="30">
+                    <TextField id="text_org" type="1" widgetId="main">
+                    </TextField>
+                </FlowvPanel>
+                <FlowvPanel>
+                    <FlowhLayout>
+                        <FlowhPanel>
+                            <Border id="borderadfasd" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                                <BorderTrue>
+                                    <TreeViewComp id="tree_deptuser" widgetId="main">
+                                    </TreeViewComp>
+                                </BorderTrue>
+                            </Border>
+                        </FlowhPanel>
+                        <FlowhPanel width="20">
+                        </FlowhPanel>
+                        <FlowhPanel width="80">
+                            <FlowvLayout autoFill="0" id="flowv3">
+                                <FlowvPanel height="60">
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Button id="button_right" widgetId="main">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Button id="button_left" widgetId="main">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Button id="button_up" widgetId="main">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Button id="button_down" widgetId="main">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel height="60">
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Border id="borderadfasd1" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                                <BorderTrue>
+                                    <GridComp id="grid_rightuser" widgetId="main">
+                                    </GridComp>
+                                </BorderTrue>
+                            </Border>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="5">
+                </FlowvPanel>
+                <FlowvPanel height="25">
+                    <FlowhLayout>
+                        <FlowhPanel>
+                            <Label id="label_pad" widgetId="main">
+                            </Label>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <TextField id="text_commonword" type="2" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="50">
+                    <TextField id="text_pad" type="6" widgetId="main">
+                    </TextField>
+                </FlowvPanel>
+                <FlowvPanel height="30">
+                    <FlowhLayout>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_ok" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_cancle" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="5">
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

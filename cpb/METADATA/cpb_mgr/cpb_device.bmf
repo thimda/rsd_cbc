@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-09-13 11:17:45" creator="" description="" displayName="cpb_device" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="7ba35278-9b20-43e7-9d25-a7901f0b352e" isbizmodel="false" mainEntity="aeabec21-44ac-4f96-8e94-6f1d87430d25" modifier="" modifyTime="2011-09-13 11:17:47" name="cpb_device" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="cpb_device" resid="" version="1" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="7ba35278-9b20-43e7-9d25-a7901f0b352e" createTime="2011-09-13 11:17:47" creator="" czlist="" description="" displayName="设备" fullClassName="nc.uap.cpb.org.vos.CpDeviceVO" height="100" help="" id="aeabec21-44ac-4f96-8e94-6f1d87430d25" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="582bfee8-bd21-4435-84b6-a82d7f619e8f" modInfoClassName="" modifier="" modifyTime="2011-09-13 11:19:41" name="cp_device" resid="" stereoType="" tableName="cp_device" userDefClassName="" versionType="0" visibility="public" width="80" x="241" y="101">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="aeabec21-44ac-4f96-8e94-6f1d87430d25" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="编码" dynamic="false" dynamicTable="" fieldName="code" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="1f49e120-d94c-4bdf-a11c-2fc5cadb6c3b" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="code" notSerialize="false" precise="0" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="aeabec21-44ac-4f96-8e94-6f1d87430d25" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="备注" dynamic="false" dynamicTable="" fieldName="memo" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="ca157fbb-2bb0-4660-96a5-e5ee2dfce1c1" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="100" maxValue="" minValue="" name="memo" notSerialize="false" precise="0" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="aeabec21-44ac-4f96-8e94-6f1d87430d25" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="名称" dynamic="false" dynamicTable="" fieldName="name" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="1e7da8d6-c4a3-4351-97a9-1262b759a87b" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="name" notSerialize="false" precise="0" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="aeabec21-44ac-4f96-8e94-6f1d87430d25" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_device" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="582bfee8-bd21-4435-84b6-a82d7f619e8f" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_device" notSerialize="false" precise="0" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

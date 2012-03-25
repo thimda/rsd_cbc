@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta>
+    <BorderLayout id="borderlayout2">
+        <BorderPanel position="center" id="borderpanel1">
+            <Border bottomWidth="" leftWidth="" rightWidth="" topWidth="" width="1" id="border11">
+                <BorderTrue id="border33">
+                    <FlowvLayout id="flowvlayout1">
+                        <FlowvPanel height="20" id="flowvpanel1">
+                            <Menubar id="menu">
+                            </Menubar>
+                        </FlowvPanel>
+                        <FlowvPanel id="flowvpanel2">
+                            <Widget id="main">
+                            </Widget>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </BorderTrue>
+            </Border>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.flowsetting.WfmFlowNavgCtrl" dialog="false" id="navg" refId="navg" sourcePackage="wfm/src/public/">
+    <PlugoutDescs>
+       	<PlugoutDesc id="flownavg_pluginout">
+			<PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="ds_flowcate" type="Dataset.TYPE_DATASET_SEL_ROW">
+			</PlugoutDescItem>
+		</PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <MdDataset caption="流程大类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flowcate" lazyLoad="false" objMeta="uapcp.wfm_flwcat" voMeta="nc.uap.wfm.vo.WfmFlwCatVO">
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="wfmFlowCateOnLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="wfmFlowOnAfterRow" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <TreeViewComp dragEnable="false" enabled="true" id="tree_flowcate" rootOpen="false" visible="true" withCheckBox="false" withRoot="false">
+            <SimpleTreeLevel dataset="ds_flowcate" id="level1" labelFields="catname" masterKeyField="pk_flwcat">
+            </SimpleTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="manage_type_um" jquery="0">
+<FlowvLayout autoFill="0" id="flowvlayout5301" widgetId="relateorg">
+        <FlowvPanel id="panelv05301" widgetId="managetype">
+            <TreeViewComp id="managetype_tree" left="0" position="relative" top="0" widgetId="relateorg" width="100%" height="100%" >
+            </TreeViewComp>
+        </FlowvPanel>        
+    </FlowvLayout>
+</UIMeta>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.ctrl.tpl.qry.QueryAppsNodeController" dialog="false" id="appscategory" refId="appscategory" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+    <PlugoutDesc id="appscategory_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="afterselected" source="ds_appsnode" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="afterselect" source="ds_appsnode" type="Dataset.onAfterRowSelect">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="edit_category_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginedit_category_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同功能节点" controlwidgetopeStatus="false" enabled="false" id="ds_appsnode" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+               <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ds_appsNode" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="appscategory" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_appsnode" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>                    
+                </Events>       
+                
+            </MdDataset>
+            <MdDataset caption="协同功能节点分类" controloperatorStatus="true" controlwidgetopeStatus="false" enabled="false" id="ds_appscategory" lazyLoad="false" objMeta="uapcp.cp_appscategory" voMeta="nc.uap.cpb.org.vos.CpAppsCategoryVO">
+                <Fields>
+                </Fields>   
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onDataLoad_ds_appscategory" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                            <Widget cardSubmit="false" id="appscategory" panelSubmit="false" tabSubmit="false">
+                                <Dataset id="ds_appscategory" type="ds_current_line">
+                                </Dataset>
+                            </Widget>
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>                    
+                </Events>             
+            </MdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+          <TreeViewComp caption="功能节点" checkBoxModel="0" dragEnable="false" enabled="true" id="module_appscategory_tree" rootOpen="true" visible="true" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_appscategory" id="level1" labelFields="title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="pk_parent">
+                <SimpleTreeLevel dataset="ds_appsnode" detailKeyParameter="pk_appscategory" id="level2" labelFields="title" masterKeyField="pk_appsnode">
+                </SimpleTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+    </Components>
+    <Containers>
+   </Containers>
+ </Widget>

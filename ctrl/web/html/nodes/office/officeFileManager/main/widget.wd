@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" refId="main" width="100%">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="files" lazyLoad="false" voMeta="nc.uap.portal.ctrl.office.data.OfficeFileVO">
+                <Fields>
+                    <Field dataType="String" field="pk_file" id="pk_file" isPrimaryKey="false" nullAble="false" text="主键">
+                    </Field>
+                    <Field dataType="String" field="filetype" id="filetype" isPrimaryKey="false" nullAble="true" text="filetype">
+                    </Field>
+                    <Field dataType="String" field="doctype" id="doctype" isPrimaryKey="false" nullAble="true" text="文件类型">
+                    </Field>
+                    <Field dataType="String" field="filename" id="filename" isPrimaryKey="false" nullAble="true" text="文件名称">
+                    </Field>
+                    <Field dataType="String" field="fileurl" id="fileurl" isPrimaryKey="false" nullAble="true" text="文件路径">
+                    </Field>
+                    <Field dataType="String" field="displayname" id="displayname" isPrimaryKey="false" nullAble="true" text="展示名称">
+                    </Field>
+                    <Field dataType="String" id="edit" isPrimaryKey="false" nullAble="true" text="edit">
+                    </Field>
+                    <Field dataType="UFDateTime" field="ts" id="ts" isPrimaryKey="false" nullAble="true" text="更新时间">
+                    </Field>
+                    <Field dataType="String" field="modifyby" id="modifyby" isPrimaryKey="false" nullAble="true" text="修改人">
+                    </Field>
+                    <Field dataType="String" id="usercode" isPrimaryKey="false" nullAble="true" text="使用者">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.portal.ctrl.office.data.FileMgrFilesDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="files" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="files" editable="true" enabled="true" height="100%" id="filesgrid" left="0" multiSelect="true" pagenationTop="false" position="relative" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_file" fixedHeader="false" id="pk_file" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="主键" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="displayname" fixedHeader="false" id="displayname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="名称" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="filename" fixedHeader="false" id="filename" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="文件名" textAlign="left" visible="true" width="300">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" field="ts" fixedHeader="false" id="ts" imageOnly="false" nullAble="true" sortable="true" sumCol="false" text="更新时间" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" field="modifyby" fixedHeader="false" id="modifyby" imageOnly="false" nullAble="true" sortable="true" sumCol="false" text="修改人" visible="true" width="50">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="filetype" fixedHeader="false" id="filetype" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="filetype" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="doctype" fixedHeader="false" id="doctype" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="文件类型" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fileurl" fixedHeader="false" id="fileurl" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="文件路径" textAlign="left" visible="false" width="0">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" field="edit" fixedHeader="false" id="edit" imageOnly="false" nullAble="true" renderType="fileEditRender" sortable="true" sumCol="false" text="编辑" textAlign="center" visible="true" width="50">
+            </Column>
+        </GridComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="mainmenu">
+            <MenuItem id="menu_upload" modifiers="3" text="新增">
+                <Listeners>
+                    <MouseListener id="uploadListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="false">
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>                                    <![CDATA[uploadFile();]]>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="3" text="删除">
+                <Listeners>
+                    <MouseListener id="menu_item_delete_listener" serverClazz="nc.uap.portal.ctrl.office.data.FileMgrUifDelMouseListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="files" type="ds_all_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value></Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

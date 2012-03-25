@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" id="pubview_queryplan" refId="pubview_queryplan" provider="nc.uap.ctrl.tpl.qry.QueryPlanWidgetProvider">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+    </Models>
+    <Components>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

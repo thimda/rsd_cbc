@@ -1,0 +1,254 @@
+package nc.uap.cpb.org.util;
+import nc.bs.framework.common.NCLocator;
+import nc.itf.org.ICorpQryService;
+import nc.itf.org.IDeptQryService;
+import nc.itf.org.IGroupQryService;
+import nc.itf.org.IOrgUnitQryService;
+import nc.itf.org.orgmodel.IUserAdminGroupService;
+import nc.uap.cpb.org.itf.ICpAppsNodeBill;
+import nc.uap.cpb.org.itf.ICpAppsNodeQry;
+import nc.uap.cpb.org.itf.ICpMenuBill;
+import nc.uap.cpb.org.itf.ICpMenuQry;
+import nc.uap.cpb.org.itf.ICpOrgQry;
+import nc.uap.cpb.org.itf.ICpPermissionQry;
+import nc.uap.cpb.org.itf.ICpPluginBill;
+import nc.uap.cpb.org.itf.ICpPluginQry;
+import nc.uap.cpb.org.itf.ICpResourceBill;
+import nc.uap.cpb.org.itf.ICpResourceQry;
+import nc.uap.cpb.org.itf.ICpResponsibilityBill;
+import nc.uap.cpb.org.itf.ICpResponsibilityQry;
+import nc.uap.cpb.org.itf.ICpRoleBill;
+import nc.uap.cpb.org.itf.ICpRoleGroupBill;
+import nc.uap.cpb.org.itf.ICpRoleGroupQry;
+import nc.uap.cpb.org.itf.ICpRoleQry;
+import nc.uap.cpb.org.itf.ICpRoleResourceBill;
+import nc.uap.cpb.org.itf.ICpRoleResourceQry;
+import nc.uap.cpb.org.itf.ICpSuperVOBill;
+import nc.uap.cpb.org.itf.ICpSuperVOQry;
+import nc.uap.cpb.org.itf.ICpUserBill;
+import nc.uap.cpb.org.itf.ICpUserGroupBill;
+import nc.uap.cpb.org.itf.ICpUserGroupQry;
+import nc.uap.cpb.org.itf.ICpUserGroupRoleBill;
+import nc.uap.cpb.org.itf.ICpUserGroupRoleQry;
+import nc.uap.cpb.org.itf.ICpUserGroupUserBill;
+import nc.uap.cpb.org.itf.ICpUserGroupUserQry;
+import nc.uap.cpb.org.itf.ICpUserQry;
+import nc.uap.cpb.org.itf.ICpUserRoleBill;
+import nc.uap.cpb.org.itf.ICpUserRoleQry;
+/**
+ * 
+ * 2010-11-9 上午10:25:54
+ * 
+ * @author
+ */
+public class CpbServiceFacility {
+	/**
+	 * 获取集团管理员管理集团操作服务接口
+	 * 
+	 * @return
+	 */
+	public static IUserAdminGroupService getCpGrpAdminQry() {
+		return (IUserAdminGroupService) NCLocator.getInstance().lookup(IUserAdminGroupService.class.getName());
+	}
+	/**
+	 * 获取集团查询服务接口
+	 * 
+	 * @return
+	 */
+	public static IGroupQryService getCpGroupQry() {
+		return (IGroupQryService) NCLocator.getInstance().lookup(IGroupQryService.class);
+	}
+	/**
+	 * 获取组织查询服务接口
+	 * 
+	 * @return
+	 */
+	public static IOrgUnitQryService getCpOrgQry() {
+		return (IOrgUnitQryService) NCLocator.getInstance().lookup(IOrgUnitQryService.class.getName());
+	}
+	/**
+	 * 获取组织参照查询服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpOrgQry getCpOrgRefefenceQry() {
+		return NCLocator.getInstance().lookup(ICpOrgQry.class);
+	}
+	/**
+	 * 获取公司查询服务接口
+	 * 
+	 * @return
+	 */
+	public static ICorpQryService getCpCorpQry() {
+		return (ICorpQryService) NCLocator.getInstance().lookup(ICorpQryService.class.getName());
+	}
+	/**
+	 * 获取部门服务接口
+	 * 
+	 * @return
+	 */
+	public static IDeptQryService getCpDeptQry() {
+		return (IDeptQryService) NCLocator.getInstance().lookup(IDeptQryService.class.getName());
+	}
+	
+	/**
+	 * 获取用户操作服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpUserQry getCpUserQry() {
+		return (ICpUserQry) NCLocator.getInstance().lookup(ICpUserQry.class.getName());
+	}
+	public static ICpUserBill getCpUserBill() {
+		return (ICpUserBill) NCLocator.getInstance().lookup(ICpUserBill.class.getName());
+	}
+	/**
+	 * 获取用户组操作服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpUserGroupBill getCpUserGroupBill() {
+		return (ICpUserGroupBill) NCLocator.getInstance().lookup(ICpUserGroupBill.class.getName());
+	}
+	public static ICpUserGroupQry getCpUserGroupQry() {
+		return (ICpUserGroupQry) NCLocator.getInstance().lookup(ICpUserGroupQry.class.getName());
+	}
+	/**
+	 * 获取角色操作服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpRoleBill getCpRoleBill() {
+		return (ICpRoleBill) NCLocator.getInstance().lookup(ICpRoleBill.class.getName());
+	}
+	public static ICpRoleQry getCpRoleQry() {
+		return (ICpRoleQry) NCLocator.getInstance().lookup(ICpRoleQry.class.getName());
+	}
+	/**
+	 * 获取职责操作服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpResponsibilityBill getCpResponsibilityBill() {
+		return (ICpResponsibilityBill) NCLocator.getInstance().lookup(ICpResponsibilityBill.class.getName());
+	}
+	public static ICpResponsibilityQry getCpResponsibilityQry() {
+		return (ICpResponsibilityQry) NCLocator.getInstance().lookup(ICpResponsibilityQry.class.getName());
+	}
+	/**
+	 * 获取角色组操作服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpRoleGroupBill getCpRoleGroupBill() {
+		return (ICpRoleGroupBill) NCLocator.getInstance().lookup(ICpRoleGroupBill.class.getName());
+	}
+	public static ICpRoleGroupQry getCpRoleGroupQry() {
+		return (ICpRoleGroupQry) NCLocator.getInstance().lookup(ICpRoleGroupQry.class.getName());
+	}
+	/**
+	 * 获取用户角色服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpUserRoleQry getCpUserRoleQry() {
+		return (ICpUserRoleQry) NCLocator.getInstance().lookup(ICpUserRoleQry.class.getName());
+	}
+	public static ICpUserRoleBill getCpUserRoleBill() {
+		return (ICpUserRoleBill) NCLocator.getInstance().lookup(ICpUserRoleBill.class.getName());
+	}
+	/**
+	 * 获取用户组角色查服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpUserGroupRoleBill getCpUserGroupRoleBill() {
+		return (ICpUserGroupRoleBill) NCLocator.getInstance().lookup(ICpUserGroupRoleBill.class.getName());
+	}
+	public static ICpUserGroupRoleQry getCpUserGroupRoleQry() {
+		return (ICpUserGroupRoleQry) NCLocator.getInstance().lookup(ICpUserGroupRoleQry.class.getName());
+	}
+	/**
+	 * 获取用户组用户查服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpUserGroupUserBill getCpUserGroupUserBill() {
+		return (ICpUserGroupUserBill) NCLocator.getInstance().lookup(ICpUserGroupUserBill.class.getName());
+	}
+	public static ICpUserGroupUserQry getCpUserGroupUserQry() {
+		return (ICpUserGroupUserQry) NCLocator.getInstance().lookup(ICpUserGroupUserQry.class.getName());
+	}
+	/**
+	 * 获取资源服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpResourceQry getCpResourceQry() {
+		return (ICpResourceQry) NCLocator.getInstance().lookup(ICpResourceQry.class.getName());
+	}
+	public static ICpResourceBill getCpResourceBill() {
+		return (ICpResourceBill) NCLocator.getInstance().lookup(ICpResourceBill.class.getName());
+	}
+	/**
+	 * 获取资源角色服务接口
+	 * 
+	 * @return
+	 */
+	public static ICpRoleResourceQry getCpRoleResourceQry() {
+		return (ICpRoleResourceQry) NCLocator.getInstance().lookup(ICpRoleResourceQry.class.getName());
+	}
+	public static ICpRoleResourceBill getCpRoleResourceBill() {
+		return (ICpRoleResourceBill) NCLocator.getInstance().lookup(ICpRoleResourceBill.class.getName());
+	}
+	/**
+	 * 获取supervo操作接口
+	 * 
+	 * @return
+	 */
+	public static ICpSuperVOBill getCpSuperVOBill() {
+		return (ICpSuperVOBill) NCLocator.getInstance().lookup(ICpSuperVOBill.class.getName());
+	}
+	public static ICpSuperVOQry getCpSuperVOQry() {
+		return (ICpSuperVOQry) NCLocator.getInstance().lookup(ICpSuperVOQry.class.getName());
+	}
+	/**
+	 * 获得功能节点操作服务
+	 * 
+	 * @return
+	 */
+	 public static ICpAppsNodeBill getCpAppsNodeBill() {
+		 return NCLocator.getInstance().lookup(ICpAppsNodeBill.class);
+	 }
+	public static ICpAppsNodeQry getPortalManagerAppService() {
+		return (ICpAppsNodeQry) NCLocator.getInstance().lookup(ICpAppsNodeQry.class.getName());
+	}
+	
+	public static ICpMenuQry getMenuQry() {
+		return NCLocator.getInstance().lookup(ICpMenuQry.class);
+	}
+	public static ICpMenuBill getMenuService() {
+		return NCLocator.getInstance().lookup(ICpMenuBill.class);
+	}
+	/**
+	 * 获得插件查询服务
+	 * @return
+	 */
+	public static ICpPluginQry getPluginQryService(){
+		return NCLocator.getInstance().lookup(ICpPluginQry.class);
+	}
+	/**
+	 * 获得插件服务
+	 * @return
+	 */
+	public static ICpPluginBill getPluginService(){
+		return NCLocator.getInstance().lookup(ICpPluginBill.class);
+	}
+	/**
+	 * 获取权限查询服务
+	 * @return
+	 */
+	public static ICpPermissionQry getCpPermissionQryService(){
+		return NCLocator.getInstance().lookup(ICpPermissionQry.class);
+	}
+}

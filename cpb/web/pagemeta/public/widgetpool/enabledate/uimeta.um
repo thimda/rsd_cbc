@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="enabledate_um" jquery="0" jsrelateorgor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout5301" widgetId="enabledate">
+        <FlowvPanel id="panelv05301" widgetId="enabledate">
+             <FormComp id="date_form" widgetId="enabledate"></FormComp>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv15301" widgetId="enabledate">
+            <FlowhLayout id="flowhlayout0735" widgetId="enabledate">
+                <FlowhPanel id="panelh00735" widgetId="enabledate">
+                </FlowhPanel>
+                <FlowhPanel id="panelh10735" widgetId="enabledate">
+                </FlowhPanel>
+                <FlowhPanel id="panelh20735" widgetId="enabledate">
+                    <Button height="23" id="btn_ok" left="0" position="relative" top="0" widgetId="enabledate" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh30735" widgetId="enabledate">
+                    <Button height="23" id="btn_cancel" left="0" position="relative" top="0" widgetId="enabledate" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh40735" widgetId="enabledate">
+                </FlowhPanel>
+                <FlowhPanel id="panelh50735" widgetId="enabledate">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

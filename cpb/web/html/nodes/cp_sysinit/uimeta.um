@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="cp_sysinit_um" jquery="0">
+    <Border id="border1" width="1" roundBorder="true">
+        <BorderTrue id="bp1">
+            <FlowhLayout id="flowh1">
+                <FlowhPanel id="flowhp3">
+	                <CanvasLayout id="titlecanvas" className="rightcanvas">
+						<CanvasPanel id="canvasp1">
+							 <Widget id="main">
+	                   		 </Widget>
+						</CanvasPanel>
+					</CanvasLayout>
+                </FlowhPanel>
+            </FlowhLayout>
+        </BorderTrue>
+    </Border>
+</UIMeta>

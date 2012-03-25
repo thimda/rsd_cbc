@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0">
+    <BorderLayout id="00000001">
+        <BorderPanel id="00000002" position="center">
+            <FlowvLayout autoFill="0" id="00000003" widgetId="null">
+                <FlowvPanel id="00000004" height="25">
+                    <Menubar id="menu_frmcat"></Menubar>
+                </FlowvPanel>
+                <FlowvPanel id="00000005">
+                    <Widget id="main">
+                    </Widget>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

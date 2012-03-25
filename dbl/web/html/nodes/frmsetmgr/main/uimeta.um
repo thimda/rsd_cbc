@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="00001">
+        <BorderPanel id="00002" position="center">
+            <Splitter boundMode="0" divideSize="25" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+                <SplitterOne id="00003">
+                    <Border  id="00004" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                        <BorderTrue id="00005">
+                            <FlowvLayout autoFill="0" id="flowv1">
+                                <FlowvPanel id="00006" height="5">
+                                </FlowvPanel>
+                                <FlowvPanel id="00007" height="25">
+                                    <TextField id="txt_group" type="1" widgetId="main">
+                                    </TextField>
+                                </FlowvPanel>
+                                <FlowvPanel id="00008">
+                                    <TreeViewComp id="tree_frmcat" widgetId="main">
+                                    </TreeViewComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </BorderTrue>
+                    </Border>
+                </SplitterOne>
+                <SplitterTwo id="00009">
+                    <Splitter boundMode="0" divideSize="40" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="v" spliterWidth="4">
+                        <SplitterOne id="000010">
+                            <Border id="000011" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                                <BorderTrue id="000012">
+                                    <FlowvLayout autoFill="0"  id="000013">
+                                        <FlowvPanel id="000014" height="25">
+                                            <Menubar id="dmenu" widgetId="main"></Menubar>
+                                        </FlowvPanel>
+                                        <FlowvPanel id="000015">
+                                            <GridComp id="grid_frmdef" widgetId="main">
+                                            </GridComp>
+                                        </FlowvPanel>
+                                    </FlowvLayout>
+                                </BorderTrue>
+                            </Border>
+                        </SplitterOne>
+                        <SplitterTwo id="000016">
+                            <Border id="000017" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                                <BorderTrue id="000018">
+                                    <FlowvLayout autoFill="0"  id="000019">
+                                        <FlowvPanel id="000020" height="25">
+                                            <Menubar id="tmenu" widgetId="main"></Menubar>
+                                        </FlowvPanel>
+                                        <FlowvPanel id="000021">
+                                            <GridComp id="grid_frmtmp" widgetId="main">
+                                            </GridComp>
+                                        </FlowvPanel>
+                                    </FlowvLayout>
+                                </BorderTrue>
+                            </Border>
+                        </SplitterTwo>
+                    </Splitter>
+                </SplitterTwo>
+            </Splitter>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

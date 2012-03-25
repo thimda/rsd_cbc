@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" id="pubview_exetask_um" jquery="0" jsEditor="0" jsExcel="0">
+	<PanelLayout id="panel1" title="审批意见">
+		<PanelPanel>
+			<FlowhLayout autoFill="0" id="flowvlayout50191" widgetId="pubview_exetask">
+				<FlowhPanel  id="panelv150191" widgetId="pubview_exetask">
+				</FlowhPanel>
+				<FlowhPanel  id="panelv050191" widgetId="pubview_exetask" width="600">
+					<Border bottomColor="" bottomWidth="1" className="" color="" id="border2040" leftColor="" leftWidth="1" rightColor="" rightWidth="1" showBottom="true" showLeft="true" showRight="true" showTop="true" topColor="" topWidth="1" widgetId="pubview_exetask" width="100">
+						<BorderTrue id="bordertrue2040" widgetId="pubview_exetask">
+							<FlowvLayout autoFill="0" id="flowvlayout0191" widgetId="pubview_exetask">
+								<FlowvPanel height="25" id="panelv00191" widgetId="pubview_exetask">
+									<TextField height="22" id="text_exeaction" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="500">
+									</TextField>
+								</FlowvPanel>
+								<FlowvPanel  id="panelv10191" widgetId="pubview_exetask">
+									<CardLayout currentItem="0" id="card1" widgetId="pubview_exetask">
+										<CardPanel id="cardpanel1">
+											<FlowvLayout autoFill="0" id="flowvlayout1191" widgetId="pubview_exetask">
+												<FlowvPanel id="panelv01191" widgetId="pubview_exetask" height="25">
+													<TextField height="23" id="text_commonword1" left="0" position="relative" align="right" top="0" type="text" widgetId="pubview_exetask" width="150">
+													</TextField>
+												</FlowvPanel>
+												<FlowvPanel id="panelv11191" widgetId="pubview_exetask">
+													<TextField height="125" id="text_opinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600">
+													</TextField>
+												</FlowvPanel>
+											</FlowvLayout>
+										</CardPanel>
+										<CardPanel id="cardpanel2">
+											<FlowvLayout autoFill="0" id="flowvlayout1683" widgetId="pubview_exetask">
+												<FlowvPanel id="panelv01683" widgetId="pubview_exetask" height="25">
+													<TextField height="22" id="text_transmituser" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+													</TextField>
+												</FlowvPanel>
+												<FlowvPanel id="panelv21683" widgetId="pubview_exetask" height="25">
+													<TextField height="23" id="text_commonword2" left="0" position="relative" align="right" top="0" type="text" widgetId="pubview_exetask" width="150">
+													</TextField>
+												</FlowvPanel>
+												<FlowvPanel id="panelv11683" widgetId="pubview_exetask" >
+													<TextField height="100" id="text_tranopinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600" >
+													</TextField>
+												</FlowvPanel>
+											</FlowvLayout>
+										</CardPanel>
+										<CardPanel id="cardpanel3">
+											<FlowvLayout autoFill="0" id="flowvlayout1783" widgetId="pubview_exetask">
+												<FlowvPanel id="panelv01783" widgetId="pubview_exetask" >
+													<GridComp  id="grid_beforeaddsign" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" >
+													</GridComp>
+												</FlowvPanel>
+												<FlowvPanel id="panelv11783" widgetId="pubview_exetask" height="25">
+													<FlowhLayout autoFill="0" id="flowvlayout60191" widgetId="pubview_exetask">
+														<FlowhPanel id="panelv060191" widgetId="pubview_exetask" width="80">
+															<Button height="23" id="btn_addstep" left="0" position="relative" top="0" widgetId="pubview_exetask" width="80">
+															</Button>
+														</FlowhPanel>
+														<FlowhPanel  id="panelv160191" widgetId="pubview_exetask" width="80">
+															<Button height="23" id="btn_deletestep" left="0" position="relative" top="0" widgetId="pubview_exetask" width="80">
+															</Button>
+														</FlowhPanel>
+														<FlowhPanel id="panelv260191" widgetId="pubview_exetask">
+															<TextField height="23" id="text_commonword3" left="0" position="relative" align="right" top="0" type="text" widgetId="pubview_exetask" width="150">
+															</TextField>
+														</FlowhPanel>
+													</FlowhLayout>
+												</FlowvPanel>
+												<FlowvPanel id="panelv21783" widgetId="pubview_exetask" >
+													<TextField height="60" id="text_addsignopinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600">
+													</TextField>
+												</FlowvPanel>
+											</FlowvLayout>
+										</CardPanel>
+									</CardLayout>
+								</FlowvPanel>
+								<FlowvPanel height="50" id="panelv20191" widgetId="pubview_exetask">
+									<FlowvLayout autoFill="0" id="flowvlayout2783" widgetId="pubview_exetask">
+										<FlowvPanel  id="panelv02783" widgetId="pubview_exetask" height="25">
+											<TextField height="22" id="text_copysend" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+											</TextField>
+										</FlowvPanel>
+										<FlowvPanel  id="panelv12783" widgetId="pubview_exetask" height="25">
+											<TextField height="22" id="text_attach" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+											</TextField>
+										</FlowvPanel>
+									</FlowvLayout>
+								</FlowvPanel>
+								<FlowvPanel id="panelv30191" widgetId="pubview_exetask" height="25">
+									<FlowhLayout id="flowhlayout5101" widgetId="pubview_exetask">
+										<FlowhPanel id="panelh05101" widgetId="pubview_exetask" width="40">
+											<Linkcomp height="100%" id="link_copysend" left="0" position="relative" top="0" widgetId="pubview_exetask" width="100%">
+											</Linkcomp>
+										</FlowhPanel>
+										<FlowhPanel id="panelh15101" widgetId="pubview_exetask" width="60">
+											<Linkcomp height="100%" id="link_addattach" left="0" position="relative" top="0" widgetId="pubview_exetask" width="100%">
+											</Linkcomp>
+										</FlowhPanel>
+										<FlowhPanel id="panelh25101" widgetId="pubview_exetask" width="50">
+											<Linkcomp height="100%" id="link_aftaddsign" left="0" position="relative" top="0" widgetId="pubview_exetask" width="100%">
+											</Linkcomp>
+										</FlowhPanel>
+										<FlowhPanel id="panelh45101" widgetId="pubview_exetask" width="80">
+											<Linkcomp height="100%" id="link_flowimg" left="0" position="relative" top="0" widgetId="pubview_exetask" width="100%">
+											</Linkcomp>
+										</FlowhPanel>
+										<FlowhPanel id="panelh55101" widgetId="pubview_exetask">
+										</FlowhPanel>
+									</FlowhLayout>
+								</FlowvPanel>
+								<FlowvPanel id="panelv40191" widgetId="pubview_exetask" height="25">
+									<FlowhLayout id="flowhlayout3299" widgetId="pubview_exetask">
+										<FlowhPanel id="panelh13299" widgetId="pubview_exetask">
+										</FlowhPanel>
+										<FlowhPanel id="panelh23299" widgetId="pubview_exetask">
+										</FlowhPanel>
+										<FlowhPanel id="panelh33299" widgetId="pubview_exetask">
+										</FlowhPanel>
+										<FlowhPanel id="panelh43299" widgetId="pubview_exetask">
+											<Button height="23" id="btn_ok" left="0" position="relative" top="0" widgetId="pubview_exetask" width="64" align="right">
+											</Button>
+										</FlowhPanel>
+									</FlowhLayout>
+								</FlowvPanel>
+							</FlowvLayout>
+						</BorderTrue>
+					</Border>
+				</FlowhPanel>
+				<FlowhPanel  id="panelv250191" widgetId="pubview_exetask">
+				</FlowhPanel>
+			</FlowhLayout>   
+		</PanelPanel>
+	</PanelLayout>
+</UIMeta>

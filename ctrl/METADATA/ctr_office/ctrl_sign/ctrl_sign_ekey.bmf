@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-02-14 15:11:28" creator="" description="" displayName="ctrl_sign_ekey" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="993beb8f-b28a-4566-b739-4c8c08a7d0b8" isbizmodel="false" mainEntity="b0b6511c-3f76-4363-892c-fb3605ea797f" modifier="" modifyTime="2012-03-13 09:15:28" name="ctrl_sign_ekey" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="ctrl_sign_ekey" resid="" version="38" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.AggVOStyle" bizItfImpClassName="" componentID="993beb8f-b28a-4566-b739-4c8c08a7d0b8" createTime="2012-02-14 15:30:57" creator="" czlist="" description="" displayName="EKey" fullClassName="nc.uap.portal.ctrl.office.data.sign.EkeyVO" height="166" help="" id="b0b6511c-3f76-4363-892c-fb3605ea797f" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="372e762c-e142-4f74-8095-f104379e6366" modInfoClassName="" modifier="" modifyTime="2012-03-13 09:18:23" name="Ekey" resid="" stereoType="" tableName="uapcp_Ekey" userDefClassName="" versionType="0" visibility="public" width="80" x="59" y="35">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_ekey" fieldType="char" fixedLength="false" forLocale="false" help="" id="372e762c-e142-4f74-8095-f104379e6366" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_ekey" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="序列号" dynamic="false" dynamicTable="" fieldName="sn" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="018d9528-5ed1-49c2-9022-907cbfb8bc93" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="sn" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="BS000010000100001034" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="注册时间" dynamic="false" dynamicTable="" fieldName="createtime" fieldType="char" fixedLength="false" forLocale="false" help="" id="c6b181ee-81f5-4766-8c7c-a485c2f5ecfe" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="19" maxValue="" minValue="" name="createtime" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="UFDateTime" typeName="UFDateTime" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="创建人" dynamic="false" dynamicTable="" fieldName="createby" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="53ed5577-6819-43c4-8506-985ce0e71cd6" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="createby" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" dataTypeStyle="ARRAY" dbtype="" defaultValue="~" description="" displayName="Ekey用户" dynamic="false" dynamicTable="" fieldName="pk_ekey" fieldType="" fixedLength="false" forLocale="false" help="" id="62cdd792-ca1b-44c1-88cb-0e0dbcd2696e" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="ekeyusers" notSerialize="false" precise="" refModelName="" resid="" sequence="4" typeDisplayName="EKey用户" typeName="ekeyUser" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="b0b6511c-3f76-4363-892c-fb3605ea797f" dataType="7ff02653-09c6-44a6-91a0-82aae18af085" dataTypeStyle="REF" dbtype="" defaultValue="~" description="" displayName="所属用户PK" dynamic="false" dynamicTable="" fieldName="owneruser_pk" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="3c87df83-a4bb-456a-bdac-f29079b78912" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="owneruser_pk" notSerialize="false" precise="" refModelName="协同用户" resid="" sequence="5" typeDisplayName="协同用户" typeName="cp_user" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.AggVOStyle" displayName="AggVO" name="AggVO">
+                <properties>
+                    <property classid="b0b6511c-3f76-4363-892c-fb3605ea797f" displayName="包装类名" name="wrapclsname" sequence="0" value="nc.uap.portal.ctrl.office.data.AggEkeyVO"/>
+                </properties>
+            </accessor>
+        </entity>
+        <entity accessorClassName="nc.md.model.access.javamap.NCBeanStyle" bizItfImpClassName="" componentID="993beb8f-b28a-4566-b739-4c8c08a7d0b8" createTime="2012-02-14 15:33:18" creator="" czlist="" description="" displayName="EKey用户" fullClassName="nc.uap.portal.ctrl.office.data.sign.EkeyUserVo" height="100" help="" id="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="false" keyAttributeId="b2291c0e-6548-4e6c-8c2d-e28453a5f18c" modInfoClassName="" modifier="" modifyTime="2012-03-13 09:18:23" name="ekeyUser" resid="" stereoType="" tableName="uapcp_ekeyUser" userDefClassName="" versionType="0" visibility="public" width="80" x="427" y="124">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_ekeyuser" fieldType="char" fixedLength="false" forLocale="false" help="" id="b2291c0e-6548-4e6c-8c2d-e28453a5f18c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_ekeyuser" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" dataType="7ff02653-09c6-44a6-91a0-82aae18af085" dataTypeStyle="REF" dbtype="" defaultValue="~" description="" displayName="用户" dynamic="false" dynamicTable="" fieldName="pk_user" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="7a523ae6-80ec-4d0d-824e-fe603070cf73" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_user" notSerialize="false" precise="" refModelName="协同用户" resid="" sequence="1" typeDisplayName="协同用户" typeName="cp_user" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.NCBeanStyle" displayName="NCVO" name="NCVO">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist>
+        <AggregationRelation componentID="993beb8f-b28a-4566-b739-4c8c08a7d0b8" createTime="2012-02-15 10:26:26" creator="" description="" displayName="" help="" id="283291ac-8a86-409f-85c9-d86f496f02fa" modifier="" modifyTime="2012-02-15 10:35:07" name="Aggregation Relation" realsource="b0b6511c-3f76-4363-892c-fb3605ea797f" realtarget="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" source="b0b6511c-3f76-4363-892c-fb3605ea797f" sourceConstraint="1" srcAttributeid="62cdd792-ca1b-44c1-88cb-0e0dbcd2696e" target="10cc9cbc-b4b4-4e51-bcd0-ef186192f7eb" targetConstraint="1" versionType="0">
+            <points/>
+        </AggregationRelation>
+    </connectlist>
+    <refdepends>
+        <dependfile entityid="7ff02653-09c6-44a6-91a0-82aae18af085"/>
+    </refdepends>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <Splitter boundMode="0" divideSize="15" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+        <SplitterOne>
+            <TreeViewComp id="tree_group" widgetId="main">
+            </TreeViewComp>
+        </SplitterOne>
+        <SplitterTwo>
+            <GridComp id="grid_queryclass" widgetId="main">
+            </GridComp>
+        </SplitterTwo>
+    </Splitter>
+</UIMeta>

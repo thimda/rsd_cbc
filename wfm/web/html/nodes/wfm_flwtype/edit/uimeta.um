@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="325" id="v1">
+           <FlowhLayout id="flowh1">
+                <FlowhPanel width="50" id="h1">
+                </FlowhPanel>
+                <FlowhPanel id="h2">
+                     <FormComp id="frm_flwtype" widgetId="edit">
+                     </FormComp>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="v2">
+            <FlowhLayout id="flowh2">
+                <FlowhPanel id="h11">
+                </FlowhPanel>
+                <FlowhPanel id="h21">
+                </FlowhPanel>
+                <FlowhPanel id="h3">
+                    <Button id="btn_ok" widgetId="edit">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="h4">
+                    <Button id="btn_cancel" widgetId="edit">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="h5">
+                </FlowhPanel>
+                <FlowhPanel id="h6">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

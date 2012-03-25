@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="ctrl/classes" path="ctrl/src/public"/>
+	<classpathentry kind="src" output="ctrl/classes" path="ctrl/src/client"/>
+	<classpathentry kind="src" output="ctrl/classes" path="ctrl/src/private"/>
+	<classpathentry kind="src" output="ctrl/classes" path="ctrl/resources"/>
+	<classpathentry kind="src" output="ctrl/classes" path="ctrl/src/test"/>
+	<classpathentry kind="src" output="dbl/classes" path="dbl/src/public"/>
+	<classpathentry kind="src" output="dbl/classes" path="dbl/src/client"/>
+	<classpathentry kind="src" output="dbl/classes" path="dbl/src/private"/>
+	<classpathentry kind="src" output="dbl/classes" path="dbl/resources"/>
+	<classpathentry kind="src" output="dbl/classes" path="dbl/src/test"/>
+	<classpathentry kind="src" path="cpb/src/public"/>
+	<classpathentry kind="src" path="cpb/src/client"/>
+	<classpathentry kind="src" path="cpb/src/private"/>
+	<classpathentry kind="src" output="cpb/classes" path="cpb/resources"/>
+	<classpathentry kind="src" path="cpb/src/test"/>
+	<classpathentry kind="src" output="wfm/classes" path="wfm/src/public"/>
+	<classpathentry kind="src" output="wfm/classes" path="wfm/src/client"/>
+	<classpathentry kind="src" output="wfm/classes" path="wfm/src/private"/>
+	<classpathentry kind="src" output="wfm/classes" path="wfm/resources"/>
+	<classpathentry kind="src" output="wfm/classes" path="wfm/src/test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/UAPWEB"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Ant_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Product_Common_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Middleware_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Framework_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Module_Public_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Module_Client_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Module_Private_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Module_Lang_Library"/>
+	<classpathentry kind="con" path="nc.uap.mde.library.container/Generated_EJB"/>
+	<classpathentry kind="lib" path="ctrl/META-INF/lib/uapword.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

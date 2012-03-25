@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="430" i18nName="查询窗口" width="470">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_taskattr" lazyLoad="false">
+                <Listeners>
+                    <DatasetListener id="InitTaskAttrDsLoadListener" serverClazz="nc.portal.pwfm.listener.InitTaskAttrDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="query" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_taskattr" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <FormComp columnCount="2" dataset="ds_taskattr" eleWidth="120" enabled="true" id="frm_taskattr" labelMinWidth="0" left="0" position="relative" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+        </FormComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="TaskListQueryMouseListener" serverClazz="nc.portal.pwfm.listener.TaskListQueryMouseListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="query" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskattr" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value></Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="TaskListQueryMouseListener" serverClazz="nc.portal.pwfm.listener.TaskListQueryMouseListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="query" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_taskattr" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value></Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

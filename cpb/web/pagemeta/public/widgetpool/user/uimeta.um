@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0">
+    <Splitter boundMode="0" divideSize="30" hideBar="true" id="user_spliter" inverse="0" oneTouch="false" orientation="h" spliterWidth="4" widgetId="user">
+        <SplitterOne id="user_splitter1">
+            <TreeViewComp id="tree_orgs" widgetId="user"></TreeViewComp>
+        </SplitterOne>
+        <SplitterTwo id="user_splitter2">
+            <FlowvLayout autoFill="0" id="user_14">
+                <FlowvPanel id="user_flowvpanel1">
+                    <GridComp id="grid_user" widgetId="user"></GridComp>
+                </FlowvPanel>
+                <FlowvPanel height="30" id="user_flowvpanel2">
+                    <FlowhLayout id="user_flowhlayout12">
+                        <FlowhPanel id="user_flowhpanel21">
+                        </FlowhPanel>
+                        <FlowhPanel width="100" id="user_flowhpanel22">
+                            <Button id="btn_ok" widgetId="user">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel width="100" id="user_flowhpanel21">
+                            <Button id="btn_cancel" widgetId="user">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="user_flowhpanel24">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </SplitterTwo>
+    </Splitter>
+</UIMeta>

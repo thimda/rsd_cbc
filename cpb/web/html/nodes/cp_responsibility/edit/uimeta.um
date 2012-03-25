@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="edit_um" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout5301" widgetId="edit">
+        <FlowvPanel id="panelv05301" widgetId="edit">
+            <FormComp height="100%" id="responsibility_form" left="0" position="relative" top="0" widgetId="edit" width="100%">
+            </FormComp>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv15301" widgetId="edit">
+            <FlowhLayout id="flowhlayout0735" widgetId="edit">
+                <FlowhPanel id="panelh00735" widgetId="edit">
+                </FlowhPanel>
+                <FlowhPanel id="panelh10735" widgetId="edit">
+                </FlowhPanel>
+                <FlowhPanel id="panelh20735" widgetId="edit">
+                    <Button height="23" id="ok_btn" left="0" position="relative" top="0" widgetId="edit" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh30735" widgetId="edit">
+                    <Button height="23" id="cancel_btn" left="0" position="relative" top="0" widgetId="edit" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh40735" widgetId="edit">
+                </FlowhPanel>
+                <FlowhPanel id="panelh50735" widgetId="edit">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

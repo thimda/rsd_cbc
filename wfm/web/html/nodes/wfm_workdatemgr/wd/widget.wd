@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData caption="星期" id="week_data">
+                <ComboItem text="星期一" value="2">
+                </ComboItem>
+                <ComboItem text="星期二" value="3">
+                </ComboItem>
+                <ComboItem text="星期三" value="4">
+                </ComboItem>
+                <ComboItem text="星期四" value="5">
+                </ComboItem>
+                <ComboItem text="星期五" value="6">
+                </ComboItem>
+                <ComboItem text="星期六" value="7">
+                </ComboItem>
+                <ComboItem text="星期日" value="1">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <CheckboxGroupComp comboDataId="week_data" editorType="CheckboxGroup" enabled="true" focus="false" height="32" id="winput" left="0" position="relative" sepWidth="0" tabIndex="0" text="周末" textAlign="left" textWidth="0" top="0" visible="true" width="520">
+        </CheckboxGroupComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="wmenu">
+            <MenuItem id="wsave" modifiers="2" text="保存">
+                <Listeners>
+                    <MouseListener id="wmlistener" serverClazz="nc.uap.wfm.workdatemgr.WeekendMenuServerListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="wd" panelSubmit="false" tabSubmit="false">
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="false" id="main_um" jquery="0">
+    <FlowvLayout id="flowvlayout6465" widgetId="main">
+        <FlowvPanel id="panelv06465" widgetId="main">
+            <FlowhLayout autoFill="false" id="flowhlayout7213" widgetId="main">
+                <FlowhPanel id="panelh07213" widgetId="main" width="200">
+                    <FlowvLayout id="flowvlayout3556" widgetId="main">
+                        <FlowvPanel height="25" id="panelv03556" widgetId="main">
+                            <TextField height="22" id="text_reforg" imgsrc="" left="0" position="relative" top="0" type="text" widgetId="main" width="120">
+                            </TextField>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv13556" widgetId="main">
+                            <TreeViewComp height="100%" id="tree_nav" left="0" position="relative" top="0" widgetId="main" width="100%">
+                            </TreeViewComp>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh17213" widgetId="main" width="80">
+                    <FlowvLayout id="flowvlayout1429" widgetId="main">
+                        <FlowvPanel id="panelv01429" widgetId="main">
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv11429" widgetId="main">
+                            <Button height="23" id="button0001" left="0" position="relative" top="0" widgetId="main" width="64">
+                            </Button>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv21429" widgetId="main">
+                            <Button height="23" id="button6001" left="0" position="relative" top="0" widgetId="main" width="64">
+                            </Button>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv31429" widgetId="main">
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh27213" widgetId="main">
+                    <GridComp height="100%" id="grid_proxy" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    </GridComp>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel height="50" id="panelv16465" widgetId="main">
+            <FlowhLayout autoFill="false" id="flowhlayout5324" widgetId="main">
+                <FlowhPanel id="panelh05324" widgetId="main">
+                </FlowhPanel>
+                <FlowhPanel id="panelh15324" widgetId="main">
+                    <Button height="23" id="button0314" left="0" position="relative" top="0" widgetId="main" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh25324" widgetId="main">
+                    <Button height="23" id="button4267" left="0" position="relative" top="0" widgetId="main" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh35324" widgetId="main">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

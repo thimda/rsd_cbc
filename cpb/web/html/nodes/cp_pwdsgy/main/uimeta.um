@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <BorderLayout id="borderlayout1">
+        <BorderPanel id="borderpanel1" position="center">
+            <Border id="border22" bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                <BorderTrue id="border1">
+                    <GridComp id="grid_pwdsgy" widgetId="main"></GridComp>
+                </BorderTrue>
+            </Border>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0">
+    <BorderLayout id="00001">
+        <BorderPanel id="00002" position="center">
+            <FlowvLayout id="00003" autoFill="0">
+                <FlowvPanel id="00004">
+                    <Widget id="main">
+                    </Widget>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

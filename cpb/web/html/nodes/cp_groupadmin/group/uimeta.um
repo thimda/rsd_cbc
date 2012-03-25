@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="groupref_flowv1">
+        <FlowvPanel>
+            <TreeViewComp id="tree_group" widgetId="group">
+            </TreeViewComp>
+        </FlowvPanel>
+        <FlowvPanel height="30">
+            <FlowhLayout>
+                <FlowhPanel>
+                </FlowhPanel>
+                <FlowhPanel>
+                    <Button id="btn_ok" widgetId="group">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel>
+                    <Button id="btn_cancel" widgetId="group">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

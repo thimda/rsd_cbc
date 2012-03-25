@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1jkllkjkljkj">
+        <FlowvPanel height="320" id="00kjl001">
+            <Splitter boundMode="0" divideSize="30" hideBar="true" id="splijkljlkter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+                <SplitterOne id="0lkj0011">
+                    <Border id="bordjkljlker1" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="relatemenuitem" width="1">
+                        <BorderTrue id="000hjhjhj012">
+                            <TreeViewComp height="100%" id="tree_funnodecategory" left="0" position="relative" top="0" widgetId="relatemenuitem" width="100%">
+                            </TreeViewComp>
+                        </BorderTrue>
+                    </Border>
+                </SplitterOne>
+                <SplitterTwo id="00kjl00k13">
+                    <Border id="borjlkder2" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="relatemenuitem" width="1">
+                        <BorderTrue id="00ghgh0014">
+                            <GridComp height="100%" id="grid_funnode" left="0" position="relative" top="0" widgetId="relatemenuitem" width="100%">
+                            </GridComp>
+                        </BorderTrue>
+                    </Border>
+                </SplitterTwo>
+            </Splitter>
+        </FlowvPanel>
+        <FlowvPanel height="50" id="0lkj0002">
+            <FlowhLayout id="flowhjjkhj1">
+                <FlowhPanel id="000jkl03">
+                </FlowhPanel>
+                <FlowhPanel id="00lkj004">
+                </FlowhPanel>
+                <FlowhPanel id="00lkj005">
+                    <Button height="24" id="btn_ok" left="0" position="relative" top="0" widgetId="relatemenuitem" width="60">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="000jkl06">
+                    <Button height="24" id="btn_cancel" left="0" position="relative" top="0" widgetId="relatemenuitem" width="60">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="000lkj07">
+                </FlowhPanel>
+                <FlowhPanel id="00jkl008">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

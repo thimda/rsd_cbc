@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.pubview.EnabledateController" dialog="false" id="enabledate" refId="enabledate" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="enabledate_plugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="ok" source="ds_date" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="okbtn" source="btn_ok" type="Button.onclick">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                    <Dataset id="cp_role" type="ds_current_line">
+                    </Dataset>
+                </Widget>
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="ds_date" lazyLoad="false">
+                <Fields>
+                    <Field dataType="UFDate_begin" id="enabledate" nullAble="true" primaryKey="false" text="生效日期">
+                    </Field>
+                    <Field dataType="UFDate_end" id="disabledate" nullAble="true" primaryKey="false" text="失效日期">
+                    </Field>
+                </Fields>                
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <FormComp columnCount="2" dataset="ds_date" eleWidth="120" enabled="true" id="date_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="enabledate" height="" id="enabledate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="生效日期" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="disabledate" height="" id="disabledate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="失效日期" visible="true" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+        </ButtonComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

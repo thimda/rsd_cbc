@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+	<BorderLayout id="1">
+		<BorderPanel id="2" position="center">
+			<FlowvLayout autoFill="0" id="3">
+				<FlowvPanel height="22" id="4">
+					<FlowhLayout id="5">
+						<FlowhPanel id="6" width="50">
+							<Label id="label_opinion" widgetId="main">
+							</Label>
+						</FlowhPanel>
+						<FlowhPanel id="7" width="120">
+							<TextField id="text_action" type="7" widgetId="main">
+							</TextField>
+						</FlowhPanel>
+						<FlowhPanel id="8" width="80">
+							<TextField id="text_channel" type="8" widgetId="main">
+							</TextField>
+						</FlowhPanel>
+						<FlowhPanel id="9" width="160">
+							<TextField id="text_msgtype" type="8" widgetId="main">
+							</TextField>
+						</FlowhPanel>
+						<FlowhPanel id="10" width="50">
+							<Label id="label_opinion_common" widgetId="main">
+							</Label>
+						</FlowhPanel>
+						<FlowhPanel id="11">
+							<TextField id="text_opinion_common" type="2" widgetId="main">
+							</TextField>
+						</FlowhPanel>
+						<FlowhPanel id="12" width="30">
+						</FlowhPanel>
+					</FlowhLayout>
+				</FlowvPanel>
+				<FlowvPanel height="130" id="13">
+					<TextField id="text_opinion" type="6" widgetId="main"  width="600" height="130">
+					</TextField>
+				</FlowvPanel>
+				<FlowvPanel height="22" id="14">
+					<FlowhLayout id="15">
+						<FlowhPanel id="16" width="50">
+							<Label id="label_pad" widgetId="main">
+							</Label>
+						</FlowhPanel>
+						<FlowhPanel id="17" width="120">
+						</FlowhPanel>
+						<FlowhPanel id="18" width="80">
+						</FlowhPanel>
+						<FlowhPanel id="19" width="160">
+						</FlowhPanel>
+						<FlowhPanel id="20" width="50">
+							<Label id="label_pad_common" widgetId="main">
+							</Label>
+						</FlowhPanel>
+						<FlowhPanel id="21">
+							<TextField id="text_pad_common" type="2" widgetId="main">
+							</TextField>
+						</FlowhPanel>
+						<FlowhPanel id="22" width="30">
+						</FlowhPanel>
+					</FlowhLayout>
+				</FlowvPanel>
+				<FlowvPanel height="60" id="23">
+					<TextField id="text_pad" type="6" widgetId="main"  width="600" height="60">
+					</TextField>
+				</FlowvPanel>
+				<FlowvPanel height="130" id="24">
+					<Border id="border3" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+						<BorderTrue>
+							<GridComp id="grid_nexthumact" widgetId="main"></GridComp>
+						</BorderTrue>
+					</Border>
+				</FlowvPanel>
+				<FlowvPanel height="60" id="25">
+					<FlowhLayout id="26">
+						<FlowhPanel id="27">
+						</FlowhPanel>
+						<FlowhPanel id="28">
+						</FlowhPanel>
+						<FlowhPanel id="29">
+							<Button id="btn_ok" widgetId="main">
+							</Button>
+						</FlowhPanel>
+						<FlowhPanel id="30">
+							<Button id="btn_interim" widgetId="main">
+							</Button>
+						</FlowhPanel>
+						<FlowhPanel id="31">
+							<Button id="btn_cancel" widgetId="main">
+							</Button>
+						</FlowhPanel>
+						<FlowhPanel id="32">
+						</FlowhPanel>
+						<FlowhPanel id="33">
+						</FlowhPanel>
+					</FlowhLayout>
+				</FlowvPanel>
+			</FlowvLayout>
+		</BorderPanel>
+	</BorderLayout>
+</UIMeta>

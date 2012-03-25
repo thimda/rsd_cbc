@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="edit_um" jquery="0">
+    <FlowvLayout id="flowvlayout8325" widgetId="edit">
+        <FlowvPanel id="panelv08325" widgetId="edit">
+            <FormComp height="100%" id="form" label_position="" left="0" position="relative" top="0" widgetId="edit" width="100%">
+            </FormComp>
+        </FlowvPanel>
+        <FlowvPanel id="panelv18325" widgetId="edit">
+            <FlowhLayout autoFill="false" id="flowhlayout5479" widgetId="edit">
+                <FlowhPanel id="panelh05479" widgetId="edit">
+                    <TabLayout currentItem="0" id="tag2626" oneTabHide="false" widgetId="edit">
+                        <TabItems>
+                            <TabItem active="1" i18nName="" id="UITabItem02626" showCloseIcon="" text="页签1" widgetId="edit">
+                            </TabItem>
+                            <TabItem active="1" i18nName="" id="UITabItem12626" showCloseIcon="" text="页签2" widgetId="edit">
+                            </TabItem>
+                            <TabItem active="1" i18nName="" id="UITabItem22626" showCloseIcon="" text="页签3" widgetId="edit">
+                            </TabItem>
+                        </TabItems>
+                    </TabLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh15479" widgetId="edit">
+                    <PanelLayout id="panellayout9290" title="22" widgetId="edit">
+                        <PanelPanel bottomPadding="40" id="panelpanel9290" topPadding="30" widgetId="edit">
+                        </PanelPanel>
+                    </PanelLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh25479" widgetId="edit">
+                    <Button height="23" id="okbt" left="0" position="relative" top="0" widgetId="edit" width="64">
+                    </Button>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

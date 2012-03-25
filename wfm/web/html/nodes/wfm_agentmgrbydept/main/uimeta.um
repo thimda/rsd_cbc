@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout>
+        <BorderPanel position="center">
+            <FlowvLayout autoFill="0" id="flowv1">
+                <FlowvPanel height="25">
+                    <Menubar id="agentmenu" widgetId="main">
+                    </Menubar>
+                </FlowvPanel>
+                <FlowvPanel>
+                    <GridComp id="agentgrid" widgetId="main">
+                    </GridComp>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

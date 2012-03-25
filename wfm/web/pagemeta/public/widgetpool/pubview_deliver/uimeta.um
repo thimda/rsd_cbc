@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="pubview_deliver_um" jquery="0">
+    <FlowhLayout id="flowhlayout5550" widgetId="pubview_deliver">
+        <FlowhPanel id="panelh05550" widgetId="pubview_deliver" width="50">
+        </FlowhPanel>
+        <FlowhPanel id="panelh15550" widgetId="pubview_deliver">
+            <FlowvLayout autoFill="0" id="flowvlayout9798" widgetId="pubview_deliver">
+		        <FlowvPanel id="panelv09798" widgetId="pubview_deliver" height="25">
+		            <TextField height="22" id="text_deliveruser" imgsrc="" left="0" position="relative" top="0" type="text" widgetId="pubview_deliver" width="420">
+		            </TextField>
+		        </FlowvPanel>
+		        <FlowvPanel id="panelv19798" widgetId="pubview_afteraddsign" >
+		            <TextField height="300" id="text_opinion" imgsrc="" left="0" position="relative" top="0" type="text" widgetId="pubview_deliver" width="430">
+		            </TextField>
+		        </FlowvPanel>
+		        <FlowvPanel id="panelv29798" widgetId="pubview_deliver" height="30">
+		           <FlowhLayout autoFill="0" id="flowhlayout4798" widgetId="pubview_deliver">
+		                <FlowhPanel id="panelh34798" widgetId="pubview_deliver" height="25">
+				        </FlowhPanel>
+		                <FlowhPanel id="panelh24798" widgetId="pubview_deliver" height="25">
+				        </FlowhPanel>
+				        <FlowhPanel id="panelh04798" widgetId="pubview_deliver" height="25">
+				            <Button height="22" id="btn_ok" imgsrc="" left="0" position="relative" top="0" type="text" widgetId="pubview_deliver" >
+				            </Button>
+				        </FlowhPanel>
+				        <FlowhPanel id="panelh14798" widgetId="pubview_afteraddsign">
+				            <Button  height="22"  id="btn_cancel" imgsrc="" left="0" position="relative" top="0" type="text" widgetId="pubview_deliver">
+				            </Button>
+				        </FlowhPanel>
+				        <FlowhPanel id="panelh44798" widgetId="pubview_deliver" height="25">
+				        </FlowhPanel>
+		                <FlowhPanel id="panelh54798" widgetId="pubview_deliver" height="25">
+				        </FlowhPanel>
+      		        </FlowhLayout>
+		        </FlowvPanel>
+      		</FlowvLayout>
+        </FlowhPanel>
+        <FlowhPanel id="panelh25550" widgetId="pubview_deliver" width="50">
+        </FlowhPanel>
+    </FlowhLayout>
+</UIMeta>

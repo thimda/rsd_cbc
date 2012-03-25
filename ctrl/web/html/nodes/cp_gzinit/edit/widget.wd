@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.ctrl.tpl.gz.CpGzInitCtrl" dialog="false" id="edit" refId="edit" sourcePackage="ctrl/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="addPlugout">
+            <PlugoutDescItem clazztype="java.lang.String" name="row" source="formds" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="editBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同查询模板" controlwidgetopeStatus="false" enabled="false" id="formds" lazyLoad="true" objMeta="uapcp.cp_gz_template" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzTemplateVO">
+                <FieldRelations>
+                    <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pkcorp_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pkcorp">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="metaclass_rel" refDataset="$refds_uap_entity">
+                        <MatchFields>
+                            <Field readField="displayname" writeField="metaclass_displayname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="id" value="metaclass">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="formds" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_formds_metaclass_displayname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="id,displayname" refId="" refcode="元数据实体" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同查询模板_元数据实体" usePower="false" writeDs="formds" writeFields="metaclass,metaclass_displayname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_formds_pkcorp_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同查询模板_集团" usePower="false" writeDs="formds" writeFields="pkcorp,pkcorp_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="cancelbt" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="cancelBtClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="okbt" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="saveBtClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <FormComp caption="协同查询模板" columnCount="2" dataset="formds" eleWidth="120" enabled="true" id="qryform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_gz_template" height="" id="pk_gz_template" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="系统ID" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pkcorp" height="" id="pkcorp" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="单位编码" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pkcorp_name" height="" id="pkcorp_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_formds_pkcorp_name" rowSpan="1" selectOnly="true" text="单位编码" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="modelcode" height="" id="modelcode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模板编号" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="modelname" height="" id="modelname" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模板名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="description" height="" id="description" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模板描述" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="fixcondition" height="" id="fixcondition" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="固定条件" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="resid" height="" id="resid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="资源ID" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="metaclass" height="" id="metaclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="元数据主实体" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="metaclass_displayname" height="" id="metaclass_displayname" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_formds_metaclass_displayname" rowSpan="1" selectOnly="true" text="元数据主实体" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="parentid" height="" id="parentid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="父模板主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="TextArea" enabled="true" field="fixquerytree" height="" id="fixquerytree" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="固定查询树" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
+            </Element>
+        </FormComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

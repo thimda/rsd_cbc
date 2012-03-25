@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="300">
+            <GridComp id="filesgrid" widgetId="main">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel height="30">
+            <FlowhLayout>
+                <FlowhPanel>
+                    <FlowhLayout>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel width="70">
+                            <Button id="btnOK" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel width="70">
+                            <Button id="btnCancel" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

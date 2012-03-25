@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta  flowmode="true" chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="41" id="flowvpanel1">
+            <CanvasLayout id="menuback" className="rightcanvas">
+				<CanvasPanel id="canvasp1">
+		            <Menubar id="menu">
+		            </Menubar>
+		        </CanvasPanel>
+			</CanvasLayout>
+        </FlowvPanel>
+        <FlowvPanel id="flowvpanel2">
+          <FlowhLayout autoFill="0" id="flowh1">             
+             <FlowhPanel  id="flowhpanel1">
+                 <GridComp id="menuitem_grid" widgetId="main">
+                    </GridComp>
+             </FlowhPanel>
+       </FlowhLayout>
+      </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

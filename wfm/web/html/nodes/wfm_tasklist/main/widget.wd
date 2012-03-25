@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+
+    <Models>
+        <Datasets>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_cmplttask" lazyLoad="false" pageSize="20" refId="nc.portal.pwfm.ds_task" voMeta="nc.uap.wfm.vo.WfmTaskVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="MyPrtptCmpltTasksDsListener" serverClazz="nc.uap.wfm.listener.MyPrtptCmpltTasksDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_cmplttask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_sendtask" lazyLoad="false" pageSize="20" refId="nc.portal.pwfm.ds_task" voMeta="nc.uap.wfm.vo.WfmTaskVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="MyPrtptSenddTasksDsListener" serverClazz="nc.uap.wfm.listener.MyPrtptSenddTasksDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_sendtask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_endedtask" lazyLoad="false" pageSize="20" voMeta="nc.uap.wfm.vo.WfmTaskVO">
+                <Fields>
+                    <Field dataType="String" field="pk_task" id="pk_task" isPrimaryKey="false" nullAble="true" text="主键">
+                    </Field>
+                    <Field dataType="String" field="ext0" id="ext0" isPrimaryKey="false" nullAble="true" text="流水号">
+                    </Field>
+                    <Field dataType="String" field="prodefname" id="prodefname" isPrimaryKey="false" nullAble="true" text="流程名称">
+                    </Field>
+                    <Field dataType="String" field="ext1" id="ext1" isPrimaryKey="false" nullAble="true" text="标题">
+                    </Field>
+                    <Field dataType="String" field="ext2" id="ext2" isPrimaryKey="false" nullAble="true" text="流程开始部门">
+                    </Field>
+                    <Field dataType="String" field="proinsstartdate" id="proinsstartdate" isPrimaryKey="false" nullAble="true" text="流程开始时间">
+                    </Field>
+                    <Field dataType="String" field="ext3" id="ext3" isPrimaryKey="false" nullAble="true" text="附件">
+                    </Field>
+                    <Field dataType="String" field="ext4" id="ext4" isPrimaryKey="false" nullAble="true" text="缓急程度">
+                    </Field>
+                    <Field dataType="String" field="signdate" id="signdate" isPrimaryKey="false" nullAble="true" text="办结时间">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="MyPrtptEndedTasksDsListener" serverClazz="nc.uap.wfm.listener.MyPrtptEndedTasksDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_endedtask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_undnetask" lazyLoad="false" pageSize="20" refId="nc.portal.pwfm.ds_task" voMeta="nc.uap.wfm.vo.WfmTaskVO">
+                <Fields>
+                    <Field dataType="String" field="tasktype" id="tasktype" isPrimaryKey="false" nullAble="true" text="任务类型">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="MyPrtptUndneTasksDsListener" serverClazz="nc.uap.wfm.listener.MyPrtptUndneTasksDsListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_undnetask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="comdata_handlepiece">
+                <ComboItem text="未看件" value="HandlerPiece_UnRead">
+                </ComboItem>
+                <ComboItem text="看过件" value="HandlerPiece_Readed">
+                </ComboItem>
+                <ComboItem text="退回件" value="HandlerPiece_Rejected">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="comdata_taskstate">
+                <ComboItem text="待办" value="State_Run">
+                </ComboItem>
+                <ComboItem text="已办" value="State_End">
+                </ComboItem>
+                <ComboItem text="挂起" value="State_Suspended">
+                </ComboItem>
+                <ComboItem text="待阅" value="State_UnRead">
+                </ComboItem>
+                <ComboItem text="已阅" value="State_Readed">
+                </ComboItem>
+                <ComboItem text="执行中" value="State_Plmnt">
+                </ComboItem>
+                <ComboItem text="加签发送" value="State_AddSignSend">
+                </ComboItem>
+                <ComboItem text="加签中" value="State_AddSignPlmnt">
+                </ComboItem>
+                <ComboItem text="加签完成" value="State_AddSignCmplt">
+                </ComboItem>
+                <ComboItem text="加签中止" value="State_AddSignStop">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_undnetask" editable="true" enabled="true" height="100%" id="grid_undnetask" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext0" fixedHeader="false" id="ext0" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流水号" textAlign="center" visible="true" width="180">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext1" fixedHeader="false" id="ext1" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="标题" textAlign="center" visible="true" width="350">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="humactname" fixedHeader="false" id="humactname" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="活动名称" textAlign="center" visible="true" width="200">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext2" fixedHeader="false" id="ext2" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="部门" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="ComboBox" field="state" fixedHeader="false" id="state" imageOnly="false" nullAble="false" refComboData="comdata_taskstate" renderType="ComboRender" sortable="true" sumCol="false" text="任务状态" textAlign="center" visible="true" width="80">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext4" fixedHeader="false" id="ext4" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="缓急程度" textAlign="center" visible="true" width="80">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="handlepiece" fixedHeader="false" id="handlepiece" imageOnly="false" nullAble="true" refComboData="comdata_handlepiece" renderType="ComboRender" sortable="true" sumCol="false" text="办件情况" textAlign="center" visible="true" width="100">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext3" fixedHeader="false" id="ext3" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="附件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="proinsstartdate" fixedHeader="false" id="proinsstartdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程开始日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="startdate" fixedHeader="false" id="startdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="任务到达时间" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="prodefname" fixedHeader="false" id="prodefname" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="流程名称" textAlign="center" visible="true" width="120">
+            </Column>
+            <Listeners>
+                <GridRowListener id="default_grid_undnetask" serverClazz="nc.uap.wfm.listener.GridRowDbClickTaskExeListener">
+                    <Events>
+                        <Event async="true" name="onRowDbClick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_undnetask" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>rowEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </GridRowListener>
+            </Listeners>
+        </GridComp>
+        <GridComp dataset="ds_sendtask" editable="true" enabled="true" height="100%" id="grid_sendtask" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext0" fixedHeader="false" id="ext0" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流水号" textAlign="center" visible="true" width="180">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="humactname" fixedHeader="false" id="humactname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="活动名称" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext2" fixedHeader="false" id="ext2" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="部门" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="state" fixedHeader="false" id="state" imageOnly="false" nullAble="true" refComboData="comdata_taskstate" renderType="ComboRender" sortable="true" sumCol="false" text="任务状态" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext4" fixedHeader="false" id="ext4" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="缓急程度" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext1" fixedHeader="false" id="ext1" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="附件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="proinsstartdate" fixedHeader="false" id="proinsstartdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程开始日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="StringText" field="startdate" fixedHeader="false" id="startdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="任务开始日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDate" editable="true" editorType="StringText" field="enddate" fixedHeader="false" id="enddate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="任务提交日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="opinion" fixedHeader="false" id="opinion" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="处理意见" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="signdate" fixedHeader="false" id="signdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="签收日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext3" fixedHeader="false" id="ext3" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="附件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="handlepiece" fixedHeader="false" id="handlepiece" imageOnly="false" nullAble="true" refComboData="comdata_handlepiece" renderType="ComboRender" sortable="true" sumCol="false" text="办件情况" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext5" fixedHeader="false" id="ext5" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="领导批示" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="prodefname" fixedHeader="false" id="prodefname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程名称" textAlign="center" visible="true" width="120">
+            </Column>
+            <Listeners>
+                <GridRowListener id="default_grid_sendtask" serverClazz="nc.uap.wfm.listener.GridRowDbClickTaskExeListener">
+                    <Events>
+                        <Event async="true" name="onRowDbClick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_sendtask" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>rowEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </GridRowListener>
+            </Listeners>
+        </GridComp>
+        <GridComp dataset="ds_endedtask" editable="true" enabled="true" height="100%" id="grid_endedtask" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext0" fixedHeader="false" id="ext0" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流水号" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext1" fixedHeader="false" id="ext1" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="标题" textAlign="center" visible="true" width="350">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="prodefname" fixedHeader="false" id="prodefname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="活动名称" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext2" fixedHeader="false" id="ext2" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="部门" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext4" fixedHeader="false" id="ext4" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="缓急程度" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext3" fixedHeader="false" id="ext3" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="附件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="proinsstartdate" fixedHeader="false" id="proinsstartdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程开始时间" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="signdate" fixedHeader="false" id="signdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="办结时间" textAlign="center" visible="true" width="120">
+            </Column>
+            <Listeners>
+                <GridRowListener id="default_grid_endedtask" serverClazz="nc.uap.wfm.listener.GridRowDbClickTaskExeListener">
+                    <Events>
+                        <Event async="true" name="onRowDbClick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_endedtask" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>rowEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </GridRowListener>
+            </Listeners>
+        </GridComp>
+        <GridComp dataset="ds_cmplttask" editable="true" enabled="true" height="100%" id="grid_cmplttask" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext0" fixedHeader="false" id="ext0" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流水号" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext1" fixedHeader="false" id="ext1" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="标题" textAlign="center" visible="true" width="350">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="humactname" fixedHeader="false" id="humactname" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="活动名称" textAlign="center" visible="true" width="150">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext2" fixedHeader="false" id="ext2" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="部门" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="state" fixedHeader="false" id="state" imageOnly="false" nullAble="false" refComboData="comdata_taskstate" renderType="ComboRender" sortable="true" sumCol="false" text="任务状态" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext4" fixedHeader="false" id="ext4" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="缓急程度" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="ComboBox" field="handlepiece" fixedHeader="false" id="handlepiece" imageOnly="false" nullAble="true" refComboData="comdata_handlepiece" renderType="ComboRender" sortable="true" sumCol="false" text="办件情况" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext3" fixedHeader="false" id="ext3" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="附件" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="proinsstartdate" fixedHeader="false" id="proinsstartdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程开始日期" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="startdate" fixedHeader="false" id="startdate" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="任务开始日期" textAlign="center" visible="false" width="150">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="enddate" fixedHeader="false" id="enddate" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="任务提交日期" textAlign="center" visible="false" width="150">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="opinion" fixedHeader="false" id="opinion" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="处理意见" textAlign="center" visible="false" width="150">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="signdate" fixedHeader="false" id="signdate" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="签收日期" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="ext5" fixedHeader="false" id="ext5" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="领导批示" textAlign="center" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="prodefname" fixedHeader="false" id="prodefname" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="流程名称" textAlign="center" visible="true" width="120">
+            </Column>
+            <Listeners>
+                <GridRowListener id="default_grid_cmplttask" serverClazz="nc.uap.wfm.listener.GridRowDbClickTaskExeListener">
+                    <Events>
+                        <Event async="true" name="onRowDbClick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_cmplttask" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>rowEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </GridRowListener>
+            </Listeners>
+        </GridComp>
+    </Components>
+    <Containers>
+        <TabComp id="tab_task">
+            <Listeners>
+                <TabListener id="MyPrtptTaskTabListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksTabChngListener">
+                    <Events>
+                        <Event async="true" name="afterActivedTabItemChange" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="true">
+                                    <Dataset id="ds_cmplttask" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_undnetask" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_plmnttask" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>tabItemChangeEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TabListener>
+            </Listeners>
+        </TabComp>
+    </Containers>
+    <Menus>
+        <MenuBarComp id="menu_task">
+            <MenuItem id="detail" modifiers="2" text="详情浏览">
+                <Listeners>
+                    <MouseListener id="MyPrtptTasksActionsListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksActionsListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_cmplttask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_sendtask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_undnetask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_plmnttask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="execute" modifiers="2" text="处理">
+                <Listeners>
+                    <MouseListener id="MyPrtptTaskActionListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksActionsListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="back" modifiers="2" text="收回重新处理">
+                <Listeners>
+                    <MouseListener id="MyPrtptTaskActionListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksActionsListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="delete" modifiers="2" text="删除">
+                <Listeners>
+                    <MouseListener id="MyPrtptTaskActionListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksActionsListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+            <MenuItem id="qry" modifiers="2" text="文件查询">
+                <Listeners>
+                    <MouseListener id="MyPrtptTasksActionsListener" serverClazz="nc.uap.wfm.listener.MyPrtptTasksActionsListener">
+                        <Events>
+                            <Event async="true" name="onclick" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_cmplttask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_sendtask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_undnetask" type="ds_current_line">
+                                        </Dataset>
+                                        <Dataset id="ds_plmnttask" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>mouseEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </MouseListener>
+                </Listeners>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

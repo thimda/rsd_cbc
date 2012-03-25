@@ -1,0 +1,17 @@
+package nc.uap.cpb.org.impl
+import nc.uap.lfw.app.itf.IOperatorLogService;
+import nc.uap.lfw.core.comp.MenuItem;
+import nc.uap.lfw.core.event.AbstractServerEvent;
+
+public class OperatorLogServiceImpl implements IOperatorLogService{
+
+	@Override
+	public void log(AbstractServerEvent e) {
+		Object source = e.getSource();
+		//对菜单操作记录日志
+		if(source instanceof MenuItem){
+			
+		}
+	}
+
+}

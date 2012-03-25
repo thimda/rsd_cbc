@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="41" id="flowvpanel1">
+            <Menubar id="menu">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel id="flowvpanel2">
+    <Splitter boundMode="0" divideSize="20" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+        <SplitterOne>
+            <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                <BorderTrue>
+                    <TreeViewComp id="moduletree" widgetId="main">
+                    </TreeViewComp>
+                </BorderTrue>
+            </Border>
+        </SplitterOne>
+        <SplitterTwo>
+            <Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                <BorderTrue>
+                    <FormComp id="appscategoryform" widgetId="main">
+                    </FormComp>
+                </BorderTrue>
+            </Border>
+        </SplitterTwo>
+    </Splitter>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

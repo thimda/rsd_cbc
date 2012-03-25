@@ -1,0 +1,24 @@
+#Wed Mar 14 11:01:27 CST 2012
+eclipse.preferences.version=1
+encoding//cpb/META-INF/M_uapcp_cpb.upm=UTF-8
+encoding//cpb/web/cpb_nodes.jsp=UTF-8
+encoding//cpb/web/html/nodes=UTF-8
+encoding//cpb/web/html/nodes/log/cp_loginlog/pagemeta.pm=UTF-8
+encoding//cpb/web/html/nodes/pamgr/leftView/widget.wd=UTF-8
+encoding//ctrl/web/html/nodes/cp_printinit/condition/widget.wd=UTF-8
+encoding//ctrl/web/html/nodes/cp_printinit/edit/widget.wd=UTF-8
+encoding//ctrl/web/html/nodes/cp_printinit/main/widget.wd=UTF-8
+encoding//ctrl/web/html/nodes/cp_printinit/uimeta.um=UTF-8
+encoding//ctrl/web/html/nodes/cp_qryinit/pagemeta.pm=UTF-8
+encoding//ctrl/web/html/nodes/cp_qryinit/uimeta.um=UTF-8
+encoding//ctrl/web/html/nodes/office/officefileselect/pagemeta.pm=UTF-8
+encoding//wfm/web/html/nodes/wfm_flwdatadisps=UTF-8
+encoding//wfm/web/html/nodes/wfm_flwtype=UTF-8
+encoding//wfm/web/html/nodes/wfm_flwtype/main/widget.wd=UTF-8
+encoding//wfm/web/html/nodes/wfm_subflwtype=UTF-8
+encoding//wfm/web/html/nodes/wfm_virtualrolemgr/main/widget.wd=UTF-8
+encoding//wfm/web/html/nodes/wfm_virtualrolemgr/pagemeta.pm=UTF-8
+encoding//wfm/web/html/nodes/wfm_wfdesign=UTF-8
+encoding//wfm/web/html/nodes/wfm_workflownext/assign/widget.wd=UTF-8
+encoding//wfm/web/html/nodes/wfm_workflownext/main/widget.wd=UTF-8
+encoding//wfm/web/html/nodes/wfm_workflownext/pagemeta.pm=UTF-8

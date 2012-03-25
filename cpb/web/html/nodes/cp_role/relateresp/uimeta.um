@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowjkljkjklkjljklkjljkljklv1">
+        <FlowvPanel id="lkj0001">
+            <GridComp height="100%" id="resp_grid" left="0" position="relative" top="0" widgetId="relateresp" width="100%"></GridComp>
+        </FlowvPanel>
+        <FlowvPanel height="50" id="01002">
+            <FlowhLayout id="flowh14454">
+                <FlowhPanel id="null001"></FlowhPanel>
+                <FlowhPanel id="null002"></FlowhPanel>
+                <FlowhPanel id="null003">
+                    <Button id="btn_ok" widgetId="relateresp"></Button>
+                </FlowhPanel>
+                <FlowhPanel id="0012314">
+                    <Button id="btn_cancel" widgetId="relateresp"></Button>
+                </FlowhPanel>
+                <FlowhPanel id="null0005"></FlowhPanel>
+                <FlowhPanel id="null0006"></FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

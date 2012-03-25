@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.exetask.ExeTaskMainCtrl" dialog="false" id="pubview_exetask" refId="../pubview_exetask" sourcePackage="wfm/src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+        <PlugoutDesc id="wf_pluginout">
+        </PlugoutDesc>
+        <PlugoutDesc id="wfm_pluginin">
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="ds_beforeaddsign" lazyLoad="true" notNullBody="false">
+                <Fields>
+                    <Field dataType="String" id="name" nullAble="true" primaryKey="false" text="步骤名称">
+                    </Field>
+                    <Field dataType="String" id="userpks" nullAble="true" primaryKey="false" text="用户集合">
+                    </Field>
+                </Fields>
+            </Dataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="combox_commonword">
+                <ComboItem text="编辑常用语" value="编辑常用语">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="exeaction">
+                <ComboItem text="同意" value="agree">
+                </ComboItem>
+                <ComboItem text="不同意" value="noagree">
+                </ComboItem>
+                <ComboItem text="驳回" value="reject">
+                </ComboItem>
+                <ComboItem text="转发" value="transmit">
+                </ComboItem>
+                <ComboItem text="前加签" value="befaddsign">
+                </ComboItem>
+                <ComboItem text="中止" value="stop">
+                </ComboItem>
+            </StaticComboData>
+        </ComboDatas>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_transuser" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_协同用户" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_addsignopinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_tranopinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <LinkComp hasImg="false" i18nName="抄送" id="link_copysend" target="_blank">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.LinkListener" methodName="deliverClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>linkEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.LinkEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </LinkComp>
+        <GridComp dataset="ds_beforeaddsign" editable="true" enabled="true" headerRowHeight="20" id="grid_beforeaddsign" multiSelect="false" pagenationTop="false" rowHeight="22" showColInfo="false" showHeader="false" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" id="name" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="步骤名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="userpks" fixedHeader="false" id="userpks" imageOnly="false" nullAble="true" refNode="refnode_transuser" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="用户集合" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="text_attach" text="附件列表：" textAlign="left" visible="true">
+        </TextComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnok_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="pubview_exetask" panelSubmit="false" tabSubmit="false">
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <RadioGroupComp comboDataId="exeaction" editorType="RadioGroup" enabled="true" focus="false" id="text_exeaction" index="0" sepWidth="0" tabIndex="0" textAlign="left" textWidth="0" value="noagree" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="textValueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="pubview_exetask" panelSubmit="false" tabSubmit="false">
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </RadioGroupComp>
+        <LinkComp hasImg="false" i18nName="流程历史" id="link_history" target="_blank">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.LinkListener" methodName="historyClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>linkEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.LinkEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </LinkComp>
+        <ButtonComp enabled="true" id="btn_addstep" text="追加步骤" visible="true">
+        </ButtonComp>
+        <LinkComp hasImg="false" i18nName="流程进度" id="link_flowimg" target="_blank">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.LinkListener" methodName="flowImgClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>linkEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.LinkEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </LinkComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="text_copysend" text="抄送人员：" textAlign="left" visible="true">
+        </TextComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" id="text_opinion" textAlign="left" textWidth="0" visible="true">
+        </TextAreaComp>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+        </ButtonComp>
+        <LinkComp hasImg="false" i18nName="添加附件" id="link_addattach" target="_blank">
+        </LinkComp>
+        <LinkComp hasImg="false" i18nName="后加签" id="link_aftaddsign" target="_blank">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.LinkListener" methodName="afterAddSignClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>linkEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.LinkEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </LinkComp>
+        <ButtonComp enabled="true" id="btn_deletestep" text="删除步骤" visible="true">
+        </ButtonComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_commonword3" refComboData="combox_commonword" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="commonword3_valueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ComBoBoxComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_transmituser" refcode="refnode_transuser" text="请选择转发的用户" textAlign="left" textWidth="0" visible="true">
+        </ReferenceComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_commonword1" refComboData="combox_commonword" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="commonword1_valueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ComBoBoxComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_commonword2" refComboData="combox_commonword" selectOnly="true" textAlign="left" textWidth="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="commonword2_valueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ComBoBoxComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

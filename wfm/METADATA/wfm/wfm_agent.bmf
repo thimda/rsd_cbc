@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-03-01 16:06:21" creator="" description="" displayName="wfm_agent" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="739c2e8b-0bf0-4e3b-83d0-cefd34381321" isbizmodel="false" mainEntity="" modifier="" modifyTime="2012-03-01 16:06:21" name="wfm_agent" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_agent" resid="" version="0" versionType="0">
+    <celllist/>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

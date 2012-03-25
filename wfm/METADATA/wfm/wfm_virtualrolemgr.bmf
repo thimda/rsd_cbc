@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-09-05 10:59:07" creator="" description="" displayName="wfm_virtualrolemgr" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="9f3ebdec-1a84-44ae-b1c0-1be6aee093f6" isbizmodel="false" mainEntity="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" modifier="" modifyTime="2012-03-13 09:38:42" name="wfm_virtualrolemgr" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_virtualrolemgr" resid="" version="8" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="9f3ebdec-1a84-44ae-b1c0-1be6aee093f6" createTime="2011-09-05 10:59:10" creator="" czlist="" description="" displayName="虚拟角色" fullClassName="nc.uap.wfm.vo.WfmVirtualRoleVO" height="100" help="" id="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="4f9c7fa9-f591-49c5-9ce7-8d25ef7027d6" modInfoClassName="" modifier="" modifyTime="2012-03-13 09:38:58" name="wfm_virtualrole" resid="" stereoType="" tableName="wfm_virtualrole" userDefClassName="" versionType="0" visibility="public" width="80" x="188" y="88">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="服务类" dynamic="false" dynamicTable="" fieldName="serviceclass" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="9964ce82-f9cd-4e99-909f-c3dd406aa46c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="200" maxValue="" minValue="" name="serviceclass" notSerialize="false" precise="0" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="角色名称" dynamic="false" dynamicTable="" fieldName="name" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="cd27f382-a24a-4aa2-a960-f5375f312be7" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="name" notSerialize="false" precise="0" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="集团" dynamic="false" dynamicTable="" fieldName="pk_group" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="23e5a1d7-77c5-47bb-a006-2c83d42d5a68" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_group" notSerialize="false" precise="0" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_virtualrole" fieldType="char" fixedLength="false" forLocale="false" help="" id="4f9c7fa9-f591-49c5-9ce7-8d25ef7027d6" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_virtualrole" notSerialize="false" precise="0" refModelName="" resid="" sequence="3" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="3eb3bbbd-2320-4441-bc15-02e0c6c97a14" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="编码" dynamic="false" dynamicTable="" fieldName="code" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="06494b9d-3293-41b3-966f-0cb888f23e53" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="code" notSerialize="false" precise="" refModelName="" resid="" sequence="4" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="null">
+        <BorderPanel position="center">
+            <FlowvLayout autoFill="0" id="flowv1">
+                <FlowvPanel height="10"></FlowvPanel>
+                <FlowvPanel height="50">
+                    <FlowhLayout>
+                        <FlowhPanel>
+                            <TextField id="text_times" type="2" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <TextField id="text_alltimes" type="1" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <TextField id="text_state" type="1" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <TextField id="text_type" type="1" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                        <FlowhPanel width="180">
+                            <TextField id="text_sendtime" type="1" widgetId="main">
+                            </TextField>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel>
+                    <FlowhLayout>
+                        <FlowhPanel width="120">
+                            <FlowvLayout autoFill="0" id="flowv2">
+                                <FlowvPanel height="30">
+                                    <Label id="label_yetsign" widgetId="main">
+                                    </Label>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                                        <BorderTrue>
+                                            <GridComp id="grid_addsign" widgetId="main">
+                                            </GridComp>
+                                        </BorderTrue>
+                                    </Border>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel width="10">
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <FlowvLayout autoFill="0" id="flowv3">
+                                <FlowvPanel height="30">
+                                    <Label id="label_signmess" widgetId="main">
+                                    </Label>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Border id="border9" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                                        <BorderTrue>
+                                            <TextField id="text_addsignmessage" type="6" widgetId="main">
+                                            </TextField>
+                                        </BorderTrue>
+                                    </Border>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel width="10">
+                        </FlowhPanel>
+                        <FlowhPanel width="120">
+                            <FlowvLayout autoFill="0" id="flowv4">
+                                <FlowvPanel height="30">
+                                    <Label id="label_notsign" widgetId="main">
+                                    </Label>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <Border id="border3" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                                        <BorderTrue>
+                                            <GridComp id="grid_notassign" widgetId="main">
+                                            </GridComp>
+                                        </BorderTrue>
+                                    </Border>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="10">
+                </FlowvPanel>
+                <FlowvPanel height="80">
+                    <FlowhLayout>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_currall" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_allall" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_stop" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_restart" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="button_logout" widgetId="main">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

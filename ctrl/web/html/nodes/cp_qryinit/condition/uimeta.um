@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="condition_um" jquery="0">
+    <FlowvLayout autoFill="0" id="flowvlayout1227" widgetId="condition">
+        <FlowvPanel id="panelv01227" widgetId="condition">
+            <FlowhLayout id="flowhlayout3373" widgetId="condition">
+                <FlowhPanel id="panelh03373" widgetId="condition" width="300">
+                    <TreeViewComp height="100%" id="entitytree" left="0" position="relative" top="0" widgetId="condition" width="100%">
+                    </TreeViewComp>
+                </FlowhPanel>
+                <FlowhPanel id="panelh13373" widgetId="condition" width="100">
+                    <FlowvLayout autoFill="0" id="flowvlayout9122" widgetId="condition">
+                        <FlowvPanel id="panelv09122" widgetId="condition">
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv19122" widgetId="condition">
+                            <Button height="23" id="torightbt" left="0" position="relative" top="0" widgetId="condition" width="64">
+                            </Button>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv29122" widgetId="condition">
+                            <Button height="23" id="toleftbt" left="0" position="relative" top="0" widgetId="condition" width="64">
+                            </Button>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv39122" widgetId="condition">
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh23373" widgetId="condition">
+                    <GridComp height="100%" id="conditiongrid" left="0" position="relative" top="0" widgetId="condition" width="100%">
+                    </GridComp>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel height="40" id="panelv11227" widgetId="condition">
+            <FlowhLayout id="flowhlayout4149" widgetId="condition">
+                <FlowhPanel id="panelh04149" widgetId="condition">
+                </FlowhPanel>
+                <FlowhPanel id="panelh14149" widgetId="condition">
+                    <Button height="23" id="okbt" left="0" position="relative" top="0" widgetId="condition" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh24149" widgetId="condition">
+                </FlowhPanel>
+                <FlowhPanel id="panelh34149" widgetId="condition">
+                    <Button height="23" id="cancelbt" left="0" position="relative" top="0" widgetId="condition" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh44149" widgetId="condition">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

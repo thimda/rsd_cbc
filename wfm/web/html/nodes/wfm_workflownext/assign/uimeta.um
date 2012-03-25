@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout id="a1">
+        <BorderPanel position="center" id="a2">
+            <FlowvLayout autoFill="0" id="a3">
+                <FlowvPanel id="a4">
+                    <FlowhLayout id="a5">
+                        <FlowhPanel id="a6">
+                            <GridComp id="grid_allactors" widgetId="assign">
+                            </GridComp>
+                        </FlowhPanel>
+                        <FlowhPanel width="10" id="a7">
+                        </FlowhPanel>
+                        <FlowhPanel width="80" id="a8">
+                            <FlowvLayout autoFill="0" id="a9">
+                                <FlowvPanel id="a10">
+                                </FlowvPanel>
+                                <FlowvPanel id="a11">
+                                    <Button id="btn_right_one" widgetId="assign">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel id="a12">
+                                    <Button id="btn_rigth_all" widgetId="assign">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel id="a13">
+                                    <Button id="btn_left_one" widgetId="assign">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel id="a14">
+                                    <Button id="btn_left_all" widgetId="assign">
+                                    </Button>
+                                </FlowvPanel>
+                                <FlowvPanel id="a15">
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel width="10" id="a16">
+                        </FlowhPanel>
+                        <FlowhPanel id="a17">
+                            <GridComp id="grid_selecteds" widgetId="assign">
+                            </GridComp>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel height="30" id="a18">
+                    <FlowhLayout id="a19">
+                        <FlowhPanel id="a20">
+                        </FlowhPanel>
+                        <FlowhPanel id="a21">
+                            <Button id="btn_ok" widgetId="assign">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="a22">
+                            <Button id="btn_cancel" widgetId="assign">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel id="a23">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

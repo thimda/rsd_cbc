@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0"  jquery="0" jsEditor="0">
+    <BorderLayout id="x00001">
+        <BorderPanel id="x00002" position="center">
+            <FlowvLayout autoFill="0" id="x00003">
+                <FlowvPanel id="x00004" height="23">
+                     <Menubar height="100%" id="menu_selffun" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    </Menubar>
+                </FlowvPanel>
+                <FlowvPanel id="x00005" height="500">
+                    <GridComp id="grid_selffun" widgetId="main"></GridComp>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>
+

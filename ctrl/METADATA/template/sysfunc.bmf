@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-04-11 11:06:14" creator="" description="" displayName="查询模板系统函数" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="98f2d3b5-e4bc-4824-9535-uapcp7f377f4" isbizmodel="false" mainEntity="6651735b-bc19-4455-b9a0-uapcpc764030" modifier="" modifyTime="2012-03-03 13:18:59" name="cp_qry_sysfunc" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="sysfunc" resid="" version="11" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="98f2d3b5-e4bc-4824-9535-uapcp7f377f4" createTime="2011-04-11 11:06:40" creator="" czlist="" description="" displayName="协同查询系统函数" fullClassName="nc.uap.ctrl.tpl.qry.base.CpSysFuncVO" height="199" help="" id="6651735b-bc19-4455-b9a0-uapcpc764030" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="4f85aae2-45cb-4058-afd7-uapcp2990848" modInfoClassName="" modifier="" modifyTime="2012-03-03 13:19:34" name="cp_query_sysfunc" resid="" stereoType="" tableName="cp_query_sysfunc" userDefClassName="" versionType="0" visibility="public" width="138" x="222" y="100">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="6651735b-bc19-4455-b9a0-uapcpc764030" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_sysfunc" fieldType="char" fixedLength="false" forLocale="false" help="" id="4f85aae2-45cb-4058-afd7-uapcp2990848" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_sysfunc" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="6651735b-bc19-4455-b9a0-uapcpc764030" dataType="BS000010000100001030" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="系统函数类名" dynamic="false" dynamicTable="" fieldName="classname" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="cc014cbe-5d8c-48c9-a324-uapcpa132bfe" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="false" isReadOnly="false" isShare="false" length="200" maxValue="" minValue="" name="classname" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="备注" typeName="MEMO" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

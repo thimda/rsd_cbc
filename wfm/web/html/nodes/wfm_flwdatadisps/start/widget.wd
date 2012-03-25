@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="380" i18nName="子单据" width="450">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_subprodef" lazyLoad="false">
+                <Fields>
+                    <Field dataType="String" id="pk_prodef" isPrimaryKey="false" nullAble="true" text="流程定义标识">
+                    </Field>
+                    <Field dataType="String" id="prodefname" isPrimaryKey="false" nullAble="true" text="流程定义名称">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="SubProDefDsLoadListener" serverClazz="nc.portal.pwfm.listener.SubProDefDsLoadListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="start" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_subprodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_subprodef" editable="true" enabled="true" height="100%" id="grid_subprodef" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_prodef" fixedHeader="false" id="pk_prodef" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程定义标识" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="prodefname" fixedHeader="false" id="prodefname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="流程定义名称" textAlign="left" visible="true" width="300">
+            </Column>
+        </GridComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="StartSubProcessMouseListener" serverClazz="nc.portal.pwfm.listener.StartSubProcessMouseListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="start" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_subprodef" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="StartSubProcessMouseListener" serverClazz="nc.portal.pwfm.listener.StartSubProcessMouseListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="start" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_subprodef" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

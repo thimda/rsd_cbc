@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="relateorg_um" jquery="0" jsrelateorgor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout5301" widgetId="relateorg">
+        <FlowvPanel id="panelv05301" widgetId="relateorg">
+            <TreeViewComp id="org_tree" left="0" position="relative" top="0" widgetId="relateorg" width="100%" height="100%" >
+            </TreeViewComp>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv15301" widgetId="relateorg">
+            <FlowhLayout id="flowhlayout0735" widgetId="relateorg">
+                <FlowhPanel id="panelh00735" widgetId="relateorg">
+                </FlowhPanel>
+                <FlowhPanel id="panelh10735" widgetId="relateorg">
+                </FlowhPanel>
+                <FlowhPanel id="panelh20735" widgetId="relateorg">
+                    <Button height="23" id="btn_ok" left="0" position="relative" top="0" widgetId="relateorg" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh30735" widgetId="relateorg">
+                    <Button height="23" id="btn_cancel" left="0" position="relative" top="0" widgetId="relateorg" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh40735" widgetId="relateorg">
+                </FlowhPanel>
+                <FlowhPanel id="panelh50735" widgetId="relateorg">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

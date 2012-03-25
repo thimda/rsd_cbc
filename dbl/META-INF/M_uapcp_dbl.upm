@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="nc.uap.portal.CPBEJB">
+  <public>
+        <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmCatBill</interface>
+		<implementation>nc.uap.dbl.impl.FrmCatBill</implementation>
+	</component>
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmCatQry</interface>
+		<implementation>nc.uap.dbl.impl.FrmCatQry</implementation>
+	</component>
+
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmDefBill</interface>
+		<implementation>nc.uap.dbl.impl.FrmDefBill</implementation>
+	</component>
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.dbl.itf.IFrmDefQry</interface>
+		<implementation>nc.uap.dbl.impl.FrmDefQry</implementation>
+	</component>
+
+   </public>
+   <private>
+   </private>
+</module>
+

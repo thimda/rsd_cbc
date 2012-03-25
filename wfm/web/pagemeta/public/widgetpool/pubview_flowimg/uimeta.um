@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="pubview_flowimg_um" jquery="0">
+    <IFrame height="100%" id="iframe_flowimg" left="0" position="relative" top="0" widgetId="pubview_flowimg" width="100%">
+    </IFrame>
+</UIMeta>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="001">
+        <FlowvPanel height="25" id="002">
+            <Menubar id="wmenu" widgetId="wd">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel id="003">
+            <TextField id="winput" type="8" widgetId="wd">
+            </TextField>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

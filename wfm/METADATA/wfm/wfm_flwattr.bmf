@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-02-16 11:05:47" creator="" description="" displayName="流程属性" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="c4c49b19-445c-4f5c-8cb4-4ed2d580cef1" isbizmodel="false" mainEntity="8615f619-edd7-4612-89eb-37b5ce7a9e73" modifier="" modifyTime="2012-02-16 11:22:37" name="wfm_flwattr" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_flwattr" resid="" version="14" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="c4c49b19-445c-4f5c-8cb4-4ed2d580cef1" createTime="2012-02-16 11:06:04" creator="" czlist="" description="" displayName="流程属性" fullClassName="nc.uap.wfm.vo.WfmFlwAttrVO" height="136" help="" id="8615f619-edd7-4612-89eb-37b5ce7a9e73" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="58ef8c80-d0d1-4e70-b7de-5f4978e35a15" modInfoClassName="" modifier="" modifyTime="2012-02-16 11:22:37" name="流程属性" resid="" stereoType="" tableName="wfm_flwattr" userDefClassName="" versionType="0" visibility="public" width="157" x="156" y="124">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="8615f619-edd7-4612-89eb-37b5ce7a9e73" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_flwattr" fieldType="char" fixedLength="false" forLocale="false" help="" id="58ef8c80-d0d1-4e70-b7de-5f4978e35a15" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_flwattr" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="8615f619-edd7-4612-89eb-37b5ce7a9e73" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="流程类型" dynamic="false" dynamicTable="" fieldName="pk_flwtype" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="7e203226-f4c2-4e4c-83e1-7f6f4a816c64" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_flwtype" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="8615f619-edd7-4612-89eb-37b5ce7a9e73" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="服务注册类" dynamic="false" dynamicTable="" fieldName="serverclass" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="c9be67c5-eb49-4474-bf37-3e5884712a2c" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="serverclass" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="8615f619-edd7-4612-89eb-37b5ce7a9e73" dataType="b255b1db-b3b9-4f03-848a-5f445eb04369" dataTypeStyle="REF" dbtype="" defaultValue="~" description="" displayName="功能节点ID" dynamic="false" dynamicTable="" fieldName="pk_funcode" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="0fe81877-f549-49e0-b46a-e5c5b285d873" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_funcode" notSerialize="false" precise="" refModelName="功能节点" resid="" sequence="3" typeDisplayName="协同功能节点" typeName="cp_appsnode" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends>
+        <dependfile entityid="b255b1db-b3b9-4f03-848a-5f445eb04369"/>
+    </refdepends>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

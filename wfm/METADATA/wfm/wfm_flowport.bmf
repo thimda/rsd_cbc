@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2011-12-29 11:02:14" creator="" description="" displayName="wfm_flowport" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="9e43680e-d87d-4269-a017-444be7d3c732" isbizmodel="false" mainEntity="33244aa0-14b1-4fc2-ba27-3af2815d8130" modifier="" modifyTime="2011-12-29 11:02:32" name="wfm_flowport" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_flowport" resid="" version="9" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="9e43680e-d87d-4269-a017-444be7d3c732" createTime="2011-12-29 11:02:32" creator="" czlist="" description="" displayName="流程节点属性控制" fullClassName="nc.uap.wfm.vo.WfmFlowPortVO" height="148" help="" id="33244aa0-14b1-4fc2-ba27-3af2815d8130" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="234877e1-a7f0-4253-a739-2f7ae6a9caac" modInfoClassName="" modifier="" modifyTime="2011-12-29 11:24:41" name="wfm_flowtype" resid="" stereoType="" tableName="wfm_flowtype" userDefClassName="" versionType="0" visibility="public" width="182" x="162" y="178">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="33244aa0-14b1-4fc2-ba27-3af2815d8130" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_flowport" fieldType="char" fixedLength="false" forLocale="false" help="" id="234877e1-a7f0-4253-a739-2f7ae6a9caac" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_flowport" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="33244aa0-14b1-4fc2-ba27-3af2815d8130" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="控制项" dynamic="false" dynamicTable="" fieldName="ctrlitem" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="229d8433-6274-45be-8523-ee6ec39b4eaf" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="ctrlitem" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="33244aa0-14b1-4fc2-ba27-3af2815d8130" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="状态值" dynamic="false" dynamicTable="" fieldName="ctrlstate" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="d7ac7dd3-b5d8-4d8b-9a2e-dd7ac5e7a4d2" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="ctrlstate" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <BorderLayout id="null">
+        <BorderPanel position="center">
+            <Splitter boundMode="0" divideSize="25" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+                <SplitterOne>
+                    <Border bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                        <BorderTrue>
+                            <FlowvLayout autoFill="0" id="flowv2">
+                                <FlowvPanel height="5"></FlowvPanel>
+                                <FlowvPanel height="20">
+                                    <TextField id="text_group" type="1" widgetId="main">
+                                    </TextField>
+                                </FlowvPanel>
+                                <FlowvPanel>
+                                    <TreeViewComp id="tree_frmcat" widgetId="main">
+                                    </TreeViewComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </BorderTrue>
+                    </Border>
+                </SplitterOne>
+                <SplitterTwo>
+                    <Border id="border145" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="" width="1">
+                        <BorderTrue>
+                            <GridComp id="grid_frmtmp" widgetId="main">
+                            </GridComp>
+                        </BorderTrue>
+                    </Border>
+                </SplitterTwo>
+            </Splitter>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

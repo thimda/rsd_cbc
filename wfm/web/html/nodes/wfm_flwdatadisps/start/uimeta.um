@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <BorderLayout>
+        <BorderPanel position="center">
+            <FlowvLayout autoFill="0" id="c">
+                <FlowvPanel>
+                    <GridComp id="grid_subprodef" widgetId="start">
+                    </GridComp>
+                </FlowvPanel>
+                <FlowvPanel height="30">
+                    <FlowhLayout>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="btn_ok" widgetId="start">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                            <Button id="btn_cancel" widgetId="start">
+                            </Button>
+                        </FlowhPanel>
+                        <FlowhPanel>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

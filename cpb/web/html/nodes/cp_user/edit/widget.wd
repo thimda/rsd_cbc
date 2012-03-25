@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.user.CpbUserEditCtrl" dialog="false" i18nName="新增用户" id="edit" refId="edit" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="useredit_pluginout">
+            <PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="cp_user" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="useredit_pluginin">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="数据格式" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_formatdoc" lazyLoad="true" objMeta="uap.formatdoc" voMeta="nc.vo.bd.format.FormatDocVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="协同用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_集团" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="协同用户角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="user_cp_userrole" lazyLoad="true" objMeta="uapcp.user_cp_userrole" voMeta="nc.uap.cpb.org.vos.CpUserRoleVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_role_rel" refDataset="$refds_uapcp_cp_role">
+                        <MatchFields>
+                            <Field readField="rolename" writeField="pk_role_rolename">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="pk_role">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField id="pk_user" text="协同用户_主键">
+                    </ModifyField>
+                </Fields>
+            </MdDataset>
+            <MdDataset caption="协同用户" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_group_rel" refDataset="$refds_uap_group">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_group_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_group" value="pk_group">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="creator_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="creator_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="creator">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="modifier_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="modifier_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="modifier">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_usergroupforcreate_rel" refDataset="$refds_uap_userGroup">
+                        <MatchFields>
+                            <Field readField="groupname" writeField="pk_usergroupforcreate_groupname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_usergroup" value="pk_usergroupforcreate">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="format_rel" refDataset="$refds_uap_formatdoc">
+                        <MatchFields>
+                            <Field readField="name" writeField="format_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_formatdoc" value="format">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="contentlang_rel" refDataset="$refds_uap_MultiLang">
+                        <MatchFields>
+                            <Field readField="dislpayname" writeField="contentlang_dislpayname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_multilang" value="contentlang">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <ModifyField id="pk_user1" nullAble="false">
+                    </ModifyField>
+                </Fields>
+            </MdDataset>
+            <RefMdDataset caption="组织" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org" lazyLoad="true" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="用户组" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_userGroup" lazyLoad="true" objMeta="uap.userGroup" voMeta="nc.vo.uap.rbac.UserGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="语种信息" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_MultiLang" lazyLoad="true" objMeta="uap.MultiLang" voMeta="nc.vo.ml.LanguageVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同用户" fullclassName="72f464dc-9a30-4ace-8095-3d803ff2851f" id="combo_cp_user_user_type">
+            </MDComboDataConf>
+            <MDComboDataConf caption="协同用户" fullclassName="6bfc8831-0026-4404-8edd-75068fd4e3af" id="combo_cp_user_identityverifycode">
+            </MDComboDataConf>
+            <MDComboDataConf caption="协同用户" fullclassName="5c82eb2b-98dc-41e2-931c-f73a4457693f" id="combo_cp_user_pwdlevelcode">
+            </MDComboDataConf>
+            <MDComboDataConf caption="协同用户" fullclassName="6df79037-1fc2-4246-9570-2e9af510e18e" id="combo_cp_user_base_doc_type">
+            </MDComboDataConf>
+            <MDComboDataConf caption="协同用户" fullclassName="6b533ffa-3e43-4147-8670-ba0f5471fd40" id="combo_cp_user_enablestate">
+            </MDComboDataConf>
+        </ComboDatas>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.refrence.CpUserOrgDsLoadListener" dialog="true" i18nName="" id="refnode_cp_user_modifier_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_协同用户" usePower="false" writeDs="cp_user" writeFields="modifier,modifier_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_user_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="业务单元+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="业务单元+集团" usePower="false" writeDs="cp_user" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.user.UserGroupReferenceController" dialog="true" i18nName="" id="refnode_cp_user_pk_usergroupforcreate_groupname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_usergroup,group_name" refId="" refcode="协同用户组" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_协同用户组" usePower="false" writeDs="cp_user" writeFields="pk_usergroupforcreate,pk_usergroupforcreate_group_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_user_cp_userrole_pk_role_rolename" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同角色" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户角色_协同角色" usePower="false" writeDs="user_cp_userrole" writeFields="pk_role,pk_role_rolename">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.refrence.CpUserOrgDsLoadListener" dialog="true" i18nName="" id="refnode_cp_user_creator_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_协同用户" usePower="false" writeDs="cp_user" writeFields="creator,creator_user_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_user_contentlang_dislpayname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_multilang,dislpayname" refId="" refcode="语种" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_语种" usePower="false" writeDs="cp_user" writeFields="contentlang,contentlang_dislpayname">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_user_format_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_formatdoc,name" refId="" refcode="数据格式" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_数据格式" usePower="false" writeDs="cp_user" writeFields="format,format_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_user_pk_group_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同用户_集团" usePower="false" writeDs="cp_user" writeFields="pk_group,pk_group_name">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_user_pk_base_doc_name" langDir="" multiSel="false" orgs="true" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_psndoc,name" refId="" refcode="人员" refnodeDelegator="" refresh="false" selLeafOnly="false" text="人员" usePower="false" writeDs="cp_user" writeFields="pk_base_doc,pk_base_doc_name">
+			</NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="cpbUserEditBtnCancel" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="$refds_uap_formatdoc" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uapcp_cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_group" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="user_cp_userrole" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_org" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_userGroup" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_MultiLang" type="ds_current_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="cpbUserEditBtnOk" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="$refds_uap_formatdoc" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uapcp_cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_group" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="user_cp_userrole" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="cp_user" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_org" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_userGroup" type="ds_current_line">
+                            </Dataset>
+                            <Dataset id="$refds_uap_MultiLang" type="ds_current_line">
+                            </Dataset>
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <FormComp caption="协同用户" columnCount="2" dataset="cp_user" eleWidth="140" enabled="true" id="form_user" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="cuserid" id="cuserid" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="用户主键" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="user_code" id="user_code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="user_name" id="user_name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户名称" visible="true">
+            </Element>            
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="user_password" id="user_password" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户密码" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="user_note" id="user_note" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="备注" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="pwdlevelcode" id="pwdlevelcode" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_user_pwdlevelcode" rowSpan="1" selectOnly="true" text="密码安全级别编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pwdparam" id="pwdparam" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="密码参数" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="identityverifycode" id="identityverifycode" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_user_identityverifycode" rowSpan="1" selectOnly="true" text="认证类型" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="ComboBox" enabled="true" field="base_doc_type" id="base_doc_type" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_user_base_doc_type" rowSpan="1" selectOnly="true" text="身份类型" visible="true">
+            </Element>
+<Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_base_doc" id="pk_base_doc" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_pk_base_doc_name"  rowSpan="1" selectOnly="true" text="身份" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_org" id="pk_org" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属组织" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_org_name" id="pk_org_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_pk_org_name" rowSpan="1" selectOnly="true" text="所属组织" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_group" id="pk_group" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属集团" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_group_name" id="pk_group_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_pk_group_name" rowSpan="1" selectOnly="true" text="所属集团" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="Reference" enabled="true" field="modifier_user_name" id="modifier_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_modifier_user_name" rowSpan="1" selectOnly="true" text="最后修改人" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="user_type" id="user_type" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_user_user_type" rowSpan="1" selectOnly="true" text="用户类型" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_usergroupforcreate" id="pk_usergroupforcreate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属用户组" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_usergroupforcreate_group_name" id="pk_usergroupforcreate_group_name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" refNode="refnode_cp_user_pk_usergroupforcreate_groupname" selectOnly="true" text="所属用户组" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="format" id="format" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="数据格式" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="format_name" id="format_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_format_name" rowSpan="1" selectOnly="true" text="数据格式" visible="true">
+            </Element>            
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="contentlang" id="contentlang" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="内容语种" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="contentlang_dislpayname" id="contentlang_dislpayname" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_contentlang_dislpayname" rowSpan="1" selectOnly="true" text="内容语种" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="user_code_q" id="user_code_q" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="用户编码（查询）" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="dataoriginflag" id="dataoriginflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="分布式" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_user1" id="pk_user1" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="协同用户角色外键" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="passwordtrytimes" id="passwordtrytimes" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="尝试次数" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="ComboBox" enabled="true" field="enablestate" id="enablestate" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_cp_user_enablestate" rowSpan="1" selectOnly="true" text="启用状态" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="abledate" id="abledate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="生效日期" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateText" enabled="true" field="disabledate" id="disabledate" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="失效日期" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="creator" id="creator" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="Reference" enabled="true" field="creator_user_name" id="creator_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_user_creator_user_name" rowSpan="1" selectOnly="true" text="创建人" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="DateTimeText" enabled="true" field="creationtime" id="creationtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="modifier" id="modifier" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="最后修改人" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="DateTimeText" enabled="true" field="modifiedtime" id="modifiedtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="最后修改时间" visible="true">
+            </Element>
+                        <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isca" id="isca" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="CA用户" visible="true">
+            </Element>
+             <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="islocked" id="islocked" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="锁定" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isasyntonc" id="isasyntonc" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否同步到NC" visible="true">
+            </Element>           
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

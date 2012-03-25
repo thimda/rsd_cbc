@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="1">
+    <FlowvLayout autoFill="0" id="flowv1">
+        <FlowvPanel height="23">
+            <Menubar id="menu_task">
+            </Menubar>
+        </FlowvPanel>
+        <FlowvPanel>
+            <Widget id="main">
+            </Widget>
+        </FlowvPanel>
+    </FlowvLayout>
+    <Dialog id="sign">
+    </Dialog>
+    <Dialog id="spad">
+    </Dialog>
+    <Dialog id="users">
+    </Dialog>
+    <Dialog id="start">
+    </Dialog>
+    <Dialog id="print">
+    </Dialog>
+</UIMeta>

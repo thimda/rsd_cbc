@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="sign_editor_um" jquery="1" includejs="/../../../../office/plugin/ntko/signtoolcontrol.js">
+    <Widget id="main">
+    </Widget>
+</UIMeta>

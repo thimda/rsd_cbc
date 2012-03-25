@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0">
+    <BorderLayout id="0001">
+        <BorderPanel id="0002" position="center">
+            <FlowvLayout autoFill="0" id="flowvhj1">
+                <FlowvPanel id="0003" height="23">
+                    <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                        <BorderTrue id="0004">
+                            <Menubar id="menu_agent" widgetId="main">
+                            </Menubar>
+                        </BorderTrue>
+                    </Border>
+                </FlowvPanel>
+                <FlowvPanel  id="0005">
+                    <Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                        <BorderTrue id="0006">
+                            <GridComp id="grid_agent" widgetId="main">
+                            </GridComp>
+                        </BorderTrue>
+                    </Border>
+                </FlowvPanel>
+            </FlowvLayout>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <FlowvLayout autoFill="0" id="3">
+        <FlowvPanel id="4">
+            <Widget id="main">
+            </Widget>
+        </FlowvPanel>
+    </FlowvLayout>
+    <Dialog id="query">
+    </Dialog>
+      <Dialog id="uerge">
+    </Dialog>
+</UIMeta>

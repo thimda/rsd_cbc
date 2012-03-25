@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.flowagent.FlowAgentMainCtrl" dialog="false" id="main" refId="main" sourcePackage="wfm/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="main_out_flowagent">
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="main_in_flowagent">
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginin_flowagent" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="流程代理" controlwidgetopeStatus="false" enabled="false" id="ds_flowagent2" lazyLoad="true" objMeta="uapcp.wfm_flowagent" pageSize="20" voMeta="nc.uap.wfm.vo.WfmFlowAgentVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_user_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_user_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_agent_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_agent_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_agent">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="flowagent2_onDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <MdDataset caption="流程代理" controlwidgetopeStatus="false" enabled="false" id="ds_flowagent1" lazyLoad="true" objMeta="uapcp.wfm_flowagent" pageSize="20" voMeta="nc.uap.wfm.vo.WfmFlowAgentVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_user_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_user_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pk_agent_rel" refDataset="$refds_uapcp_cp_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="pk_agent_user_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_agent">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="flowagent1_onDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MdDataset>
+            <RefMdDataset caption="协同用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_user" lazyLoad="true" objMeta="uapcp.cp_user" voMeta="nc.uap.cpb.org.vos.CpUserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp caption="流程代理" dataset="ds_flowagent2" editable="false" enabled="true" id="grid_flowagent2" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="被代理人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user_user_name" fixedHeader="false" id="pk_user_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="被代理人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="startdate" fixedHeader="false" id="startdate" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="开始时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="stopdate" fixedHeader="false" id="stopdate" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="结束时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="useflag" fixedHeader="false" id="useflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启用" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_agent" fixedHeader="false" id="pk_agent" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="代理人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_agent_user_name" fixedHeader="false" id="pk_agent_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="代理人" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp caption="流程代理" dataset="ds_flowagent1" editable="false" enabled="true" id="grid_flowagent1" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="被代理人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_user_user_name" fixedHeader="false" id="pk_user_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="被代理人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="startdate" fixedHeader="false" id="startdate" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="开始时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="stopdate" fixedHeader="false" id="stopdate" imageOnly="false" nullAble="true" renderType="DateTimeRender" sortable="true" sumCol="false" text="结束时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="UFBoolean" editable="true" editorType="CheckBox" field="useflag" fixedHeader="false" id="useflag" imageOnly="false" nullAble="true" renderType="BooleanRender" sortable="true" sumCol="false" text="是否启用" textAlign="center" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_agent" fixedHeader="false" id="pk_agent" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="代理人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="pk_agent_user_name" fixedHeader="false" id="pk_agent_user_name" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="代理人" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+        <MenuBarComp id="menu_flowagent">
+            <MenuItem id="item_add" modifiers="2" text="新增">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="itemadd_onclick" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="item_delete" modifiers="2" text="删除">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="itemdelete_onclick" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="item_modify" modifiers="2" text="修改">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="itemmodify_onclick" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+    </Menus>
+</Widget>

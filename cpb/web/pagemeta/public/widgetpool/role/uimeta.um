@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="false" id="role_um" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout3410" widgetId="role">
+         <FlowvPanel height="10" id="panelv013410" widgetId="role">
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv03410" widgetId="role">
+            <TextField height="22" id="org_text" left="0" position="relative" top="0" type="text" widgetId="role" width="300">
+            </TextField>
+        </FlowvPanel>
+        <FlowvPanel id="panelv13410" widgetId="role">
+                    <Splitter boundMode="0" divideSize="30" hideBar="true" widgetId="role" id="flow4ttt" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+                        <SplitterOne id="flow16111">
+                                    <TreeViewComp id="tree_orgs" widgetId="role"></TreeViewComp>    
+                        </SplitterOne>
+                        <SplitterTwo id="flow18111">
+                                    <FlowvLayout autoFill="0" id="flow7www">
+                                        <FlowvPanel id="flow8111">
+                                            <GridComp id="grid_role" widgetId="role"></GridComp>
+                                        </FlowvPanel>
+                                        <FlowvPanel height="30" id="flow9111">
+                                            <FlowhLayout id="flow10">
+                                                <FlowhPanel id="flow11333">
+                                                </FlowhPanel>
+                                                <FlowhPanel width="100" id="flow12444">
+                                                    <Button id="btn_ok" widgetId="role">
+                                                    </Button>
+                                                </FlowhPanel>
+                                                <FlowhPanel width="100" id="flow13555">
+                                                    <Button id="btn_cancel" widgetId="role">
+                                                    </Button>
+                                                </FlowhPanel>
+                                                <FlowhPanel id="flow14666">
+                                                </FlowhPanel>
+                                            </FlowhLayout>
+                                        </FlowvPanel>
+                                    </FlowvLayout>
+                        </SplitterTwo>
+                    </Splitter>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

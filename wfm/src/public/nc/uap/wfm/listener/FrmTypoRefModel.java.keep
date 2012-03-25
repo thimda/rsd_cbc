@@ -1,0 +1,70 @@
+package nc.uap.wfm.listener;
+
+import nc.uap.lfw.reference.base.GridRefModel;
+
+/**
+ * 单据类型参照
+ * @author licza
+ *
+ */
+public class FrmTypoRefModel extends GridRefModel{
+
+	@Override
+	public String[] getHiddenFieldNames() {
+		return new String[]{"pk_frmdef"};
+	}
+
+	@Override
+	public String[] getVisibleFieldNames() {
+		return new String[]{"单据类型"};
+	}
+
+	public int getFieldIndex(String field) {
+		return 0;
+	}
+
+	public String[] getFilterFields() {
+		return null;
+	}
+
+	public String getFixedWherePart() {
+		return " ";
+	}
+
+	public String getGroupPart() {
+		return " ";
+	}
+
+	public String[] getHiddenFieldCodes() {
+		return new String[]{"pk_frmdef"};
+	}
+
+	public String getOrderPart() {
+		return " ";
+	}
+
+	public String getQuerySql() {
+		return " ";
+	}
+
+	public String getRefCodeField() {
+		return "pk_frmdef";
+	}
+
+	public String getRefNameField() {
+		return "frmdefname";
+	}
+
+	public String getRefPkField() {
+		return "pk_frmdef";
+	}
+
+	public String getTablesString() {
+		return "";
+	}
+
+	public String[] getVisibleFieldCodes() {
+		return new String[]{"frmdefname"};
+	}
+
+}

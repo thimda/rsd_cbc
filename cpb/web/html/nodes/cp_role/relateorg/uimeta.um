@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowv1jkllkjkljkj">
+        <FlowvPanel id="null">
+            <TreeViewComp id="org_tree" widgetId="relateorg"></TreeViewComp>
+        </FlowvPanel>
+        <FlowvPanel height="50" id="null">
+            <FlowhLayout id="flowh1">
+                <FlowhPanel id="null"></FlowhPanel>
+                <FlowhPanel id="null"></FlowhPanel>
+                <FlowhPanel id="null">
+                    <Button id="btn_ok" widgetId="relateorg"></Button>
+                </FlowhPanel>
+                <FlowhPanel id="null">
+                    <Button id="btn_cancel" widgetId="relateorg"></Button>
+                </FlowhPanel>
+                <FlowhPanel id="null"></FlowhPanel>
+                <FlowhPanel id="null"></FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" id="pubview_hisotry_um" jquery="0" jsEditor="0" jsExcel="0">
+<PanelLayout id="panel2" title="审批信息">
+<PanelPanel>
+<FlowhLayout autoFill="0" id="flowvlayout20191" widgetId="pubview_history">
+     <FlowhPanel id="panelv120191" widgetId="pubview_history" width="600">
+             <HtmlContent id="htmlcontent4539" widgetId="pubview_history">
+            </HtmlContent>
+     </FlowhPanel>
+</FlowhLayout>
+</PanelPanel>
+</PanelLayout>
+</UIMeta>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" width="100%">
+    <Models>
+        <Datasets>
+            <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_userdeptleft" lazyLoad="true" voMeta="nc.portal.org.vo.PtDeptUserVO">
+                <FieldRelations>
+                    <FieldRelation id="refuser" refDataset="ds_user">
+                        <MatchFields>
+                            <Field readField="username" writeField="pk_user_username">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_user" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_user" id="pk_user" isPrimaryKey="false" nullAble="true" text="pk_user">
+                    </Field>
+                    <Field dataType="String" field="pk_dept" id="pk_dept" isPrimaryKey="false" nullAble="true" text="pk_dept">
+                    </Field>
+                    <Field dataType="String" field="pk_userdept" id="pk_userdept" isPrimaryKey="false" nullAble="true" text="pk_userdept">
+                    </Field>
+                    <Field dataType="String" id="pk_user_username" isPrimaryKey="false" nullAble="true" text="用户名称">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.portal.pwfm.addsign.AddSignUserDeptListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_userdeptleft" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+             <Dataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_userdeptright" lazyLoad="true" voMeta="nc.portal.org.vo.PtUserVO">
+                <FieldRelations>
+                    <FieldRelation id="deptref" refDataset="ds_dept">
+                        <MatchFields>
+                            <Field readField="deptname" writeField="pk_dept_deptname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_dept" value="pk_dept">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_user" id="pk_user" isPrimaryKey="false" nullAble="true" text="pk_user">
+                    </Field>
+                    <Field dataType="String" field="userid" id="userid" isPrimaryKey="false" nullAble="true" text="用户编码">
+                    </Field>
+                    <Field dataType="String" field="username" id="username" isPrimaryKey="false" nullAble="true" text="用户名称">
+                    </Field>
+                    <Field dataType="String" field="pk_dept" id="pk_dept" isPrimaryKey="false" nullAble="true" text="pk_dept">
+                    </Field>
+                    <Field dataType="String" i18nName="org.dept.deptname" id="pk_dept_deptname" isPrimaryKey="false" nullAble="true" sourceField="pk_dept" text="部门名称">
+                    </Field>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_userdeptright" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </Dataset>
+             <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_user" lazyLoad="true" refId="nc.portal.org.userds" voMeta="nc.portal.org.vo.PtUserVO">
+                <Fields>
+                </Fields>
+            </PubDataset>
+             <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_dept" lazyLoad="true" refId="nc.portal.org.deptds" voMeta="nc.portal.org.vo.PtDeptVO">
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_dept" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+        </Datasets>
+        <ComboDatas>
+            <StaticComboData id="combo_action">
+                <ComboItem text="下一步" value="0">
+                </ComboItem>
+                <ComboItem text="循环" value="1">
+                </ComboItem>
+            </StaticComboData>
+            <StaticComboData id="combo_addsigntype">
+                <ComboItem text="串行" value="0">
+                </ComboItem>
+                <ComboItem text="并行" value="1">
+                </ComboItem>
+            </StaticComboData>
+            <DynamicComboData className="nc.portal.pwfm.addsign.AddSignCommonWordComboData" id="comb_commonword">
+            </DynamicComboData>
+        </ComboDatas>
+        <RefNodes>
+            <RefNode allowInput="false" dataListener="nc.portal.pwfm.addsign.AddSignOrgDsListener" dialog="false" i18nName="" id="ref_org" isDialog="false" isRefresh="false" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_orgs,name" refId="" refModel="nc.portal.org.reference.PtOrgRefModel" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" writeDs="" writeFields="">
+            </RefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_userdeptright" editable="true" enabled="true" height="100%" id="grid_rightuser" left="0" multiSelect="false" pagenationTop="false" position="relative" showColInfo="true" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" top="0" visible="true" width="100%">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_user" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="userid" fixedHeader="false" id="userid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="username" fixedHeader="false" id="username" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="用户名称" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_dept" fixedHeader="false" id="pk_dept" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="pk_dept" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_dept_deptname" fixedHeader="false" i18nName="org.dept.deptname" id="pk_dept_deptname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="部门名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <TreeViewComp dragEnable="false" enabled="true" height="100%" id="tree_deptuser" left="0" position="relative" rootOpen="true" text="部门" top="0" visible="true" width="100%" withCheckBox="false" withRoot="true">
+            <RecursiveTreeLevel dataset="ds_dept" id="level1" labelFields="deptcode,deptname" masterKeyField="pk_dept" recursiveKeyField="pk_dept" recursivePKeyField="pk_parent">
+                <SimpleTreeLevel dataset="ds_userdeptleft" detailKeyParameter="pk_dept" id="level2" labelFields="pk_user_username" masterKeyField="pk_userdept">
+                </SimpleTreeLevel>
+            </RecursiveTreeLevel>
+        </TreeViewComp>
+        <LabelComp enabled="true" height="22" id="label_pad" left="0" position="relative" text="便签" top="0" visible="true" width="100">
+        </LabelComp>
+        <TextAreaComp editorType="TextArea" enabled="true" focus="false" height="40" id="text_pad" left="0" position="relative" text="便签" textAlign="left" textWidth="0" top="0" visible="true" width="600">
+        </TextAreaComp>
+        <RadioGroupComp comboDataId="combo_action" editorType="RadioGroup" enabled="true" focus="false" height="22" id="text_action" index="0" left="0" position="relative" sepWidth="0" tabIndex="0" text="执行动作" textAlign="left" textWidth="0" visible="true" width="400">
+        </RadioGroupComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" height="22" id="text_org" left="0" position="relative" refcode="ref_org" text="人员选择" textAlign="left" textWidth="0" visible="true" width="400">
+            <Listeners>
+                <TextListener id="depttextListener" serverClazz="nc.portal.pwfm.addsign.AddSignOrgTextListener">
+                    <Events>
+                        <Event async="true" name="valueChanged" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>valueChangeEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TextListener>
+            </Listeners>
+        </ReferenceComp>
+        <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" height="22" i18nName="常用语" id="text_commonword" left="0" position="relative" refComboData="comb_commonword" selectOnly="true" text="常用语" textAlign="left" textWidth="0" top="0" visible="true" width="250">
+            <Listeners>
+                <TextListener id="commonwordListener" serverClazz="nc.portal.pwfm.addsign.AddSignCommonWordTextListener">
+                    <Events>
+                        <Event async="true" name="valueChanged" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_userdeptleft" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>valueChangeEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </TextListener>
+            </Listeners>
+        </ComBoBoxComp>
+        <RadioGroupComp comboDataId="combo_addsigntype" editorType="RadioGroup" enabled="true" focus="false" height="50" id="text_addsigntype" index="0" left="0" position="relative" sepWidth="0" tabIndex="0" textAlign="left" textWidth="0" visible="true" width="100">
+        </RadioGroupComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonOkistener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <SubmitRule cardSubmit="false" pagemeta="flwdatadisps" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="users" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_users" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_cancle" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonCancleListener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_up" left="0" position="relative" text="上移" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="upButtonListener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_all_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_left" left="0" position="relative" text="&lt;--" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="buttonleftListener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptleft" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_right" left="0" position="relative" text="--&gt;" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="rightButtonListener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptleft" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="button_down" left="0" position="relative" text="下移" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="downButtonListener" serverClazz="nc.portal.pwfm.addsign.AddSignButtonListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="ds_userdeptleft" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_userdeptright" type="ds_all_line">
+                                    </Dataset>
+                                    <Dataset id="ds_dept" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Value>
+                                    </Value>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

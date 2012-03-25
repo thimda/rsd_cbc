@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" id="relate_um" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flowvlayout3146" widgetId="relate">
+        <FlowvPanel id="panelv03146" widgetId="relate">
+            <FlowhLayout id="flowhlayout2122" widgetId="relate">
+                <FlowhPanel id="panelh02122" widgetId="relate">
+                    <FlowhLayout id="flowhlayout0506" widgetId="relate">
+                        <FlowhPanel id="panelh00506" widgetId="relate" width="20">
+                        </FlowhPanel>
+                        <FlowhPanel id="panelh10506" widgetId="relate">
+                            <FlowvLayout autoFill="0" id="flowvlayout8396" widgetId="relate">
+                                <FlowvPanel height="25" id="panelv08396" widgetId="relate">
+                                    <FlowhLayout id="flowhlayout4343" widgetId="relate">
+                                        <FlowhPanel id="panelh04343" widgetId="relate" width="50">
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh14343" widgetId="relate">
+                                            <Label height="22" id="selecting_label" left="0" position="relative" top="0" widgetId="relate" width="100">
+                                            </Label>
+                                        </FlowhPanel>
+                                    </FlowhLayout>
+                                </FlowvPanel>
+                                <FlowvPanel id="panelv18396" widgetId="relate">
+                                    <TreeViewComp height="100%" id="selecting_funcres_tree" left="0" position="relative" top="0" widgetId="relate" width="100%">
+                                    </TreeViewComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh12122" widgetId="relate" width="120">
+                    <FlowvLayout autoFill="0" id="flowvlayout7147" widgetId="relate">
+                        <FlowvPanel id="panelv07147" widgetId="relate">
+                        </FlowvPanel>
+                        <FlowvPanel height="140" id="panelv17147" widgetId="relate">
+                            <FlowhLayout id="flowhlayout0088" widgetId="relate">
+                                <FlowhPanel id="panelh00088" widgetId="relate" width="18">
+                                </FlowhPanel>
+                                <FlowhPanel id="panelh10088" widgetId="relate">
+                                    <FlowvLayout autoFill="0" id="flowvlayout3714" widgetId="relate">
+                                        <FlowvPanel id="panelv03714" widgetId="relate">
+                                            <Button height="23" id="add_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                            </Button>
+                                        </FlowvPanel>
+                                        <FlowvPanel id="panelv13714" widgetId="relate">
+                                            <Button height="23" id="all_add_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                            </Button>
+                                        </FlowvPanel>
+                                        <FlowvPanel id="panelv23714" widgetId="relate">
+                                            <Button height="23" id="del_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                            </Button>
+                                        </FlowvPanel>
+                                        <FlowvPanel id="panelv33714" widgetId="relate">
+                                            <Button height="23" id="all_del_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                            </Button>
+                                        </FlowvPanel>
+                                    </FlowvLayout>
+                                </FlowhPanel>
+                                <FlowhPanel id="panelh20088" widgetId="relate" width="10">
+                                </FlowhPanel>
+                            </FlowhLayout>
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv27147" widgetId="relate">
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh22122" widgetId="relate">
+                    <FlowhLayout id="flowhlayout7749" widgetId="relate">
+                        <FlowhPanel id="panelh07749" widgetId="relate">
+                            <FlowvLayout autoFill="0" id="flowvlayout1547" widgetId="relate">
+                                <FlowvPanel height="25" id="panelv01547" widgetId="relate">
+                                    <FlowhLayout id="flowhlayout4391" widgetId="relate">
+                                        <FlowhPanel id="panelh04391" widgetId="relate" width="50">
+                                        </FlowhPanel>
+                                        <FlowhPanel id="panelh14391" widgetId="relate">
+                                            <Label height="22" id="selected_label" left="0" position="relative" top="0" widgetId="relate" width="100">
+                                            </Label>
+                                        </FlowhPanel>
+                                    </FlowhLayout>
+                                </FlowvPanel>
+                                <FlowvPanel id="panelv11547" widgetId="relate">
+                                    <TreeViewComp height="100%" id="selected_funcres_tree" left="0" position="relative" top="0" widgetId="relate" width="100%">
+                                    </TreeViewComp>
+                                </FlowvPanel>
+                            </FlowvLayout>
+                        </FlowhPanel>
+                        <FlowhPanel id="panelh17749" widgetId="relate" width="20">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv13146" widgetId="relate">
+            <FlowhLayout id="flowhlayout5414" widgetId="relate">
+                <FlowhPanel id="panelh05414" widgetId="relate">
+                </FlowhPanel>
+                <FlowhPanel id="panelh15414" widgetId="relate" width="200">
+                    <FlowvLayout autoFill="0" id="flowvlayout2574" widgetId="relate">
+                        <FlowvPanel height="5" id="panelv02574" widgetId="relate">
+                        </FlowvPanel>
+                        <FlowvPanel id="panelv12574" widgetId="relate">
+                            <FlowhLayout id="flowhlayout4299" widgetId="relate">
+                                <FlowhPanel id="panelh04299" widgetId="relate">
+                                    <Button height="23" id="ok_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                    </Button>
+                                </FlowhPanel>
+                                <FlowhPanel id="panelh14299" widgetId="relate">
+                                    <Button height="23" id="cancel_btn" left="0" position="relative" top="0" widgetId="relate" width="64">
+                                    </Button>
+                                </FlowhPanel>
+                            </FlowhLayout>
+                        </FlowvPanel>
+                    </FlowvLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh25414" widgetId="relate">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

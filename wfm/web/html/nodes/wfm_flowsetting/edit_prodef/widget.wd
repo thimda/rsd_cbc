@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.flowsetting.WfmProDefEditCtrl" dialog="false" id="edit_prodef" refId="edit_prodef" sourcePackage="wfm/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="prodef_pluginout">
+            <PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="ds_prodef" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="prodef_pluginin">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程定义" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="true" objMeta="uapcp.wfm_prodef" voMeta="nc.uap.wfm.vo.WfmProdefVO">
+                <FieldRelations>
+                    <FieldRelation id="watchrolepks_rel" refDataset="$refds_uapcp_cp_role">
+                        <MatchFields>
+                            <Field readField="rolename" writeField="watchrolepks_rolename">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="watchrolepks">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_ds_prodef_watchrolepks_rolename" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,rolename" refId="" refcode="协同角色" refnodeDelegator="" refresh="true" selLeafOnly="false" text="流程定义_协同角色" usePower="false" writeDs="ds_prodef" writeFields="watchrolepks,watchrolepks_rolename">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnCancel_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnOk_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <FormComp caption="流程定义" columnCount="2" dataset="ds_prodef" eleWidth="120" enabled="true" id="form_prodef" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程名称" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="memo" id="memo" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程描述" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="serverclass" id="serverclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="服务类" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="watchrolepks_rolename" id="watchrolepks_rolename" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_prodef_watchrolepks_rolename" rowSpan="1" selectOnly="true" text="流程监听" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotstartup" id="isnotstartup" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启动" visible="true">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

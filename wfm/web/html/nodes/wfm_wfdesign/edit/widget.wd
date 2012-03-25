@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="true" height="400" refId="edit" width="600" i18nName="流程定义维护">
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="协同角色" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_role" lazyLoad="true" objMeta="uapcp.cp_role" voMeta="nc.uap.cpb.org.vos.CpRoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程定义" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_prodef" lazyLoad="true" objMeta="uapcp.wfm_prodef" voMeta="nc.uap.wfm.vo.WfmProdefVO">
+                <FieldRelations>
+                    <FieldRelation id="watchrolepks_rel" refDataset="$refds_uapcp_cp_role">
+                        <MatchFields>
+                            <Field readField="rolename" writeField="watchrolepks_rolename">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="watchrolepks">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="ds_prodef" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Value>
+                                        </Value>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" caption="流程定义_协同角色" dataListener="" dialog="true" i18nName="" id="refnode_ds_prodef_watchrolepks_rolename" langDir="" multiSel="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,rolename" refId="" refcode="协同角色" refnodeDelegator="" refresh="false" selLeafOnly="false" text="" usePower="false" writeDs="ds_prodef" writeFields="watchrolepks,watchrolepks_rolename">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <FormComp caption="流程定义" columnCount="2" dataset="ds_prodef" enabled="true" id="frm_prodef" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" height="22" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="memo" height="22" id="memo" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程描述" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" height="22" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_prodef" height="22" id="pk_prodef" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_startfrm" height="22" id="pk_startfrm" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="发起表单" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="serverclass" height="22" id="serverclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="服务类" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="watchrolepks" height="22" id="watchrolepks" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程监听" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="watchrolepks_rolename" height="22" id="watchrolepks_rolename" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_prodef_watchrolepks_rolename" rowSpan="1" selectOnly="true" text="流程监听" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotstartup" height="22" id="isnotstartup" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启动" visible="true" width="">
+            </Element>
+        </FormComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_cancel" left="0" position="relative" text="取消" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="SaveProDefMouserListener" serverClazz="nc.uap.wfm.wfdesign.SaveProDefMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_prodef" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+        <ButtonComp align="left" enabled="true" height="22" id="btn_ok" left="0" position="relative" text="确定" top="0" visible="true" width="60">
+            <Listeners>
+                <MouseListener id="SaveProDefMouserListener" serverClazz="nc.uap.wfm.wfdesign.SaveProDefMouserListener">
+                    <Events>
+                        <Event async="true" name="onclick" onserver="true">
+                            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                <Widget cardSubmit="false" id="edit" panelSubmit="false" tabSubmit="false">
+                                    <Dataset id="$refds_uapcp_cp_role" type="ds_current_line">
+                                    </Dataset>
+                                    <Dataset id="ds_prodef" type="ds_current_line">
+                                    </Dataset>
+                                </Widget>
+                            </SubmitRule>
+                            <Params>
+                                <Param>
+                                    <Name>mouseEvent</Name>
+                                    <Desc>                                        <![CDATA[]]>
+                                    </Desc>
+                                </Param>
+                            </Params>
+                            <Action>
+                            </Action>
+                        </Event>
+                    </Events>
+                </MouseListener>
+            </Listeners>
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="nc.uap.portal.CPBEJB">
+  <public>
+
+	<!--组织参照-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpOrgQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpOrgQry</implementation>
+	</component>
+	
+     <!--权限-->
+      <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpPermissionQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpPermissionQry</implementation>
+	</component>
+
+    <!--职责-->
+<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpResponsibilityBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpResponsibilityBill</implementation>
+	</component>
+
+	 <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpResponsibilityQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpResponsibilityQry</implementation>
+	</component>
+
+  <!--插件-->
+<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.IPtPluginService</interface>
+		<implementation>nc.uap.cpb.org.impl.PtPluginServiceImpl</implementation>
+	</component>
+
+	 <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.IPtPluginQryService</interface>
+		<implementation>nc.uap.cpb.org.impl.PtPluginQryServiceImpl</implementation>
+	</component>
+     <!--应用分类管理-->  
+  <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpAppsNodeQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpAppsNodeQry</implementation>
+	</component>
+
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpAppsNodeBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpAppsNodeBill</implementation>
+	</component>
+
+	 <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpModuleQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpModuleQry</implementation>
+	</component>
+
+	 <!--菜单管理-->  
+  <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpMenuQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpMenuQry</implementation>
+	</component>
+
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpMenuBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpMenuBill</implementation>
+	</component>
+
+	  <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpMenuQryService</interface>
+		<implementation>nc.uap.cpb.org.impl.CpMenuQryServiceImpl</implementation>
+	</component>
+
+	<!--用户管理-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserBill</implementation>
+	</component>
+   <!--用户组管理-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupBill</implementation>
+	</component>
+	<!--角色管理-->
+    <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleBill</implementation>
+	</component>
+    <!--角色组管理-->
+     <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleGroupQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleGroupQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleGroupBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleGroupBill</implementation>
+	</component>
+	<!--资源管理-->
+     <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpResourceQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpResourceQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpResourceBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpResourceBill</implementation>
+	</component>
+	<!--用户角色管理-->
+     <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserRoleQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserRoleQry</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserRoleBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserRoleBill</implementation>
+	</component>
+	<!--用户组角色管理-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupRoleQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupRoleQry</implementation>
+	</component>
+    <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupRoleBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupRoleBill</implementation>
+	</component>
+    <!--用户组用户管理-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupUserQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupUserQry</implementation>
+	</component>
+    <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpUserGroupUserBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpUserGroupUserBill</implementation>
+	</component>
+    <!--角色资源管理-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleResourceQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleResourceQry</implementation>
+	</component>
+    <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleResourceBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleResourceBill</implementation>
+	</component>
+	<!--SuperVO管理-->
+    <component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpSuperVOBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpSuperVOBill</implementation>
+	</component>
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpSuperVOQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpSuperVOQry</implementation>
+	</component>
+
+    <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpDeviceQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpDeviceQry</implementation>
+	</component>
+
+    <!--插件服务-->
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpPluginBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpPluginBill</implementation>
+	</component>
+    <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpPluginQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpPluginQry</implementation>
+	</component>
+	
+	 <component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpPwdSgyQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpPwdSgyQry</implementation>
+	</component>
+	<!--日志服务-->
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.log.ICpLogQuery</interface>
+		<implementation>nc.uap.cpb.org.impl.CpLogQuery</implementation>
+	</component>
+	
+	<!--模板关系服务-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.templaterela.itf.ITemplateRelationQryService</interface>
+		<implementation>nc.uap.cpb.templaterela.impl.TemplateRelationQryServiceImpl</implementation>
+	</component>
+	
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.templaterela.itf.ITemplateRelationService</interface>
+		<implementation>nc.uap.cpb.templaterela.impl.TemplateRelationServiceImpl</implementation>
+	</component>
+	
+   </public>
+   <private>
+   </private>
+</module>
+

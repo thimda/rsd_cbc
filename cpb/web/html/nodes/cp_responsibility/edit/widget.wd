@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.responsibility.EditController" dialog="false" id="edit" refId="edit" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="afteredit">
+            <PlugoutDescItem clazztype="java.lang.String" name="ok" source="ds_responsibility" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+            <PlugoutEmitItem id="okbtn" source="ok_btn" type="Button.onclick">
+            </PlugoutEmitItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Events>
+        <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DialogListener" methodName="onBeforeShow" name="beforeShow" onserver="true">
+            <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+            </SubmitRule>
+            <Params>
+                <Param>
+                    <Name>dialogEvent</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[nc.uap.lfw.core.event.DialogEvent]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <MdDataset caption="协同职责" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_responsibility" lazyLoad="true" objMeta="uapcp.cp_responsibility" voMeta="nc.uap.cpb.org.vos.CpResponsibilityVO">
+                <Fields>
+                </Fields>
+            </MdDataset>
+        </Datasets>
+        <ComboDatas>
+            <MDComboDataConf caption="协同职责" fullclassName="ead8b6a0-fae7-42f4-a250-81e903f2e7dd" id="combo_ds_responsibility_type">
+            </MDComboDataConf>
+        </ComboDatas>
+    </Models>
+    <Components>
+        <FormComp caption="协同职责" columnCount="2" dataset="ds_responsibility" eleWidth="120" enabled="true" id="responsibility_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="code" id="code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="ComboBox" enabled="true" field="type" id="type" imageOnly="false" nextLine="false" nullAble="true" refComboData="combo_ds_responsibility_type" rowSpan="1" selectOnly="true" text="类型" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="DateText" enabled="true" field="creationtime" id="creationtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="creator" id="creator" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="DateText" enabled="true" field="modifiedtime" id="modifiedtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="修改时间" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="modifier" id="modifier" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="修改人" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="4" editable="true" editorType="StringText" enabled="true" field="descipt" height="66" id="descipt" imageOnly="false" nextLine="true" nullAble="true" rowSpan="3" selectOnly="true" text="描述" visible="true" width="480">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="dataoriginflag" id="dataoriginflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="DATAORIGINFLAG" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name2" id="name2" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME2" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name3" id="name3" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME3" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name4" id="name4" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME4" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name5" id="name5" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME5" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name6" id="name6" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="NAME6" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_group" id="pk_group" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="集团" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_org" id="pk_org" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组织" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_responsibility" id="pk_responsibility" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_responsibility1" id="pk_responsibility1" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="pk_responsibility1" visible="false">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false">
+            </Element>
+        </FormComp>
+        <ButtonComp enabled="true" id="cancel_btn" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onCancelClick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="ok_btn" text="确定" visible="true">
+        </ButtonComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

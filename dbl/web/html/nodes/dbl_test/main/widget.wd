@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget dialog="false" height="100%" refId="main" width="100%">
+    <Models>
+        <Datasets>
+            <PubDataset controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="yeards" lazyLoad="false" refId="nc.portal.cms.years" voMeta="nc.vo.pub.portlet.YearVO">
+                <Fields>
+                    <ModifyField i18nName="主键" id="pk_year" text="主键">
+                    </ModifyField>
+                    <ModifyField i18nName="名称" id="yearname" text="名称">
+                    </ModifyField>
+                    <ModifyField i18nName="集团" id="pk_group" text="集团">
+                    </ModifyField>
+                </Fields>
+                <Listeners>
+                    <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
+                        <Events>
+                            <Event async="true" name="onDataLoad" onserver="true">
+                                <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                                    <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                                        <Dataset id="yeards" type="ds_current_line">
+                                        </Dataset>
+                                    </Widget>
+                                </SubmitRule>
+                                <Params>
+                                    <Param>
+                                        <Name>dataLoadEvent</Name>
+                                        <Desc>                                            <![CDATA[]]>
+                                        </Desc>
+                                    </Param>
+                                </Params>
+                                <Action>
+                                </Action>
+                            </Event>
+                        </Events>
+                    </DatasetListener>
+                </Listeners>
+            </PubDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <FormComp columnCount="2" dataset="yeards" enabled="true" id="yearform" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_year" height="22" i18nName="主键" id="pk_year" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="yearname" height="22" i18nName="名称" id="yearname" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="名称" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_group" height="22" i18nName="集团" id="pk_group" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="集团" visible="true" width="">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

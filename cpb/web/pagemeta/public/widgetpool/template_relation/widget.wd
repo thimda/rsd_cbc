@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.template.TemplateRelationViewController" dialog="false" id="template_relation" refId="template_relation" sourcePackage="cpb/src/public/">
+    <Attributes>
+        <Attribute>
+            <Key>$POOLWIDGE</Key>
+            <Value>$POOLWIDGE</Value>
+        </Attribute>
+    </Attributes>
+    <PlugoutDescs>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="assign_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="assignRow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Events>
+        <Event async="true" methodName="pluginassign_plugin" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+    </Events>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" notNullBody="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_业务单元_公司" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_corp" lazyLoad="true" notNullBody="false" objMeta="uap.corp" voMeta="nc.vo.org.CorpVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="实体属性" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_Defdoc_ORG001" lazyLoad="true" notNullBody="false" objMeta="uap.Defdoc-ORG001" voMeta="nc.vo.bd.defdoc.DefdocVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织_版本信息" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org_v" lazyLoad="true" notNullBody="false" objMeta="uap.org_v" voMeta="nc.vo.vorg.OrgVersionVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="会计期间方案" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_accperiodscheme" lazyLoad="true" notNullBody="false" objMeta="uap.accperiodscheme" voMeta="nc.vo.bd.period.AccperiodschemeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="行业目录" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_protype" lazyLoad="true" notNullBody="false" objMeta="uap.protype" voMeta="nc.vo.bd.protype.ProTypeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="用户" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_user" lazyLoad="true" notNullBody="false" objMeta="uap.user" voMeta="nc.vo.sm.UserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="币种" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_currtype" lazyLoad="true" notNullBody="false" objMeta="uap.currtype" voMeta="nc.vo.bd.currtype.CurrtypeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org" lazyLoad="true" notNullBody="false" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="用户组" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_userGroup" lazyLoad="true" notNullBody="false" objMeta="uap.userGroup" voMeta="nc.vo.uap.rbac.UserGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="语种信息" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_MultiLang" lazyLoad="true" notNullBody="false" objMeta="uap.MultiLang" voMeta="nc.vo.ml.LanguageVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="角色组" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_RoleGroup" lazyLoad="true" notNullBody="false" objMeta="uap.RoleGroup" voMeta="nc.vo.uap.rbac.role.RoleGroupVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="工作日历" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_workcalendar" lazyLoad="true" notNullBody="false" objMeta="uap.workcalendar" voMeta="nc.vo.bd.workcalendar.WorkCalendarVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="角色" controlwidgetopeStatus="false" enabled="false" id="refds_role" lazyLoad="true" notNullBody="false" objMeta="uap.Role" voMeta="nc.vo.uap.rbac.role.RoleVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织" controlwidgetopeStatus="false" enabled="false" id="refds_org" lazyLoad="true" notNullBody="false" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="外币汇率方案" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_exratescheme" lazyLoad="true" notNullBody="false" objMeta="uap.exratescheme" voMeta="nc.vo.bd.exratescheme.ExrateSchemeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="数据格式" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_formatdoc" lazyLoad="true" notNullBody="false" objMeta="uap.formatdoc" voMeta="nc.vo.bd.format.FormatDocVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="ds_templateuser" lazyLoad="false" notNullBody="false" voMeta="nc.uap.cpb.templaterela.vo.CpTemplateUserVO">
+                <FieldRelations>
+                    <FieldRelation id="templateuser_user" refDataset="refds_user">
+                        <MatchFields>
+                            <Field readField="user_name" writeField="username">
+                            </Field>
+                            <Field readField="user_code" writeField="usercode">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="cuserid" value="pk_user">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_templateuser" id="pk_templateuser" nullAble="true" primaryKey="true" text="pk_templateuser">
+                    </Field>
+                    <Field dataType="String" field="pk_template" id="pk_template" nullAble="true" primaryKey="false" text="pk_template">
+                    </Field>
+                    <Field dataType="String" field="pk_user" id="pk_user" nullAble="true" primaryKey="false" text="pk_user">
+                    </Field>
+                    <Field dataType="Integer" field="dr" id="dr" nullAble="true" primaryKey="false" text="dr">
+                    </Field>
+                    <Field dataType="UFDate" field="ts" id="ts" nullAble="true" primaryKey="false" text="ts">
+                    </Field>
+                    <Field dataType="String" id="usercode" nullAble="true" primaryKey="false" text="usercode">
+                    </Field>
+                    <Field dataType="String" id="username" nullAble="true" primaryKey="false" text="username">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onTemplateUserDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+            <RefMdDataset caption="国家地区" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_countryzone" lazyLoad="true" notNullBody="false" objMeta="uap.countryzone" voMeta="nc.vo.bd.countryzone.CountryZoneVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="地址簿" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_address" lazyLoad="true" notNullBody="false" objMeta="uap.address" voMeta="nc.vo.bd.address.AddressVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="ds_templateorg" lazyLoad="false" notNullBody="false" voMeta="nc.uap.cpb.templaterela.vo.CpTemplateOrgVO">
+                <FieldRelations>
+                    <FieldRelation id="templateorg_org" refDataset="refds_org">
+                        <MatchFields>
+                            <Field readField="code" writeField="orgcode">
+                            </Field>
+                            <Field readField="name" writeField="orgname">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_templateorg" id="pk_templateorg" nullAble="true" primaryKey="true" text="pk_templateorg">
+                    </Field>
+                    <Field dataType="String" field="pk_template" id="pk_template" nullAble="true" primaryKey="false" text="pk_template">
+                    </Field>
+                    <Field dataType="String" field="pk_org" id="pk_org" nullAble="true" primaryKey="false" text="pk_org">
+                    </Field>
+                    <Field dataType="Integer" field="dr" id="dr" nullAble="true" primaryKey="false" text="dr">
+                    </Field>
+                    <Field dataType="UFDate" field="ts" id="ts" nullAble="true" primaryKey="false" text="ts">
+                    </Field>
+                    <Field dataType="String" id="orgcode" nullAble="true" primaryKey="false" text="orgcode">
+                    </Field>
+                    <Field dataType="String" id="orgname" nullAble="true" primaryKey="false" text="orgname">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onTemplateOrgDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+            <RefMdDataset caption="时区" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_timezone" lazyLoad="true" notNullBody="false" objMeta="uap.timezone" voMeta="nc.vo.bd.timezone.TimezoneVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <Dataset controlwidgetopeStatus="false" enabled="false" id="ds_templaterole" lazyLoad="false" notNullBody="false" voMeta="nc.uap.cpb.templaterela.vo.CpTemplateRoleVO">
+                <FieldRelations>
+                    <FieldRelation id="templaterole_role" refDataset="refds_role">
+                        <MatchFields>
+                            <Field readField="role_code" writeField="rolecode">
+                            </Field>
+                            <Field readField="role_name" writeField="rolename">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_role" value="pk_role">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                    <Field dataType="String" field="pk_templaterole" id="pk_templaterole" nullAble="true" primaryKey="true" text="pk_templaterole">
+                    </Field>
+                    <Field dataType="String" field="pk_template" id="pk_template" nullAble="true" primaryKey="false" text="pk_template">
+                    </Field>
+                    <Field dataType="String" field="pk_role" id="pk_role" nullAble="true" primaryKey="false" text="pk_role">
+                    </Field>
+                    <Field dataType="Integer" field="dr" id="dr" nullAble="true" primaryKey="false" text="dr">
+                    </Field>
+                    <Field dataType="UFDate" field="ts" id="ts" nullAble="true" primaryKey="false" text="ts">
+                    </Field>
+                    <Field dataType="String" id="rolecode" nullAble="true" primaryKey="false" text="rolecode">
+                    </Field>
+                    <Field dataType="String" id="rolename" nullAble="true" primaryKey="false" text="rolename">
+                    </Field>
+                </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onTemplateRoleDataLoad" name="onDataLoad" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>dataLoadEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </Dataset>
+            <RefMdDataset caption="用户" controlwidgetopeStatus="false" enabled="false" id="refds_user" lazyLoad="true" notNullBody="false" objMeta="uap.user" voMeta="nc.vo.sm.UserVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="人员基本信息" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_psndoc" lazyLoad="true" notNullBody="false" objMeta="uap.psndoc" voMeta="nc.vo.bd.psn.PsndocVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+        </Datasets>
+    </Models>
+    <Components>
+        <GridComp dataset="ds_templaterole" editable="false" enabled="true" id="grid_templaterole" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templaterole" fixedHeader="false" id="pk_templaterole" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templaterole" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_role" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="rolecode" fixedHeader="false" id="rolecode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="角色编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="rolename" fixedHeader="false" id="rolename" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="角色名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp dataset="ds_templateuser" editable="false" enabled="true" id="grid_templateuser" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateuser" fixedHeader="false" id="pk_templateuser" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templateuser" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_user" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="usercode" fixedHeader="false" id="usercode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="username" fixedHeader="false" id="username" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="用户名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+        <GridComp dataset="ds_templateorg" editable="false" enabled="true" id="grid_templateorg" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateorg" fixedHeader="false" id="pk_templateorg" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templateorg" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_org" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="orgcode" fixedHeader="false" id="orgcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="组织编码" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="String" editable="true" editorType="StringText" field="orgname" fixedHeader="false" id="orgname" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="组织名称" textAlign="left" visible="true" width="120">
+            </Column>
+        </GridComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

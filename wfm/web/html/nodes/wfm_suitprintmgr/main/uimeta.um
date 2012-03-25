@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0">
+    <Splitter boundMode="0" divideSize="30" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+        <SplitterOne id="00001">
+            <Border id="border1" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                <BorderTrue id="00002">
+                    <TreeViewComp id="tree_frmdef" widgetId="main">
+                    </TreeViewComp>
+                </BorderTrue>
+            </Border>
+        </SplitterOne>
+        <SplitterTwo id="00003">
+            <FlowvLayout autoFill="0" id="flowv1">
+                <FlowvPanel id="00004" height="300">
+                    <GridComp id="grid_suitprint" widgetId="main">
+                    </GridComp>
+                </FlowvPanel>
+                <FlowvPanel id="00005" height="5">
+                </FlowvPanel>
+                <FlowvPanel id="00006" height="23">
+                    <FlowhLayout id="00007">
+                        <FlowhPanel id="00008" width="200">
+                            <Label id="label_content" widgetId="main">
+                            </Label>
+                        </FlowhPanel>
+                        <FlowhPanel id="00009">
+                        </FlowhPanel>
+                        <FlowhPanel id="000010">
+                        </FlowhPanel>
+                        <FlowhPanel id="000011">
+                        </FlowhPanel>
+                    </FlowhLayout>
+                </FlowvPanel>
+                <FlowvPanel id="000012">
+                    <Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                        <BorderTrue id="000013">
+                            <TextField id="txt_content" type="6" widgetId="main">
+                            </TextField>
+                        </BorderTrue>
+                    </Border>
+                </FlowvPanel>
+            </FlowvLayout>
+        </SplitterTwo>
+    </Splitter>
+</UIMeta>

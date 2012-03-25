@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <Splitter boundMode="0" divideSize="25" hideBar="true" id="flow1" inverse="0" oneTouch="false" orientation="h" spliterWidth="4">
+        <SplitterOne id="flow2">
+            <Border id="flow3" showBottom="true" showLeft="true" showRight="true" showTop="true" widgetId="main" width="1">
+                <BorderTrue id="flow4">
+                    <TreeViewComp id="tree_flwtype" widgetId="main">
+                    </TreeViewComp>
+                </BorderTrue>
+            </Border>
+        </SplitterOne>
+        <SplitterTwo id="flow9">
+         	<Border id="border2" showBottom="true" showLeft="true" showRight="true" showTop="true" width="1">
+                <BorderTrue id="flow5ee">
+                      <FlowvLayout autoFill="0" id="flow1rr2">
+                        <FlowvPanel height="23" id="flow13">
+                            <Menubar id="menu_prodef" widgetId="main">
+                            </Menubar>
+                        </FlowvPanel>
+                        <FlowvPanel id="flow14">
+                            <GridComp id="grid_prodef" widgetId="main">
+                            </GridComp>
+                        </FlowvPanel>
+                    </FlowvLayout>
+				</BorderTrue>
+            </Border>
+       </SplitterTwo>
+    </Splitter>
+</UIMeta>

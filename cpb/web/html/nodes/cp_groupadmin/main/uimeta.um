@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0">
+    <BorderLayout id="null">
+        <BorderPanel position="center">
+            <Border bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="1">
+                <BorderTrue>
+                    <Splitter boundMode="0" divideSize="50" hideBar="true" id="spliter1" inverse="0" oneTouch="false" orientation="v" spliterWidth="4">
+                        <SplitterOne>
+                            <Border bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="2">
+                                <BorderTrue>
+                                    <CardLayout currentItem="0" id="manageCard" widgetId="main">
+                                        <CardPanel id="card_list">
+                                            <GridComp id="grid_user" widgetId="main"></GridComp>
+                                        </CardPanel>
+                                        <CardPanel id="card_form">
+                                            <FormComp id="form_user" widgetId="main">
+                                            </FormComp>
+                                        </CardPanel>
+                                    </CardLayout>
+                                </BorderTrue>
+                            </Border>
+                        </SplitterOne>
+                        <SplitterTwo>
+                            <Border bottomWidth="" leftWidth="" rightWidth="" showBottom="true" showLeft="true" showRight="true" showTop="true" topWidth="" width="2">
+                                <BorderTrue>
+                                    <TabLayout currentItem="0" id="tab1" oneTabHide="false" widgetId="main">
+                                        <TabItem i18nName="" id="item1" text="集团">
+                                            <GridComp id="grid_grpadmin" widgetId="main">
+                                            </GridComp>
+                                        </TabItem>
+                                        <TabItem i18nName="" id="item2" text="角色">
+                                            <GridComp id="grid_role" widgetId="main">
+                                            </GridComp>
+                                        </TabItem>
+                                    </TabLayout>
+                                </BorderTrue>
+                            </Border>
+                        </SplitterTwo>
+                    </Splitter>
+                </BorderTrue>
+            </Border>
+        </BorderPanel>
+    </BorderLayout>
+</UIMeta>

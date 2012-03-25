@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="leftView_um" jquery="0">
+	<TreeViewComp height="100%" id="tree_funcnode" left="0" position="relative" top="0" widgetId="leftView" width="100%"></TreeViewComp>
+</UIMeta>

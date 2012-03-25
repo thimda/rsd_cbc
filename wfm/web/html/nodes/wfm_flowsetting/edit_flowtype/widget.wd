@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.wfm.flowsetting.WfmFlowEditCtrl" dialog="false" id="edit_flowtype" refId="edit_flowtype" sourcePackage="wfm/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="flowedit_pluginout">
+            <PlugoutDescItem clazztype="java.lang.String" name="selectedrow" source="ds_flowtype" type="Dataset.TYPE_DATASET_SEL_ROW">
+            </PlugoutDescItem>
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+        <PluginDesc id="flowedit_pluginin">
+            <PluginDescItem clazztype="java.lang.String" id="selectedrow">
+            </PluginDescItem>
+        </PluginDesc>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+            <RefMdDataset caption="流程大类" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_wfm_flwcat" lazyLoad="true" objMeta="uapcp.wfm_flwcat" voMeta="nc.uap.wfm.vo.WfmFlwCatVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="协同功能节点" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uapcp_cp_appsnode" lazyLoad="true" objMeta="uapcp.cp_appsnode" voMeta="nc.uap.cpb.org.vos.CpAppsNodeVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <RefMdDataset caption="组织" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_org" lazyLoad="true" objMeta="uap.org" voMeta="nc.vo.org.OrgVO">
+                <Fields>
+                </Fields>
+            </RefMdDataset>
+            <MdDataset caption="流程类型" controloperatorStatus="false" controlwidgetopeStatus="false" enabled="false" id="ds_flowtype" lazyLoad="true" objMeta="uapcp.wfm_flwtype" voMeta="nc.uap.wfm.vo.WfmFlwTypeVO">
+                <FieldRelations>
+                    <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
+                        <MatchFields>
+                            <Field readField="name" writeField="pk_org_name">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_org" value="pk_org">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                    <FieldRelation id="pageid_rel" refDataset="$refds_uapcp_cp_appsnode">
+                        <MatchFields>
+                            <Field readField="title" writeField="pageid_title">
+                            </Field>
+                        </MatchFields>
+                        <WhereField>
+                            <Field key="pk_appsnode" value="pageid">
+                            </Field>
+                        </WhereField>
+                    </FieldRelation>
+                </FieldRelations>
+                <Fields>
+                </Fields>
+            </MdDataset>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_ds_flowtype_pageid_title" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_appsnode,title" refId="" refcode="功能节点" refnodeDelegator="" refresh="true" selLeafOnly="false" text="流程类型_功能节点" usePower="false" writeDs="ds_flowtype" writeFields="pageid,pageid_title">
+            </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_ds_flowtype_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="全局+当前集团+当前集团下的所有组织" refnodeDelegator="" refresh="true" selLeafOnly="false" text="流程类型_全局+当前集团+当前集团下的所有组织" usePower="false" writeDs="ds_flowtype" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnCancel_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+           <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btnOk_click" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Value>
+                            </Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ButtonComp>
+        <FormComp caption="流程类型" columnCount="2" dataset="ds_flowtype" eleWidth="120" enabled="true" id="form_flowtype" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="typename" id="typename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="类型名称" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="typecode" id="typecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="类型编码" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_org_name" id="pk_org_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_flowtype_pk_org_name" rowSpan="1" selectOnly="true" text="所属组织" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="serverclass" id="serverclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="服务类" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pageid_title" id="pageid_title" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_flowtype_pageid_title" rowSpan="1" selectOnly="true" text="功能节点ID" visible="true">
+            </Element>
+        </FormComp>
+    </Components>
+    <Containers>
+    </Containers>
+    <Menus>
+    </Menus>
+</Widget>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="showLinkContent_um" jquery="0">
+    <FlowvLayout autoFill="0" id="flowvlayout7149" widgetId="showLinkContent">
+        <FlowvPanel height="100%" id="panelv07149" widgetId="showLinkContent">
+            <FormComp height="100%" id="showLink" label_position="" left="0" position="relative" top="0" widgetId="showLinkContent" width="100%">
+            </FormComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>
