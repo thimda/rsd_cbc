@@ -16,8 +16,8 @@ import nc.uap.wfm.utils.WfmTaskUtil;
 public class DeliverCtrl implements IController {
 	private static final long serialVersionUID = 1L;
 	public void btnok_onclick(MouseEvent<ButtonComp> mouseEvent) {
-		String taskPk = (String) AppUtil.getAppAttr(WfmConstants.TaskPk);
-		String flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.FlwTypePk);
+		String taskPk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TaskPk);
+		String flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_FolwTypePk);
 		WfmFlowInfoCtx flowInfoCtx = new WfmDeliverFlowInfoCtxBuilder(flowTypePk, taskPk).builderDeliverFlowInfoCtx();
 		IFlowRequest flowReuqest = BizProcessServer.createFlowRequest(WfmTaskUtil.getWfmFormInfoCtx(), flowInfoCtx);
 		IFlowResponse flowResponse = BizProcessServer.createFlowResponse();

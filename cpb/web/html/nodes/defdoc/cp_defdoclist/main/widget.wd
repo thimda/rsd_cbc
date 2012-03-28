@@ -7,9 +7,26 @@
             <PluginDescItem clazztype="java.lang.String" id="editRow">
             </PluginDescItem>
         </PluginDesc>
+        <PluginDesc id="simpleQuery_plugin">
+            <PluginDescItem clazztype="java.lang.String" id="row">
+            </PluginDescItem>
+        </PluginDesc>
     </PluginDescs>
     <Events>
         <Event async="true" methodName="pluginedittomain" onserver="true">
+            <Params>
+                <Param>
+                    <Name>keys</Name>
+                    <Value>
+                    </Value>
+                    <Desc>                        <![CDATA[java.util.Map]]>
+                    </Desc>
+                </Param>
+            </Params>
+            <Action>
+            </Action>
+        </Event>
+        <Event async="true" methodName="pluginsimpleQuery_plugin" onserver="true">
             <Params>
                 <Param>
                     <Name>keys</Name>
@@ -29,7 +46,7 @@
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <MdDataset caption="自定义档案列表" controlwidgetopeStatus="false" enabled="false" id="defdoclist" lazyLoad="false" notNullBody="false" objMeta="uap.defdoclist" voMeta="nc.vo.bd.defdoc.DefdoclistVO">
+            <MdDataset caption="自定义档案列表" controlwidgetopeStatus="false" enabled="false" id="defdoclist" lazyLoad="false" notNullBody="false" objMeta="uap.defdoclist" pageSize="20" voMeta="nc.vo.bd.defdoc.DefdoclistVO">
                 <FieldRelations>
                     <FieldRelation id="pk_org_rel" refDataset="$refds_uap_org">
                         <MatchFields>
@@ -140,9 +157,9 @@
             </RefMdDataset>
         </Datasets>
         <ComboDatas>
-            <MDComboDataConf caption="自定义档案列表" fullclassName="40c19c4f-acd9-4638-8b6a-66e65d74ca20" id="combo_defdoclist_mngctlmode">
-            </MDComboDataConf>
             <MDComboDataConf caption="自定义档案列表" fullclassName="12d1bbd6-cf7f-488c-a137-9f5799ae7a92" id="combo_defdoclist_doctype">
+            </MDComboDataConf>
+            <MDComboDataConf caption="自定义档案列表" fullclassName="40c19c4f-acd9-4638-8b6a-66e65d74ca20" id="combo_defdoclist_mngctlmode">
             </MDComboDataConf>
             <MDComboDataConf caption="自定义档案列表" fullclassName="5ae6080c-1013-49e5-91b1-d6418c1cec2e" id="combo_defdoclist_doclevel">
             </MDComboDataConf>
@@ -161,7 +178,7 @@
         </RefNodes>
     </Models>
     <Components>
-        <GridComp caption="自定义档案列表" dataset="defdoclist" editable="false" enabled="false" id="mainGrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+        <GridComp caption="自定义档案列表" dataset="defdoclist" editable="false" enabled="true" id="mainGrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_defdoclist" fixedHeader="false" i18nName="2UC000-000748" id="pk_defdoclist" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案列表主键" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" i18nName="2UC000-000360" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="120">
@@ -170,29 +187,29 @@
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" i18nName="2UC000-001007" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="集团" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" i18nName="2UC000-001007" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_defdoclist_pk_group_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="集团" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" i18nName="2UC000-001007" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_defdoclist_pk_group_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="集团" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="docclass" fixedHeader="false" i18nName="2udddb-000018" id="docclass" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="档案分类" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="docclass" fixedHeader="false" i18nName="2udddb-000018" id="docclass" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="档案分类" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" i18nName="2udddb-000014" id="code" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案编码" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="name" fixedHeader="false" i18nName="2udddb-000016" id="name" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案名称" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="doctype" fixedHeader="false" i18nName="2udddb-000019" id="doctype" imageOnly="false" nullAble="true" refComboData="combo_defdoclist_doctype" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="档案类型" textAlign="right" visible="true" width="120">
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="doctype" fixedHeader="false" i18nName="2udddb-000019" id="doctype" imageOnly="false" nullAble="true" refComboData="combo_defdoclist_doctype" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="档案类型" textAlign="right" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isgrade" fixedHeader="false" i18nName="2udddb-000000" id="isgrade" imageOnly="false" nullAble="false" renderType="BooleanRender" showCheckBox="true" sortable="true" sumCol="false" text="分级" textAlign="center" visible="true" width="120">
+            <Column autoExpand="false" dataType="UFBoolean" editable="true" editorType="CheckBox" field="isgrade" fixedHeader="false" i18nName="2udddb-000000" id="isgrade" imageOnly="false" nullAble="true" renderType="BooleanRender" showCheckBox="true" sortable="true" sumCol="false" text="分级" textAlign="center" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="coderule" fixedHeader="false" i18nName="2udddb-000006" id="coderule" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="档案编码规则" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="codectlgrade" fixedHeader="false" i18nName="2udddb-000010" id="codectlgrade" imageOnly="false" nullAble="true" refComboData="combo_defdoclist_codectlgrade" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="编码控制级次" textAlign="right" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="mngctlmode" fixedHeader="false" i18nName="2udddb-000004" id="mngctlmode" imageOnly="false" nullAble="false" refComboData="combo_defdoclist_mngctlmode" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="档案管控模式" textAlign="right" visible="true" width="120">
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="mngctlmode" fixedHeader="false" i18nName="2udddb-000004" id="mngctlmode" imageOnly="false" nullAble="true" refComboData="combo_defdoclist_mngctlmode" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="档案管控模式" textAlign="right" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="UFBoolean" editable="false" editorType="CheckBox" field="isrelease" fixedHeader="false" i18nName="2udddb-000008" id="isrelease" imageOnly="false" nullAble="true" renderType="BooleanRender" showCheckBox="true" sortable="true" sumCol="false" text="发布为节点" textAlign="center" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="Integer" editable="false" editorType="ComboBox" field="doclevel" fixedHeader="false" i18nName="2udddb-000015" id="doclevel" imageOnly="false" nullAble="true" refComboData="combo_defdoclist_doclevel" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="档案属性" textAlign="right" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="associatename" fixedHeader="false" i18nName="2udddb-000005" id="associatename" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="关联表名" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="associatename" fixedHeader="false" i18nName="2udddb-000005" id="associatename" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="关联表名" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" i18nName="2UC000-000155" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
             </Column>
@@ -206,9 +223,9 @@
             </Column>
             <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" i18nName="2UC000-000491" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="funcode" fixedHeader="false" i18nName="2udddb-000003" id="funcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="发布的节点编码" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="funcode" fixedHeader="false" i18nName="2udddb-000003" id="funcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="发布的节点编码" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" i18nName="2UC000-000151" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="true" width="120">
+            <Column autoExpand="true" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" i18nName="2UC000-000151" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="false" width="120">
             </Column>
             <Column autoExpand="true" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
             </Column>

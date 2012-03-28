@@ -9,4 +9,6 @@ public interface ICpPrintFileChooserService {
 	public void readFile() throws TplBusinessException;
 	
 	public String getRealPath();
+	
+	public void setType(int TYPE);
 }

@@ -13,6 +13,7 @@ import nc.ui.bd.ref.model.DefdocDefaultRefModel;
  *
  */
 public class CPDefdocDefaultRefModel extends DefdocDefaultRefModel {
+//	public CPDefdocDefaultRefModel(ILfwRefModel refModel){}
 
 	@Override
 	protected String getEnvWherePart() {
@@ -20,6 +21,7 @@ public class CPDefdocDefaultRefModel extends DefdocDefaultRefModel {
 		// return " code = '111' ";
 		String pk_defdoclist = (String) LfwRuntimeEnvironment.getWebContext().getAppSession().getAttribute(
 				"pk");
+		if(pk_defdoclist==null)pk_defdoclist="";
 		return "pk_defdoclist = '" + pk_defdoclist + "'";
 	}
 }

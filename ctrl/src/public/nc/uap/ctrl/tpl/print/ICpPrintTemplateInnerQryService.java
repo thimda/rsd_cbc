@@ -13,4 +13,6 @@ public interface ICpPrintTemplateInnerQryService {
 	public String getPrintTemplatePkByNode(String nodeCode) throws TplBusinessException;
 	
 	public CpPrintTemplateVO getPrintTemplateVO(String pk_template) throws TplBusinessException;
+	
+	public CpPrintTemplateVO[] getPrintTemplates(String nodecode) throws TplBusinessException;
 }

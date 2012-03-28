@@ -1,7 +1,7 @@
 package nc.uap.wfm.cmd;
 import nc.bs.framework.common.NCLocator;
 import nc.uap.lfw.core.exception.LfwRuntimeException;
-import nc.uap.wfm.builder.BeanConvert;
+import nc.uap.wfm.convert.BeanConvert;
 import nc.uap.wfm.exception.WfmServiceException;
 import nc.uap.wfm.itf.IWfmTaskQry;
 import nc.uap.wfm.model.ProDef;

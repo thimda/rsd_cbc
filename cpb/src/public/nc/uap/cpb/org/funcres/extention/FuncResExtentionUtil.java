@@ -3,7 +3,6 @@ package nc.uap.cpb.org.funcres.extention;
 import java.util.ArrayList;
 import java.util.List;
 
-import nc.uap.cpb.org.exception.CpbBusinessException;
 import nc.uap.cpb.org.vos.CpFuncResVO;
 import nc.uap.lfw.core.log.LfwLogger;
 import nc.uap.portal.plugins.PluginManager;

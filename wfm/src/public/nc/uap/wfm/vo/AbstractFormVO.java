@@ -191,7 +191,7 @@ public abstract class AbstractFormVO extends SuperVO implements WfmFormInfoCtx {
 			this.setBillMakeDept("");
 		}
 		if (this.getFrmState() == null) {
-			String taskPk = LfwRuntimeEnvironment.getWebContext().getParameter(WfmConstants.TaskPk);
+			String taskPk = LfwRuntimeEnvironment.getWebContext().getParameter(WfmConstants.WfmUrlConst_TaskPk);
 			if (taskPk == null) {
 				this.setFrmState(0);
 			} else {

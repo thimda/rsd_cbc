@@ -22,7 +22,7 @@
 													</TextField>
 												</FlowvPanel>
 												<FlowvPanel id="panelv11191" widgetId="pubview_exetask">
-													<TextField height="125" id="text_opinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600">
+													<TextField height="70" id="text_opinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600">
 													</TextField>
 												</FlowvPanel>
 											</FlowvLayout>
@@ -38,7 +38,7 @@
 													</TextField>
 												</FlowvPanel>
 												<FlowvPanel id="panelv11683" widgetId="pubview_exetask" >
-													<TextField height="100" id="text_tranopinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600" >
+													<TextField height="70" id="text_tranopinion" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="600" >
 													</TextField>
 												</FlowvPanel>
 											</FlowvLayout>
@@ -73,18 +73,6 @@
 										</CardPanel>
 									</CardLayout>
 								</FlowvPanel>
-								<FlowvPanel height="50" id="panelv20191" widgetId="pubview_exetask">
-									<FlowvLayout autoFill="0" id="flowvlayout2783" widgetId="pubview_exetask">
-										<FlowvPanel  id="panelv02783" widgetId="pubview_exetask" height="25">
-											<TextField height="22" id="text_copysend" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
-											</TextField>
-										</FlowvPanel>
-										<FlowvPanel  id="panelv12783" widgetId="pubview_exetask" height="25">
-											<TextField height="22" id="text_attach" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
-											</TextField>
-										</FlowvPanel>
-									</FlowvLayout>
-								</FlowvPanel>
 								<FlowvPanel id="panelv30191" widgetId="pubview_exetask" height="25">
 									<FlowhLayout id="flowhlayout5101" widgetId="pubview_exetask">
 										<FlowhPanel id="panelh05101" widgetId="pubview_exetask" width="40">
@@ -107,19 +95,25 @@
 										</FlowhPanel>
 									</FlowhLayout>
 								</FlowvPanel>
-								<FlowvPanel id="panelv40191" widgetId="pubview_exetask" height="25">
-									<FlowhLayout id="flowhlayout3299" widgetId="pubview_exetask">
-										<FlowhPanel id="panelh13299" widgetId="pubview_exetask">
-										</FlowhPanel>
-										<FlowhPanel id="panelh23299" widgetId="pubview_exetask">
-										</FlowhPanel>
-										<FlowhPanel id="panelh33299" widgetId="pubview_exetask">
-										</FlowhPanel>
-										<FlowhPanel id="panelh43299" widgetId="pubview_exetask">
+								<FlowvPanel height="50" id="panelv20191" widgetId="pubview_exetask">
+									<FlowvLayout autoFill="0" id="flowvlayout2783" widgetId="pubview_exetask">
+										<FlowvPanel  id="panelv02783" widgetId="pubview_exetask" height="25">
+											<TextField height="22" id="text_copysend" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+											</TextField>
+										</FlowvPanel>
+										<FlowvPanel  id="panelv12783" widgetId="pubview_exetask" height="25">
+											<TextField height="22" id="text_attach" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+											</TextField>
+										</FlowvPanel>
+										<FlowvPanel id="panelv22783" widgetId="pubview_exetask" height="25">
+											<TextField height="22" id="text_afteraddsign" left="0" position="relative" top="0" type="text" widgetId="pubview_exetask" width="595">
+											</TextField>
+										</FlowvPanel>
+										<FlowvPanel id="panelv32783" widgetId="pubview_exetask" height="25">
 											<Button height="23" id="btn_ok" left="0" position="relative" top="0" widgetId="pubview_exetask" width="64" align="right">
-											</Button>
-										</FlowhPanel>
-									</FlowhLayout>
+										    </Button>
+										</FlowvPanel>
+									</FlowvLayout>
 								</FlowvPanel>
 							</FlowvLayout>
 						</BorderTrue>

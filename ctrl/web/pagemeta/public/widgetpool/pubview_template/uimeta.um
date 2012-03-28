@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="pubview_template_um" jquery="0">
+    <FlowvLayout id="flowvlayout6134" widgetId="pubview_template">
+        <FlowvPanel id="panelv06134" widgetId="pubview_template">
+            <GridComp height="100%" id="templateGrid" left="0" position="relative" top="0" widgetId="pubview_template" width="100%">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel height="40" id="panelv16134" widgetId="pubview_template">
+            <FlowhLayout autoFill="false" id="flowhlayout9066" widgetId="pubview_template">
+                <FlowhPanel id="panelh09066" widgetId="pubview_template">
+                </FlowhPanel>
+                <FlowhPanel id="panelh19066" widgetId="pubview_template">
+                    <Button height="23" id="btnOK" left="0" position="relative" top="0" widgetId="pubview_template" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh29066" widgetId="pubview_template">
+                </FlowhPanel>
+                <FlowhPanel id="panelh39066" widgetId="pubview_template">
+                    <Button height="23" id="btnCANCEL" left="0" position="relative" top="0" widgetId="pubview_template" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh49066" widgetId="pubview_template">
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

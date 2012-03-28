@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0" flowmode="true">
-    <FlowvLayout autoFill="0" id="flow1eee">
-        <FlowvPanel height="325" id="flow2eee">
-            <FormComp id="form_flowtype" widgetId="edit_flowtype">
-            </FormComp>
-        </FlowvPanel>
-        <FlowvPanel height="30" id="flow3eee">
-            <FlowhLayout id="flow4eee">
-                <FlowhPanel id="flow5eee">
-                </FlowhPanel>
-                <FlowhPanel id="flow6eee">
-                </FlowhPanel>
-                <FlowhPanel id="flow7eee">
-                    <Button id="btn_ok" widgetId="edit_flowtype">
-                    </Button>
-                </FlowhPanel>
-                <FlowhPanel id="flow8eee">
-                    <Button id="btn_cancel" widgetId="edit_flowtype">
-                    </Button>
-                </FlowhPanel>
-                <FlowhPanel id="flow9eee">
-                </FlowhPanel>
-                <FlowhPanel id="flow10eee">
-                </FlowhPanel>
-            </FlowhLayout>
-        </FlowvPanel>
-    </FlowvLayout>
+	<FlowvLayout autoFill="0" id="flow1eee">
+		<FlowvPanel id="flowv456453fd" height="30">   
+		</FlowvPanel> 
+		<FlowvPanel  id="flow2eee" height="300">
+			<FlowhLayout autoFill="false" id="flowhlayout8289" widgetId="edit_flowtype">
+				<FlowhPanel id="panelh08289" widgetId="edit_flowtype" width="50">
+				</FlowhPanel>
+				<FlowhPanel id="panelh18289" widgetId="edit_flowtype">
+					<FormComp id="form_flowtype" widgetId="edit_flowtype">
+					</FormComp>
+				</FlowhPanel>
+				<FlowhPanel id="panelh28289" widgetId="edit" width="50">
+				</FlowhPanel>
+			</FlowhLayout>
+		</FlowvPanel>
+		<FlowvPanel height="30" id="flow3eee">
+			<FlowhLayout id="flow4eee">
+				<FlowhPanel id="flow5eee">
+				</FlowhPanel>
+				<FlowhPanel id="flow6eee">
+				</FlowhPanel>                
+				<FlowhPanel id="flow9eee">
+				</FlowhPanel>
+				<FlowhPanel id="flow10eee">
+				</FlowhPanel>
+				<FlowhPanel id="flow11eee">
+				</FlowhPanel>
+				<FlowhPanel id="flow7eee">
+					<Button id="btn_ok" widgetId="edit_flowtype">
+					</Button>
+				</FlowhPanel>
+				<FlowhPanel id="flow8eee">
+					<Button id="btn_cancel" widgetId="edit_flowtype">
+					</Button>
+				</FlowhPanel>
+			</FlowhLayout>
+		</FlowvPanel>
+	</FlowvLayout>
 </UIMeta>

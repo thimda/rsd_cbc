@@ -131,9 +131,9 @@ public class MainController<T extends WebElement> extends
 			CpRoleVO vo = (CpRoleVO) vos[0];
 			checkDupliVO(vo);
 			if (vo.getPk_role() == null || vo.getPk_role().length() == 0) {
-				CpbServiceFacility.getCpRoleBill().addPtRoleVO(vo);
+				CpbServiceFacility.getCpRoleBill().addCpRoleVO(vo);
 			} else {
-				CpbServiceFacility.getCpRoleBill().updatePtRoleVO(vo);
+				CpbServiceFacility.getCpRoleBill().updateCpRoleVO(vo);
 			}
 		} catch (CpbBusinessException e1) {
 			LfwLogger.error(e1.getMessage(), e1);
@@ -198,7 +198,7 @@ public class MainController<T extends WebElement> extends
 	public void onAdd(MouseEvent<T> mouseEvent) {
 		getCurrentWinCtx().addAppAttribute(RoleMgrConstants.OPERATE_STATUS,
 				RoleMgrConstants.ADD_OPERATE);
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "新增角色");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.NINE_ELE_HEIGHT, "新增角色");
 	}
 
 	public void onEdit(MouseEvent<T> mouseEvent) {
@@ -210,12 +210,23 @@ public class MainController<T extends WebElement> extends
 		if (row == null)
 			throw new LfwRuntimeException("请选择需要修改的数据！");
 		getCurrentWinCtx().addAppAttribute(RoleMgrConstants.DATA, row);
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改角色");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.NINE_ELE_HEIGHT, "修改角色");
 
 	}
 
 	public void onDel(MouseEvent<T> mouseEvent) {
-		UifDelCmd cmd = new UifDelCmd(getMasterDsId(), getAggVoClazz());
+		UifDelCmd cmd = new UifDelCmd(getMasterDsId(), getAggVoClazz()){
+			protected void onDeleteVO(ArrayList<AggregatedValueObject> vos, boolean trueDel) {
+				for(AggregatedValueObject aggvo:vos){
+					CpRoleVO rolevo = (CpRoleVO) aggvo.getParentVO();
+					try {
+						CpbServiceFacility.getCpRoleBill().deleteCpRoleVO(rolevo)	;
+					} catch (CpbBusinessException e) {
+						LfwLogger.error(e.getMessage(),e);
+					}
+				}				
+			}
+		};
 		cmd.execute();
 	}
 
@@ -262,8 +273,7 @@ public class MainController<T extends WebElement> extends
 		if (rows == null || rows.length < 1) {
 			throw new LfwRuntimeException("请选择角色关联的用户!");
 		}
-		getCurrentWinCtx().popView(EnabledateController.PUBLIC_VIEW_ENABLEDATE,
-				"500", "160", "设置生效-失效日期");
+		getCurrentWinCtx().popView(EnabledateController.PUBLIC_VIEW_ENABLEDATE,DialogConstant.DEFAULT_WIDTH, DialogConstant.DEFAULT_HEIGHT, "设置生效-失效日期");
 	}
 	
 	public void onDelRelateOrg(MouseEvent mouseEvent) {
@@ -358,7 +368,7 @@ public class MainController<T extends WebElement> extends
 		TranslatedRow r = (TranslatedRow) map.get("row");
 		UFDate enabledate = (UFDate) r.getValue("enabledate");
 		UFDate disabledate = (UFDate) r.getValue("disabledate");
-		if(disabledate.beforeDate(enabledate))
+		if(disabledate!=null&&disabledate.beforeDate(enabledate))
 			throw new LfwRuntimeException("失效日期必须大于生效日期!");
 		
 		for (int i = 0; i < rows.length; i++) {

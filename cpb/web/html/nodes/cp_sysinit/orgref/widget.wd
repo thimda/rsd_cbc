@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<Widget controllerClazz="nc.uap.cpb.org.sysinit.OrgRefController" dialog="false" id="orgref" refId="orgref" sourcePackage="cpb/src/public/">
+    <PlugoutDescs>
+        <PlugoutDesc id="plugout_orgref">
+        </PlugoutDesc>
+    </PlugoutDescs>
+    <PluginDescs>
+    </PluginDescs>
+    <Models>
+        <Datasets>
+        </Datasets>
+        <RefNodes>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="ref_org" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="全局+当前集团+当前集团下的所有组织(所有)" refnodeDelegator="" refresh="false" selLeafOnly="false" text="选择组织:" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
+        </RefNodes>
+    </Models>
+    <Components>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="ref_org_textfield" refcode="ref_org" text="组织单元：" textAlign="left" textWidth="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="orgref_valueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        <Widget cardSubmit="false" id="tree" panelSubmit="false" tabSubmit="false">
+                            <Dataset id="cp_appscategory_ds" type="ds_current_line">
+                            </Dataset>
+                        </Widget>
+                        <Widget cardSubmit="false" id="main" panelSubmit="false" tabSubmit="false">
+                        </Widget>
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Value></Value>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ReferenceComp>
+    </Components>
+    <Menus>
+    </Menus>
+</Widget>

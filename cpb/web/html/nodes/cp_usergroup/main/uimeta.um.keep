@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta chart="0" flowmode="true" id="" jquery="0" jsEditor="0" jsExcel="0">
+    <FlowvLayout autoFill="0" id="flokw000v2">
+        <FlowvPanel  id="flowhpane000kl11">
+         	<CanvasLayout id="titlecanvas" className="rightcanvas">
+				<CanvasPanel id="canvasp1">
+		         	<Menubar id="menu_usergroup" widgetId="main">
+		         	</Menubar>
+		        </CanvasPanel>
+			</CanvasLayout>
+       </FlowvPanel>
+        <FlowvPanel id="flowhpane0l00l12">
+           <GridComp id="grid_usergroup" widgetId="main">
+            </GridComp>
+        </FlowvPanel>
+        <FlowvPanel id="flowhpane000l3">
+           <TabLayout id="tab1" oneTabHide="false" widgetId="main">
+                <TabItem i18nName="" id="item1" text="已有用户">
+                    <GridComp id="grid_cp_user" widgetId="main">
+                    </GridComp>
+                </TabItem>
+           </TabLayout> 
+        </FlowvPanel>
+	</FlowvLayout>
+</UIMeta>

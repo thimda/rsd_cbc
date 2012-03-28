@@ -10,7 +10,7 @@ import nc.uap.cpb.org.vos.CpUserRoleVO;
 import nc.uap.cpb.persist.dao.PtBaseDAO;
 import nc.uap.lfw.core.log.LfwLogger;
 public class CpRoleBill implements ICpRoleBill {
-	public String addPtRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
+	public String addCpRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			return dao.insertVO(rolevo);
@@ -19,7 +19,7 @@ public class CpRoleBill implements ICpRoleBill {
 			throw new CpbBusinessException(e);
 		}
 	}
-	public String[] addPtRoleVOs(CpRoleVO[] rolevos) throws CpbBusinessException {
+	public String[] addCpRoleVOs(CpRoleVO[] rolevos) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			return dao.insertVOs(rolevos);
@@ -28,7 +28,7 @@ public class CpRoleBill implements ICpRoleBill {
 			throw new CpbBusinessException(e);
 		}
 	}
-	public void updatePtRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
+	public void updateCpRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			dao.updateVO(rolevo);
@@ -41,7 +41,7 @@ public class CpRoleBill implements ICpRoleBill {
 			throw new CpbBusinessException(e);
 		}
 	}
-	@Override public void deletePtRoleVO(String pk_role) throws CpbBusinessException {
+	@Override public void deleteCpRoleVO(String pk_role) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			dao.deleteByPK(CpRoleVO.class, pk_role);
@@ -52,7 +52,7 @@ public class CpRoleBill implements ICpRoleBill {
 			throw new CpbBusinessException(e);
 		}
 	}
-	public void deletePtRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
+	public void deleteCpRoleVO(CpRoleVO rolevo) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			dao.deleteVO(rolevo);
@@ -62,7 +62,7 @@ public class CpRoleBill implements ICpRoleBill {
 			throw new CpbBusinessException(e);
 		}
 	}
-	public void deletePtRoleVO(CpRoleVO[] rolevos) throws CpbBusinessException {
+	public void deleteCpRoleVO(CpRoleVO[] rolevos) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			dao.deleteVOArray(rolevos);
@@ -78,8 +78,7 @@ public class CpRoleBill implements ICpRoleBill {
 			if(rolevo==null){
 				continue;
 			}
-			CpbServiceFacility.getCpUserRoleBill().deletePtRoleUserByRolepk(rolevo.getPk_role());
-			CpbServiceFacility.getCpRoleResourceBill().deleteRoleResourceByRolePk(rolevo.getPk_role());
+			CpbExtentionUtil.notifyAfterAction(ICpbExtentionService.ROLEMANAGE, ICpbExtentionService.DELETE, rolevo);
 		}
 	}
 }

@@ -27,7 +27,7 @@ public class EnabledateController implements IController {
 		  }
 		  Row row = ds.getEmptyRow();
 		  row.setValue(ds.nameToIndex("enabledate"), new UFDate());
-		  row.setValue(ds.nameToIndex("disabledate"), new UFDate());
+		  //row.setValue(ds.nameToIndex("disabledate"), new UFDate());
 		  ds.addRow(row); 
 		  ds.setSelectedIndex(ds.getRowIndex(row));
 		  ds.setEnabled(true);

@@ -45,7 +45,7 @@ public class MainController<T extends WebElement> extends
 			throw new LfwRuntimeException("请先选择功能节点分组!");	
 		getCurrentWinCtx().addAppAttribute(FuncregisterConstants.OPERATE_STATUS,
 				FuncregisterConstants.ADD_OPERATE);
-		getCurrentWinCtx().popView("edit_node",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"新增功能节点");
+		getCurrentWinCtx().popView("edit_node",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"新增功能节点");
 	}
 
 	public void onEdit(MouseEvent<T> mouseEvent) {
@@ -57,7 +57,7 @@ public class MainController<T extends WebElement> extends
 		if (row == null)
 			throw new LfwRuntimeException("请选择需要修改的功能节点！");
 		getCurrentWinCtx().addAppAttribute(FuncregisterConstants.DATA, row);
-		getCurrentWinCtx().popView("edit_node",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"修改功能节点");
+		getCurrentWinCtx().popView("edit_node",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"修改功能节点");
 	}
 
 	public void pluginedit_node_plugin(Map keys) {

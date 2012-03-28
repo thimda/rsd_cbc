@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta flowmode="true" id="main_um" jquery="1">
   <FlowvLayout autoFill="0" id="flowvlayout2111" widgetId="main">
+  <FlowvPanel id="flowv456453fd" height="30">   
+          </FlowvPanel> 
     <FlowvPanel id="panelv12111" widgetId="main">
       <FlowhLayout id="user_flowhlayout01">
+      	<FlowhPanel id="panelh08289" widgetId="edit" width="50">
+				                </FlowhPanel>
         <FlowhPanel id="user_flowhpane011" width="250" height="200">
           <FlowvLayout autoFill="0" id="flowvlayout0455" widgetId="main">
             <FlowvPanel height="35" id="panelv00455" widgetId="main">
@@ -40,30 +44,34 @@
           </FlowhPanel>
           </FlowvLayout>
         </FlowhPanel>
+        <FlowhPanel id="panelh28289" widgetId="edit" width="50">
+				                </FlowhPanel>
       </FlowhLayout>
+      
     </FlowvPanel>
-    <FlowvPanel id="panelv02111" widgetId="main">
-
-      <FlowhLayout id="user_flowhlayout12">
-      	<FlowhPanel width="300" id="user_flowhpanel25">
-        </FlowhPanel>
-        <FlowhPanel width="80" id="user_flowhpanel23">
-          <Button id="btngen" widgetId="user">
-          	
+    <FlowvPanel height="30" id="flow3eee">
+            <FlowhLayout id="flow4eee">
+                <FlowhPanel id="flow5eee">
+                </FlowhPanel>
+                <FlowhPanel id="flow6eee">
+                </FlowhPanel>                
+                <FlowhPanel id="flow9eee">
+                </FlowhPanel>
+                <FlowhPanel id="flow10eee">
+                </FlowhPanel>
+                <FlowhPanel id="flow11eee">
+                <Button id="btngen" widgetId="main">
           </Button>
-        </FlowhPanel>
-        <FlowhPanel width="80" id="user_flowhpanel22">
-          <Button id="btnok" widgetId="user">
-          </Button>
-        </FlowhPanel>
-        <FlowhPanel width="80" id="user_flowhpanel21">
-          <Button id="btncancel" widgetId="user">
-          </Button>
-        </FlowhPanel>
-        <FlowhPanel id="user_flowhpanel24">
-        </FlowhPanel>
-      </FlowhLayout>
-
-    </FlowvPanel>
+                </FlowhPanel>
+                <FlowhPanel id="flow7eee">
+                    <Button id="btnok" widgetId="main">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="flow8eee">
+                    <Button id="btncancel" widgetId="main">
+                    </Button>
+                </FlowhPanel>
+            </FlowhLayout>
+        </FlowvPanel>        
   </FlowvLayout>
 </UIMeta>

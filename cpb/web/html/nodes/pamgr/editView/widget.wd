@@ -85,7 +85,7 @@
         </Datasets>
     </Models>
     <Components>
-        <FormComp columnCount="2" dataset="ds_template" eleWidth="120" enabled="false" id="form_template" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp columnCount="2" dataset="ds_template" eleWidth="230" enabled="false" id="form_template" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="pk_template" id="pk_template" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="模板主键" visible="true" width="">
             </Element>
             <Element attachNext="false" colSpan="1" dataType="String" editable="true" editorType="StringText" enabled="true" field="templatename" id="templatename" imageOnly="false" nextLine="false" nullAble="true" precision="0" rowSpan="1" selectOnly="true" text="模板名称" visible="true" width="">

@@ -231,10 +231,11 @@
 				height:"100%",
 				SelectFile:selectFile,
 				LoadBookMarks:loadBookMarks,
-				OnBeforeDoSecSign:BeforeDoSecSign,
-				OnBeforeDoSecSignFromEkey:BeforeDoSecSignFromEkey,
-				OnSecSignSetInfo:SecSignSetInfo,
-				OnSecSignDeleted:SecSignDeleted				
+				OnBeforeDoSecSign:myBeforeDoSecSign,
+				OnBeforeDoSecSignFromEkey:myBeforeDoSecSignFromEkey,
+				OnSecSignSetInfo:mySecSignSetInfo,
+				OnSecSignDeleted:mySecSignDeleted,
+				OnSecSignFinished:mySecSignFinished			
 			});
 		}
 		function Onerror(result)
@@ -300,8 +301,22 @@
 	    	}
 	    }
 	    //印章事件
-	    function BeforeDoSecSign(UserName,SignName,SignUser,SignSN, IsCancel){
-	    	try{
+	    function myBeforeDoSecSign(UserName,SignName,SignUser,SignSN, IsCancel){
+	    	
+		}
+		function myBeforeDoSecSignFromEkey(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, IsCancel){
+				
+		}
+		function mySecSignSetInfo(Username, SignType,SecSignObject){
+			
+		}		
+		function mySecSignDeleted(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, UserData){
+			alert("删除印章成功");
+		}
+		function mySecSignFinished(isOk,SecSignObject){
+			try{
+				
+				
 	    	<% if(!signmethod.equals("")){ %>
 				//获得真正的parent
 				var trueParent;
@@ -315,24 +330,19 @@
 				}else if(pWin.<%=signmethod%>){
 					trueParent=pWin;
 				}
-				//主键,文件名,文件大小,文件类型,上传时间,上传人PK,上传人姓名，单据主键
+				//印章类型、印章序号、EKEYSN,isok
+				var signtype = SecSignObject.SignType;
+				var signsn = SecSignObject.SignSN;
+				var ekeysn =  SecSignObject.EkeySN;
+				
 				<%
-					out.print("trueParent." + signmethod + "(UserName,SignName,SignUser,SignSN, IsCancel);");
+					out.print("trueParent." + signmethod + "(signtype,signsn,ekeysn,isok);");
 				}%>
 			}
 			catch(error){
 			
 			}
 				return true;
-		}
-		function BeforeDoSecSignFromEkey(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, IsCancel){
-				
-		}
-		function SecSignSetInfo(Username, SignType,SecSignObject){
-			
-		}		
-		function SecSignDeleted(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, UserData){
-			alert("删除印章成功");
 		}
 	</script>
 	</head>

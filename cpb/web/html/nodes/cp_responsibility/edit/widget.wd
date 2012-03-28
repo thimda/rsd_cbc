@@ -40,7 +40,7 @@
         </ComboDatas>
     </Models>
     <Components>
-        <FormComp caption="协同职责" columnCount="2" dataset="ds_responsibility" eleWidth="120" enabled="true" id="responsibility_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="协同职责" columnCount="1" dataset="ds_responsibility" eleWidth="250" enabled="true" id="responsibility_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="code" id="code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true">
@@ -55,7 +55,7 @@
             </Element>
             <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="modifier" id="modifier" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="修改人" visible="true">
             </Element>
-            <Element attachNext="false" colSpan="4" editable="true" editorType="StringText" enabled="true" field="descipt" height="66" id="descipt" imageOnly="false" nextLine="true" nullAble="true" rowSpan="3" selectOnly="true" text="描述" visible="true" width="480">
+            <Element attachNext="false" colSpan="4" editable="true" editorType="StringText" enabled="true" field="descipt" height="66" id="descipt" imageOnly="false" nextLine="true" nullAble="true" rowSpan="3" selectOnly="true" text="描述" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="dataoriginflag" id="dataoriginflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="DATAORIGINFLAG" visible="false">
             </Element>

@@ -2,21 +2,36 @@ package nc.uap.ctrl.tpl.qry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import nc.bs.logging.Logger;
+import nc.md.innerservice.MDQueryService;
+import nc.md.model.IEnumValue;
+import nc.md.model.MetaDataException;
+import nc.md.model.type.IEnumType;
 import nc.uap.ctrl.tpl.CpTplServiceFacility;
+import nc.uap.ctrl.tpl.qry.base.CpQueryConditionVO;
+import nc.uap.ctrl.tpl.qry.base.CpQueryTemplateTotalVO;
+import nc.uap.ctrl.tpl.qry.base.CpQueryTemplateTranslator;
 import nc.uap.ctrl.tpl.qry.base.QtVO2MetaConvertor;
 import nc.uap.ctrl.tpl.qry.controller.AdvancedQueryController;
 import nc.uap.ctrl.tpl.qry.meta.ConditionVO;
 import nc.uap.ctrl.tpl.qry.meta.FilterMeta;
 import nc.uap.ctrl.tpl.qry.meta.IFilter;
 import nc.uap.ctrl.tpl.qry.meta.IFilterMeta;
+import nc.uap.ctrl.tpl.qry.operator.IOperator;
 import nc.uap.ctrl.tpl.systemplate.ICpSystemplateQryService;
 import nc.uap.lfw.core.LfwRuntimeEnvironment;
+import nc.uap.lfw.core.combodata.CombItem;
+import nc.uap.lfw.core.combodata.StaticComboData;
 import nc.uap.lfw.core.common.WebConstant;
 import nc.uap.lfw.core.comp.ButtonComp;
+import nc.uap.lfw.core.comp.MenuItem;
+import nc.uap.lfw.core.comp.MenubarComp;
 import nc.uap.lfw.core.comp.RecursiveTreeLevel;
 import nc.uap.lfw.core.comp.SimpleTreeLevel;
 import nc.uap.lfw.core.comp.TreeLevel;
@@ -24,6 +39,7 @@ import nc.uap.lfw.core.comp.TreeViewComp;
 import nc.uap.lfw.core.data.Dataset;
 import nc.uap.lfw.core.data.Field;
 import nc.uap.lfw.core.data.FieldSet;
+import nc.uap.lfw.core.data.LfwParameter;
 import nc.uap.lfw.core.event.conf.DatasetRule;
 import nc.uap.lfw.core.event.conf.EventConf;
 import nc.uap.lfw.core.event.conf.EventHandlerConf;
@@ -31,10 +47,19 @@ import nc.uap.lfw.core.event.conf.EventSubmitRule;
 import nc.uap.lfw.core.event.conf.TreeNodeListener;
 import nc.uap.lfw.core.event.conf.TreeRule;
 import nc.uap.lfw.core.event.conf.WidgetRule;
+import nc.uap.lfw.core.exception.LfwRuntimeException;
 import nc.uap.lfw.core.model.IWidgetContentProvider;
 import nc.uap.lfw.core.page.LfwWidget;
 import nc.uap.lfw.core.page.PageMeta;
+import nc.uap.lfw.core.page.PlugoutDesc;
+import nc.uap.lfw.core.refnode.NCRefNode;
+import nc.uap.lfw.ncadapter.billtemplate.BillTemplateConst;
+import nc.uap.lfw.ncadapter.billtemplate.ref.LfwNCRefUtil;
+import nc.ui.bd.ref.AbstractRefModel;
+import nc.ui.bd.ref.IRefConst;
+import nc.vo.ml.NCLangRes4VoTransl;
 import nc.vo.pub.BusinessException;
+import nc.vo.pub.query.IQueryConstants;
 import net.sf.cglib.core.Predicate;
 
 public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
@@ -107,6 +132,11 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		widget.setId(conf.getId());
 		widget.setControllerClazz(CONTROLLER_CLAZZ);
 		
+		
+		PlugoutDesc plugoutDesc = new PlugoutDesc();
+		plugoutDesc.setId("queryNormalout");
+		widget.addPlugoutDescs(plugoutDesc);
+		
 //		EventConf event = new EventConf();
 //		event.setJsEventClaszz(DialogListener.class.getName());
 //		event.setMethodName("onBeforeShow");
@@ -122,6 +152,10 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		createQueryTreeComp(widget);
 		createQueryCTreeComp(widget);
 		createSavedTreeComp(widget);
+		
+		
+		//创建多个按钮
+		//createSavedTreeToolBarComp(pm, widget);
 		
 //		// 父窗口信息
 //		String pWidgetId = null;
@@ -144,10 +178,129 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		
 //		loadData(paramMap, widget, conf);
 		
-//		loadDataToComp(widget, conf);
+		loadDataToComp(widget, conf);
 		
 		return widget;
 	}
+	
+	public static final String SAVED_TREE_MENUBAR_ID = "savedTreeMenubar";
+
+	
+	/*查询方案树按钮*/
+	private MenubarComp savedTreeMenuBarComp;
+	private void createSavedTreeToolBarComp(LfwWidget widget) {
+		savedTreeMenuBarComp = new MenubarComp();
+		savedTreeMenuBarComp.setId(SAVED_TREE_MENUBAR_ID);
+		
+		
+		//提交规则
+		EventSubmitRule sr = new EventSubmitRule();
+//		sr.setTabSubmit(true);
+		WidgetRule wr = new WidgetRule();
+		wr.setId(widget.getId());
+		sr.addWidgetRule(wr);
+		DatasetRule dsr = new DatasetRule();
+		dsr.setId(SAVED_QC_DS_ID);
+		dsr.setType(DatasetRule.TYPE_ALL_LINE);
+		wr.addDsRule(dsr);
+		DatasetRule dsr2 = new DatasetRule();
+		dsr2.setId(QUERY_CDS_ID);
+		dsr2.setType(DatasetRule.TYPE_ALL_LINE);
+		wr.addDsRule(dsr2);
+		
+		
+		//删除
+		MenuItem deleteItem = new MenuItem();
+		deleteItem.setId("savedTreeDelete");
+		deleteItem.setTip("删除");
+		String themeid= LfwRuntimeEnvironment.getThemeId();
+		deleteItem.setImgIcon("/../../lfw/themes/" + themeid + "/images/querytemplate/delete.png");
+		
+//		MouseListener savedTreeDeleteMenuListener = new MouseListener();
+//		savedTreeDeleteMenuListener.setId("saved_tree_delete_listener");
+//		savedTreeDeleteMenuListener.setServerClazz(SavedTreeNodeMouseListener.class.getName());
+//		
+//		EventHandlerConf delEvent = MouseListener.getOnClickEvent();
+//		delEvent.setOnserver(true);
+//		delEvent.setSubmitRule(sr);
+//		savedTreeDeleteMenuListener.addEventHandler(delEvent);
+//		deleteItem.addListener(savedTreeDeleteMenuListener);
+		
+		//保存
+		MenuItem saveItem = new MenuItem();
+		saveItem.setId("savedTreeSave");
+		saveItem.setTip("保存");
+		saveItem.setImgIcon("/../../lfw/themes/" + themeid + "/images/querytemplate/save.png");
+		
+		
+		EventConf saveEvent = new EventConf();
+		saveEvent.setJsEventClaszz("nc.uap.lfw.core.event.conf.MouseListener");
+		saveEvent.setOnserver(true);
+		saveEvent.setSubmitRule(sr);
+		saveEvent.setName("onclick");
+		saveEvent.setMethodName("saveTreeNode");
+		
+		
+		StringBuffer saveScript = new StringBuffer();
+		saveScript.append("var ds = pageUI.getWidget('").append(widget.getId()).append("').getDataset('").append(SAVED_QC_DS_ID).append("');")
+			.append("var selectedRow = ds.getSelectedRow();")
+//			.append("if (selectedRow == null ) return;")
+//			.append("if (selectedRow.state == DatasetRow.STATE_NEW){")
+			.append("	if (!window.$c_conditionSavedialog) {")
+			.append("       window.$c_conditionSavedialog = new InputDialogComp('saveText', '输入对话框', 0, 0, null, null, 100, function(){")
+			.append("             	var ds = pageUI.getWidget('").append(widget.getId()).append("').getDataset('").append(SAVED_QC_DS_ID).append("');")
+			.append("             	var saveName = window.$c_conditionSavedialog.getItem('conditionSaveText').getValue();")
+			.append("             	if (saveName == ''){showMessageDialog('查询方案名称不能为空!');return};")
+//			.append("             	var selectedRow = ds.getSelectedRow();")
+//			.append("             	if (selectedRow == null ) return;")
+//			.append("             	selectedRow.setCellValue(ds.nameToIndex('name'),saveName);")
+			.append("			  	var proxy = new ServerProxy(this.$TEMP_saved_tree_save_listener,'onclick',true);")
+			.append("			  	if(typeof beforeCallServer != 'undefined')")
+			.append("			  	beforeCallServer(proxy, 'saved_tree_save_listener', 'onclick','savedTreeSave');")
+			.append("			  	proxy.addParam('save_name',saveName);")
+			.append("				showDefaultLoadingBar();")
+			.append("				return proxy.execute();")
+			.append("             });")
+			.append("       window.$c_conditionSavedialog.addItem('请输入保存名:', 'conditionSaveText', 'string', true, null); ")
+			.append("    }")
+			.append("    window.$c_conditionSavedialog.show();");
+//			.append("}")
+//			.append("else{")
+//			.append("var proxy = new ServerProxy(this.$TEMP_saved_tree_save_listener,'onclick',true);")
+//			.append("if(typeof beforeCallServer != 'undefined')")
+//			.append("beforeCallServer(proxy, 'saved_tree_save_listener', 'onclick','savedTreeSave');")
+//			.append("showDefaultLoadingBar();")
+//			.append("return proxy.execute();}");
+//		saveEvent.setScript(saveScript.toString());
+//		saveEvent.setSubmitRule(sr);
+//		savedTreeSaveMenuListener.addEventHandler(saveEvent);
+//		saveItem.addListener(savedTreeSaveMenuListener);
+//		
+//		//重命名
+//		MenuItem renameItem = new MenuItem();
+//		renameItem.setId("savedTreeRename");
+//		renameItem.setTip("重命名");
+//		renameItem.setImgIcon("/../../lfw/themes/" + themeid + "/images/querytemplate/rename.png");
+//		
+//		MouseListener savedTreeRenameMenuListener = new MouseListener();
+//		savedTreeRenameMenuListener.setId("saved_tree_rename_listener");
+//		savedTreeRenameMenuListener.setServerClazz(SavedTreeNodeMouseListener.class.getName());
+//		
+//		EventHandlerConf renameEvent = MouseListener.getOnClickEvent();
+//		renameEvent.setOnserver(true);
+//		renameEvent.setSubmitRule(sr);
+//		savedTreeRenameMenuListener.addEventHandler(renameEvent);
+//		renameItem.addListener(savedTreeRenameMenuListener);
+		
+		
+		
+		savedTreeMenuBarComp.addMenuItem(deleteItem);
+		savedTreeMenuBarComp.addMenuItem(saveItem);
+	//	savedTreeMenuBarComp.addMenuItem(renameItem);
+
+		widget.getViewMenus().addMenuBar(savedTreeMenuBarComp);
+	}
+	
 	
 //	private void loadData(Map<String, Object> paramMap, LfwWidget widget, LfwWidget conf) {
 ////		LfwSessionBean ses = LfwRuntimeEnvironment.getLfwSessionBean();
@@ -398,9 +551,6 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		level.setLabelFields("query_label");
 		queryTreeComp.setTopLevel(level);
 
-		TreeNodeListener listener = new TreeNodeListener();
-		listener.setId("query_tree_node_listener");
-//		listener.setServerClazz(QueryTreeNodeListener.class.getName());
 		EventSubmitRule sr = new EventSubmitRule();
 		sr.setTabSubmit(true);
 		
@@ -411,14 +561,19 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		dsr.setId(QUERY_DS_ID);
 		dsr.setType(DatasetRule.TYPE_CURRENT_LINE);
 		wr.addDsRule(dsr);
+				
+		EventConf rowSelEvent = new EventConf();
+		rowSelEvent.setJsEventClaszz("nc.uap.lfw.core.event.conf.TreeNodeListener");
+		rowSelEvent.setOnserver(true);
+		rowSelEvent.setSubmitRule(sr);
+		rowSelEvent.setName("ondbclick");
+		rowSelEvent.setMethodName("ondbclick");
+		LfwParameter param = new LfwParameter();
+		param.setName("treeNodeEvent");
+		rowSelEvent.addParam(param);
 		
-		EventHandlerConf event = TreeNodeListener.getOnDbclickEvent();
-		event.setOnserver(true);
-		event.setSubmitRule(sr);
-		
-		listener.addEventHandler(event);
-		
-		queryTreeComp.addListener(listener);
+		//添加树双击事件
+		queryTreeComp.addEventConf(rowSelEvent);
 		widget.getViewComponents().addComponent(queryTreeComp);
 	}
 	
@@ -547,6 +702,31 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		okButton.setText("确定");
 		okButton.setI18nName("AbstractReferencePageModel-000000");
 		okButton.setLangDir("lfw");
+		
+		
+		
+		EventSubmitRule submitRule = new EventSubmitRule();
+		
+		WidgetRule widgetRule = new WidgetRule();
+		widgetRule.setId("main");
+		submitRule.addWidgetRule(widgetRule);
+
+		//提交queryConditionDataset的所有行数据
+		DatasetRule dsr = new DatasetRule();
+		dsr.setId(QUERY_CDS_ID);
+		dsr.setType(DatasetRule.TYPE_ALL_LINE);
+		widgetRule.addDsRule(dsr);
+
+		EventConf buttonOkEvent = new EventConf();
+		buttonOkEvent.setJsEventClaszz("nc.uap.lfw.core.event.conf.MouseListener");
+		buttonOkEvent.setOnserver(true);
+		buttonOkEvent.setSubmitRule(submitRule);
+		buttonOkEvent.setName("onclick");
+		//确定执行函数
+		buttonOkEvent.setMethodName("onOk");
+		okButton.addEventConf(buttonOkEvent);
+		
+		
 //		okButton.setWidth("60");
 //		okButton.setHeight("22");
 //		okButton.setAlign("left");
@@ -602,25 +782,20 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 		cancelButton.setText("取消");
 		cancelButton.setI18nName("AbstractReferencePageModel-000001");
 		cancelButton.setLangDir("lfw");
-//		cancelButton.setWidth("60");
-//		cancelButton.setHeight("22");
-//		cancelButton.setAlign("left");
+
 		
-//		MouseListener cancelListener = new MouseListener();
-//		cancelListener.setId("cancelListener");
-//		cancelListener.setServerClazz(UifQueryTemplateCancelMouseListener.class.getName());
-//		
-//		EventHandlerConf clickEvent = MouseListener.getOnClickEvent();
-//		clickEvent.setOnserver(true);
-//		clickEvent.setAsync(true);
-//		
-//		EventSubmitRule sr = new EventSubmitRule();
-//		EventSubmitRule psr = new EventSubmitRule();
-//		sr.setParentSubmitRule(psr);
-//		clickEvent.setSubmitRule(sr);
-//		
-//		cancelListener.addEventHandler(clickEvent);
-//		cancelButton.addListener(cancelListener);
+		
+		EventSubmitRule submitRule = new EventSubmitRule();
+		EventConf buttonOkEvent = new EventConf();
+		buttonOkEvent.setJsEventClaszz("nc.uap.lfw.core.event.conf.MouseListener");
+		buttonOkEvent.setOnserver(true);
+		buttonOkEvent.setSubmitRule(submitRule);
+		buttonOkEvent.setName("onclick");
+		//取消执行函数
+		buttonOkEvent.setMethodName("onCancel");
+		cancelButton.addEventConf(buttonOkEvent);
+		
+		
 		
 		widget.getViewComponents().addComponent(cancelButton);
 	}
@@ -629,74 +804,85 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 //		
 //	}
 //
-//	public void loadDataToComp(LfwWidget widget, LfwWidget conf) {
-////		addQueryDsDataToComp(widget, conf);
-//	}
+	public void loadDataToComp(LfwWidget widget, LfwWidget conf) {
+		addQueryDsDataToComp(widget, conf);
+	}
 
-//	private void addQueryDsDataToComp(LfwWidget widget, LfwWidget conf) {
-//
-//		// 获取所有的items
-//		Set<FilterMeta> metaSet = new HashSet<FilterMeta>();
-//		metaSet.addAll(allCandidateMetas);
-//		metaSet.addAll(sortedFiltemetas);
-//		//数据权限
-//		String dataPowerOperation_Code = null;
-//		//查询模板对应的元数据,为了得到查询模板的字段对应的数据权限
-//		IBean bean = null;
-//		try {
-//			bean = MDBaseQueryFacade.getInstance().getBeanByID(beanId);
-//		} catch (MetaDataException e) {
-//			throw new RuntimeException("根据ID获取Bean失败. ID=" + beanId);
-//		}
-//			
-//		Iterator<FilterMeta> it = metaSet.iterator();
-//		while (it.hasNext()) {
-//			FilterMeta meta = it.next();
-//			String id = meta.getFieldCode().replaceAll("\\.", "_");
-//			
-//			switch(meta.getDataType()){
-//				case IQueryConstants.UFREF:
-//					String refCode = meta.getValueEditorDescription();
-//					
-//					NCRefNode refNode = new NCRefNode();
-//					refNode.setId(id + "_refNode");
-//					refNode.setRefcode(refCode);
-//					AbstractRefModel model = LfwNCRefUtil.getRefModel(refCode);
-//					if(model == null)
-//						continue;
-//					Integer refType = LfwNCRefUtil.getRefType(model);
-//					String refPath = "reference/";
-//					switch(refType){
-//						case IRefConst.GRID:
-//							refPath += "refgrid.jsp";
-//							break;
-//						case IRefConst.GRIDTREE:
-//							refPath += "refgridtree.jsp";
-//							break;
-//						case IRefConst.TREE:
-//						default:
-//							refPath += "reftree.jsp";
-//					}
-//					refNode.setPath(refPath);
-//					//refNode.setPageMeta(pageMeta);
-//					String dsId = BillTemplateConst.REF_MASTER_DS;
-////					refNode.setRelationId(dsId + "..." + refType + "...pageMeta");
-//					//写入ds
-//					refNode.setWriteDs(QUERY_CDS_ID);
-//					refNode.setReadDs(dsId);
-//					
-//					if(model.getRefNameField().indexOf(".") != -1)
-//						refNode.setReadFields(model.getRefNameField().split("\\.")[1].replaceAll("\\.", "_") + "," + model.getPkFieldCode().split("\\.")[1].replaceAll("\\.", "_"));
-//					else
-//						refNode.setReadFields(model.getRefNameField().replaceAll("\\.", "_") + "," + model.getPkFieldCode().replaceAll("\\.", "_"));
-//					//参照写入字段
-//					refNode.setWriteFields("query_condition_value,refpk");
-//					refNode.setI18nName(refCode);
-//					refNode.setMultiSel(true);
-//					
-//					refNode.setPagemeta("reference");
-//										
-//					//得到引用的元数据的Attribute
+	private void addQueryDsDataToComp(LfwWidget widget, LfwWidget conf) {
+		
+		
+		CpQueryTemplateTranslator loader = new CpQueryTemplateTranslator();
+		CpQueryTemplateTotalVO totalVO = loader.getQueryTotalVO(null, "1019020201");
+		loader.loadData(totalVO);
+			
+		
+		CpQueryConditionVO[] vos = totalVO.getConditionVOs();
+		
+		if (vos != null) {
+			for (CpQueryConditionVO vo : vos) {
+				if (vo.getIfused() == null || !vo.getIfused().booleanValue())
+					continue;
+				FilterMeta tmp = voConvertor.convert(vo);
+				allCandidateMetas.add(tmp);
+			}
+		}
+		// 获取所有的items
+		Set<FilterMeta> metaSet = new HashSet<FilterMeta>();
+		metaSet.addAll(allCandidateMetas);
+		metaSet.addAll(sortedFiltemetas);
+		//数据权限
+		String dataPowerOperation_Code = null;
+		//查询模板对应的元数据,为了得到查询模板的字段对应的数据权限
+		
+			
+		Iterator<FilterMeta> it = metaSet.iterator();
+		while (it.hasNext()) {
+			FilterMeta meta = it.next();
+			String id = meta.getFieldCode().replaceAll("\\.", "_");
+			
+			switch(meta.getDataType()){
+				case IQueryConstants.UFREF:
+					String refCode = meta.getValueEditorDescription();
+					
+					NCRefNode refNode = new NCRefNode();
+					refNode.setId(id + "_refNode");
+					refNode.setRefcode(refCode);
+					AbstractRefModel model = LfwNCRefUtil.getRefModel(refCode);
+					if(model == null)
+						continue;
+					Integer refType = LfwNCRefUtil.getRefType(model);
+					String refPath = "reference/";
+					switch(refType){
+						case IRefConst.GRID:
+							refPath += "refgrid.jsp";
+							break;
+						case IRefConst.GRIDTREE:
+							refPath += "refgridtree.jsp";
+							break;
+						case IRefConst.TREE:
+						default:
+							refPath += "reftree.jsp";
+					}
+					refNode.setPath(refPath);
+					//refNode.setPageMeta(pageMeta);
+					String dsId = BillTemplateConst.REF_MASTER_DS;
+//					refNode.setRelationId(dsId + "..." + refType + "...pageMeta");
+					//写入ds
+					refNode.setWriteDs(QUERY_CDS_ID);
+					refNode.setReadDs(dsId);
+					
+					if(model.getRefNameField().indexOf(".") != -1)
+						refNode.setReadFields(model.getRefNameField().split("\\.")[1].replaceAll("\\.", "_") + "," + model.getPkFieldCode().split("\\.")[1].replaceAll("\\.", "_"));
+					else
+						refNode.setReadFields(model.getRefNameField().replaceAll("\\.", "_") + "," + model.getPkFieldCode().replaceAll("\\.", "_"));
+					//参照写入字段
+					refNode.setWriteFields("query_condition_value,refpk");
+					refNode.setI18nName(refCode);
+					refNode.setMultiSel(true);
+					
+					refNode.setPagemeta("reference");
+										
+					//得到引用的元数据的Attribute
 //					IAttribute attribute = bean.getAttributeByPath(meta.getFieldCode());
 ////					//获得数据权限
 //					if(attribute != null){
@@ -704,148 +890,148 @@ public class AdvancedQueryWidgetProvider implements IWidgetContentProvider {
 //						if(dataPowerOperation_Code != null)
 //							refNode.setExtendAttribute(RefNodeGenerator.DataPowerOperation_Code, dataPowerOperation_Code);
 //					}
-//					widget.getViewModels().addRefNode(refNode);
-//					
-////					refNodeList.add(refNode);
-//					
-//					break;
-//				case IQueryConstants.DATE:
-//					
-//					break;
-//				case IQueryConstants.BOOLEAN:
-//					StaticComboData bcd = new StaticComboData();
-//					bcd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_") + "_value");
-//					CombItem cItem = new CombItem();
-////					cItem.setI18nName("");
-////					cItem.setValue("");
-////					bcd.addCombItem(cItem);
-//					
-//					cItem = new CombItem();
-//					cItem.setI18nName(NCLangRes4VoTransl.getNCLangRes().getStrByID("lfw", "QueryTemplateDsHandler-000002")/*是*/);
-//					//cItem.setI18nName("是");
-//					cItem.setValue("Y");
+					widget.getViewModels().addRefNode(refNode);
+					
+//					refNodeList.add(refNode);
+					
+					break;
+				case IQueryConstants.DATE:
+					
+					break;
+				case IQueryConstants.BOOLEAN:
+					StaticComboData bcd = new StaticComboData();
+					bcd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_") + "_value");
+					CombItem cItem = new CombItem();
+//					cItem.setI18nName("");
+//					cItem.setValue("");
 //					bcd.addCombItem(cItem);
+					
+					cItem = new CombItem();
+					cItem.setI18nName(NCLangRes4VoTransl.getNCLangRes().getStrByID("lfw", "QueryTemplateDsHandler-000002")/*是*/);
+					//cItem.setI18nName("是");
+					cItem.setValue("Y");
+					bcd.addCombItem(cItem);
 //					
 //					
-//					cItem = new CombItem();
-//					cItem.setI18nName(NCLangRes4VoTransl.getNCLangRes().getStrByID("lfw", "QueryTemplateDsHandler-000003")/*否*/);
-//					//cItem.setI18nName("否");
-//					cItem.setValue("N");
-//					bcd.addCombItem(cItem);
-//					
-//					widget.getViewModels().addComboData(bcd);
-//					
-////					comboDataList.add(bcd);
-//					
-//					break;
-//				case IQueryConstants.USERCOMBO:
-//					String valueStr = meta.getValueEditorDescription();
-//					if(valueStr != null){
-//						StaticComboData cd = new StaticComboData();
-//						cd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_") + "_value");
-//						
-//						CombItem item = new CombItem();
-//						item.setI18nName("");
-//						item.setText("");
-//						item.setValue("");
-//						cd.addCombItem(item);
-//
-//						
-//						if(valueStr.startsWith("I,")){
-//							valueStr = valueStr.substring(2);
-//							String[] values = valueStr.split(",");
-//							for (int i = 0; i < values.length; i++) {
-//								item = new CombItem();
-//								item.setI18nName(values[i]);
-//								item.setValue("" + i);
-//								cd.addCombItem(item);
-//							}
-//						}
-//						else if(valueStr.startsWith("LX,")){
-//							valueStr = valueStr.substring(3);
-//							String[] valuesPair = valueStr.split(",");
-//							for (int i = 0; i < valuesPair.length; i++) {
-//								String pair = valuesPair[i];
-//								String[] values = pair.split("=");
-//								item = new CombItem();
-//								item.setI18nName(values[0]);
-//								item.setValue(values[1]);
-//								cd.addCombItem(item);
-//							}
-//						}
-//						else if(valueStr.startsWith("IX,")){
-//							valueStr = valueStr.substring(3);
-//							String[] valuesPair = valueStr.split(",");
-//							for (int i = 0; i < valuesPair.length; i++) {
-//								String pair = valuesPair[i];
-//								String[] values = pair.split("=");
-//								item = new CombItem();
-//								item.setI18nName(values[0]);
-//								item.setValue(values[1]);
-//								cd.addCombItem(item);
-//							}
-//						}
-//						else if(valueStr.startsWith("IM,") || valueStr.startsWith("SM,")){
-//							valueStr = valueStr.substring(3);
-//							try {
-//								IEnumType enumType = MDQueryService.lookupMDInnerQueryService().getEnumTypeByID(valueStr);
-//								if(enumType != null){
-//									List<IEnumValue> values = enumType.getEnumValues();
-//									Iterator<IEnumValue> vit = values.iterator();
-//									while(vit.hasNext()){
-//										IEnumValue value = vit.next();
-//										item = new CombItem();
-//										item.setI18nName(value.getName());
-//										item.setValue(value.getValue());
-//										cd.addCombItem(item);
-//									}
-//								}
-//							} catch (MetaDataException e) {
-//								throw new LfwRuntimeException(e.getMessage(), e);
-//							}
-//						}else if(valueStr.startsWith("SX,")){
-//							valueStr = valueStr.substring(3);
-//							String[] valuesPair = valueStr.split(",");
-//							for (int i = 0; i < valuesPair.length; i++) {
-//								String pair = valuesPair[i];
-//								String[] values = pair.split("=");
-//								item = new CombItem();
-//								item.setI18nName(values[0]);
-//								item.setValue(values[1]);
-//								cd.addCombItem(item);
-//							}
-//						}
-//						widget.getViewModels().addComboData(cd);
-//						
-////						comboDataList.add(cd);
-//					}
-//					
-//					break;
-//			}
-//			
-//			IOperator[] ops = meta.getOperators();
-//			StaticComboData cd = new StaticComboData();
-//			// 按如下规则构造Id
-//			cd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_"));
-//			if (ops != null) {
-//				for(IOperator op : ops) {
-//					CombItem item = new CombItem();
-//					item.setI18nName(op.toString());
-//					String operatorValue = op.getOperatorCode();
-////					if(operatorValue.equals("<"))
-////						operatorValue = "&lt;";
-////					else if(operatorValue.equals("<="))
-////						operatorValue = "&lt;=";
-//					item.setValue(operatorValue);
-//					cd.addCombItem(item);
-//				}
-//			}
-//
-//			widget.getViewModels().addComboData(cd);
-//			
-////			comboDataList.add(cd);
-//		}
-//	}
+					cItem = new CombItem();
+					cItem.setI18nName(NCLangRes4VoTransl.getNCLangRes().getStrByID("lfw", "QueryTemplateDsHandler-000003")/*否*/);
+					//cItem.setI18nName("否");
+					cItem.setValue("N");
+					bcd.addCombItem(cItem);
+					
+					widget.getViewModels().addComboData(bcd);
+					
+//					comboDataList.add(bcd);
+					
+					break;
+				case IQueryConstants.USERCOMBO:
+					String valueStr = meta.getValueEditorDescription();
+					if(valueStr != null){
+						StaticComboData cd = new StaticComboData();
+						cd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_") + "_value");
+						
+						CombItem item = new CombItem();
+						item.setI18nName("");
+						item.setText("");
+						item.setValue("");
+						cd.addCombItem(item);
+
+						
+						if(valueStr.startsWith("I,")){
+							valueStr = valueStr.substring(2);
+							String[] values = valueStr.split(",");
+							for (int i = 0; i < values.length; i++) {
+								item = new CombItem();
+								item.setI18nName(values[i]);
+								item.setValue("" + i);
+								cd.addCombItem(item);
+							}
+						}
+						else if(valueStr.startsWith("LX,")){
+							valueStr = valueStr.substring(3);
+							String[] valuesPair = valueStr.split(",");
+							for (int i = 0; i < valuesPair.length; i++) {
+								String pair = valuesPair[i];
+								String[] values = pair.split("=");
+								item = new CombItem();
+								item.setI18nName(values[0]);
+								item.setValue(values[1]);
+								cd.addCombItem(item);
+							}
+						}
+						else if(valueStr.startsWith("IX,")){
+							valueStr = valueStr.substring(3);
+							String[] valuesPair = valueStr.split(",");
+							for (int i = 0; i < valuesPair.length; i++) {
+								String pair = valuesPair[i];
+								String[] values = pair.split("=");
+								item = new CombItem();
+								item.setI18nName(values[0]);
+								item.setValue(values[1]);
+								cd.addCombItem(item);
+							}
+						}
+						else if(valueStr.startsWith("IM,") || valueStr.startsWith("SM,")){
+							valueStr = valueStr.substring(3);
+							try {
+								IEnumType enumType = MDQueryService.lookupMDInnerQueryService().getEnumTypeByID(valueStr);
+								if(enumType != null){
+									List<IEnumValue> values = enumType.getEnumValues();
+									Iterator<IEnumValue> vit = values.iterator();
+									while(vit.hasNext()){
+										IEnumValue value = vit.next();
+										item = new CombItem();
+										item.setI18nName(value.getName());
+										item.setValue(value.getValue());
+										cd.addCombItem(item);
+									}
+								}
+							} catch (MetaDataException e) {
+								throw new LfwRuntimeException(e.getMessage(), e);
+							}
+						}else if(valueStr.startsWith("SX,")){
+							valueStr = valueStr.substring(3);
+							String[] valuesPair = valueStr.split(",");
+							for (int i = 0; i < valuesPair.length; i++) {
+								String pair = valuesPair[i];
+								String[] values = pair.split("=");
+								item = new CombItem();
+								item.setI18nName(values[0]);
+								item.setValue(values[1]);
+								cd.addCombItem(item);
+							}
+						}
+						widget.getViewModels().addComboData(cd);
+						
+//						comboDataList.add(cd);
+					}
+					
+					break;
+			}
+			
+			IOperator[] ops = (IOperator[]) meta.getOperators();
+			StaticComboData cd = new StaticComboData();
+			// 按如下规则构造Id
+			cd.setId("comb_" + meta.getFieldCode().replaceAll("\\.", "_"));
+			if (ops != null) {
+				for(IOperator op : ops) {
+					CombItem item = new CombItem();
+					item.setI18nName(op.toString());
+					String operatorValue = op.getOperatorCode();
+//					if(operatorValue.equals("<"))
+//						operatorValue = "&lt;";
+//					else if(operatorValue.equals("<="))
+//						operatorValue = "&lt;=";
+					item.setValue(operatorValue);
+					cd.addCombItem(item);
+				}
+			}
+
+			widget.getViewModels().addComboData(cd);
+			
+//			comboDataList.add(cd);
+		}
+	}
 	
 //	public void addConditionDsDataToComp() {
 //		

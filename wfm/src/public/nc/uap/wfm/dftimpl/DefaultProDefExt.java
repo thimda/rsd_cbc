@@ -2,7 +2,6 @@ package nc.uap.wfm.dftimpl;
 import java.util.HashMap;
 import java.util.Map;
 import nc.uap.dbl.constant.DblConstants;
-import nc.uap.wfm.constant.WfmConstants;
 import nc.uap.wfm.engine.IProDefExtHandler;
 import nc.uap.wfm.model.ProDef;
 public class DefaultProDefExt implements IProDefExtHandler {
@@ -39,6 +38,6 @@ public class DefaultProDefExt implements IProDefExtHandler {
 		return map;
 	}
 	@Override public String getMyPrtptPageModel(String frmDefPk) {
-		return WfmConstants.DefaultMyPrtptPageModel;
+		return null;
 	}
 }

@@ -25,12 +25,13 @@ import nc.uap.lfw.servletplus.annotation.Servlet;
 		filename += ".png";
 		String savePath = request.getRealPath("") + "/processxml/images/" + filename;
 		InputStream is = request.getInputStream();
+		DataOutputStream dos = null;
 		try {
 			int size = 0;
 			byte[] tmp = new byte[1024 * 10];
 			// 创建一个文件夹用来保存发过来的图片；
 			File f = new File(savePath);
-			DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
+			dos = new DataOutputStream(new FileOutputStream(f));
 			int len = -1;
 			while ((len = is.read(tmp)) != -1) {
 				dos.write(tmp, 0, len);
@@ -41,6 +42,13 @@ import nc.uap.lfw.servletplus.annotation.Servlet;
 		} catch (IOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new LfwRuntimeException(e.getMessage());
+		} finally {
+			if (is != null) {
+				is.close();
+			}
+			if (dos != null) {
+				dos.close();
+			}
 		}
 	}
 }

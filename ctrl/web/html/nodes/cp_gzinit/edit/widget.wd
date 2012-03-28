@@ -27,15 +27,15 @@
     </Events>
     <Models>
         <Datasets>
-            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
+            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" notNullBody="false" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" notNullBody="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <MdDataset caption="协同查询模板" controlwidgetopeStatus="false" enabled="false" id="formds" lazyLoad="true" objMeta="uapcp.cp_gz_template" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzTemplateVO">
+            <MdDataset caption="协同规则模板" controlwidgetopeStatus="false" enabled="false" id="formds" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_gz_template" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzTemplateVO">
                 <FieldRelations>
                     <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
                         <MatchFields>
@@ -73,6 +73,7 @@
                                 <Params>
                                     <Param>
                                         <Name>dataLoadEvent</Name>
+                                        <Value></Value>
                                         <Desc>                                            <![CDATA[]]>
                                         </Desc>
                                     </Param>
@@ -131,7 +132,7 @@
                 </Event>
             </Events>
         </ButtonComp>
-        <FormComp caption="协同查询模板" columnCount="2" dataset="formds" eleWidth="120" enabled="true" id="qryform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="协同查询模板" columnCount="1" dataset="formds" eleWidth="250" enabled="true" id="qryform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_gz_template" height="" id="pk_gz_template" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="系统ID" visible="false" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pkcorp" height="" id="pkcorp" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="单位编码" visible="false" width="">
@@ -146,7 +147,7 @@
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="fixcondition" height="" id="fixcondition" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="固定条件" visible="false" width="">
             </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="resid" height="" id="resid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="资源ID" visible="true" width="">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="resid" height="" id="resid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="资源ID" visible="false" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="metaclass" height="" id="metaclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="元数据主实体" visible="false" width="">
             </Element>

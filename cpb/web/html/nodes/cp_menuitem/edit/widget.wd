@@ -77,7 +77,7 @@
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
         </ButtonComp>
-        <FormComp caption="协同菜单项" columnCount="2" dataset="ds_menuitem" eleWidth="120" enabled="true" id="menuitem_form" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
+        <FormComp caption="协同菜单项" columnCount="1" dataset="ds_menuitem" eleWidth="250" enabled="true" id="menuitem_form" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="code" id="code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true">
@@ -86,11 +86,11 @@
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="isnotleaf" id="isnotleaf" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否虚目录" visible="true">
             </Element>
-            <Element attachNext="false" colSpan="3" editable="true" editorType="Reference" enabled="true" field="pk_funnode_title" id="pk_funnode_title" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_menuitem_pk_funnode_title" rowSpan="1" selectOnly="true" text="功能节点" visible="true" width="330">
+            <Element attachNext="false" colSpan="3" editable="true" editorType="Reference" enabled="true" field="pk_funnode_title" id="pk_funnode_title" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_menuitem_pk_funnode_title" rowSpan="1" selectOnly="true" text="功能节点" visible="true">
             </Element>
-            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="iconpath" id="iconpath" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="图标路径" visible="true" width="330">
+            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="iconpath" id="iconpath" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="图标路径" visible="true">
             </Element>
-            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="menuitemdes" id="menuitemdes" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="描述" visible="true" width="330">
+            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="menuitemdes" id="menuitemdes" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="描述" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_funnode" id="pk_funnode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="功能节点" visible="false">
             </Element>

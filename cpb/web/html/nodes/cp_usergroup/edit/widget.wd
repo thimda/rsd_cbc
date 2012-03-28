@@ -107,7 +107,7 @@
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
         </ButtonComp>
-        <FormComp caption="协同用户组" columnCount="2" dataset="cp_usergroup" eleWidth="120" enabled="true" id="form_usergroup" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="协同用户组" columnCount="1" dataset="cp_usergroup" eleWidth="250" enabled="true" id="form_usergroup" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="group_name" id="group_name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组名称" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="group_code" id="group_code" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="组编码" visible="true">

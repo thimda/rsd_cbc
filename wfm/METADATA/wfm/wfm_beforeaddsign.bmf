@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-03-26 10:38:44" creator="" description="wfm_beforeaddsign" displayName="wfm_beforeaddsign" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="7aacd457-47ea-40e0-a2d1-b26f2c573a36" isbizmodel="false" mainEntity="7631ca53-1829-4a08-8d62-748581862580" modifier="" modifyTime="2012-03-26 10:38:52" name="wfm_beforeaddsign" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_beforeaddsign" resid="" version="16" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="7aacd457-47ea-40e0-a2d1-b26f2c573a36" createTime="2012-03-26 10:38:52" creator="" czlist="" description="" displayName="前加签" fullClassName="nc.uap.wfm.vo.WfmBeforeAddSignVO" height="142" help="" id="7631ca53-1829-4a08-8d62-748581862580" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="90ed3094-7072-4841-9a6e-34899fb756ab" modInfoClassName="" modifier="" modifyTime="2012-03-26 11:11:31" name="前加签" resid="" stereoType="" tableName="wfm_beforeaddsign" userDefClassName="" versionType="0" visibility="public" width="112" x="203" y="147">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7631ca53-1829-4a08-8d62-748581862580" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="前加签主键" dynamic="false" dynamicTable="" fieldName="pk_beforeaddsign" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="90ed3094-7072-4841-9a6e-34899fb756ab" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_beforeaddsign" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7631ca53-1829-4a08-8d62-748581862580" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="任务主键" dynamic="false" dynamicTable="" fieldName="pk_task" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="4de03baa-c99c-4e21-a507-f7d5473fa285" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_task" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7631ca53-1829-4a08-8d62-748581862580" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="前加签时间" dynamic="false" dynamicTable="" fieldName="beforeaddsigntime" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="884fe31a-1bef-4bd8-b515-1ce9d00d802b" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="beforeaddsigntime" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7631ca53-1829-4a08-8d62-748581862580" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="前加签类型" dynamic="false" dynamicTable="" fieldName="boforeaddsigntype" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="d27d50f4-f802-4c87-b80b-0d97b272f38a" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="boforeaddsigntype" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="7631ca53-1829-4a08-8d62-748581862580" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="前加签便签" dynamic="false" dynamicTable="" fieldName="scratchpad" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="3cedd27a-be1f-4c69-9909-3af3668e5aa3" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="scratchpad" notSerialize="false" precise="" refModelName="" resid="" sequence="4" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

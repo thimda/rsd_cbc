@@ -2,24 +2,16 @@
 <UIMeta flowmode="true" id="main_um" jquery="0">
     <FlowvLayout id="flowvlayout1013" widgetId="main">
         <FlowvPanel id="panelv00090" widgetId="main">
-           	<CanvasLayout id="menuback" className="leftcanvas">
+           	<CanvasLayout id="menuback" className="rightcanvas">
 				<CanvasPanel id="canvasp1">
 		            <Menubar height="100%" id="menu_list" left="0" position="relative" top="0" widgetId="main" width="100%">
            			</Menubar>
 		        </CanvasPanel>
 			 </CanvasLayout>
         </FlowvPanel>
-        <FlowvPanel id="panelv00091" widgetId="main" >
-           <TextField height="100%" id="ref_org_textfield" left="0" position="relative" top="0" widgetId="main" width="200">
-           </TextField>
-        </FlowvPanel>
         <FlowvPanel id="panelv00092" widgetId="main">
             <FlowhLayout id="flowh1">
-                <FlowhPanel id="flowhp3" leftPadding="0" width="20%" height="100%" topBorder="1px solid #d1e2d8" rightBorder="1px solid #d1e2d8">
-                    <TreeViewComp height="500" id="appnodes_tree" left="0" position="relative" top="0" widgetId="main" width="100%">
-           			</TreeViewComp>
-                </FlowhPanel>
-                <FlowhPanel id="flowhp4" leftPadding="0" width="75%" topBorder="1px solid #d1e2d8" rightBorder="1px solid #d1e2d8" >
+                <FlowhPanel id="flowhp4">
                     <GridComp height="100%" id="sysinit_grid" left="0" position="relative" top="0" widgetId="main" width="100%">
            			</GridComp>
                 </FlowhPanel>

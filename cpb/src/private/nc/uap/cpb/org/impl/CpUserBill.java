@@ -1,5 +1,4 @@
 package nc.uap.cpb.org.impl;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import nc.bs.dao.DAOException;
@@ -30,10 +29,11 @@ import nc.vo.uap.rbac.util.RbacUserPwdUtil;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+
 /**
  * 
- * @author zhangxya
- * 
+ * 2011-12-26 ÏÂÎç03:30:09
+ *
  */
 public class CpUserBill implements ICpUserBill {
 	public void changeUserLanguage(String pk_user, String languageId) throws CpbBusinessException {
@@ -92,6 +92,29 @@ public class CpUserBill implements ICpUserBill {
 		}
 		return cpUserVO;
 	}
+	public void updateUserPwd(String pk_user, String newPwd, UFDate passwordmodifydate) throws CpbBusinessException {
+		try {
+			PtBaseDAO baseDAO = new PtBaseDAO();
+			String sql = "update cp_user set " + CpUserVO.USER_PASSWORD + " = '" + new Encode().encode(newPwd) + "',";
+			sql = sql + CpUserVO.MODIFIEDTIME + " = '" + passwordmodifydate + "'" + " where pk_user = ?";
+			SQLParameter parameter = new SQLParameter();
+			parameter.addParam(pk_user);
+			baseDAO.executeUpdate(sql, parameter);
+		} catch (Exception e) {
+			throw new CpbBusinessException(e);
+		}
+	}
+	public void resetUserPwd(String pk_user) throws CpbBusinessException{
+		CpUserVO cpUserVO = CpbServiceFacility.getCpUserQry().getUserByPk(pk_user);
+		UserVO ncuser = new UserVO();
+		try {
+			BeanUtils.copyProperties(ncuser, cpUserVO);
+		} catch (Exception e) {
+			LfwLogger.error(e.getMessage(), e);
+			throw new CpbBusinessException(e);
+		} 
+		//todo...
+	}
 	@Override
 	public boolean checkPwdLevel(CpUserVO cpUserVO)throws BusinessException{
 		UserVO ncuser = new UserVO();
@@ -131,8 +154,7 @@ public class CpUserBill implements ICpUserBill {
 		PtBaseDAO dao = new PtBaseDAO();
 		try {
 			dao.deleteByPK(CpUserVO.class, pk_user);
-			//CpUserVO uservo = CpbServiceFacility.getCpUserQry().getUserByPk(pk_user);
-			//deleteRelates(new CpUserVO[] { uservo });
+			CpbExtentionUtil.notifyAfterAction(ICpbExtentionService.USERMANAGE, ICpbExtentionService.DELETE, pk_user);
 		} catch (DAOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new CpbBusinessException(e);
@@ -169,28 +191,17 @@ public class CpUserBill implements ICpUserBill {
 		}
 		return list.get(0);
 	}
-	public void updateUserPwd(String pk_user, String newPwd, UFDate passwordmodifydate) throws CpbBusinessException {
-		try {
-			PtBaseDAO baseDAO = new PtBaseDAO();
-			String sql = "update cp_user set " + CpUserVO.USER_PASSWORD + " = '" + new Encode().encode(newPwd) + "',";
-			sql = sql + CpUserVO.MODIFIEDTIME + " = '" + passwordmodifydate + "'" + " where pk_user = ?";
-			SQLParameter parameter = new SQLParameter();
-			parameter.addParam(pk_user);
-			baseDAO.executeUpdate(sql, parameter);
-		} catch (Exception e) {
-			throw new CpbBusinessException(e);
-		}
-	}
+
 	/**
 	 * @param groupvos
 	 * @throws CpbBusinessException
 	 */
 	private void deleteRelates(CpUserVO[] uservos) throws CpbBusinessException {
-		String[] pk_users = new String[uservos.length];
+		String pk_user = null;
 		for (int i = 0; i < uservos.length; i++) {
-			pk_users[i] = uservos[i].getCuserid();
+			pk_user = uservos[i].getCuserid();
+			CpbExtentionUtil.notifyAfterAction(ICpbExtentionService.USERMANAGE, ICpbExtentionService.DELETE, pk_user);
 		}
-		CpbServiceFacility.getCpUserRoleBill().deletePtRoleUserByUserpks(pk_users);
 	}
 	
 	

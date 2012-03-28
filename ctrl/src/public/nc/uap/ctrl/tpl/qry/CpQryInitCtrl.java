@@ -1,4 +1,5 @@
 package nc.uap.ctrl.tpl.qry;
+
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
@@ -12,8 +13,10 @@ import nc.md.model.IBusinessEntity;
 import nc.md.model.MetaDataException;
 import nc.md.model.type.IType;
 import nc.md.model.type.impl.RefType;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.cpb.template.TemplateConstant;
 import nc.uap.ctrl.tpl.exp.TplBusinessException;
+import nc.uap.ctrl.tpl.print.TemplateConstantArgs;
 import nc.uap.ctrl.tpl.qry.base.CpQueryConditionVO;
 import nc.uap.ctrl.tpl.qry.base.CpQueryTemplateVO;
 import nc.uap.ctrl.tpl.qry.init.CpQryInitTool;
@@ -45,108 +48,157 @@ import nc.uap.lfw.core.serializer.impl.SuperVO2DatasetSerializer;
 import nc.uap.lfw.core.vo.LfwExAggVO;
 import nc.vo.pub.AggregatedValueObject;
 import nc.vo.pub.SuperVO;
+
 public class CpQryInitCtrl implements WindowController, Serializable {
-  private static final String CURRENT_ROW="row";
-  public static final String OPERATE_STATUS="OPERATE_STATUS";
-  public static final String ADD_OPERATE="ADD_STATUS";
-  public static final String EDIT_OPERATE="EDIT_STATUS";
-  private static final long serialVersionUID=7532916478964732880L;
-  public void sysWindowClosed(  PageEvent event){
-    LfwRuntimeEnvironment.getWebContext().destroyWebSession();
-  }
-  public void onAdd(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+	private static final String CURRENT_ROW = "row";
+	private static final long serialVersionUID = 7532916478964732880L;
+
+	public void sysWindowClosed(PageEvent event) {
+		LfwRuntimeEnvironment.getWebContext().destroyWebSession();
+	}
+
+	public void onAdd(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ctx.getWindowContext().removeAppAttribute(CURRENT_ROW);
-		ctx.getApplicationContext().getCurrentWindowContext().addAppAttribute(OPERATE_STATUS,ADD_OPERATE);
-		ctx.getWindowContext().popView("edit", "800", "500", "编辑模板");
-  }
-  public void onEdit(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
-		ViewContext viewCtx = ctx.getApplicationContext().getCurrentWindowContext().getCurrentViewContext();
-		Dataset ds = viewCtx.getView().getViewModels().getDataset("listds");
+		ctx.getApplicationContext().getCurrentWindowContext().addAppAttribute(
+				TemplateConstantArgs.OPERATE_STATUS,
+				TemplateConstantArgs.ADD_OPERATE);
+		ctx.getWindowContext().popView(TemplateConstantArgs.EDIT,
+				DialogConstant.DEFAULT_WIDTH, DialogConstant.SEVEN_ELE_HEIGHT,
+				"编辑模板");
+	}
+
+	public void onEdit(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ViewContext viewCtx = ctx.getApplicationContext()
+				.getCurrentWindowContext().getCurrentViewContext();
+		Dataset ds = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
 		Row row = ds.getSelectedRow();
 		if (row == null)
 			throw new LfwRuntimeException("请先选中待编辑模板");
 		ctx.getWindowContext().addAppAttribute(CURRENT_ROW, row);
-		ctx.getApplicationContext().getCurrentWindowContext().addAppAttribute(OPERATE_STATUS,EDIT_OPERATE);
-		ctx.getWindowContext().popView("edit", "800", "500", "编辑模板");
-  }
-  public void onDel(  MouseEvent mouseEvent){
-    UifDelCmd cmd = new UifDelCmd("listds", LfwExAggVO.class.getName());
-		cmd.execute();
-  }
-  public void onTemplateAssignEvent(  MouseEvent<?> mouseEvent){
-    AppLifeCycleContext.current().getApplicationContext().navgateTo("cp_templateassign", "模板分配", "800", "600");
-  }
-  /** 
- * 编辑查询条件
- * @param mouseEvent
- */
-  public void onCondition(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ctx.getApplicationContext().getCurrentWindowContext().addAppAttribute(
+				TemplateConstantArgs.OPERATE_STATUS,
+				TemplateConstantArgs.EDIT_OPERATE);
+		ctx.getWindowContext().popView(TemplateConstantArgs.EDIT,
+				DialogConstant.DEFAULT_WIDTH, DialogConstant.SEVEN_ELE_HEIGHT,
+				"编辑模板");
+	}
+
+	public void onDel(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ViewContext viewCtx = ctx.getApplicationContext()
 				.getCurrentWindowContext().getCurrentViewContext();
-		Dataset ds = viewCtx.getView().getViewModels().getDataset("listds");
+		Dataset ds = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
+		Row row = ds.getSelectedRow();
+		if (row == null)
+			throw new LfwRuntimeException("请先选中待删除模板");
+		UifDelCmd cmd = new UifDelCmd(TemplateConstantArgs.LISTDS,
+				LfwExAggVO.class.getName());
+		cmd.execute();
+	}
+
+	public void onTemplateAssignEvent(MouseEvent<?> mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ViewContext viewCtx = ctx.getApplicationContext()
+				.getCurrentWindowContext().getCurrentViewContext();
+		Dataset ds = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
 		Row row = ds.getSelectedRow();
 		if (row == null)
 			throw new LfwRuntimeException("请先选中待编辑模板");
-		String metaclass = (String) row.getValue(ds.nameToIndex("metaclass"));
+		ctx.getApplicationContext().navgateTo(
+				"cp_templateassign", "模板分配", "800", "600");
+	}
+
+	/**
+	 * 编辑查询条件
+	 * 
+	 * @param mouseEvent
+	 */
+	public void onCondition(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ViewContext viewCtx = ctx.getApplicationContext()
+				.getCurrentWindowContext().getCurrentViewContext();
+		Dataset ds = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
+		Row row = ds.getSelectedRow();
+		if (row == null)
+			throw new LfwRuntimeException("请先选中待编辑模板");
+		String metaclass = (String) row.getValue(ds
+				.nameToIndex(TemplateConstantArgs.METACLASS));
 		String pktemplate = (String) row.getValue(ds
-				.nameToIndex("pk_query_template"));
-		ctx.getWindowContext().addAppAttribute("metaclass", metaclass);
-		ctx.getWindowContext().addAppAttribute("pk_query_template", pktemplate);
-		ctx.getWindowContext().popView("condition", "1000", "500", "编辑查询条件");
-  }
-  /** 
- * 模板编辑打开之前相应
- * @param dialogEvent
- */
-  public void editBeforeShow(  DialogEvent dialogEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
-		ViewContext viewCtx = ctx.getApplicationContext().getCurrentWindowContext().getCurrentViewContext();
+				.nameToIndex(TemplateConstantArgs.PK_QUERY_TEMPLATE));
+		ctx.getWindowContext().addAppAttribute(TemplateConstantArgs.METACLASS,
+				metaclass);
+		ctx.getWindowContext().addAppAttribute(
+				TemplateConstantArgs.PK_QUERY_TEMPLATE, pktemplate);
+		ctx.getWindowContext().popView(TemplateConstantArgs.CONDITION, "1000",
+				"500", "编辑查询条件");
+	}
+
+	/**
+	 * 模板编辑打开之前相应
+	 * 
+	 * @param dialogEvent
+	 */
+	public void editBeforeShow(DialogEvent dialogEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ViewContext viewCtx = ctx.getApplicationContext()
+				.getCurrentWindowContext().getCurrentViewContext();
 		Dataset ds = viewCtx.getView().getViewModels().getDataset("formds");
 		ds.clear();
-		
-		Row row = (Row) ctx.getWindowContext().getAppAttributeAndRemove(CURRENT_ROW);
+
+		Row row = (Row) ctx.getWindowContext().getAppAttributeAndRemove(
+				CURRENT_ROW);
 		Row targetRow = null;
-		if(row != null)
+		if (row != null)
 			targetRow = UifRowTranslator.translateRowToRow(ds, row);
 		else
 			targetRow = ds.getEmptyRow();
 		ds.addRow(targetRow);
 		ds.setRowSelectIndex(0);
 		ds.setEnabled(true);
-  }
-  /** 
- * 模板编辑片段触发主片段
- * @param paramMap
- */
-  public void pluginaddPlugin(  Map paramMap){
-    TranslatedRow transRow = (TranslatedRow) paramMap.get(CURRENT_ROW);
+	}
+
+	/**
+	 * 模板编辑片段触发主片段
+	 * 
+	 * @param paramMap
+	 */
+	public void pluginaddPlugin(Map paramMap) {
+		TranslatedRow transRow = (TranslatedRow) paramMap.get(CURRENT_ROW);
 		ViewContext viewCtx = AppLifeCycleContext.current()
 				.getApplicationContext().getCurrentWindowContext()
 				.getCurrentViewContext();
-		Dataset ds = viewCtx.getView().getViewModels().getDataset("listds");
+		Dataset ds = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
 		String opeStatus = (String) AppLifeCycleContext.current()
-		.getApplicationContext().getCurrentWindowContext().getAppAttribute(OPERATE_STATUS);
+				.getApplicationContext().getCurrentWindowContext()
+				.getAppAttribute(TemplateConstantArgs.OPERATE_STATUS);
 		Row row = null;
-		if (ADD_OPERATE.equals(opeStatus)) {
+		if (TemplateConstantArgs.ADD_OPERATE.equals(opeStatus)) {
 			// 新增行并选中
 			row = ds.getEmptyRow();
 			row = UifRowTranslator.translateRowToRow(ds, transRow);
 			ds.addRow(row);
 			ds.setSelectedIndex(ds.getRowIndex(row));
-		} else if (EDIT_OPERATE.equals(opeStatus)) {
+		} else if (TemplateConstantArgs.EDIT_OPERATE.equals(opeStatus)) {
 			row = ds.getSelectedRow();
-			row = UifRowTranslator.translateRowToRow(ds,row,transRow);
+			row = UifRowTranslator.translateRowToRow(ds, row, transRow);
 		}
-		UifSaveCmd cmd = new UifSaveCmd("listds",null,LfwExAggVO.class.getName(),false){			
-			protected void onVoSave(AggregatedValueObject aggvo) {				
-				ICpQryTemplateInnerService service = NCLocator.getInstance().lookup(
-						ICpQryTemplateInnerService.class);
+		UifSaveCmd cmd = new UifSaveCmd(TemplateConstantArgs.LISTDS, null,
+				LfwExAggVO.class.getName(), false) {
+			protected void onVoSave(AggregatedValueObject aggvo) {
+				ICpQryTemplateInnerService service = NCLocator.getInstance()
+						.lookup(ICpQryTemplateInnerService.class);
 				try {
-					CpQueryTemplateVO vo = (CpQueryTemplateVO) aggvo.getParentVO();
-					if (vo.getPk_query_template() == null|| vo.getPk_query_template().length() == 0) {
+					CpQueryTemplateVO vo = (CpQueryTemplateVO) aggvo
+							.getParentVO();
+					if (vo.getPk_query_template() == null
+							|| vo.getPk_query_template().length() == 0) {
 						service.initTemplate(vo);
 					} else {
 						service.updateTemplate(vo);
@@ -158,130 +210,153 @@ public class CpQryInitCtrl implements WindowController, Serializable {
 			}
 		};
 		cmd.execute();
-  }
-  /** 
- * 模板编辑保存按钮
- * @param mouseEvent
- */
-  public void saveBtClick(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
-		ViewContext viewCtx = ctx.getApplicationContext().getCurrentWindowContext().getCurrentViewContext();
+	}
+
+	/**
+	 * 模板编辑保存按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void saveBtClick(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		ViewContext viewCtx = ctx.getApplicationContext()
+				.getCurrentWindowContext().getCurrentViewContext();
 		Dataset ds = viewCtx.getView().getViewModels().getDataset("formds");
-		CmdInvoker.invoke(new UifPlugoutCmd(ds.getWidget().getId(),"addPlugout"));
-		CmdInvoker.invoke(new UifCloseViewCmd("edit"));
-//		Row row = ds.getSelectedRow();
-//		Dataset2SuperVOSerializer s = new Dataset2SuperVOSerializer();
-//		SuperVO[] vos = s.serialize(ds, row);
-//		ICpQryTemplateInnerService service = NCLocator.getInstance().lookup(
-//				ICpQryTemplateInnerService.class);
-//		try {
-//			service.initTemplate((CpQueryTemplateVO) vos[0]);
-//			CmdInvoker.invoke(new UifPlugoutCmd(ds.getWidget().getId(),
-//					"addPlugout"));
-//
-//			CmdInvoker.invoke(new UifCloseViewCmd("edit"));
-//		} catch (TplBusinessException e) {
-//			LfwLogger.error(e);
-//			throw new LfwRuntimeException(e.getMessage());
-//		}
-  }
-  /** 
- * 模板编辑取消按钮
- * @param mouseEvent
- */
-  public void cancelBtClick(  MouseEvent mouseEvent){
-    CmdInvoker.invoke(new UifCloseViewCmd("edit"));
-  }
-  /** 
- * 主界面列表加载
- * @param dataLoadEvent
- */
-  public void onDataLoad_listds(  DataLoadEvent dataLoadEvent){
-    Dataset ds = dataLoadEvent.getSource();
-		CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()));
-  }
-  /** 
- * 条件编辑向左按钮
- * @param mouseEvent
- */
-  public void toLeftBt(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+		CmdInvoker.invoke(new UifPlugoutCmd(ds.getWidget().getId(),
+				"addPlugout"));
+		CmdInvoker.invoke(new UifCloseViewCmd(TemplateConstantArgs.EDIT));
+		// Row row = ds.getSelectedRow();
+		// Dataset2SuperVOSerializer s = new Dataset2SuperVOSerializer();
+		// SuperVO[] vos = s.serialize(ds, row);
+		// ICpQryTemplateInnerService service = NCLocator.getInstance().lookup(
+		// ICpQryTemplateInnerService.class);
+		// try {
+		// service.initTemplate((CpQueryTemplateVO) vos[0]);
+		// CmdInvoker.invoke(new UifPlugoutCmd(ds.getWidget().getId(),
+		// "addPlugout"));
+		//
+		// CmdInvoker.invoke(new UifCloseViewCmd("edit"));
+		// } catch (TplBusinessException e) {
+		// LfwLogger.error(e);
+		// throw new LfwRuntimeException(e.getMessage());
+		// }
+	}
+
+	/**
+	 * 模板编辑取消按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void cancelBtClick(MouseEvent mouseEvent) {
+		CmdInvoker.invoke(new UifCloseViewCmd(TemplateConstantArgs.EDIT));
+	}
+
+	/**
+	 * 条件编辑向左按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void toLeftBt(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ViewContext viewCtx = ctx.getApplicationContext()
 				.getCurrentWindowContext().getCurrentViewContext();
 		Dataset targetDs = viewCtx.getView().getViewModels().getDataset(
-				"conditionds");
+				TemplateConstantArgs.CONDITIONDS);
 		Row[] rows = targetDs.getSelectedRows();
+		if (null == rows) {
+			throw new LfwRuntimeException("请先选中待删除编辑条件");
+		}
 		for (int i = 0; i < rows.length; i++) {
 			targetDs.removeRow(rows[i]);
 		}
-  }
-  /** 
- * 条件编辑取消按钮
- * @param mouseEvent
- */
-  public void conditionCancelBt(  MouseEvent mouseEvent){
-    CmdInvoker.invoke(new UifCloseViewCmd("condition"));
-  }
-  /** 
- * 条件编辑向右按钮
- * @param mouseEvent
- */
-  public void toRightBt(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+	}
+
+	/**
+	 * 条件编辑取消按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void conditionCancelBt(MouseEvent mouseEvent) {
+		CmdInvoker.invoke(new UifCloseViewCmd(TemplateConstantArgs.CONDITION));
+	}
+
+	/**
+	 * 条件编辑向右按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void toRightBt(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ViewContext viewCtx = ctx.getApplicationContext()
 				.getCurrentWindowContext().getCurrentViewContext();
 		Dataset sourceDs = viewCtx.getView().getViewModels().getDataset(
 				"entityds");
 		Dataset targetDs = viewCtx.getView().getViewModels().getDataset(
-				"conditionds");
+				TemplateConstantArgs.CONDITIONDS);
 		IMDQueryFacade mdqry = MDBaseQueryFacade.getInstance();
 		String metaclass = (String) ctx.getWindowContext().getAppAttribute(
-				"metaclass");
+				TemplateConstantArgs.METACLASS);
 		String pk_template = (String) ctx.getWindowContext().getAppAttribute(
-				"pk_query_template");
+				TemplateConstantArgs.PK_QUERY_TEMPLATE);
 		IBusinessEntity bean;
 		try {
+			if (null == metaclass) {
+				throw new LfwRuntimeException("元数据主实体为空");
+			}
 			bean = (IBusinessEntity) mdqry.getBeanByID(metaclass);
 			new CpQryInitTool().addLine(sourceDs, targetDs, bean, pk_template);
 		} catch (MetaDataException e) {
 			LfwLogger.error(e);
 		}
-  }
-  /** 
- * 条件编辑确定按钮
- * @param mouseEvent
- */
-  public void conditionOkBt(  MouseEvent mouseEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+	}
+
+	/**
+	 * 条件编辑确定按钮
+	 * 
+	 * @param mouseEvent
+	 */
+	public void conditionOkBt(MouseEvent mouseEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ViewContext viewCtx = ctx.getApplicationContext()
 				.getCurrentWindowContext().getCurrentViewContext();
 		Dataset targetDs = viewCtx.getView().getViewModels().getDataset(
-				"conditionds");
+				TemplateConstantArgs.CONDITIONDS);
 		Dataset2SuperVOSerializer<CpQueryConditionVO> s = new Dataset2SuperVOSerializer<CpQueryConditionVO>();
-		CpQueryConditionVO[] vos = s.serialize(targetDs);
+		CpQueryConditionVO[] vos = null;
+		SuperVO[] tmp = s.serialize(targetDs);
+		if (null != tmp && tmp.length > 0) {
+			vos = s.serialize(targetDs);
+		}
 		ICpQryTemplateInnerService qry = NCLocator.getInstance().lookup(
 				ICpQryTemplateInnerService.class);
-
 		String pk_template = (String) ctx.getWindowContext().getAppAttribute(
-				"pk_query_template");
+				TemplateConstantArgs.PK_QUERY_TEMPLATE);
 		try {
 			qry.initConditons(pk_template, vos);
-			CmdInvoker.invoke(new UifCloseViewCmd("condition"));
+			CmdInvoker.invoke(new UifCloseViewCmd(
+					TemplateConstantArgs.CONDITION));
 		} catch (TplBusinessException e) {
 			LfwLogger.error(e);
 		}
-  }
-  public void conditionBeforeShow(  DialogEvent dialogEvent){
-    AppLifeCycleContext ctx = AppLifeCycleContext.current();
+	}
+
+	public void conditionBeforeShow(DialogEvent dialogEvent) {
+		AppLifeCycleContext ctx = AppLifeCycleContext.current();
 		ViewContext viewCtx = ctx.getApplicationContext()
 				.getCurrentWindowContext().getCurrentViewContext();
+		Dataset entityDs = viewCtx.getView().getViewModels().getDataset(
+				"entityds");
+		entityDs.clear();
+		Dataset conditionDs = viewCtx.getView().getViewModels().getDataset(
+				TemplateConstantArgs.CONDITIONDS);
+		conditionDs.clear();
 		try {
-			Dataset entityDs = viewCtx.getView().getViewModels().getDataset(
-					"entityds");
-			entityDs.clear();
 			IMDQueryFacade mdqry = MDBaseQueryFacade.getInstance();
 			String metaclass = (String) ctx.getWindowContext().getAppAttribute(
-					"metaclass");
+					TemplateConstantArgs.METACLASS);
+			if (null == metaclass) {
+				return;
+			}
 			IBusinessEntity bean = (IBusinessEntity) mdqry
 					.getBeanByID(metaclass);
 			String key = entityDs.getReqParameters().getParameterValue(
@@ -320,14 +395,11 @@ public class CpQryInitCtrl implements WindowController, Serializable {
 		}
 		try {
 			String pk_template = (String) ctx.getWindowContext()
-					.getAppAttribute("pk_query_template");
+					.getAppAttribute(TemplateConstantArgs.PK_QUERY_TEMPLATE);
 			ICpQryTemplateInnerQryService qryService = NCLocator.getInstance()
 					.lookup(ICpQryTemplateInnerQryService.class);
 			CpQueryConditionVO[] conds = qryService
 					.getQueryConditions(pk_template);
-			Dataset conditionDs = viewCtx.getView().getViewModels().getDataset(
-					"conditionds");
-			conditionDs.clear();
 			SuperVO2DatasetSerializer s = new SuperVO2DatasetSerializer();
 			s.serialize(conds, conditionDs);
 			conditionDs.setEnabled(true);
@@ -335,29 +407,46 @@ public class CpQryInitCtrl implements WindowController, Serializable {
 			LfwLogger.error(e);
 			throw new LfwRuntimeException(e.getMessage());
 		}
-  }
-  public void pluginappscategory_plugin(  Map keys){
-    LfwWidget main = AppLifeCycleContext.current().getWindowContext().getViewContext("main").getView();
-		  Dataset ds = main.getViewModels().getDataset("listds");
-		  TranslatedRow r = (TranslatedRow) keys.get("appscategory_click");
-		  final String pk_appscategory = (String)r.getValue("id");
-		 // getCurrentWinCtx().addAppAttribute("pk_appscategory",pk_appscategory);
-		  CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()){
-			  protected String postProcessQueryVO(SuperVO vo, Dataset ds) {
-					String where =" nodecode='"+pk_appscategory+"'";
-					ds.setLastCondition(where);
-					return where ;			  
-				}
-			});
-  }
-  public void onAfterRowSelect(  DatasetEvent datasetEvent){
-    Dataset ds = datasetEvent.getSource();
-	Row row = ds.getSelectedRow();
-	String pk_template = (String) row.getValue(ds.nameToIndex("pk_query_template"));
-	//设置模板pk
-	AppLifeCycleContext.current().getApplicationContext().addAppAttribute(TemplateConstant.PK_TEMPLATE, pk_template);
-	//设置模板类型
-	AppLifeCycleContext.current().getApplicationContext().addAppAttribute(TemplateConstant.TEMPLATE_TYPE, TemplateConstant.TEMPLATE_QUERY_TEMPLATE);
-	
-  }
+	}
+
+	public void pluginappscategory_plugin(Map keys) {
+		LfwWidget main = AppLifeCycleContext.current().getWindowContext()
+				.getViewContext("main").getView();
+		Dataset ds = main.getViewModels().getDataset(
+				TemplateConstantArgs.LISTDS);
+		TranslatedRow r = (TranslatedRow) keys.get("appscategory_click");
+		final String pk_appscategory = (String) r.getValue("id");
+		// getCurrentWinCtx().addAppAttribute("pk_appscategory",pk_appscategory);
+		CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()) {
+			protected String postProcessQueryVO(SuperVO vo, Dataset ds) {
+				String where = " nodecode='" + pk_appscategory + "'";
+				ds.setLastCondition(where);
+				return where;
+			}
+		});
+	}
+
+	public void onAfterRowSelect(DatasetEvent datasetEvent) {
+		Dataset ds = datasetEvent.getSource();
+		Row row = ds.getSelectedRow();
+		String pk_template = (String) row.getValue(ds
+				.nameToIndex(TemplateConstantArgs.PK_QUERY_TEMPLATE));
+		// 设置模板pk
+		AppLifeCycleContext.current().getApplicationContext().addAppAttribute(
+				TemplateConstant.PK_TEMPLATE, pk_template);
+		// 设置模板类型
+		AppLifeCycleContext.current().getApplicationContext().addAppAttribute(
+				TemplateConstant.TEMPLATE_TYPE,
+				TemplateConstant.TEMPLATE_QUERY_TEMPLATE);
+	}
+
+	/**
+	 * 主界面列表加载
+	 * 
+	 * @param dataLoadEvent
+	 */
+	public void onDataLoad_listds(DataLoadEvent dataLoadEvent) {
+		Dataset ds = dataLoadEvent.getSource();
+		CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()));
+	}
 }

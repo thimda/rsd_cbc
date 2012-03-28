@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-03-08 13:41:04" creator="" description="" displayName="wfm_proinsstate" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="2df30e81-3e97-480d-b751-c1f25080ea9e" isbizmodel="false" mainEntity="73b14a66-2ec7-4e99-9824-6d034f1d1969" modifier="" modifyTime="2012-03-08 14:15:02" name="wfm_proinsstate" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_proinsstate" resid="" version="16" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="2df30e81-3e97-480d-b751-c1f25080ea9e" createTime="2012-03-08 13:41:42" creator="" czlist="" description="" displayName="流程实例状态" fullClassName="nc.uap.wfm.vo.WfmProInsStateVO" height="100" help="" id="73b14a66-2ec7-4e99-9824-6d034f1d1969" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="0ef758bd-fea5-49c2-a6c6-328983c63ad6" modInfoClassName="" modifier="" modifyTime="2012-03-08 14:15:06" name="wfm_proinsstate" resid="" stereoType="" tableName="wfm_proinsstate" userDefClassName="" versionType="0" visibility="public" width="80" x="173" y="133">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_proinsstate" fieldType="char" fixedLength="false" forLocale="false" help="" id="0ef758bd-fea5-49c2-a6c6-328983c63ad6" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_proinsstate" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="UFID" typeName="UFID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="实例主键" dynamic="false" dynamicTable="" fieldName="pk_proins" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="6b4c473f-ed06-482b-9f62-7759c47ae3a1" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_proins" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="7ff02653-09c6-44a6-91a0-82aae18af085" dataTypeStyle="REF" dbtype="" defaultValue="~" description="" displayName="操作用户" dynamic="false" dynamicTable="" fieldName="pk_user" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="f46c8a71-8d53-456c-892f-fb83038e3575" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="20" maxValue="" minValue="" name="pk_user" notSerialize="false" precise="" refModelName="协同用户" resid="" sequence="2" typeDisplayName="协同用户" typeName="cp_user" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="操作原因" dynamic="false" dynamicTable="" fieldName="reason" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="8cdef8fc-3dcc-4b24-aac7-807d54e6ab69" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="reason" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="流程状态" dynamic="false" dynamicTable="" fieldName="state" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="dad374cf-4c6c-4f80-abd4-6f6d9710de56" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="state" notSerialize="false" precise="" refModelName="" resid="" sequence="4" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73b14a66-2ec7-4e99-9824-6d034f1d1969" dataType="BS000010000100001034" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="操作时间" dynamic="false" dynamicTable="" fieldName="actiondate" fieldType="char" fixedLength="false" forLocale="false" help="" id="3fad9ff8-c7a8-4122-abe8-e8a4b519a4f5" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="19" maxValue="" minValue="" name="actiondate" notSerialize="false" precise="" refModelName="" resid="" sequence="5" typeDisplayName="UFDateTime" typeName="UFDateTime" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends>
+        <dependfile entityid="7ff02653-09c6-44a6-91a0-82aae18af085"/>
+    </refdepends>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

@@ -10,7 +10,7 @@ import nc.uap.wfm.itf.IWfmAddSignBill;
 import nc.uap.wfm.model.Task;
 import nc.uap.wfm.utils.BeforeAddSignUtil;
 import nc.uap.wfm.vo.WfmAddSignUserVO;
-import nc.uap.wfm.vo.WfmAddSignVO;
+import nc.uap.wfm.vo.WfmBeforeAddSignVO;
 import nc.vo.pub.lang.UFDate;
 public class CreateBeforeAddSignTaskCmd extends CreateAddSignTaskCmd {
 	protected void createAddSignTasks() {
@@ -21,11 +21,11 @@ public class CreateBeforeAddSignTaskCmd extends CreateAddSignTaskCmd {
 			return;
 		}
 		int length = addSignUserInfo.length;
-		WfmAddSignVO addSignVo = new WfmAddSignVO();
+		WfmBeforeAddSignVO addSignVo = new WfmBeforeAddSignVO();
 		addSignVo.setPk_task(task.getPk_task());
 		addSignVo.setScratchpad(flwInfoCtx.getScratchpad());
 		int maxTime = Integer.parseInt(BeforeAddSignUtil.getMaxAddSignTimes(task));
-		addSignVo.setAddsigntime(String.valueOf(maxTime + 1));
+		addSignVo.setBeforeaddsigntime(String.valueOf(maxTime + 1));
 		WfmAddSignUserVO[] addSignUserVos = new WfmAddSignUserVO[length];
 		addSignVo.setAddSignUserVos(addSignUserVos);
 		try {

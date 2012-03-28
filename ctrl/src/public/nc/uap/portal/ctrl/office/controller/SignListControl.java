@@ -1,5 +1,6 @@
 package nc.uap.portal.ctrl.office.controller;
 import nc.uap.lfw.core.cmd.CmdInvoker;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.cpb.org.exception.CpbBusinessException;
 import java.util.Map;
 import nc.uap.portal.ctrl.office.data.sign.ServersignVO;
@@ -37,6 +38,7 @@ public class SignListControl {
 		CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()));
   }
   public void newuseronclick(  MouseEvent mouseEvent){
+	  
     UifEditCmd cmd = new UifEditCmd(RelateUserController.PUBLIC_VIEW_USER,
 				"600", "400", "ÐÂÔö¹ØÁªÓÃ»§");
 		cmd.execute();
@@ -49,7 +51,7 @@ public class SignListControl {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("edittype", "new");
 		LfwRuntimeEnvironment.getWebContext().getAppSession().setAttribute("signeditor", map);
-		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", "670", "350", map);
+		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", DialogConstant.DOUBLE_COLUMN_WIDTH, "405", map);
   }
   public void pluginsignedit_plugin(  Map keys){
     try {
@@ -187,7 +189,7 @@ public class SignListControl {
 			map.put("edittype", type);
 			map.put("pk", pk_sign);
 			LfwRuntimeEnvironment.getWebContext().getAppSession().setAttribute("signeditor", map);
-			AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", "670", "350", map);
+			AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", DialogConstant.DOUBLE_COLUMN_WIDTH, "405", map);
 		}
 		else if(type.equals("delete")){
 			try {

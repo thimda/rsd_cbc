@@ -64,6 +64,11 @@
 	</component>
 	
 	<component remote="false" singleton="true" tx="CMT">
+		<interface>nc.uap.ctrl.tpl.print.ICpPopWordTemplateService</interface>
+		<implementation>nc.uap.ctrl.tpl.print.impl.CpPopWordTemplateServiceImpl</implementation>
+	</component>
+	
+	<component remote="false" singleton="true" tx="CMT">
 		<interface>nc.uap.ctrl.tpl.qry.ICpQryTemplateInnerService</interface>
 		<implementation>nc.uap.ctrl.tpl.qry.impl.CpQryTemplateInnerServiceImpl</implementation>
 	</component>

@@ -13,9 +13,17 @@ public interface DialogConstant {
 	//默认大小
 	public static final String DEFAULT_WIDTH = "502";
 	public static final String DEFAULT_HEIGHT = "234";	
-	//当控件数<=5时
+	//当控件数=5时
 	public static final String FIVE_ELE_WIDTH = "502";
 	public static final String FIVE_ELE_HEIGHT = "326";
+	//当控件数=6
+	public static final String SIX_ELE_HEIGHT = "358";
+	//当控件数=7
+	public static final String SEVEN_ELE_HEIGHT = "390";
+	//当控件数=8
+	public static final String EIGHT_ELE_HEIGHT = "422";
+	//当控件数=9
+	public static final String NINE_ELE_HEIGHT = "454";
 	//当控件数<=10时
 	public static final String TEN_ELE_WIDTH = "502";
 	public static final String TEN_ELE_HEIGHT = "486";

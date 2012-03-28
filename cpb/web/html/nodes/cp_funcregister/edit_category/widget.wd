@@ -57,7 +57,7 @@
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
         </ButtonComp>
-        <FormComp caption="协同功能节点分类" columnCount="2" dataset="ds_appscategory" eleWidth="120" enabled="true" id="appscategoryform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="协同功能节点分类" columnCount="1" dataset="ds_appscategory" eleWidth="250" enabled="true" id="appscategoryform" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="title" id="title" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true">

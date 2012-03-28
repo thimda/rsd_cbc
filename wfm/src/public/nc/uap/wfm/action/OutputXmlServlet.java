@@ -33,20 +33,32 @@ import org.apache.commons.io.FileUtils;
 		if (filename == null || "".equals(filename))
 			filename = UUID.randomUUID().toString();
 		filename += ".xml";
-		InputStreamReader isr = new InputStreamReader(input);
-		BufferedReader br = new BufferedReader(isr);
-		String savePath = request.getRealPath("") + "/processxml/" + filename;
-		File file = new File(savePath);
-		String line = br.readLine();
-		StringBuffer sb = new StringBuffer();
-		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-		while (line != null) {
-			String str = URLDecoder.decode(line, "utf-8");
-			sb.append(str).append("\r\n");
-			line = br.readLine();
+		BufferedReader br = null;
+		InputStreamReader isr = null;
+		try {
+			isr = new InputStreamReader(input);
+			br = new BufferedReader(isr);
+			String savePath = request.getRealPath("") + "/processxml/" + filename;
+			File file = new File(savePath);
+			String line = br.readLine();
+			StringBuffer sb = new StringBuffer();
+			sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+			while (line != null) {
+				String str = URLDecoder.decode(line, "utf-8");
+				sb.append(str).append("\r\n");
+				line = br.readLine();
+			}
+			FileUtils.writeStringToFile(file, sb.toString(), "UTF-8");
+			br.close();
+		} catch (Exception e) {
+			LfwLogger.error(e.getMessage(), e);
+			throw new LfwRuntimeException(e.getMessage());
+		} finally {
+			if (br != null) {
+				isr.close();
+				br.close();
+			}
 		}
-		FileUtils.writeStringToFile(file, sb.toString(), "UTF-8");
-		br.close();
 		download(request, response, filename);
 	}
 	/**

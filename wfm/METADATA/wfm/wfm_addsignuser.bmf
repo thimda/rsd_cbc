@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component conRouterType="手动" createTime="2012-03-26 11:12:52" creator="" description="" displayName="wfm_addsignuser" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="097ccfba-9c5e-4659-8cfb-cbccbcc8f3ed" isbizmodel="false" mainEntity="73e8b548-80ca-4c44-a17d-deb74782f10a" modifier="" modifyTime="2012-03-26 11:13:17" name="wfm_addsignuser" namespace="uapcp" ownModule="uapcp" preLoad="false" resModuleName="wfm_addsignuser" resid="" version="11" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="097ccfba-9c5e-4659-8cfb-cbccbcc8f3ed" createTime="2012-03-26 11:13:17" creator="" czlist="" description="" displayName="加签用户" fullClassName="nc.uap.wfm.vo.WfmAddSignUserVO" height="100" help="" id="73e8b548-80ca-4c44-a17d-deb74782f10a" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" keyAttributeId="6ea1c688-42d4-4b33-93b6-5cb24baf9e54" modInfoClassName="" modifier="" modifyTime="2012-03-26 11:18:08" name="加签用户" resid="" stereoType="" tableName="wfm_addsignuser" userDefClassName="" versionType="0" visibility="public" width="80" x="175" y="151">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73e8b548-80ca-4c44-a17d-deb74782f10a" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="加签用户主键" dynamic="false" dynamicTable="" fieldName="pk_addsignuser" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="6ea1c688-42d4-4b33-93b6-5cb24baf9e54" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_addsignuser" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73e8b548-80ca-4c44-a17d-deb74782f10a" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="用户主键" dynamic="false" dynamicTable="" fieldName="pk_user" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="8f157b5c-3ca7-4524-8863-58eb819ec14d" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_user" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73e8b548-80ca-4c44-a17d-deb74782f10a" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="部门主键" dynamic="false" dynamicTable="" fieldName="pk_dept" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="11cdd0d0-2e38-49ec-8b3b-d3562c267885" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_dept" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="73e8b548-80ca-4c44-a17d-deb74782f10a" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="前加签主键" dynamic="false" dynamicTable="" fieldName="pk_beforeaddsign" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="29b83d6d-9bf1-4209-9ae2-64cb55580f03" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" length="50" maxValue="" minValue="" name="pk_beforeaddsign" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

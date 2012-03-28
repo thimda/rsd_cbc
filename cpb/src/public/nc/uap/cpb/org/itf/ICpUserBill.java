@@ -91,6 +91,14 @@ public interface ICpUserBill {
 	 * @throws PortalServiceException
 	 */
 	public void updateUserPwd(String pk_user, String newPwd, UFDate passwordmodifydate) throws CpbBusinessException;
+	
+	/**
+	 * 重置用户密码
+	 * @param pk_user
+	 * @throws CpbBusinessException
+	 */
+	public void resetUserPwd(String pk_user) throws CpbBusinessException;
+	
 	/**
 	 * 校验密码安全策略
 	 * @param cpUserVO

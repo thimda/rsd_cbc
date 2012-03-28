@@ -18,7 +18,8 @@ public class CpGzTemplateInnerServiceImpl implements ICpGzTemplateInnerService {
 //			List<CpQueryConditionVO> list = (List<CpQueryConditionVO>) dao.retrieveByClause(CpQueryConditionVO.class, "pkTemplet='" + pk_template + "'");
 //			Iterator<CpQueryConditionVO> it = list.iterator();
 			dao.deleteByClause(CpGzConditionVO.class, "pk_gz_template='" + pk_template + "'");
-			dao.insertVOArray(conditions);
+			if(null!=conditions)			
+				dao.insertVOArray(conditions);
 		} 
 		catch (DAOException e) {
 			LfwLogger.error(e);
@@ -30,9 +31,7 @@ public class CpGzTemplateInnerServiceImpl implements ICpGzTemplateInnerService {
 	public void initTemplate(CpGzTemplateVO templateVo)
 			throws TplBusinessException {
 		try {
-//			SystemplateVO sysVo = new SystemplateVO();
 			BaseDAO dao = new BaseDAO();
-//			dao.insertVO(sysVo);
 			dao.insertVO(templateVo);
 		} 
 		catch (DAOException e) {
@@ -43,6 +42,16 @@ public class CpGzTemplateInnerServiceImpl implements ICpGzTemplateInnerService {
 
 	@Override
 	public void deleteTemplate(String pk_template) throws TplBusinessException {
+		try {
+			BaseDAO dao = new BaseDAO();
+			dao.deleteByPK(CpGzTemplateVO.class, pk_template);
+			dao.deleteByClause(CpGzConditionVO.class, "pk_gz_template='"+pk_template+"'");
+		} 
+		catch (DAOException e) {
+			LfwLogger.error(e);
+			throw new TplBusinessException(e.getMessage(), e);
+		}
+	
 	}
 
 	@Override

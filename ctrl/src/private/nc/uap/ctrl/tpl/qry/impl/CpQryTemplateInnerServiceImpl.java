@@ -19,7 +19,8 @@ public class CpQryTemplateInnerServiceImpl implements
 //			List<CpQueryConditionVO> list = (List<CpQueryConditionVO>) dao.retrieveByClause(CpQueryConditionVO.class, "pkTemplet='" + pk_template + "'");
 //			Iterator<CpQueryConditionVO> it = list.iterator();
 			dao.deleteByClause(CpQueryConditionVO.class, "pk_query_template='" + pk_template + "'");
-			dao.insertVOArray(conditions);
+			if(null!=conditions)
+				dao.insertVOArray(conditions);
 		} 
 		catch (DAOException e) {
 			LfwLogger.error(e);
@@ -31,9 +32,7 @@ public class CpQryTemplateInnerServiceImpl implements
 	public void initTemplate(CpQueryTemplateVO templateVo)
 			throws TplBusinessException {
 		try {
-//			SystemplateVO sysVo = new SystemplateVO();
 			BaseDAO dao = new BaseDAO();
-//			dao.insertVO(sysVo);
 			dao.insertVO(templateVo);
 		} 
 		catch (DAOException e) {
@@ -44,6 +43,15 @@ public class CpQryTemplateInnerServiceImpl implements
 
 	@Override
 	public void deleteTemplate(String pk_template) throws TplBusinessException {
+		try {
+			BaseDAO dao = new BaseDAO();
+			dao.deleteByPK(CpQueryConditionVO.class, pk_template);
+			dao.deleteByClause(CpQueryConditionVO.class, "pk_query_template='"+pk_template+"'");
+		} 
+		catch (DAOException e) {
+			LfwLogger.error(e);
+			throw new TplBusinessException(e.getMessage(), e);
+		}
 	}
 
 	@Override

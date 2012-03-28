@@ -3,10 +3,28 @@
     <Processor>nc.uap.lfw.core.event.AppRequestProcessor</Processor>
     <Widgets>
         <Widget id="main" refId="main">
+            <Attributes>
+                <Attribute>
+                    <Key>$QueryTemplate</Key>
+                    <Value>
+                    </Value>
+                    <Desc>
+                    </Desc>
+                </Attribute>
+            </Attributes>
         </Widget>
         <Widget id="pubview_queryplan" refId="../pubview_queryplan">
         </Widget>
         <Widget id="pubview_simplequery" refId="../pubview_simplequery">
+            <Attributes>
+                <Attribute>
+                    <Key>$QueryTemplate</Key>
+                    <Value>
+                    </Value>
+                    <Desc>
+                    </Desc>
+                </Attribute>
+            </Attributes>
         </Widget>
         <Widget id="edit" refId="edit">
         </Widget>
@@ -47,6 +65,13 @@
                 <Map inValue="editRow" outValue="ok">
                     <outValue>ok</outValue>
                     <inValue>editRow</inValue>
+                </Map>
+            </Maps>
+        </Connector>
+        <Connector id="simpleQuery_to_main" pluginId="simpleQuery_plugin" plugoutId="qryout" source="pubview_simplequery" target="main">
+            <Maps>
+                <Map>                    
+                    <inValue>row</inValue>
                 </Map>
             </Maps>
         </Connector>

@@ -1,4 +1,5 @@
 package nc.uap.cpb.pamgr;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.lfw.core.event.DataLoadEvent;
 import nc.uap.lfw.core.comp.FormElement;
 import nc.uap.lfw.stylemgr.vo.UwIncrementVO;
@@ -65,7 +66,7 @@ public class PaMgrMainViewController extends AbstractWidgetController implements
     Row navRow = (Row) AppLifeCycleContext.current().getApplicationContext().getAppAttribute("navRow");
 		if(navRow == null)
 			throw new LfwRuntimeException("请选择正确的导航！");
-		UifEditCmd cmd = new UifEditCmd("editView", "720", "600", "新建模板");
+		UifEditCmd cmd = new UifEditCmd("editView", DialogConstant.TEN_ELE_WIDTH, DialogConstant.TEN_ELE_WIDTH, "新建模板");
   		getCurrentWinCtx().addAppAttribute(OPERATE_STATUS,
 				ADD_OPERATE);
 		cmd.execute();
@@ -422,6 +423,11 @@ public class PaMgrMainViewController extends AbstractWidgetController implements
     
   }
   public void onTemplateAssignEvent(  MouseEvent<?> mouseEvent){
+	  Dataset ds = getCurrentWinCtx().getViewContext("main").getView()
+		.getViewModels().getDataset(this.getMasterDsId());
+		Row row = ds.getSelectedRow();
+		if(row == null)
+			throw new LfwRuntimeException("请选择要编辑的数据！");
     AppLifeCycleContext.current().getApplicationContext().navgateTo("cp_templateassign", "模板分配", "800", "600");
   }
   public void onAfterRowUnSelect(  DatasetEvent datasetEvent){

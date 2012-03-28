@@ -115,7 +115,7 @@
         <RefNodes>
             <NCRefNode allowInput="false" dataListener="" dialog="false" i18nName="" id="refnode_ds_rolegroup_usercreated_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="pk_role,role_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色组_协同用户" usePower="false" writeDs="ds_rolegroup" writeFields="usercreated,usercreated_user_name">
             </NCRefNode>
-            <NCRefNode allowInput="false" dataListener="" dialog="false" i18nName="" id="refnode_ds_rolegroup_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="项目组织+全局+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色组_项目组织+全局+集团" usePower="false">
+            <NCRefNode allowInput="false" dataListener="" dialog="false" i18nName="" id="refnode_ds_rolegroup_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="业务单元+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="业务单元+集团" usePower="false">
             </NCRefNode>
         </RefNodes>
     </Models>

@@ -108,7 +108,7 @@
                 </Event>
             </Events>
         </ButtonComp>
-        <FormComp caption="流程代理" columnCount="2" dataset="ds_flowagent" eleWidth="120" enabled="false" id="grid_flowagent" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="流程代理" columnCount="2" dataset="ds_flowagent" eleWidth="250" enabled="false" id="grid_flowagent" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_user" height="" id="pk_user" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="被代理人" visible="false" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_user_user_name" height="" id="pk_user_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_ds_flowagent_pk_user_user_name" rowSpan="1" selectOnly="true" text="被代理人" visible="true" width="">

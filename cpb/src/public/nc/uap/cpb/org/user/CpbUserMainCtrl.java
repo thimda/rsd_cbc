@@ -1,5 +1,6 @@
 package nc.uap.cpb.org.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import nc.uap.cpb.org.itf.ICpUserRoleBill;
 import nc.uap.cpb.org.pubview.EnabledateController;
 import nc.uap.cpb.org.pubview.RelateRoleController;
 import nc.uap.cpb.org.querycmd.QueryCmd;
+import nc.uap.cpb.org.rolegroup.RoleGroupConstants;
 import nc.uap.cpb.org.util.CpbServiceFacility;
 import nc.uap.cpb.org.vos.CpUserRoleVO;
 import nc.uap.cpb.org.vos.CpUserVO;
@@ -31,6 +33,7 @@ import nc.uap.lfw.core.cmd.base.FromWhereSQL;
 import nc.uap.lfw.core.comp.MenuItem;
 import nc.uap.lfw.core.crud.CRUDHelper;
 import nc.uap.lfw.core.ctx.AppLifeCycleContext;
+import nc.uap.lfw.core.ctx.ApplicationContext;
 import nc.uap.lfw.core.ctx.WindowContext;
 import nc.uap.lfw.core.data.Dataset;
 import nc.uap.lfw.core.data.Row;
@@ -44,7 +47,6 @@ import nc.uap.lfw.core.model.plug.TranslatedRow;
 import nc.uap.lfw.core.model.plug.TranslatedRows;
 import nc.uap.lfw.core.page.LfwWidget;
 import nc.uap.lfw.core.serializer.impl.Dataset2SuperVOSerializer;
-import nc.uap.wfm.utils.PwfmUtil;
 import nc.vo.pub.AggregatedValueObject;
 import nc.vo.pub.SuperVO;
 import nc.vo.pub.lang.UFDate;
@@ -74,14 +76,14 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 	}
 
 	public void cpbUserAdd(MouseEvent<MenuItem> e) {
-		PwfmUtil.addAppAttr("operator", "add");		
+		addAppAttr("operator", "add");		
 		new UifPlugoutCmd("main", "usermain_pluginout").execute();
 		getCurrentWinCtx().popView("edit", DialogConstant.DOUBLE_COLUMN_WIDTH, DialogConstant.DOUBLE_COLUMN_HEIGHT, "新增用户");
 	}
 
 	public void cpbUserModify(MouseEvent<MenuItem> e) {
-		PwfmUtil.addAppAttr("operator", "update");
-		LfwWidget widget = PwfmUtil.getWidget("main");
+		addAppAttr("operator", "update");
+		LfwWidget widget = getWidget("main");
 		Dataset userData = widget.getViewModels().getDataset(
 				UserMgrConstants.Ds_User);
 		Row selectedRow = userData.getSelectedRow();
@@ -93,7 +95,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 	}
 
 	public void onStoped(MouseEvent<MenuItem> event) {
-		LfwWidget widget = PwfmUtil.getWidget("main");
+		LfwWidget widget = getWidget("main");
 		Dataset ds = widget.getViewModels()
 				.getDataset(UserMgrConstants.Ds_User);
 		Row[] rows = ds.getSelectedRows();
@@ -123,7 +125,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 	}
 
 	public void onUnStoped(MouseEvent<MenuItem> event) {
-		LfwWidget widget = PwfmUtil.getWidget("main");
+		LfwWidget widget = getWidget("main");
 		Dataset ds = widget.getViewModels()
 				.getDataset(UserMgrConstants.Ds_User);
 		Row[] rows = ds.getSelectedRows();
@@ -145,40 +147,24 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 		AppInteractionUtil.showMessage("启用成功!");
 	}
 
-	public void cpbUserDelete(MouseEvent<MenuItem> e) {
-		// LfwWidget widgetMain =
-		// PwfmUtil.getWidget(UserMgrConstants.Widget_Main);//
-		// getWidget(getWidgetId());
-		// Dataset dsUser =
-		// widgetMain.getViewModels().getDataset(UserMgrConstants.Ds_User);
-		// if (dsUser.getSelectedRows() == null ||
-		// dsUser.getSelectedRows().length < 1) {
-		// throw new LfwRuntimeException("请选择需要删除的用户");
-		// }
-		// InteractionUtil.showConfirmDialog("确认对话框", "确认删除吗?");
-		// if (InteractionUtil.getConfirmDialogResult().equals(Boolean.FALSE)) {
-		// return;
-		// }
-		//		
-		UifDelCmd cmd = new UifDelCmd(getMasterDsId(), getAggVoClazz());
+	public void cpbUserDelete(MouseEvent<MenuItem> e) {	
+		UifDelCmd cmd = new UifDelCmd(getMasterDsId(), getAggVoClazz()){
+			protected void onDeleteVO(ArrayList<AggregatedValueObject> vos, boolean trueDel) {
+				for(AggregatedValueObject aggvo:vos){
+					CpUserVO uservo = (CpUserVO) aggvo.getParentVO();
+					try {
+						CpbServiceFacility.getCpUserBill().deleteCpUserVO(uservo);
+					} catch (CpbBusinessException e) {
+						LfwLogger.error(e.getMessage(),e);
+					}
+				}				
+			}
+		};
 		cmd.execute();
-		// String userPk = (String)
-		// dsUser.getSelectedRow().getValue(dsUser.nameToIndex(CpUserVO.CUSERID));
-		// try {
-		// NCLocator.getInstance().lookup(ICpUserBill.class).deleteCpUserVO(userPk);
-		// } catch (CpbBusinessException e1) {
-		// LfwLogger.error(e1.getMessage(), e1);
-		// }
-		// dsUser.removeRow(dsUser.getSelectedRow());
-	}
-
-	public void cpbUserQury(MouseEvent<MenuItem> e) {
-		{
-		}
 	}
 
 	public void cpbUserResetPwd(MouseEvent<MenuItem> e) {
-		LfwWidget widget = PwfmUtil.getWidget(UserMgrConstants.Widget_Main);
+		LfwWidget widget = getWidget(UserMgrConstants.Widget_Main);
 		Dataset dsUser = widget.getViewModels().getDataset(
 				UserMgrConstants.Ds_User);
 		Row row = dsUser.getSelectedRow();
@@ -196,7 +182,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 			}
 			CpUserVO userVo = (CpUserVO) vos[0];
 			try {
-				CpbServiceFacility.getCpUserBill().updateCpUserVO(userVo);
+				CpbServiceFacility.getCpUserBill().updateUserPwd(userVo.getCuserid(), "portal", new UFDate());
 			} catch (CpbBusinessException e1) {
 				LfwLogger.error(e1.getMessage(), e1);
 				throw new LfwRuntimeException(e1.getMessage());
@@ -208,7 +194,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 		LfwWidget edit = AppLifeCycleContext.current().getWindowContext()
 				.getViewContext("main").getView();
 		Dataset ds = edit.getViewModels().getDataset("cp_user");
-		String opeStatus = (String) PwfmUtil.getAppAttr("operator");
+		String opeStatus = (String) getAppAttr("operator");
 		Row row = null;
 		if ("add".equals(opeStatus)) {
 			// 新增行并选中
@@ -256,7 +242,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 
 	private void checkDupliVO(SuperVO vo) {
 		CpUserVO headvo = (CpUserVO) vo;
-		String opeStatus = (String) PwfmUtil.getAppAttr("operator");
+		String opeStatus = (String) getAppAttr("operator");
 		String code = headvo.getUser_code();
 		try {
 			CpUserVO userVO = CpbServiceFacility.getCpUserQry().getGlobalUserByCode(
@@ -281,25 +267,22 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 		}
 	}
 
-	public void cpbUserVisaMgr(MouseEvent<MenuItem> e) {
-		// /portalv61
-		// ncoabase
-		// Dataset userds =
-		// getGlobalContext().getPageMeta().getWidget("usermain").getViewModels().getDataset("userds");
-		// Row userRow = userds.getSelectedRow();
-		// if (userRow == null)
-		// throw new LfwRuntimeException("请先选择用户加签用户!");
-		// String pk_user = (String)
-		// userRow.getValue(userds.nameToIndex("pk_user"));
-		// String url = LfwRuntimeEnvironment.getCorePath() +
-		// "/uimeta.um?pageId=myvisamgr&model=nc.portal.pwfm.listener.MyVisaPageModel&pk_user="
-		// + pk_user + "";
-		// this.getGlobalContext().showModalDialog(url, "电子签章维护", "480", "480",
-		// "myvismgr", true, true);
+	public void onSignManage(MouseEvent<MenuItem> e) {
+		LfwWidget widgetMain = getWidget(UserMgrConstants.Widget_Main);
+		Dataset ds = widgetMain.getViewModels().getDataset(UserMgrConstants.Ds_User);
+		 Row userRow = ds.getSelectedRow();
+		 if (userRow == null)
+			 throw new LfwRuntimeException("请先选择用户!");
+		 getCurrentWinCtx().addAppAttribute(UserMgrConstants.DATA, userRow);
+		 getCurrentWinCtx().popView("signpic","350", "350" ,"管理用户签名图片");
+		 //String pk_user = (String)userRow.getValue(ds.nameToIndex("pk_user"));
+		 //String url = LfwRuntimeEnvironment.getCorePath() +
+		// "/uimeta.um?pageId=myvisamgr&model=nc.portal.pwfm.listener.MyVisaPageModel&pk_user="+ pk_user + "";
+		 //this.getGlobalContext().showModalDialog(url, "电子签章维护", "480", "480","myvismgr", true, true);
 	}
 
 	public void cpbUserAddRole(MouseEvent<MenuItem> e) {
-		LfwWidget widgetMain = PwfmUtil.getWidget(UserMgrConstants.Widget_Main);
+		LfwWidget widgetMain = getWidget(UserMgrConstants.Widget_Main);
 		Dataset pds = widgetMain.getViewModels().getDataset(
 				UserMgrConstants.Ds_User);
 		Row prow = pds.getSelectedRow();
@@ -430,8 +413,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 		if (rows == null || rows.length < 1) {
 			throw new LfwRuntimeException("请选择用户关联的角色!");
 		}
-		getCurrentWinCtx().popView(EnabledateController.PUBLIC_VIEW_ENABLEDATE,
-				"500", "160", "设置生效-失效日期");
+		getCurrentWinCtx().popView(EnabledateController.PUBLIC_VIEW_ENABLEDATE,DialogConstant.DEFAULT_WIDTH, DialogConstant.DEFAULT_HEIGHT, "设置生效-失效日期");
 	}
 
 	public void pluginenabledate_plugin(Map map) {
@@ -445,7 +427,7 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 		TranslatedRow r = (TranslatedRow) map.get("row");
 		UFDate enabledate = (UFDate) r.getValue("enabledate");
 		UFDate disabledate = (UFDate) r.getValue("disabledate");
-		if(disabledate.beforeDate(enabledate))
+		if(disabledate!=null&&disabledate.beforeDate(enabledate))
 			throw new LfwRuntimeException("失效日期必须大于生效日期!");
 		
 		for (int i = 0; i < rows.length; i++) {
@@ -507,5 +489,23 @@ public class CpbUserMainCtrl extends AbstractWidgetController {
 			Logger.error(e.getMessage(), e);
 			throw new LfwRuntimeException(e.getMessage(),e);
 		}
+	}
+	
+	public Object getAppAttr(String key){
+		return getCntAppCtx().getAppAttribute(key);
+	}
+	
+	private void addAppAttr(String key, Serializable value) {
+		getCntAppCtx().addAppAttribute(key, value);
+	}
+	private ApplicationContext getCntAppCtx() {
+		return AppLifeCycleContext.current().getApplicationContext();
+	}
+	
+	private WindowContext getCntWindowCtx() {
+		return getCntAppCtx().getCurrentWindowContext();
+	}
+	public LfwWidget getWidget(String name) {
+		return  getCntWindowCtx().getWindow().getWidget(name);
 	}
 }

@@ -23,11 +23,11 @@
     </Events>
     <Models>
         <Datasets>
-            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
+            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" notNullBody="false" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <MdDataset caption="协同查询模板" controlwidgetopeStatus="false" enabled="false" id="listds" lazyLoad="false" objMeta="uapcp.cp_gz_template" pageSize="50" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzTemplateVO">
+            <MdDataset caption="协同规则模板" controlwidgetopeStatus="false" enabled="false" id="listds" lazyLoad="false" notNullBody="false" objMeta="uapcp.cp_gz_template" voMeta="nc.uap.ctrl.tpl.gz.base.CpGzTemplateVO">
                 <FieldRelations>
                     <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
                         <MatchFields>
@@ -59,6 +59,7 @@
                         <Params>
                             <Param>
                                 <Name>dataLoadEvent</Name>
+                                <Value></Value>
                                 <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DataLoadEvent]]>
                                 </Desc>
                             </Param>
@@ -68,45 +69,45 @@
                     </Event>
                 </Events>
             </MdDataset>
-            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" notNullBody="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
                 <Fields>
                 </Fields>
             </RefMdDataset>
         </Datasets>
         <RefNodes>
-            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_listds_pkcorp_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同查询模板_集团" usePower="false" writeDs="listds" writeFields="pkcorp,pkcorp_name">
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_listds_pkcorp_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_group,name" refId="" refcode="集团" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同规则模板_集团" usePower="false" writeDs="listds" writeFields="pkcorp,pkcorp_name">
             </NCRefNode>
-            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_listds_metaclass_displayname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="id,displayname" refId="" refcode="元数据实体" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同查询模板_元数据实体" usePower="false" writeDs="listds" writeFields="metaclass,metaclass_displayname">
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_listds_metaclass_displayname" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="id,displayname" refId="" refcode="元数据实体" refnodeDelegator="" refresh="true" selLeafOnly="false" text="协同规则模板_元数据实体" usePower="false" writeDs="listds" writeFields="metaclass,metaclass_displayname">
             </NCRefNode>
         </RefNodes>
     </Models>
     <Components>
-        <GridComp caption="协同查询模板" dataset="listds" editable="true" enabled="true" id="qrylistgrid" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_gz_template" fixedHeader="false" id="pk_gz_template" imageOnly="false" nullAble="false" renderType="DefaultRender" sortable="true" sumCol="false" text="系统ID" textAlign="left" visible="false" width="120">
+        <GridComp caption="协同查询模板" dataset="listds" editable="true" enabled="true" id="qrylistgrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_gz_template" fixedHeader="false" id="pk_gz_template" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="系统ID" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pkcorp" fixedHeader="false" id="pkcorp" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="单位编码" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pkcorp" fixedHeader="false" id="pkcorp" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="单位编码" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pkcorp_name" fixedHeader="false" id="pkcorp_name" imageOnly="false" nullAble="true" refNode="refnode_listds_pkcorp_name" renderType="DefaultRender" sortable="true" sumCol="false" text="单位编码" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pkcorp_name" fixedHeader="false" id="pkcorp_name" imageOnly="false" nullAble="true" refNode="refnode_listds_pkcorp_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="单位编码" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modelcode" fixedHeader="false" id="modelcode" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板编号" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modelcode" fixedHeader="false" id="modelcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板编号" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modelname" fixedHeader="false" id="modelname" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板名称" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modelname" fixedHeader="false" id="modelname" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板名称" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="模板描述" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="description" fixedHeader="false" id="description" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板描述" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fixcondition" fixedHeader="false" id="fixcondition" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="固定条件" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="fixcondition" fixedHeader="false" id="fixcondition" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="固定条件" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="resid" fixedHeader="false" id="resid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="资源ID" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="resid" fixedHeader="false" id="resid" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="资源ID" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="metaclass" fixedHeader="false" id="metaclass" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="元数据主实体" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="metaclass" fixedHeader="false" id="metaclass" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="元数据主实体" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="metaclass_displayname" fixedHeader="false" id="metaclass_displayname" imageOnly="false" nullAble="true" refNode="refnode_listds_metaclass_displayname" renderType="DefaultRender" sortable="true" sumCol="false" text="元数据主实体" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="metaclass_displayname" fixedHeader="false" id="metaclass_displayname" imageOnly="false" nullAble="true" refNode="refnode_listds_metaclass_displayname" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="元数据主实体" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="parentid" fixedHeader="false" id="parentid" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="父模板主键" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="parentid" fixedHeader="false" id="parentid" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="父模板主键" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Memo" editable="true" editorType="TextArea" field="fixquerytree" fixedHeader="false" id="fixquerytree" imageOnly="false" nullAble="true" renderType="DefaultRender" sortable="true" sumCol="false" text="固定查询树" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="Memo" editable="true" editorType="TextArea" field="fixquerytree" fixedHeader="false" id="fixquerytree" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="固定查询树" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
             </Column>
         </GridComp>
     </Components>

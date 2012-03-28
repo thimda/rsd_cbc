@@ -50,16 +50,16 @@ public class AssignMainCtrl implements IController {
 		this.initParam();
 		String src = mouseEvent.getSource().getId();
 		LfwWidget assignWidget = WfmTaskUtil.getAssignView();
-		Dataset dsAssignAct = assignWidget.getViewModels().getDataset(WfmConstants.DsHUMACT);
-		Dataset dsAllActors = assignWidget.getViewModels().getDataset(WfmConstants.DsAllActors);
-		Dataset dsSelecteds = assignWidget.getViewModels().getDataset(WfmConstants.DsSelectedActors);
+		Dataset dsAssignAct = assignWidget.getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT);
+		Dataset dsAllActors = assignWidget.getViewModels().getDataset(WfmConstants.WfmDataset_DsAllActors);
+		Dataset dsSelecteds = assignWidget.getViewModels().getDataset(WfmConstants.WfmDataset_DsSelectedActors);
 		Row nextHumActRow = dsAssignAct.getSelectedRow();
 		String isAssign = (String) nextHumActRow.getValue(dsAssignAct.nameToIndex(WfmConstants.IsAssign));
 		String proDefPk = (String) nextHumActRow.getValue(dsAssignAct.nameToIndex(WfmConstants.ProDefPk));
 		String proDefId = (String) nextHumActRow.getValue(dsAssignAct.nameToIndex(WfmConstants.ProDefId));
 		String portId = (String) nextHumActRow.getValue(dsAssignAct.nameToIndex(WfmConstants.HumActId));
 		HumAct nextHumAct = (HumAct) ProDefsContainer.getByProDefPkAndId(proDefPk, proDefId).getPorts().get(portId);
-		if (WfmConstants.RightOne.equalsIgnoreCase(src)) {
+		if (WfmConstants.WfmComp_RightOne.equalsIgnoreCase(src)) {
 			if (WfmConstants.StrFalse.equalsIgnoreCase(isAssign)) {
 				throw new LfwRuntimeException("该活动节点不需要指派");
 			}
@@ -80,7 +80,7 @@ public class AssignMainCtrl implements IController {
 			dsSelecteds.addRow(selectedRow);
 			dsSelecteds.setRowSelectIndex(dsSelecteds.getRowIndex(selectedRow));
 			this.setUserNameAndUserPks();
-		} else if (WfmConstants.RightAll.equalsIgnoreCase(src)) {
+		} else if (WfmConstants.WfmComp_RightAll.equalsIgnoreCase(src)) {
 			if (WfmConstants.StrFalse.equalsIgnoreCase(isAssign)) {
 				throw new LfwRuntimeException("该活动节点不需要指派");
 			}
@@ -109,7 +109,7 @@ public class AssignMainCtrl implements IController {
 				dsSelecteds.addRow(tmpRow);
 			}
 			this.setUserNameAndUserPks();
-		} else if (WfmConstants.LeftOne.equalsIgnoreCase(src)) {
+		} else if (WfmConstants.WfmComp_LeftOne.equalsIgnoreCase(src)) {
 			if (WfmConstants.StrFalse.equalsIgnoreCase(isAssign)) {
 				throw new LfwRuntimeException("该活动节点不需要指派");
 			}
@@ -121,7 +121,7 @@ public class AssignMainCtrl implements IController {
 			dsAllActors.setCurrentKey(Dataset.MASTER_KEY);
 			dsAllActors.addRow(selectedRow);
 			this.setUserNameAndUserPks();
-		} else if (WfmConstants.LeftAll.equalsIgnoreCase(src)) {
+		} else if (WfmConstants.WfmComp_LeftAll.equalsIgnoreCase(src)) {
 			if (WfmConstants.StrFalse.equalsIgnoreCase(isAssign)) {
 				throw new LfwRuntimeException("该活动节点需要指派");
 			}
@@ -137,31 +137,31 @@ public class AssignMainCtrl implements IController {
 				dsAllActors.addRow(tmpRow);
 			}
 			this.setUserNameAndUserPks();
-		} else if (WfmConstants.Ok.equalsIgnoreCase(src)) {
+		} else if (WfmConstants.WfmComp_BtnOk.equalsIgnoreCase(src)) {
 			WfmFlowInfoCtx flwInfoCtx = null;
-			if ("agree".equalsIgnoreCase(this.getActionValue()) || "noagree".equalsIgnoreCase(this.getActionValue())) {
+			if (WfmConstants.WfmOperator_Agree.equalsIgnoreCase(this.getActionValue()) || WfmConstants.WfmOperator_UnAgree.equalsIgnoreCase(this.getActionValue())) {
 				if (taskPk == null || taskPk.length() == 0) {
-					flwInfoCtx = new WfmCommitFlowInfoCtxBuilder(flowTypePk, taskPk).builderCommitFlwInfoCtx();
+					flwInfoCtx = new WfmCommitFlowInfoCtxBuilder(flowTypePk, taskPk).builder();
 				} else {
-					flwInfoCtx = new WfmNextFlowInfoCtxBuilder(flowTypePk, taskPk).builderNextFlwInfoCtx();
+					flwInfoCtx = new WfmNextFlowInfoCtxBuilder(flowTypePk, taskPk).builder();
 				}
 			}
-			if ("reject".equalsIgnoreCase(this.getActionValue())) {
-				flwInfoCtx = new WfmRejectFlowInfoCtxBuilder(flowTypePk, taskPk).builderRejectFlwInfoCtx();
+			if (WfmConstants.WfmOperator_Reject.equalsIgnoreCase(this.getActionValue())) {
+				flwInfoCtx = new WfmRejectFlowInfoCtxBuilder(flowTypePk, taskPk).builder();
 			}
 			IFlowRequest request = BizProcessServer.createFlowRequest(WfmTaskUtil.getWfmFormInfoCtx(), flwInfoCtx);
 			IFlowResponse response = BizProcessServer.createFlowResponse();
 			BizProcessServer.exe(request, response);
 			AppLifeCycleContext.current().getApplicationContext().addExecScript("alert('执行成功');");
-			AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext().closeView(WfmConstants.PUBVIEW_ASSIGN);
-		} else if (WfmConstants.Cancel.equalsIgnoreCase(src)) {
-			AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext().closeView(WfmConstants.PUBVIEW_ASSIGN);
+			AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext().closeView(WfmConstants.WfmPubView_Assign);
+		} else if (WfmConstants.WfmComp_BtnCancel.equalsIgnoreCase(src)) {
+			AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext().closeView(WfmConstants.WfmPubView_Assign);
 		}
 	}
 	public void setUserNameAndUserPks() {
 		LfwWidget assignWidget = WfmTaskUtil.getAssignView();
-		Dataset dsAssignAct = assignWidget.getViewModels().getDataset(WfmConstants.DsHUMACT);
-		Dataset dsSelecteds = assignWidget.getViewModels().getDataset(WfmConstants.DsSelectedActors);
+		Dataset dsAssignAct = assignWidget.getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT);
+		Dataset dsSelecteds = assignWidget.getViewModels().getDataset(WfmConstants.WfmDataset_DsSelectedActors);
 		Row nextHumActRow = dsAssignAct.getSelectedRow();
 		if (nextHumActRow == null || dsSelecteds.getCurrentRowData() == null || dsSelecteds.getCurrentRowData().getRows() == null || dsSelecteds.getCurrentRowData().getRows().length == 0) {
 			nextHumActRow.setValue(dsAssignAct.nameToIndex(WfmConstants.UserNames), "");
@@ -254,8 +254,8 @@ public class AssignMainCtrl implements IController {
 	public void dsHumAct_onAfterRowSelected(DatasetEvent se) {
 		this.initParam();
 		LfwWidget assignView = WfmTaskUtil.getAssignView();
-		Dataset dsAssignAct = assignView.getViewModels().getDataset(WfmConstants.DsHUMACT);
-		Dataset dsSelecteds = assignView.getViewModels().getDataset(WfmConstants.DsSelectedActors);
+		Dataset dsAssignAct = assignView.getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT);
+		Dataset dsSelecteds = assignView.getViewModels().getDataset(WfmConstants.WfmDataset_DsSelectedActors);
 		dsSelecteds.clear();
 		Row focusRow = dsAssignAct.getSelectedRow();
 		if (focusRow == null) {
@@ -270,7 +270,7 @@ public class AssignMainCtrl implements IController {
 		String humActId = (String) focusRow.getValue(dsAssignAct.nameToIndex(WfmConstants.HumActId));
 		WfmFormInfoCtx formVo = WfmTaskUtil.getWfmFormInfoCtx();
 		String actionValue = this.getActionValue();
-		Dataset dsAllActors = assignView.getViewModels().getDataset(WfmConstants.DsAllActors);
+		Dataset dsAllActors = assignView.getViewModels().getDataset(WfmConstants.WfmDataset_DsAllActors);
 		dsAllActors.clear();
 		if ("agree".equalsIgnoreCase(actionValue) || "noagree".equalsIgnoreCase(actionValue)) {
 			String[] actors = ActorSgyManager.getInstance().getActorsRange(formVo, null, proDef.getHumActs().get(humActId), null);
@@ -319,8 +319,8 @@ public class AssignMainCtrl implements IController {
 	 * 初始化变量值
 	 */
 	protected void initParam() {
-		taskPk = (String) AppUtil.getAppAttr(WfmConstants.TaskPk);
-		flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.FlwTypePk);
+		taskPk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TaskPk);
+		flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_FolwTypePk);
 		// flowTypePk = "0000Z7100000000091N0";
 		taskPk = "0000AA1000000001WDGR";
 	}

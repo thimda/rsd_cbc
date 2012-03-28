@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding='UTF-8'?>
 <UIMeta flowmode="true" id="sign_remotesigns_um" jquery="0"  includejs="/../../../../office/plugin/ntko/signtoolcontrol.js">
-    <Border id="border1">
+    <Border id="border1" width="1" roundBorder="true">
 		<BorderTrue id="bp1">
-			<FlowhLayout id="flowh1">
-				<FlowhPanel id="flowhp1" width="240">
+			<FlowhLayout id="flowh1" autoFill="true">
+				<FlowhPanel id="flowhp1" width="196"  rightBorder="#">
 					<FlowvLayout id="navflowv1">
+					<FlowvPanel id="flowv0">
+							<CanvasLayout id="titlecanvas" className="leftcanvas">
+								<CanvasPanel id="canvasp1">
+								</CanvasPanel>
+							</CanvasLayout>
+						</FlowvPanel>
 						<FlowvPanel id="flowv2" leftPadding="20" rightPadding="20">
 							<PanelLayout id="panel1" title="查询计划">
 								<PanelPanel>

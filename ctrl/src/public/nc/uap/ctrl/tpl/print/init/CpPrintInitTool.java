@@ -39,6 +39,8 @@ public class CpPrintInitTool {
 		else{
 			Row[] childrens = sourceDs.getCurrentRowData().getRows();
 			if(childrens != null){
+				targetDs.clear();
+				targetDs.setCurrentKey(Dataset.MASTER_KEY);
 				for (Row crow : childrens) {
 					String cAbsoluteAttributePath = (String) getRowValue(sourceDs, crow, ID);
 					IAttribute cAttribute = getAttribute(entity, cAbsoluteAttributePath);

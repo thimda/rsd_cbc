@@ -99,7 +99,21 @@
                 </Event>
             </Events>
         </ButtonComp>
-        <SelfDefComp id="selfsign" visible="true">
+        <FormComp caption="加密狗列表" columnCount="1" dataset="ekeyds" eleWidth="250" enabled="true" id="ekeyform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_ekey" height="" id="pk_ekey" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="createby" height="" id="createby" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="DateTimeText" enabled="false" field="createtime" height="" id="createtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="sn" height="" id="sn" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章序号" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="owneruser_pk" height="" id="owneruser_pk" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属用户" visible="false" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="owneruser_pk_user_name" height="" id="owneruser_pk_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_user" rowSpan="1" selectOnly="true" text="用户名称" visible="true" width="">
+            </Element>
+        </FormComp>
+        <SelfDefComp id="selfsign" visible="false">
             <Events>
                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.SelfDefListener" methodName="signoncreate" name="oncreate" onserver="false">
                     <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
@@ -123,20 +137,6 @@ content.InitControl();]]>
                 </Event>
             </Events>
         </SelfDefComp>
-        <FormComp caption="加密狗列表" columnCount="2" dataset="ekeyds" eleWidth="120" enabled="true" id="ekeyform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_ekey" height="" id="pk_ekey" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
-            </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="createby" height="" id="createby" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建人" visible="true" width="">
-            </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="DateTimeText" enabled="false" field="createtime" height="" id="createtime" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="创建时间" visible="true" width="">
-            </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="false" field="sn" height="" id="sn" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="印章序号" visible="true" width="">
-            </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="owneruser_pk" height="" id="owneruser_pk" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属用户" visible="false" width="">
-            </Element>
-            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="owneruser_pk_user_name" height="" id="owneruser_pk_user_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_user" rowSpan="1" selectOnly="true" text="用户名称" visible="true" width="">
-            </Element>
-        </FormComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
             <Events>
                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="EditBtnOk" name="onclick" onserver="true">

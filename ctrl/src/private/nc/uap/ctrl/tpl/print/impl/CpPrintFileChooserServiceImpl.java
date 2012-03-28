@@ -60,7 +60,11 @@ public class CpPrintFileChooserServiceImpl implements
 			// 获得文件名
 			fileName = fc.getName(f);
 			if(isRight(fileName)){
-				readPath = f.getPath();
+				if(!fileName.contains(".")){
+					readPath = f.getPath()+type;
+				}else{
+					readPath = f.getPath();
+				}
 			}else{
 				readFile();
 			}
@@ -78,10 +82,18 @@ public class CpPrintFileChooserServiceImpl implements
 	}
 	
 	private boolean isRight(String name){
+		if(!name.contains(".")) return true;
 		return name.endsWith(type);
 	}
-	
-	public void setType(int TYPE){
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public void setType(int TYPE) {
+		// TODO Auto-generated method stub
+		
 		switch(TYPE){
 		case 0:
 			type = ".xml";
@@ -92,10 +104,6 @@ public class CpPrintFileChooserServiceImpl implements
 		default:
 			type = ".xml";
 		}
-	}
-
-	public String getFileName() {
-		return fileName;
 	}
 
 }

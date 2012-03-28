@@ -11,7 +11,7 @@ public interface ICpQryTemplateInnerQryService {
 
 	public CpQueryTemplateTotalVO getQueryTotalVO(String pk_template) throws TplBusinessException;
 
-	public String getQueryTemplatePkByNode(String nodeCode) throws TplBusinessException;
+	public String getQueryTemplatePkByNode(String pk_user, String nodeCode) throws TplBusinessException;
 	
 	/**
 	 * 返回在特定集团、特定功能节点、特定查询模板中特定用户的所有查询方案

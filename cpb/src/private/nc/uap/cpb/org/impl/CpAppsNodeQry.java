@@ -377,7 +377,7 @@ public class CpAppsNodeQry implements ICpAppsNodeQry {
 	@SuppressWarnings("unchecked") @Override public CpAppsCategoryVO getCategoryByPk(String pk_category) throws CpbBusinessException {
 		PtBaseDAO dao = new PtBaseDAO();
 		SQLParameter parameter = new SQLParameter();
-		String sql = "select * from cp_appscategory where  pk_category=? ";
+		String sql = "select * from cp_appscategory where  pk_appscategory=? ";
 		parameter.addParam(pk_category);
 		try {
 			List<CpAppsCategoryVO> list = (List<CpAppsCategoryVO>) dao.executeQuery(sql, parameter, new BeanListProcessor(CpAppsCategoryVO.class));

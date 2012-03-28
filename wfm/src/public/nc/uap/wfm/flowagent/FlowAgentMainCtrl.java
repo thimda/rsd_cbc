@@ -1,5 +1,6 @@
 package nc.uap.wfm.flowagent;
 import java.util.Map;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.cpb.org.util.CpbUtil;
 import nc.uap.lfw.core.AppInteractionUtil;
 import nc.uap.lfw.core.cmd.UifPlugoutCmd;
@@ -25,7 +26,7 @@ import nc.uap.wfm.vo.WfmFlwTypeVO;
 public class FlowAgentMainCtrl implements IController {
 	private static final long serialVersionUID = 1L;
 	public void itemadd_onclick(MouseEvent<MenuItem> mouseEvent) {
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit", "600", "430", "新增代理");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "新增代理");
 		new UifPlugoutCmd("main", "main_out_flowagent").execute();
 		AppUtil.addAppAttr("operator", "add");
 	}
@@ -51,7 +52,7 @@ public class FlowAgentMainCtrl implements IController {
 		}
 	}
 	public void itemmodify_onclick(MouseEvent<MenuItem> mouseEvent) {
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit", "600", "430", "修改代理");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改代理");
 		LfwWidget widgetMain = AppUtil.getWidget("main");
 		Dataset dsFlowAgent = null;
 		String cntTabItemId = (String) AppUtil.getAppAttr("cntTabCompItem");

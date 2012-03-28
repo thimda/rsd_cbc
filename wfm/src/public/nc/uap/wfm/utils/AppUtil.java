@@ -34,6 +34,6 @@ public class AppUtil {
 		return AppUtil.getCntViewCtx().getView();
 	}
 	public static LfwWidget getWidget(String name) {
-		return  AppUtil.getCntWindowCtx().getWindow().getWidget(name);
+		return  AppUtil.getCntWindow().getWidget(name);
 	}
 }

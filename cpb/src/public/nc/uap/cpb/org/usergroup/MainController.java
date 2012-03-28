@@ -69,7 +69,7 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
 			getCurrentWinCtx().addAppAttribute("pk_parent", null);
 			getCurrentWinCtx().addAppAttribute("pk_org", null);
 		}
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "新增用户组");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.SIX_ELE_HEIGHT, "新增用户组");
   }
   public void onEdit(  MouseEvent<T> mouseEvent){
     getCurrentWinCtx().addAppAttribute(
@@ -81,7 +81,7 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
 		if (row == null)
 			throw new LfwRuntimeException("请选择需要修改的数据！");
 		getCurrentWinCtx().addAppAttribute(UserGroupMgrConstants.DATA, row);
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改用户组");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.SIX_ELE_HEIGHT, "修改用户组");
   }
   private Row setRowValues(  Row row,  Dataset ds,  Map map){
     TranslatedRow r = (TranslatedRow) map.get("row");

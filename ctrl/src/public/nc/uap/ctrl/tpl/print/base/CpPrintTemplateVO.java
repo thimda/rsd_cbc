@@ -27,6 +27,7 @@ public class CpPrintTemplateVO extends SuperVO {
 	private java.lang.String metaclass;
 	private java.lang.String pk_file;
 	private java.lang.String parentid;
+	private java.lang.String nodekey;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -40,6 +41,7 @@ public class CpPrintTemplateVO extends SuperVO {
 	public static final String METACLASS = "metaclass";
 	public static final String PK_FILE = "pk_file";
 	public static final String PARENTID = "parentid";
+	public static final String NODEKEY = "nodekey";
 			
 	/**
 	 * 属性pk_print_template的Getter方法.属性名：系统ID
@@ -48,7 +50,14 @@ public class CpPrintTemplateVO extends SuperVO {
 	 */
 	public java.lang.String getPk_print_template () {
 		return pk_print_template;
-	}   
+	}
+	
+	public java.lang.String getNodekey() {
+		return nodekey;
+	}
+	public void setNodekey(java.lang.String nodekey) {
+		this.nodekey = nodekey;
+	}
 	/**
 	 * 属性pk_print_template的Setter方法.属性名：系统ID
 	 * 创建日期:

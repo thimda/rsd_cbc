@@ -58,10 +58,16 @@ public class CpPrintXmlServiceImpl implements ICpPrintXmlService {
 		// TODO Auto-generated method stub
 
 		Document doc = XMLUtil.getNewDocument();
+		if(null==root || "".equals(root.trim())){
+			throw new TplBusinessException("模板编辑条件设置为空");
+		}
 		Element rootelement = doc.createElement(root);
 		doc.appendChild(rootelement);
 		Element rootchildheaderelement = doc.createElement("表头");
 		rootelement.appendChild(rootchildheaderelement);
+		if(null==rootChild || "".equals(rootChild.trim())){
+			throw new TplBusinessException("模板编辑条件设置为空");
+		}
 		Element rootchildelement = doc.createElement(rootChild);
 		rootchildheaderelement.appendChild(rootchildelement);
 		FileOutputStream outStream = null;
@@ -70,6 +76,8 @@ public class CpPrintXmlServiceImpl implements ICpPrintXmlService {
 			String attr = ((String[]) list.get(index))[0].toString();
 			String field = ((String[]) list.get(index))[1].toString();
 			String value = ((String[]) list.get(index))[2].toString();
+			field = field.replaceAll("（", "");
+			field = field.replaceAll("）", "");
 			Element tempElement = doc.createElement(field);
 			int sp = attr.lastIndexOf(".");
 			tempElement.setAttribute("attr", attr.substring(sp + 1));
@@ -142,6 +150,9 @@ public class CpPrintXmlServiceImpl implements ICpPrintXmlService {
 			ArrayList<ArrayList<ArrayList<String[]>>> detailList = new ArrayList<ArrayList<ArrayList<String[]>>>();
 			ArrayList<ArrayList<String[]>> detail = new ArrayList<ArrayList<String[]>>();
 			ArrayList<String[]> bodyList = new ArrayList<String[]>();
+			if(null==vos){
+				return;
+			}
 			for (CpPrintConditionVO vo : vos) {
 				if ("".equals(root.trim())) {
 					root = vo.getTablename();
@@ -176,6 +187,7 @@ public class CpPrintXmlServiceImpl implements ICpPrintXmlService {
 			detailList.add(detail);
 			ICpPrintFileChooserService choose = NCLocator.getInstance().lookup(ICpPrintFileChooserService.class);
 			choose.init();
+			choose.setType(CpPrintFileChooserServiceImpl.XML);
 			choose.readFile();
 			String path = choose.getRealPath();
 			if (null != path) {

@@ -270,11 +270,11 @@
     </Models>
     <Components>
         <GridComp dataset="ds_templaterole" editable="false" enabled="true" id="grid_templaterole" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templaterole" fixedHeader="false" id="pk_templaterole" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templaterole" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templaterole" fixedHeader="false" id="pk_templaterole" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_role" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_role" fixedHeader="false" id="pk_role" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="角色主键" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="rolecode" fixedHeader="false" id="rolecode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="角色编码" textAlign="left" visible="true" width="120">
             </Column>
@@ -282,11 +282,11 @@
             </Column>
         </GridComp>
         <GridComp dataset="ds_templateuser" editable="false" enabled="true" id="grid_templateuser" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateuser" fixedHeader="false" id="pk_templateuser" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templateuser" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateuser" fixedHeader="false" id="pk_templateuser" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_user" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_user" fixedHeader="false" id="pk_user" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="用户主键" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="usercode" fixedHeader="false" id="usercode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="用户编码" textAlign="left" visible="true" width="120">
             </Column>
@@ -294,11 +294,11 @@
             </Column>
         </GridComp>
         <GridComp dataset="ds_templateorg" editable="false" enabled="true" id="grid_templateorg" multiSelect="false" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateorg" fixedHeader="false" id="pk_templateorg" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_templateorg" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_templateorg" fixedHeader="false" id="pk_templateorg" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_template" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_template" fixedHeader="false" id="pk_template" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="模板主键" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="pk_org" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" id="pk_org" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="组织主键" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="orgcode" fixedHeader="false" id="orgcode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="组织编码" textAlign="left" visible="true" width="120">
             </Column>

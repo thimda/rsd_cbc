@@ -17,7 +17,7 @@ import nc.uap.lfw.core.data.PaginationInfo;
 import nc.uap.lfw.core.exception.LfwBusinessException;
 import nc.uap.lfw.core.exception.LfwRuntimeException;
 import nc.uap.lfw.core.log.LfwLogger;
-import nc.uap.wfm.builder.BeanConvert;
+import nc.uap.wfm.convert.BeanConvert;
 import nc.uap.wfm.exception.WfmServiceException;
 import nc.uap.wfm.itf.IWfmTaskQry;
 import nc.uap.wfm.model.Task;

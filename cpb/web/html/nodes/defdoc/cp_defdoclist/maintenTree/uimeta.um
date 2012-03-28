@@ -4,24 +4,58 @@
         <FlowvPanel height="50" id="panelv01830" widgetId="maintenTree">
             <FlowhLayout autoFill="false" id="flowhlayout3168" widgetId="maintenTree">
                 <FlowhPanel id="panelh03168" widgetId="maintenTree" width="250">
-                    <Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
-                    </Menubar>
+                	<CanvasLayout id="menuback1" className="leftcanvas">
+                		<CanvasPanel id="canvasp1">
+                   		 	<Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                	</CanvasLayout>
                 </FlowhPanel>
-                <FlowhPanel id="panelh13168" widgetId="maintenTree">
-                    <Menubar height="100%" id="defdocSaveMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
-                    </Menubar>
+                <FlowhPanel id="panelh13168" widgetId="maintenTree" width="200">
+                	<CanvasLayout id="menuback2" className="rightcanvas">
+                		<CanvasPanel id="canvasp2">
+                    		<Menubar height="100%" id="defdocSaveMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                    </CanvasLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh23168" widgetId="maintenTree">
+                	<CanvasLayout id="menuback3" className="rightcanvas">
+                		<CanvasPanel id="canvasp3">
+                    		<Menubar height="100%" id="enableMenu" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                    </CanvasLayout>
                 </FlowhPanel>
             </FlowhLayout>
         </FlowvPanel>
+        <FlowvPanel height="30" id="panelv25826" widgetId="maintenTree">
+        	<FlowhLayout autoFill="false" id="flowhlayouth1" widgetId="maintenTree">
+        		<FlowhPanel id="panelh121" widgetId="maintenTree" width="30">
+        		</FlowhPanel>
+        		<FlowhPanel id="panelh122" widgetId="maintenTree">
+        			<TextField id="orgInput" height="22" left="0" position="relative" top="0" widgetId="maintenTree" width="150">
+        			</TextField>
+        		</FlowhPanel>
+        	</FlowhLayout>
+        </FlowvPanel>
         <FlowvPanel id="panelv11830" widgetId="maintenTree">
             <FlowhLayout autoFill="false" id="flowhlayout5252" widgetId="maintenTree">
-                <FlowhPanel id="panelh05252" widgetId="maintenTree" width="150px">
+            	<FlowhPanel id="panelh05252" widgetId="maintenTree" width="30">
+        		</FlowhPanel>
+                <FlowhPanel id="panelh15252" widgetId="maintenTree" width="150px">
                     <TreeViewComp height="100%" id="defdocTree" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
                     </TreeViewComp>
                 </FlowhPanel>
-                <FlowhPanel id="panelh15252" widgetId="maintenTree">
-                    <FormComp height="100%" id="defdocForm" label_position="" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
-                    </FormComp>
+                <FlowhPanel id="panelh25252" widgetId="maintenTree">
+                	<FlowvLayout id="flowvlayout0001" widgetId="maintenTree">
+                		<FlowvPanel id="panelv0011" widgetId="maintenTree" height="22">
+                		</FlowvPanel>
+                		<FlowvPanel id="panelv0021" widgetId="maintenTree">
+                    		<FormComp height="100%" id="defdocForm" label_position="" left="0" position="relative" top="0" widgetId="maintenTree" width="100%">
+                   			</FormComp>
+                   		</FlowvPanel>
+                   	</FlowvLayout>
                 </FlowhPanel>
             </FlowhLayout>
         </FlowvPanel>

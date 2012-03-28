@@ -56,16 +56,16 @@
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
         </ButtonComp>
-        <FormComp caption="菜单分组" columnCount="2" dataset="ds_menucategory" eleWidth="120" enabled="true" id="menucategory_form" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="菜单分组" columnCount="1" dataset="ds_menucategory" eleWidth="250" enabled="true" id="menucategory_form" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="title" id="title" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="ordernum" id="ordernum" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="排序号" visible="true">
+            </Element>            
+            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="filterclass" id="filterclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="过滤器" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="activeflag" id="activeflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启用" visible="true">
-            </Element>
-            <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="filterclass" id="filterclass" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="过滤器" visible="true" width="360">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_menucategory" id="pk_menucategory" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false">
             </Element>

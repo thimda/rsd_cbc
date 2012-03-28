@@ -4,24 +4,24 @@ import nc.uap.wfm.constant.WfmConstants;
 import nc.uap.wfm.context.CommitInfoCtx;
 import nc.uap.wfm.context.HumActInfoEngCtx;
 import nc.uap.wfm.context.HumActInfoPageCtx;
+import nc.uap.wfm.context.WfmFlowInfoCtx;
 import nc.uap.wfm.runtime.NextHumActInfoUtil;
 import nc.uap.wfm.utils.WfmTaskUtil;
-public class WfmCommitFlowInfoCtxBuilder {
-	protected String flowTypePk = null;
-	protected String taskPk = null;
+public class WfmCommitFlowInfoCtxBuilder extends WfmFlowInfoCtxBuilder {
 	public WfmCommitFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
-		this.flowTypePk = flowTypePk;
-		this.taskPk = taskPk;
+		super(flowTypePk, taskPk);
+	}
+	@Override public WfmFlowInfoCtx builder() {
+		return this.builderCommitFlwInfoCtx();
 	}
 	/**
 	 * 构造提交的流程信息
 	 * 
 	 * @return
 	 */
-	public CommitInfoCtx builderCommitFlwInfoCtx() {
+	protected CommitInfoCtx builderCommitFlwInfoCtx() {
 		CommitInfoCtx ctx = new CommitInfoCtx();
-		new WfmFlowInfoCtxBuilder(flowTypePk, taskPk).initFlowInfoCtx(ctx);
+		this.builder(ctx);
 		List<HumActInfoPageCtx> nextInfos = null;
 		nextInfos = new NextHumActInfoUtil().getStartNextHumActInfo(flowTypePk, WfmTaskUtil.getWfmFormInfoCtx());
 		if (nextInfos == null || nextInfos.size() == 0) {
@@ -51,7 +51,7 @@ public class WfmCommitFlowInfoCtxBuilder {
 	 * @param ctx
 	 */
 	protected void builderCommitAssignFlowInfoCtx(CommitInfoCtx ctx) {
-		List<HumActInfoEngCtx> nextInfo = new WfmAssginCtxBuilder(flowTypePk, taskPk).getAssginCtx(WfmTaskUtil.getAssignView().getViewModels().getDataset(WfmConstants.DsHUMACT));
+		List<HumActInfoEngCtx> nextInfo = new WfmAssginFlowInfoCtxBuilder(flowTypePk, taskPk).getAssginCtx(WfmTaskUtil.getAssignView().getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT));
 		ctx.setNextInfo(nextInfo.toArray(new HumActInfoEngCtx[0]));
 	}
 }

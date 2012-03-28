@@ -81,7 +81,7 @@
         </Datasets>
     </Models>
     <Components>
-          <TreeViewComp caption="功能节点" checkBoxModel="0" dragEnable="false" enabled="true" id="module_appscategory_tree" rootOpen="true" visible="true" withCheckBox="false" withRoot="true">
+          <TreeViewComp caption="功能节点" checkBoxModel="0" dragEnable="false" enabled="true" id="module_appscategory_tree" rootOpen="true" visible="true" withCheckBox="false" withRoot="false">
             <RecursiveTreeLevel dataset="ds_appscategory" id="level1" labelFields="title" masterKeyField="pk_appscategory" recursiveKeyField="pk_appscategory" recursivePKeyField="pk_parent">
                 <SimpleTreeLevel dataset="ds_appsnode" detailKeyParameter="pk_appscategory" id="level2" labelFields="title" masterKeyField="pk_appsnode">
                 </SimpleTreeLevel>

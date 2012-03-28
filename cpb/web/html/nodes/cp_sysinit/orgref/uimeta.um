@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="orgref_um" jquery="0">
+  	<FlowvLayout id="flowvlayout1014" widgetId="orgref">
+        <FlowvPanel id="panelv00097" widgetId="orgref">
+        	 <TextField height="100%" id="ref_org_textfield" left="0" position="relative" top="0" widgetId="orgref" width="100%">
+   			 </TextField>
+        </FlowvPanel>
+     </FlowvLayout>
+</UIMeta>

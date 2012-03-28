@@ -79,7 +79,7 @@
                 </Event>
             </Events>
         </ButtonComp>
-        <FormComp caption="流程定义" columnCount="2" dataset="ds_prodef" eleWidth="120" enabled="true" id="form_prodef" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="流程定义" columnCount="2" dataset="ds_prodef" eleWidth="250" enabled="true" id="form_prodef" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="name" id="name" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="流程名称" visible="true">

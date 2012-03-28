@@ -80,7 +80,7 @@ public class WfmTaskUtil {
 	 * @return
 	 */
 	public static LfwWidget getExeTaskView() {
-		return AppUtil.getWidget(WfmConstants.PUBVIEW_EXETASK);
+		return AppUtil.getWidget(WfmConstants.WfmPubView_ExeTask);
 	}
 	/**
 	 * 获取任务指派的视图
@@ -88,7 +88,7 @@ public class WfmTaskUtil {
 	 * @return
 	 */
 	public static LfwWidget getAssignView() {
-		return AppUtil.getWidget(WfmConstants.PUBVIEW_ASSIGN);
+		return AppUtil.getWidget(WfmConstants.WfmPubView_Assign);
 	}
 	/**
 	 * 获取单据信息
@@ -96,19 +96,19 @@ public class WfmTaskUtil {
 	 * @return
 	 */
 	public static WfmFormInfoCtx getWfmFormInfoCtx() {
-		WfmFormInfoCtx formCtx = (WfmFormInfoCtx) AppUtil.getCntAppCtx().getAppAttribute(WfmConstants.FormVO);
+		WfmFormInfoCtx formCtx = (WfmFormInfoCtx) AppUtil.getCntAppCtx().getAppAttribute(WfmConstants.WfmAppAttr_FormInFoCtx);
 		return formCtx;
 	}
 	public static String getOperator() {
-		return (String) AppUtil.getAppAttr(WfmConstants.Operator);
+		return (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_ExeAction);
 	}
 	public static String getTaskPk() {
-		return (String) AppUtil.getAppAttr(WfmConstants.TaskPk);
+		return (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TaskPk);
 	}
 	public static String getFlowTypePk() {
-		return (String) AppUtil.getAppAttr(WfmConstants.FlwTypePk);
+		return (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_FolwTypePk);
 	}
 	public static String getOpinion() {
-		return (String) AppUtil.getAppAttr(WfmConstants.Opinion);
+		return (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_Opinion);
 	}
 }

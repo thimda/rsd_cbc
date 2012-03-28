@@ -55,7 +55,7 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
 		}
 		getCurrentWinCtx().addAppAttribute(MenuitemConstants.OPERATE_STATUS,
 				MenuitemConstants.ADD_OPERATE);
-		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"新增菜单项");
+		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"新增菜单项");
   }
   public void onEdit(  MouseEvent<T> mouseEvent){
 		getCurrentWinCtx().addAppAttribute(MenuitemConstants.OPERATE_STATUS,
@@ -66,7 +66,7 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
 		if (row == null)
 			throw new LfwRuntimeException("请选择需要修改的菜单项！");
 		getCurrentWinCtx().addAppAttribute(MenuitemConstants.DATA, row);
-		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"修改菜单项");
+		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"修改菜单项");
   }
   public void pluginedit_plugin(  Map keys){
     LfwWidget edit = AppLifeCycleContext.current().getWindowContext()

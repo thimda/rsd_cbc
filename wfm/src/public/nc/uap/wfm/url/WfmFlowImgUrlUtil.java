@@ -1,4 +1,5 @@
 package nc.uap.wfm.url;
+import nc.bs.framework.aop.Decorated;
 import nc.uap.wfm.contanier.ProDefsContainer;
 import nc.uap.wfm.model.ProDef;
 import nc.uap.wfm.model.ProIns;
@@ -20,8 +21,11 @@ public class WfmFlowImgUrlUtil {
 		Task task = WfmTaskUtil.getTaskByTaskPk(taskPk);
 		return WfmFlowImgUrlUtil.getProcessImageUrlByTask(task);
 	}
-	public static String getProcessImageUrlByFrmDefPk(String frmDefPk) {
-		ProDef proDef = ProDefsContainer.getProDefByFlowTypePk(frmDefPk);
+	@Decorated public static String getProcessImageUrlByFrmDefPk(String frmDefPk) {
+		return WfmFlowImgUrlUtil.getProcessImageUrlByFlowTypePk(frmDefPk);
+	}
+	public static String getProcessImageUrlByFlowTypePk(String flowTypePk) {
+		ProDef proDef = ProDefsContainer.getProDefByFlowTypePk(flowTypePk);
 		return ProcessUtil.getProcessUrl(proDef.getPk_prodef(), true);
 	}
 }

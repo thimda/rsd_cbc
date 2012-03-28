@@ -3,12 +3,14 @@ package nc.uap.ctrl.tpl.qry;
 import nc.uap.lfw.core.model.IWidgetUIProvider;
 import nc.uap.lfw.core.page.LfwWidget;
 import nc.uap.lfw.jsp.uimeta.UIButton;
+import nc.uap.lfw.jsp.uimeta.UIComponent;
 import nc.uap.lfw.jsp.uimeta.UIFlowhLayout;
 import nc.uap.lfw.jsp.uimeta.UIFlowhPanel;
 import nc.uap.lfw.jsp.uimeta.UIFlowvLayout;
 import nc.uap.lfw.jsp.uimeta.UIFlowvPanel;
 import nc.uap.lfw.jsp.uimeta.UIFormComp;
 import nc.uap.lfw.jsp.uimeta.UILabelComp;
+import nc.uap.lfw.jsp.uimeta.UILinkComp;
 import nc.uap.lfw.jsp.uimeta.UIMeta;
 
 public class SimpleQueryWidgetUIProvider implements IWidgetUIProvider {
@@ -43,6 +45,8 @@ public class SimpleQueryWidgetUIProvider implements IWidgetUIProvider {
 			
 			UIFlowvPanel p3 = new UIFlowvPanel();
 			p3.setId("p3");
+			p3.setHeight("40");
+			p3.setTopPadding("14");
 			layout.addPanel(p3);
 			
 			UIFlowhLayout hLayout = new UIFlowhLayout();
@@ -52,23 +56,27 @@ public class SimpleQueryWidgetUIProvider implements IWidgetUIProvider {
 			
 			UIButton bt = new UIButton();
 			bt.setId("queryBt");
+			bt.setAlign(UIComponent.ALIGN_LEFT);
+			bt.setWidth("70");//bt.setClassName("dddddd");
 			UIFlowhPanel hP2 = new UIFlowhPanel();
 			hP2.setId("hp2");
-			hP2.setWidth("80");
+			hP2.setWidth("70");
 			hP2.setElement(bt);
 			hLayout.addPanel(hP2);
 			
-//			UIButton clean = new UIButton();
-//			clean.setId("cleanBt");
-//			UIFlowhPanel hP3 = new UIFlowhPanel();
-//			hP3.setId("hp3");
-//			hP3.setWidth("80");
-//			hP3.setElement(clean);
-//			hLayout.addPanel(hP3);
+			UILinkComp clean = new UILinkComp();
+			clean.setId("advlink");
+			clean.setAlign(UIComponent.ALIGN_RIGHT);
+			clean.setTop("5");
+			clean.setWidth("50");
+			UIFlowhPanel hP3 = new UIFlowhPanel();
+			hP3.setId("hp3");
+			hP3.setElement(clean);
+			hLayout.addPanel(hP3);
 			
-			UIFlowhPanel hP1 = new UIFlowhPanel();
-			hP1.setId("hp1");
-			hLayout.addPanel(hP1);
+//			UIFlowhPanel hP1 = new UIFlowhPanel();
+//			hP1.setId("hp1");
+//			hLayout.addPanel(hP1);
 			
 			
 		}

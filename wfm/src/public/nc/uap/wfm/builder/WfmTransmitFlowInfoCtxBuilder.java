@@ -1,14 +1,11 @@
 package nc.uap.wfm.builder;
 import nc.uap.wfm.constant.WfmConstants;
 import nc.uap.wfm.context.TransmitTaskInfoCtx;
+import nc.uap.wfm.context.WfmFlowInfoCtx;
 import nc.uap.wfm.utils.AppUtil;
-public class WfmTransmitFlowInfoCtxBuilder {
-	private String flowTypePk = null;
-	private String taskPk = null;
+public class WfmTransmitFlowInfoCtxBuilder extends WfmFlowInfoCtxBuilder {
 	public WfmTransmitFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
-		this.flowTypePk = flowTypePk;
-		this.taskPk = taskPk;
+		super(flowTypePk, taskPk);
 	}
 	/**
 	 * 构造下一步信息
@@ -17,8 +14,11 @@ public class WfmTransmitFlowInfoCtxBuilder {
 	 */
 	public TransmitTaskInfoCtx builderTransmitFlowInfoCtx() {
 		TransmitTaskInfoCtx ctx = new TransmitTaskInfoCtx();
-		new WfmFlowInfoCtxBuilder(flowTypePk, taskPk).initFlowInfoCtx(ctx);
-		ctx.setTransimgUserPk((String) AppUtil.getAppAttr(WfmConstants.TransmitUserPk));
+		this.builder(ctx);
+		ctx.setTransimgUserPk((String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TransmitUserPk));
 		return ctx;
+	}
+	@Override public WfmFlowInfoCtx builder() {
+		return this.builderTransmitFlowInfoCtx();
 	}
 }

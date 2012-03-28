@@ -3,12 +3,43 @@
     <Processor>nc.uap.lfw.core.event.AppRequestProcessor</Processor>
     <Widgets>
         <Widget id="main" refId="main">
+            <Attributes>
+                <Attribute>
+                    <Key>$QueryTemplate</Key>
+                    <Value>
+                    </Value>
+                    <Desc>
+                    </Desc>
+                </Attribute>
+            </Attributes>
+        </Widget>
+        <Widget id="tree" refId="tree">
+        </Widget>
+        <Widget id="orgref" refId="orgref">
+            <Attributes>
+                <Attribute>
+                    <Key>$QueryTemplate</Key>
+                    <Value>
+                    </Value>
+                    <Desc>
+                    </Desc>
+                </Attribute>
+            </Attributes>
         </Widget>
     </Widgets>
     <Attributes>
         <Attribute>
+            <Key>$QueryTemplate</Key>
+            <Value>
+            </Value>
+            <Desc>
+            </Desc>
+        </Attribute>
+        <Attribute>
             <Key>$MODIFY_TS</Key>
             <Value>1331872926043</Value>
+            <Desc>
+            </Desc>
         </Attribute>
     </Attributes>
     <Events>
@@ -28,4 +59,10 @@
             </Action>
         </Event>
     </Events>
+    <Connectors>
+        <Connector id="tree_main" pluginId="plugin_main" plugoutId="plugout_tree" source="tree" target="main">
+        </Connector>
+        <Connector id="reforg_main" pluginId="plugin_orgref" plugoutId="plugout_orgref" source="orgref" target="main">
+        </Connector>
+    </Connectors>
 </PageMeta>

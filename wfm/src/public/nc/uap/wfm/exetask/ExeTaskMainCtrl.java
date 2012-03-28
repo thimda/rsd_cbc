@@ -1,12 +1,11 @@
 package nc.uap.wfm.exetask;
+import java.util.Map;
 import nc.uap.lfw.core.cmd.UifPlugoutCmd;
 import nc.uap.lfw.core.comp.ButtonComp;
 import nc.uap.lfw.core.comp.TextAreaComp;
 import nc.uap.lfw.core.comp.text.ComboBoxComp;
 import nc.uap.lfw.core.comp.text.TextComp;
 import nc.uap.lfw.core.ctrl.IController;
-import nc.uap.lfw.core.data.Dataset;
-import nc.uap.lfw.core.data.Row;
 import nc.uap.lfw.core.event.LinkEvent;
 import nc.uap.lfw.core.event.MouseEvent;
 import nc.uap.lfw.core.event.TextEvent;
@@ -24,15 +23,15 @@ public class ExeTaskMainCtrl implements IController {
 	public void btnok_click(MouseEvent<ButtonComp> mouseEvent) {
 		this.initParam();
 		this.addAppAttr();
-		new UifPlugoutCmd(WfmConstants.PUBVIEW_EXETASK, "wf_pluginout").execute();
+		new UifPlugoutCmd(WfmConstants.WfmPubView_ExeTask, "wf_pluginout").execute();
 	}
 	private void addAppAttr() {
-		AppUtil.addAppAttr(WfmConstants.FlwTypePk, flowTypePk);
-		AppUtil.addAppAttr(WfmConstants.TaskPk, taskPk);
-		AppUtil.addAppAttr(WfmConstants.Operator, this.getOperator());
-		AppUtil.addAppAttr(WfmConstants.Opinion, this.getOpinion());
-		AppUtil.addAppAttr(WfmConstants.TransmitUserPk, this.getTransmitUserPk());
-		AppUtil.addAppAttr(WfmConstants.AfterAddSignUserPks, this.getAfterAddSignUserPk());
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_FolwTypePk, flowTypePk);
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_TaskPk, taskPk);
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_ExeAction, this.getOperator());
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_Opinion, this.getOpinion());
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_TransmitUserPk, this.getTransmitUserPk());
+		AppUtil.addAppAttr(WfmConstants.WfmAppAttr_AfterAddSignUserPks, this.getAfterAddSignUserPk());
 	}
 	/**
 	 * 获取操作的动作
@@ -72,8 +71,8 @@ public class ExeTaskMainCtrl implements IController {
 	 * 初始化变量值
 	 */
 	protected void initParam() {
-		taskPk = (String) AppUtil.getAppAttr(WfmConstants.TaskPk);
-		flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.FlwTypePk);
+		taskPk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TaskPk);
+		flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_FolwTypePk);
 	}
 	public void textValueChanged(TextEvent textEvent) {
 		this.initParam();
@@ -88,20 +87,7 @@ public class ExeTaskMainCtrl implements IController {
 			str = "window.pageUI.getWidget('pubview_exetask').getCard('card1').setPage(1)";
 		}
 		if ("befaddsign".equalsIgnoreCase(operator)) {
-			LfwWidget widget = AppUtil.getWidget("pubview_exetask");
-			Dataset dsDataset = widget.getViewModels().getDataset("ds_beforeaddsign");
-			dsDataset.clear();
-			Row row1 = dsDataset.getEmptyRow();
-			row1.setValue(0, "第一步");
-			dsDataset.addRow(row1);
-			Row row2 = dsDataset.getEmptyRow();
-			row2.setValue(0, "第二步");
-			dsDataset.addRow(row2);
-			Row row3 = dsDataset.getEmptyRow();
-			dsDataset.addRow(row3);
-			row3.setValue(0, "第三步");
-			dsDataset.setRowSelectIndex(0);
-			dsDataset.setEnabled(true);
+			// LfwWidget widget = AppUtil.getWidget("pubview_exetask");
 			str = "window.pageUI.getWidget('pubview_exetask').getCard('card1').setPage(2)";
 		}
 		AppUtil.getCntAppCtx().addExecScript(str);
@@ -144,5 +130,11 @@ public class ExeTaskMainCtrl implements IController {
 		String oldValue = textComp.getValue();
 		value = oldValue + value;
 		textComp.setValue(value);
+	}
+	public void pluginplugin_exetask(Map<Object, Object> keys) {
+		LfwWidget widget = AppUtil.getWidget(WfmConstants.WfmPubView_ExeTask);
+		TextComp textComp = (TextComp) widget.getViewComponents().getComponent("text_afteraddsign");
+		String userName = (String) AppUtil.getAppAttr(WfmConstants.WfmAfterAddSignUserNames);
+		textComp.setValue(userName);
 	}
 }

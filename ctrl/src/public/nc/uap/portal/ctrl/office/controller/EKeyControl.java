@@ -4,6 +4,7 @@ import nc.uap.lfw.core.LfwRuntimeEnvironment;
 import nc.uap.lfw.core.cmd.UifSaveCmd;
 import nc.uap.portal.ctrl.office.data.sign.EkeyVO;
 import nc.uap.lfw.core.cmd.CmdInvoker;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.cpb.org.exception.CpbBusinessException;
 
 import java.util.HashMap;
@@ -37,7 +38,7 @@ public class EKeyControl {
 		CmdInvoker.invoke(new UifDatasetLoadCmd(ds.getId()));
   }
   public void newonclick(  MouseEvent mouseEvent){
-    UifEditCmd cmd = new UifEditCmd("edit", "600", "400", "×¢²á¼ÓÃÜ¹·");
+    UifEditCmd cmd = new UifEditCmd("edit", DialogConstant.DEFAULT_WIDTH, "300", "×¢²á¼ÓÃÜ¹·");
 		
 		AppLifeCycleContext.current().getWindowContext().addAppAttribute(EKeyOPerator,EKeyOPerator_new);
 		cmd.execute();
@@ -46,13 +47,13 @@ public class EKeyControl {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("edittype", "ekeynew");
 		LfwRuntimeEnvironment.getWebContext().getAppSession().setAttribute("signeditor", map);
-		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", "670", "350", map);
+		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", DialogConstant.DOUBLE_COLUMN_WIDTH, "405", map);
 	}
 	public void editsignonclick(MouseEvent mouseEvent) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("edittype", "ekeyedit");
 		LfwRuntimeEnvironment.getWebContext().getAppSession().setAttribute("signeditor", map);
-		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", "670", "350", map);
+		AppLifeCycleContext.current().getApplicationContext().navgateTo("sign_editor", "Ó¡ÕÂ±à¼­", DialogConstant.DOUBLE_COLUMN_WIDTH, "405", map);
 	}
   public void pluginsignedit_pluginin(  Map<String,Object> keys){
     LfwWidget edit = AppLifeCycleContext.current().getWindowContext().getViewContext("main").getView();
@@ -112,7 +113,7 @@ public class EKeyControl {
 		String pk_ekey = AppLifeCycleContext.current().getParameter("pk");// ²ÎÊý
 		String type = AppLifeCycleContext.current().getParameter("type");// ²ÎÊý
 		if(type.equals("edit")){
-			UifEditCmd cmd = new UifEditCmd("edit", "650", "400", "×¢²á¼ÓÃÜ¹·");
+			UifEditCmd cmd = new UifEditCmd("edit", DialogConstant.DEFAULT_WIDTH, "300", "×¢²á¼ÓÃÜ¹·");
 			AppLifeCycleContext.current().getWindowContext().addAppAttribute(EKeyOPerator,EKeyOPerator_edit);
 			AppLifeCycleContext.current().getWindowContext().addAppAttribute("pk",pk_ekey);
 			cmd.execute();

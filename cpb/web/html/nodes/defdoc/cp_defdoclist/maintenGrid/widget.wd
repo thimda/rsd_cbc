@@ -107,9 +107,41 @@
                     </FieldRelation>
                 </FieldRelations>
                 <Fields>
+                    <ModifyField id="pk_org" nullAble="true">
+                    </ModifyField>
+                    <ModifyField defaultValue="0001PT10000000000362" id="pk_group">
+                    </ModifyField>
                     <ModifyField defaultValue="1" id="enablestate">
                     </ModifyField>
                 </Fields>
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowSelect" name="onAfterRowSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.DatasetListener" methodName="onAfterRowUnSelect" name="onAfterRowUnSelect" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>datasetEvent</Name>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.DatasetEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
             </MdDataset>
         </Datasets>
         <ComboDatas>
@@ -131,23 +163,42 @@
             </NCRefNode>
             <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_defdoc_pid_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgrid.jsp" readDs="masterDs" readFields="pk_defdoc,name" refId="" refcode="自定义档案" refnodeDelegator="" refresh="true" selLeafOnly="false" text="自定义档案_自定义档案" usePower="false" writeDs="defdoc" writeFields="pid,pid_name">
             </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_text_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="全局+当前集团+当前集团下的所有组织" refnodeDelegator="" refresh="true" selLeafOnly="false" text="自定义档案_全局+当前集团+当前集团下的所有组织" usePower="false" writeDs="" writeFields="">
+            </NCRefNode>
         </RefNodes>
     </Models>
     <Components>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="orgInput" refcode="refnode_text_pk_org_name" text="业务单元" textAlign="left" textWidth="0" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="valueChanged" name="valueChanged" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>textEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.TextEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
+        </ReferenceComp>
         <GridComp caption="自定义档案" dataset="defdoc" editable="false" enabled="true" id="defdocGrid" multiSelect="true" pagenationTop="false" showColInfo="false" showHeader="true" showNumCol="false" showSumRow="false" sortable="true" visible="true">
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_defdoc" fixedHeader="false" i18nName="2UC000-000747" id="pk_defdoc" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案主键" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_defdoc" fixedHeader="false" i18nName="2UC000-000747" id="pk_defdoc" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案主键" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_defdoclist" fixedHeader="false" i18nName="2UC000-000748" id="pk_defdoclist" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案列表主键" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="pk_defdoclist_name" fixedHeader="false" i18nName="2UC000-000748" id="pk_defdoclist_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_defdoclist_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案列表主键" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="pk_defdoclist_name" fixedHeader="false" i18nName="2UC000-000748" id="pk_defdoclist_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_defdoclist_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="自定义档案列表主键" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_org" fixedHeader="false" i18nName="2UC000-000360" id="pk_org" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="pk_org" fixedHeader="false" i18nName="2UC000-000360" id="pk_org" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_org_name" fixedHeader="false" i18nName="2UC000-000360" id="pk_org_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_org_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="pk_org_name" fixedHeader="false" i18nName="2UC000-000360" id="pk_org_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_org_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属组织" textAlign="left" visible="true" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pk_group" fixedHeader="false" i18nName="2UC000-000367" id="pk_group" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pk_group_name" fixedHeader="false" i18nName="2UC000-000367" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_group_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="pk_group_name" fixedHeader="false" i18nName="2UC000-000367" id="pk_group_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pk_group_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="所属集团" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="code" fixedHeader="false" i18nName="2UC000-000557" id="code" imageOnly="false" nullAble="false" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="档案编码" textAlign="left" visible="true" width="120">
             </Column>
@@ -159,31 +210,31 @@
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="pid" fixedHeader="false" i18nName="2UC000-000007" id="pid" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="上级档案" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pid_name" fixedHeader="false" i18nName="2UC000-000007" id="pid_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pid_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="上级档案" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="pid_name" fixedHeader="false" i18nName="2UC000-000007" id="pid_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_pid_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="上级档案" textAlign="left" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="memo" fixedHeader="false" i18nName="2UC000-000258" id="memo" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="备注" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" i18nName="2UC000-000155" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="creator_user_name" fixedHeader="false" i18nName="2UC000-000155" id="creator_user_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_creator_user_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="true" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="creationtime" fixedHeader="false" i18nName="2UC000-000157" id="creationtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="true" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" i18nName="2UC000-000490" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="Reference" field="modifier_user_name" fixedHeader="false" i18nName="2UC000-000490" id="modifier_user_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_modifier_user_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="true" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="UFDateTime" editable="true" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" i18nName="2UC000-000491" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="true" width="120">
-            </Column>
-            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="innercode" fixedHeader="false" i18nName="2UC000-000136" id="innercode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="内部编码" textAlign="left" visible="true" width="120">
+            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" i18nName="2UC000-000151" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="false" width="120">
             </Column>
             <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="enablestate" fixedHeader="false" i18nName="2UC000-000249" id="enablestate" imageOnly="false" nullAble="true" refComboData="combo_defdoc_enablestate" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="启用状态" textAlign="right" visible="true" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="IntegerText" field="dataoriginflag" fixedHeader="false" i18nName="2UC000-000151" id="dataoriginflag" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="分布式" textAlign="right" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="creator" fixedHeader="false" i18nName="2UC000-000155" id="creator" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="false" width="120">
             </Column>
-            <Column autoExpand="false" dataType="Integer" editable="true" editorType="ComboBox" field="datatype" fixedHeader="false" i18nName="2UC000-000458" id="datatype" imageOnly="false" nullAble="true" refComboData="combo_defdoc_datatype" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="数据类型" textAlign="right" visible="true" width="120">
+            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="creator_user_name" fixedHeader="false" i18nName="2UC000-000155" id="creator_user_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_creator_user_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="创建人" textAlign="left" visible="true" width="120">
             </Column>
-            <Column autoExpand="true" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="true" width="120">
+            <Column autoExpand="false" dataType="UFDateTime" editable="false" editorType="DateTimeText" field="creationtime" fixedHeader="false" i18nName="2UC000-000157" id="creationtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="创建时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="true" editorType="StringText" field="modifier" fixedHeader="false" i18nName="2UC000-000490" id="modifier" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="Reference" field="modifier_user_name" fixedHeader="false" i18nName="2UC000-000490" id="modifier_user_name" imageOnly="false" nullAble="true" refNode="refnode_defdoc_modifier_user_name" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改人" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="UFDateTime" editable="false" editorType="DateTimeText" field="modifiedtime" fixedHeader="false" i18nName="2UC000-000491" id="modifiedtime" imageOnly="false" nullAble="true" renderType="DateTimeRender" showCheckBox="true" sortable="true" sumCol="false" text="最后修改时间" textAlign="left" visible="true" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="String" editable="false" editorType="StringText" field="innercode" fixedHeader="false" i18nName="2UC000-000136" id="innercode" imageOnly="false" nullAble="true" renderType="DefaultRender" showCheckBox="true" sortable="true" sumCol="false" text="内部编码" textAlign="left" visible="false" width="120">
+            </Column>
+            <Column autoExpand="false" dataType="Integer" editable="false" editorType="ComboBox" field="datatype" fixedHeader="false" i18nName="2UC000-000458" id="datatype" imageOnly="false" nullAble="true" refComboData="combo_defdoc_datatype" renderType="ComboRender" showCheckBox="true" sortable="true" sumCol="false" text="数据类型" textAlign="right" visible="false" width="120">
+            </Column>
+            <Column autoExpand="true" dataType="Integer" editable="true" editorType="IntegerText" field="status" fixedHeader="false" id="status" imageOnly="false" nullAble="true" renderType="IntegerRender" showCheckBox="true" sortable="true" sumCol="false" text="vostatus" textAlign="right" visible="false" width="120">
             </Column>
         </GridComp>
     </Components>
@@ -208,7 +259,7 @@
                     </Event>
                 </Events>
             </MenuItem>
-            <MenuItem id="edit" modifiers="2" text="编辑">
+            <MenuItem id="edit" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager" text="编辑">
                 <Events>
                     <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="editEvent" name="onclick" onserver="true">
                         <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
@@ -227,7 +278,7 @@
                     </Event>
                 </Events>
             </MenuItem>
-            <MenuItem id="del" modifiers="2" text="删除">
+            <MenuItem id="del" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager" text="删除">
                 <Events>
                     <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="delEvent" name="onclick" onserver="true">
                         <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
@@ -248,7 +299,7 @@
             </MenuItem>
         </MenuBarComp>
         <MenuBarComp id="defdocSavaMenu">
-            <MenuItem id="save" modifiers="2" text="保存">
+            <MenuItem id="save" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="保存">
                 <Events>
                     <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="saveEvent" name="onclick" onserver="true">
                         <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
@@ -267,9 +318,49 @@
                     </Event>
                 </Events>
             </MenuItem>
-            <MenuItem id="cancel" modifiers="2" text="取消">
+            <MenuItem id="cancel" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="取消">
                 <Events>
                     <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="cancelEvent" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+        </MenuBarComp>
+        <MenuBarComp id="enableMenu">
+            <MenuItem id="enable" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="启用">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="enableEvent" name="onclick" onserver="true">
+                        <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                        </SubmitRule>
+                        <Params>
+                            <Param>
+                                <Name>mouseEvent</Name>
+                                <Value>
+                                </Value>
+                                <Desc>                                    <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                                </Desc>
+                            </Param>
+                        </Params>
+                        <Action>
+                        </Action>
+                    </Event>
+                </Events>
+            </MenuItem>
+            <MenuItem id="disable" modifiers="2" stateManager="nc.uap.lfw.core.bm.dft.Ss_StateManager" text="封存">
+                <Events>
+                    <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="DisableEvent" name="onclick" onserver="true">
                         <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
                         </SubmitRule>
                         <Params>

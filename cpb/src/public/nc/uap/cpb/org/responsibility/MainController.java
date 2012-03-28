@@ -1,4 +1,5 @@
 package nc.uap.cpb.org.responsibility;
+import java.util.ArrayList;
 import java.util.Map;
 
 import nc.bs.logging.Logger;
@@ -13,7 +14,6 @@ import nc.uap.lfw.core.cmd.UifCancelCmd;
 import nc.uap.lfw.core.cmd.UifDatasetAfterSelectCmd;
 import nc.uap.lfw.core.cmd.UifDatasetLoadCmd;
 import nc.uap.lfw.core.cmd.UifDelCmd;
-import nc.uap.lfw.core.cmd.UifEditCmd;
 import nc.uap.lfw.core.cmd.UifSaveCmd;
 import nc.uap.lfw.core.cmd.base.AbstractWidgetController;
 import nc.uap.lfw.core.cmd.base.FromWhereSQL;
@@ -42,7 +42,7 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
 		if (type == null||"".equals(type))
 			throw new LfwRuntimeException("请先职责类型!");
 		getCurrentWinCtx().addAppAttribute(RespConstant.OPERATE_STATUS, RespConstant.ADD_OPERATE);
-		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"新增职责");
+		getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"新增职责");
   }
   public void onEdit(  MouseEvent<T> mouseEvent){
       getCurrentWinCtx().addAppAttribute(RespConstant.OPERATE_STATUS, RespConstant.EDIT_OPERATE);
@@ -51,10 +51,21 @@ public class MainController<T extends WebElement> extends AbstractWidgetControll
       if(row==null)
     	  throw new LfwRuntimeException("请选择需要修改的数据！");
       getCurrentWinCtx().addAppAttribute(RespConstant.DATA, row);
-	  getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT ,"修改职责");
+	  getCurrentWinCtx().popView("edit",DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT ,"修改职责");
   }
   public void onDel(  MouseEvent<T> mouseEvent){
-    UifDelCmd cmd=new UifDelCmd(getMasterDsId(),getAggVoClazz());
+    UifDelCmd cmd=new UifDelCmd(getMasterDsId(),getAggVoClazz()){
+    	protected void onDeleteVO(ArrayList<AggregatedValueObject> vos, boolean trueDel) {
+			for(AggregatedValueObject aggvo:vos){
+				CpResponsibilityVO vo = (CpResponsibilityVO) aggvo.getParentVO();
+				try {
+					CpbServiceFacility.getCpResponsibilityBill().delResponsibilityVo(vo);
+				} catch (CpbBusinessException e) {
+					LfwLogger.error(e.getMessage(),e);
+				}
+			}				
+		}
+    };
 	  cmd.execute();
   }
   public void onSave(  MouseEvent<T> mouseEvent){

@@ -60,7 +60,7 @@ public class MainController<T extends WebElement> extends
 			getCurrentWinCtx().addAppAttribute("pk_parent",null);
 			getCurrentWinCtx().addAppAttribute("pk_org",null);
 		}
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "新增角色组");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT, "新增角色组");
 	}
 
 	public void onEdit(MouseEvent<T> mouseEvent) {
@@ -72,7 +72,7 @@ public class MainController<T extends WebElement> extends
 		if (row == null)
 			throw new LfwRuntimeException("请选择需要修改的数据！");
 		getCurrentWinCtx().addAppAttribute(RoleGroupConstants.DATA, row);
-		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改角色组");
+		getCurrentWinCtx().popView("edit", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.EIGHT_ELE_HEIGHT, "修改角色组");
 	}
 
 	public void pluginedit_plugin(Map keys) {

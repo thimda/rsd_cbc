@@ -27,15 +27,15 @@
     </Events>
     <Models>
         <Datasets>
-            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
+            <RefMdDataset caption="实体" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_entity" lazyLoad="true" notNullBody="false" objMeta="uap.entity" voMeta="nc.md.model.impl.BusinessEntity">
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
+            <RefMdDataset caption="组织_集团" controlwidgetopeStatus="false" enabled="false" id="$refds_uap_group" lazyLoad="true" notNullBody="false" objMeta="uap.group" voMeta="nc.vo.org.GroupVO">
                 <Fields>
                 </Fields>
             </RefMdDataset>
-            <MdDataset caption="协同打印模板" controlwidgetopeStatus="false" enabled="false" id="formds" lazyLoad="true" objMeta="uapcp.cp_print_template" voMeta="nc.uap.ctrl.tpl.print.base.CpPrintTemplateVO">
+            <MdDataset caption="协同打印模板" controlwidgetopeStatus="false" enabled="false" id="formds" lazyLoad="true" notNullBody="false" objMeta="uapcp.cp_print_template" voMeta="nc.uap.ctrl.tpl.print.base.CpPrintTemplateVO">
                 <FieldRelations>
                     <FieldRelation id="pkcorp_rel" refDataset="$refds_uap_group">
                         <MatchFields>
@@ -59,6 +59,8 @@
                     </FieldRelation>
                 </FieldRelations>
                 <Fields>
+                    <Field dataType="String" field="nodekey" id="nodekey" nullAble="true" primaryKey="false" text="模板分配节点">
+                    </Field>
                 </Fields>
                 <Listeners>
                     <DatasetListener id="defaultDsListener" serverClazz="nc.uap.lfw.core.event.deft.DefaultDatasetServerListener">
@@ -133,7 +135,7 @@
                 </Event>
             </Events>
         </ButtonComp>
-        <FormComp caption="协同打印模板" columnCount="2" dataset="formds" eleWidth="120" enabled="false" id="printform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
+        <FormComp caption="协同打印模板" columnCount="1" dataset="formds" eleWidth="250" enabled="false" id="printform" labelMinWidth="0" renderHiddenEle="false" renderType="2" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_print_template" height="" id="pk_print_template" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="系统ID" visible="false" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pkcorp" height="" id="pkcorp" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="单位编码" visible="false" width="">
@@ -147,6 +149,8 @@
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="nodecode" height="" id="nodecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="节点编码" visible="true" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="description" height="" id="description" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模板描述" visible="true" width="">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="nodekey" height="" id="nodekey" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="模板分配节点" visible="true" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="resid" height="" id="resid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="资源ID" visible="false" width="">
             </Element>

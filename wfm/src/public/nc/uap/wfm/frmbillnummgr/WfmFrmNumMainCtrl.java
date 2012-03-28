@@ -62,7 +62,7 @@ public class WfmFrmNumMainCtrl {
 	}
 	public void modifyElem(MouseEvent<MenuItem> e) {
 		LfwWidget widgetMain = AppUtil.getWidget("main");
-		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.DsElem);
+		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.WfmDataset_DsElem);
 		Row rowElem = dsElem.getSelectedRow();
 		if (rowElem == null) {
 			return;
@@ -98,7 +98,7 @@ public class WfmFrmNumMainCtrl {
 	}
 	public void downElem(MouseEvent<MenuItem> e) {
 		LfwWidget widgetMain = AppUtil.getWidget("main");
-		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.DsElem);
+		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.WfmDataset_DsElem);
 		Row selectedRow = dsElem.getSelectedRow();
 		if (selectedRow == null) {
 			throw new LfwRuntimeException("请选中要移动的行!");
@@ -123,7 +123,7 @@ public class WfmFrmNumMainCtrl {
 	}
 	public void upElem(MouseEvent<MenuItem> e) {
 		LfwWidget widgetMain = AppUtil.getWidget("main");
-		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.DsElem);
+		Dataset dsElem = widgetMain.getViewModels().getDataset(WfmConstants.WfmDataset_DsElem);
 		Row selectedRow = dsElem.getSelectedRow();
 		if (selectedRow == null) {
 			throw new LfwRuntimeException("请选中要移动的行!");

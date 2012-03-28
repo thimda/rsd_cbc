@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta flowmode="true" id="cp_sysinit_um" jquery="0">
-    <Border id="border1" width="1" roundBorder="true">
-        <BorderTrue id="bp1">
-            <FlowhLayout id="flowh1">
-                <FlowhPanel id="flowhp3">
-	                <CanvasLayout id="titlecanvas" className="rightcanvas">
+	<FlowhLayout id="flowh1" autoFill="true">
+		<FlowhPanel id="flowhp1" width="196" rightBorder="#">
+			<FlowvLayout id="navflowv1">
+				<FlowvPanel id="flowv0">
+					<CanvasLayout id="titlecanvas" className="leftcanvas">
 						<CanvasPanel id="canvasp1">
-							 <Widget id="main">
-	                   		 </Widget>
 						</CanvasPanel>
 					</CanvasLayout>
-                </FlowhPanel>
-            </FlowhLayout>
-        </BorderTrue>
-    </Border>
+				</FlowvPanel>
+				<FlowvPanel id="flowv1" leftPadding="20" rightPadding="20">
+		         	<Widget id="orgref">
+    				</Widget>
+	        	</FlowvPanel>
+				<FlowvPanel id="flowv2" leftPadding="20" rightPadding="20">
+					<Widget id="tree">
+    				</Widget>
+				</FlowvPanel>
+			</FlowvLayout>
+		</FlowhPanel>
+		<FlowhPanel id="flowhp2">
+			<Widget id="main">
+    		</Widget>
+		</FlowhPanel>
+	</FlowhLayout>
 </UIMeta>

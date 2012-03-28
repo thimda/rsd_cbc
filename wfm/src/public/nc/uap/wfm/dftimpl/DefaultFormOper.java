@@ -38,7 +38,7 @@ public class DefaultFormOper implements IWfmFormOper {
 		if (url.indexOf("model") == -1) {
 			url = url + "model=" + FlwDataDispPageModel.class.getName();
 		}
-		url = url + "&" + WfmConstants.TaskPk + "=" + task.getPk_task();
+		url = url + "&" + WfmConstants.WfmUrlConst_TaskPk + "=" + task.getPk_task();
 		return url;
 	}
 	public ProDef getProDefByFlowType(WfmFlwTypeVO flowTypeVo) {

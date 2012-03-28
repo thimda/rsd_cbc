@@ -4,14 +4,38 @@
         <FlowvPanel height="50" id="panelv05826" widgetId="maintenGrid">
             <FlowhLayout autoFill="false" id="flowhlayout1072" widgetId="maintenGrid">
                 <FlowhPanel id="panelh01072" widgetId="maintenGrid" width="250">
-                    <Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
-                    </Menubar>
+                	<CanvasLayout id="menuback1" className="leftcanvas">
+                		<CanvasPanel id="canvasp1">
+                    		<Menubar height="100%" id="defdocMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                    </CanvasLayout>
                 </FlowhPanel>
-                <FlowhPanel id="panelh11072" widgetId="maintenGrid">
-                    <Menubar height="100%" id="defdocSavaMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
-                    </Menubar>
+                <FlowhPanel id="panelh11072" widgetId="maintenGrid" width="200">
+                	<CanvasLayout id="menuback2" className="rightcanvas">
+                		<CanvasPanel id="canvasp2">
+                    		<Menubar height="100%" id="defdocSavaMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+                    		</Menubar>
+                   	 	</CanvasPanel>
+                   	</CanvasLayout>
+                </FlowhPanel>
+                <FlowhPanel id="panelh21072" widgetId="maintenGrid" width="200">
+                	<CanvasLayout id="menuback3" className="rightcanvas">
+                		<CanvasPanel id="canvasp3">
+                    		<Menubar height="100%" id="enableMenu" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                    </CanvasLayout>
                 </FlowhPanel>
             </FlowhLayout>
+        </FlowvPanel>
+        <FlowvPanel height="30" id="panelv25826" widgetId="maintenGrid">
+        	<FlowhLayout autoFill="false" id="flowhlayouth1" widgetId="maintenGrid">
+        		<FlowhPanel id="panelh12" widgetId="maintenGrid">
+        			<TextField id="orgInput" height="22" left="0" position="relative" top="0" widgetId="maintenGrid" width="150">
+        			</TextField>
+        		</FlowhPanel>
+        	</FlowhLayout>
         </FlowvPanel>
         <FlowvPanel id="panelv15826" widgetId="maintenGrid">
             <GridComp height="100%" id="defdocGrid" left="0" position="relative" top="0" widgetId="maintenGrid" width="100%">

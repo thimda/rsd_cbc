@@ -19,8 +19,8 @@ public class FlowImgCtrl implements IController {
 		frameComp.setSrc(this.getProcessImageUrl());
 	}
 	protected String getProcessImageUrl() {
-		String flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.FlwTypePk);
-		String taskPk = (String) AppUtil.getAppAttr(WfmConstants.TaskPk);
+		String flowTypePk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_FolwTypePk);
+		String taskPk = (String) AppUtil.getAppAttr(WfmConstants.WfmAppAttr_TaskPk);
 		if (taskPk == null) {
 			return WfmFlowImgUrlUtil.getProcessImageUrlByFrmDefPk(flowTypePk);
 		} else {

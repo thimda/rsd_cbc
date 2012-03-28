@@ -38,7 +38,7 @@
         </ComboDatas>
     </Models>
     <Components>
-     <FormComp caption="协同功能节点" columnCount="2" dataset="ds_appsnode" enabled="true" id="appsnodeform" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="2" rowHeight="22" top="0" visible="true" width="100%">
+     <FormComp caption="协同功能节点" columnCount="1" dataset="ds_appsnode"  eleWidth="250"  enabled="true" id="appsnodeform" labelMinWidth="0" left="0" position="relative" renderHiddenEle="false" renderType="1" rowHeight="22" top="0" visible="true" width="100%">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="id" height="22" id="id" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="编码" visible="true" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="title" height="22" id="title" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="名称" visible="true" width="">
@@ -47,17 +47,17 @@
             </Element>        
              <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="appid" height="22" id="appid" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="appid" visible="true" width="">
             </Element>
+             <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="url" height="22" id="url" imageOnly="false" nextLine="true" nullAble="true" rowSpan="1" selectOnly="true" text="url" visible="true">
+            </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="activeflag" height="22" id="activeflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否启用" visible="true" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="CheckBox" enabled="true" field="specialflag" height="22" id="specialflag" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="是否允许个性化" visible="true" width="">
-            </Element>
-             <Element attachNext="false" colSpan="3" editable="true" editorType="StringText" enabled="true" field="url" height="22" id="url" imageOnly="false" nextLine="true" nullAble="true" rowSpan="1" selectOnly="true" text="url" visible="true" width="330">
-            </Element>
+            </Element>            
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="i18nname" height="22" id="i18nname" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="i18nname" visible="false" width="">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appsnode" height="22" id="pk_appsnode" imageOnly="false" nextLine="false" nullAble="false" rowSpan="1" selectOnly="true" text="主键" visible="false" width="">
             </Element>            
-            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appscategory" height="22" id="pk_appscategory" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="分组" visible="false" width="">
+            <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_appscategory" height="22" id="pk_appscategory" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="分组" visible="false" >
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="IntegerText" enabled="true" field="status" height="22" id="status" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="vostatus" visible="false" width="">
             </Element>

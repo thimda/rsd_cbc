@@ -7,6 +7,8 @@
         </Attribute>
     </Attributes>
     <PlugoutDescs>
+        <PlugoutDesc id="plugout_afteraddsign">
+        </PlugoutDesc>
     </PlugoutDescs>
     <PluginDescs>
         <PluginDesc id="plugin_afteraddsign">
@@ -41,6 +43,21 @@
         <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
+            <Events>
+                <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="btn_ok_onclick" name="onclick" onserver="true">
+                    <SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
+                    </SubmitRule>
+                    <Params>
+                        <Param>
+                            <Name>mouseEvent</Name>
+                            <Desc>                                <![CDATA[nc.uap.lfw.core.event.MouseEvent]]>
+                            </Desc>
+                        </Param>
+                    </Params>
+                    <Action>
+                    </Action>
+                </Event>
+            </Events>
         </ButtonComp>
         <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_addsignuser" refcode="refnode_afteraddsignuser" text="请选择用户" textAlign="left" textWidth="0" visible="true">
         </ReferenceComp>

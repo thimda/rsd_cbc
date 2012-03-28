@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<UIMeta flowmode="true" id="main_um" jquery="0">
+ 	<FlowvLayout autoFill="0" id="flow8">
+        <FlowvPanel id="flow9">
+	        <CanvasLayout id="menuback" className="rightcanvas">
+				<CanvasPanel id="canvasp1">    
+		            <Menubar id="proins_menu" widgetId="main">
+		            </Menubar>
+	            </CanvasPanel>
+			</CanvasLayout>
+        </FlowvPanel>
+        <FlowvPanel id="flow10">
+            <GridComp id="proins_grid" widgetId="main">
+            </GridComp>
+        </FlowvPanel>
+       	<FlowvPanel  id="flow11">
+          	<CanvasLayout id="menuback1" className="rightcanvas">
+				<CanvasPanel id="canvasp11">    
+		          
+	            </CanvasPanel>
+			</CanvasLayout>
+        </FlowvPanel>
+        <FlowvPanel id="flow12">
+            <GridComp id="proinsstate_grid" widgetId="main">
+            </GridComp>
+        </FlowvPanel>
+    </FlowvLayout>
+</UIMeta>

@@ -43,7 +43,7 @@ public class GroupExtentionServiceImpl implements ICpbExtentionService {
 					businessrole.setType(CpRoleVO.ROLETYPE_BUSINESS);
 					businessrole.setPk_rolegroup(pk_rolegroup);
 					businessrole.setPk_org(pk_org);
-					CpbServiceFacility.getCpRoleBill().addPtRoleVO(businessrole);	
+					CpbServiceFacility.getCpRoleBill().addCpRoleVO(businessrole);	
 					
 				} catch (CpbBusinessException e) {
 					LfwLogger.error(e.getMessage(), e);

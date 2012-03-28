@@ -7,12 +7,12 @@
         </Attribute>
     </Attributes>
     <PlugoutDescs>
-        <PlugoutDesc id="wf_pluginout">
-        </PlugoutDesc>
-        <PlugoutDesc id="wfm_pluginin">
+        <PlugoutDesc id="plugout_exetask">
         </PlugoutDesc>
     </PlugoutDescs>
     <PluginDescs>
+             <PluginDesc id="plugin_exetask">
+        </PluginDesc>
     </PluginDescs>
     <Models>
         <Datasets>
@@ -170,8 +170,6 @@
         </TextAreaComp>
         <ButtonComp enabled="true" id="btn_cancel" text="取消" visible="true">
         </ButtonComp>
-        <LinkComp hasImg="false" i18nName="添加附件" id="link_addattach" target="_blank">
-        </LinkComp>
         <LinkComp hasImg="false" i18nName="后加签" id="link_aftaddsign" target="_blank">
             <Events>
                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.LinkListener" methodName="afterAddSignClick" name="onclick" onserver="true">
@@ -190,6 +188,8 @@
                     </Action>
                 </Event>
             </Events>
+        </LinkComp>
+        <LinkComp hasImg="false" i18nName="添加附件" id="link_addattach" target="_blank">
         </LinkComp>
         <ButtonComp enabled="true" id="btn_deletestep" text="删除步骤" visible="true">
         </ButtonComp>
@@ -212,8 +212,8 @@
                 </Event>
             </Events>
         </ComBoBoxComp>
-        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_transmituser" refcode="refnode_transuser" text="请选择转发的用户" textAlign="left" textWidth="0" visible="true">
-        </ReferenceComp>
+        <TextComp editorType="StringText" enabled="true" focus="false" id="text_afteraddsign" text="加签用户：" textAlign="left" visible="true">
+        </TextComp>
         <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_commonword1" refComboData="combox_commonword" selectOnly="true" textAlign="left" textWidth="0" visible="true">
             <Events>
                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="commonword1_valueChanged" name="valueChanged" onserver="true">
@@ -233,6 +233,8 @@
                 </Event>
             </Events>
         </ComBoBoxComp>
+        <ReferenceComp editorType="Reference" enabled="true" focus="false" id="text_transmituser" refcode="refnode_transuser" text="请选择转发的用户" textAlign="left" textWidth="0" visible="true">
+        </ReferenceComp>
         <ComBoBoxComp allowExtendValue="false" editorType="ComboBox" enabled="true" focus="false" id="text_commonword2" refComboData="combox_commonword" selectOnly="true" textAlign="left" textWidth="0" visible="true">
             <Events>
                 <Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.TextListener" methodName="commonword2_valueChanged" name="valueChanged" onserver="true">

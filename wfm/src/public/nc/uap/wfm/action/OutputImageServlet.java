@@ -31,22 +31,26 @@ import nc.uap.lfw.servletplus.annotation.Servlet;
 		filename += "." + filetype;
 		String savePath = request.getRealPath("") + "/processxml/images/" + filename;
 		InputStream is = request.getInputStream();
+		DataOutputStream dos = null;
 		try {
 			int size = 0;
 			byte[] tmp = new byte[1024 * 10];
 			// 创建一个文件夹用来保存发过来的图片；
 			File f = new File(savePath);
-			DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
+			dos = new DataOutputStream(new FileOutputStream(f));
 			int len = -1;
 			while ((len = is.read(tmp)) != -1) {
 				dos.write(tmp, 0, len);
 				size += len;
 			}
 			dos.flush();
-			dos.close();
 		} catch (IOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new LfwRuntimeException(e);
+		} finally {
+			if (dos != null) {
+				dos.close();
+			}
 		}
 		download(request, response, filename);
 	}

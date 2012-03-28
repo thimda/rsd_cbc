@@ -7,7 +7,6 @@ import nc.md.model.IBusinessEntity;
 import nc.md.model.type.IEnumType;
 import nc.md.model.type.IType;
 import nc.uap.ctrl.tpl.gz.base.CpGzConditionVO;
-import nc.uap.ctrl.tpl.qry.base.CpQueryConditionVO;
 import nc.uap.lfw.core.data.Dataset;
 import nc.uap.lfw.core.data.Row;
 import nc.uap.lfw.core.data.RowData;
@@ -48,6 +47,8 @@ public class CpGzInitTool {
 		else{
 			Row[] childrens = sourceDs.getCurrentRowData().getRows();
 			if(childrens != null){
+				targetDs.clear();
+				targetDs.setCurrentKey(Dataset.MASTER_KEY);
 				for (Row crow : childrens) {
 					String cAbsoluteAttributePath = (String) getRowValue(sourceDs, crow, ID);
 					IAttribute cAttribute = getAttribute(entity, cAbsoluteAttributePath);
@@ -190,7 +191,7 @@ public class CpGzInitTool {
 		if(rd == null)
 			return false;
 		Row[] rows = rd.getRows();
-		int index = targetDs.nameToIndex("fieldcode");
+		int index = targetDs.nameToIndex("fieldname");
 		for (int i = 0; i < rows.length; i++) {
 			Row row = rows[i];
 			String name = (String) row.getValue(index);

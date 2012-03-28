@@ -590,9 +590,9 @@
 					</Event>
 				</Events>
 			</MenuItem>
-			<MenuItem displayHotKey="CTRL+SHIFT+" id="myvisa"  stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager" text="电子签章维护">
+			<MenuItem displayHotKey="CTRL+SHIFT+" id="myvisa"  stateManager="nc.uap.lfw.core.bm.dft.Ss_Ms_StateManager" text="签名图片维护">
 				<Events>
-					<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="cpbUserVisaMgr" name="onclick" onserver="true">
+					<Event async="true" jsEventClaszz="nc.uap.lfw.core.event.conf.MouseListener" methodName="onSignManage" name="onclick" onserver="true">
 						<SubmitRule cardSubmit="false" panelSubmit="false" tabSubmit="false">
 						</SubmitRule>
 						<Params>

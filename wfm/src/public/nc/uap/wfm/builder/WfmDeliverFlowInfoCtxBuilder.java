@@ -7,13 +7,9 @@ import nc.uap.wfm.context.DeliverInfoCtx;
 import nc.uap.wfm.context.DeliverUserInfoCtx;
 import nc.uap.wfm.context.WfmFlowInfoCtx;
 import nc.uap.wfm.utils.AppUtil;
-public class WfmDeliverFlowInfoCtxBuilder {
-	private String flowTypePk;
-	private String taskPk;
+public class WfmDeliverFlowInfoCtxBuilder extends WfmFlowInfoCtxBuilder {
 	public WfmDeliverFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
-		this.flowTypePk = flowTypePk;
-		this.taskPk = taskPk;
+		super(flowTypePk, taskPk);
 	}
 	public WfmFlowInfoCtx builderDeliverFlowInfoCtx() {
 		LfwWidget widgetMain = AppUtil.getWidget("pubview_deliver");
@@ -32,10 +28,13 @@ public class WfmDeliverFlowInfoCtxBuilder {
 		}
 		DeliverInfoCtx ctx = new DeliverInfoCtx();
 		ctx.setDeliverUserInfo(userInfos);
-		new WfmFlowInfoCtxBuilder(flowTypePk, taskPk).initFlowInfoCtx(ctx);
+		this.builder(ctx);
 		TextAreaComp textAreaComp = (TextAreaComp) widgetMain.getViewComponents().getComponent("text_opinion");
 		String opinion = textAreaComp.getValue();
 		ctx.setOpinion(opinion);
 		return ctx;
+	}
+	public WfmFlowInfoCtx builder() {
+		return this.builderDeliverFlowInfoCtx();
 	}
 }

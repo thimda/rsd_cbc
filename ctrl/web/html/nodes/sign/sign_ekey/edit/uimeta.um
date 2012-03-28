@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding='UTF-8'?>
-<UIMeta flowmode="true" id="edit_um" jquery="0">
+<UIMeta flowmode="true" id="edit_um" jquery="0" autoFill="0">
     <FlowvLayout autoFill="0" id="flowvlayout1890" widgetId="edit">
-        <FlowvPanel id="panelv01890" widgetId="edit">
-            <FormComp height="100%" id="ekeyform" label_position="" left="0" position="relative" top="0" widgetId="edit" width="100%">
-            </FormComp>
+            <FlowvPanel id="flowv456453fd" height="30">   
+          </FlowvPanel> 
+        <FlowvPanel  id="flow2eee">
+            <FlowhLayout autoFill="false" id="flowhlayout8289" widgetId="edit">
+				                <FlowhPanel id="panelh08289" widgetId="edit" width="50">
+				                </FlowhPanel>
+				                <FlowhPanel id="panelh18289" widgetId="edit">
+					                <FormComp id="ekeyform" widgetId="edit">
+            						</FormComp> 
+				                </FlowhPanel>
+				                <FlowhPanel id="panelh28289" widgetId="edit" width="50">
+				                </FlowhPanel>
+							</FlowhLayout>
         </FlowvPanel>
-        <FlowvPanel height="30" id="flow3eee" widgetId="edit">
+        <FlowvPanel height="30" id="flow3eee">
             <FlowhLayout id="flow4eee">
                 <FlowhPanel id="flow5eee">
                 </FlowhPanel>
                 <FlowhPanel id="flow6eee">
+                </FlowhPanel>                
+                <FlowhPanel id="flow9eee">
                 </FlowhPanel>
+                <FlowhPanel id="flow10eee">
+                </FlowhPanel>
+                
                 <FlowhPanel id="flow7eee">
                     <Button id="btn_ok" widgetId="edit">
                     </Button>
@@ -19,14 +34,12 @@
                     <Button id="btn_cancel" widgetId="edit">
                     </Button>
                 </FlowhPanel>
-                <FlowhPanel id="flow9eee">
-                </FlowhPanel>
-                <FlowhPanel id="flow10eee">
+                <FlowhPanel id="flow11eee">
                 </FlowhPanel>
             </FlowhLayout>
         </FlowvPanel>
-        <FlowvPanel id="panelv18012" widgetId="main">
-        <SelfDefComp height="0" id="selfsign" left="0" position="relative" top="0" widgetId="main" width="0">
+        <FlowvPanel id="panelv18012" widgetId="main" height="1" visible ="false">
+        <SelfDefComp height="0" id="selfsign" left="0" visible ="false" position="relative" top="0" widgetId="main" width="0">
             </SelfDefComp>
         </FlowvPanel>
     </FlowvLayout>

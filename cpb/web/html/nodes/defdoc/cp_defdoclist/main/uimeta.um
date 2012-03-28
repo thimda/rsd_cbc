@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta flowmode="true" id="main_um" jquery="0">
     <FlowvLayout id="flowvlayout4913" widgetId="main">
-        <FlowvPanel id="panelv04913" widgetId="main">
+        <FlowvPanel height="50" id="panelv04913" widgetId="main">
             <FlowhLayout autoFill="false" id="flowhlayout7429" widgetId="main">
                 <FlowhPanel id="panelh07429" widgetId="main">
-                    <Menubar height="100%" id="mainMenu" left="0" position="relative" top="0" widgetId="main" width="100%">
-                    </Menubar>
+                	<CanvasLayout id="menuback" className="rightcanvas">
+                		<CanvasPanel id="canvasp1">
+                    		<Menubar height="100%" id="mainMenu" left="0" position="relative" top="0" widgetId="main" width="100%">
+                    		</Menubar>
+                    	</CanvasPanel>
+                    </CanvasLayout>
                 </FlowhPanel>
             </FlowhLayout>
         </FlowvPanel>

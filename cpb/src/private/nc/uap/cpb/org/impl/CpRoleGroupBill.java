@@ -59,7 +59,7 @@ public class CpRoleGroupBill implements ICpRoleGroupBill {
 		try {
 			dao.deleteByPK(CpRoleGroupVO.class, pk_rolegroup);
 			CpRoleVO[] rolevos = CpbServiceFacility.getCpRoleQry().getRoleByRoleGroup(pk_rolegroup);
-			CpbServiceFacility.getCpRoleBill().deletePtRoleVO(rolevos);
+			CpbServiceFacility.getCpRoleBill().deleteCpRoleVO(rolevos);
 		} catch (DAOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new CpbBusinessException(e);
@@ -71,7 +71,7 @@ public class CpRoleGroupBill implements ICpRoleGroupBill {
 		try {
 			dao.deleteVO(rolegroupvo);
 			CpRoleVO[] rolevos = CpbServiceFacility.getCpRoleQry().getRoleByRoleGroup(rolegroupvo.getPk_rolegroup());
-			CpbServiceFacility.getCpRoleBill().deletePtRoleVO(rolevos);
+			CpbServiceFacility.getCpRoleBill().deleteCpRoleVO(rolevos);
 		} catch (DAOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new CpbBusinessException(e);
@@ -94,7 +94,7 @@ public class CpRoleGroupBill implements ICpRoleGroupBill {
 			}
 			String condition = " pk_rolegroup in(" + sb.toString() + ") ";
 			CpRoleVO[] rolevos = CpbServiceFacility.getCpRoleQry().getAllRoleByCondition(CpRoleVO.class, condition);
-			CpbServiceFacility.getCpRoleBill().deletePtRoleVO(rolevos);
+			CpbServiceFacility.getCpRoleBill().deleteCpRoleVO(rolevos);
 		} catch (DAOException e) {
 			LfwLogger.error(e.getMessage(), e);
 			throw new CpbBusinessException(e);

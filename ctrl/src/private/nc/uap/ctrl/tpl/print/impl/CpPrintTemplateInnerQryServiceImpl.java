@@ -82,4 +82,18 @@ public class CpPrintTemplateInnerQryServiceImpl implements
 		
 	}
 
+	@Override
+	public CpPrintTemplateVO[] getPrintTemplates(String nodecode)
+			throws TplBusinessException {
+		// TODO Auto-generated method stub
+		try{
+			BaseDAO dao = new BaseDAO();
+			List<CpPrintTemplateVO> list = (List<CpPrintTemplateVO>) dao.retrieveByClause(CpPrintTemplateVO.class, "nodecode='"+nodecode+"'");	
+			return list.toArray(new CpPrintTemplateVO[0]);
+		}catch (DAOException e) {
+			LfwLogger.error(e);
+			throw new TplBusinessException(e.getMessage());
+		}
+	}
+
 }

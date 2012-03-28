@@ -6,28 +6,28 @@ import nc.uap.wfm.constant.WfmConstants;
 import nc.uap.wfm.context.HumActInfoEngCtx;
 import nc.uap.wfm.context.HumActInfoPageCtx;
 import nc.uap.wfm.context.NextTaskInfoCtx;
+import nc.uap.wfm.context.WfmFlowInfoCtx;
 import nc.uap.wfm.model.HumAct;
 import nc.uap.wfm.model.IPort;
 import nc.uap.wfm.model.ProDef;
 import nc.uap.wfm.model.Task;
 import nc.uap.wfm.runtime.NextHumActInfoUtil;
 import nc.uap.wfm.utils.WfmTaskUtil;
-public class WfmNextFlowInfoCtxBuilder {
-	private String flowTypePk = null;
-	private String taskPk = null;
+public class WfmNextFlowInfoCtxBuilder extends WfmFlowInfoCtxBuilder {
 	public WfmNextFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
-		this.flowTypePk = flowTypePk;
-		this.taskPk = taskPk;
+		super(flowTypePk, taskPk);
+	}
+	public WfmFlowInfoCtx builder() {
+		return this.builderNextFlwInfoCtx();
 	}
 	/**
 	 * 构造下一步信息
 	 * 
 	 * @return
 	 */
-	public NextTaskInfoCtx builderNextFlwInfoCtx() {
+	protected NextTaskInfoCtx builderNextFlwInfoCtx() {
 		NextTaskInfoCtx ctx = new NextTaskInfoCtx();
-		new WfmFlowInfoCtxBuilder(flowTypePk, taskPk).initFlowInfoCtx(ctx);
+		this.builder(ctx);
 		List<HumActInfoPageCtx> nextInfos = new NextHumActInfoUtil().getNextHumActInfo(taskPk, WfmTaskUtil.getWfmFormInfoCtx());
 		if (nextInfos == null || nextInfos.size() == 0) {
 			return ctx;
@@ -66,7 +66,7 @@ public class WfmNextFlowInfoCtxBuilder {
 	 */
 	protected void builderNextAssignFlowInfoCtx(NextTaskInfoCtx ctx) {
 		LfwWidget view_assign = WfmTaskUtil.getAssignView();
-		List<HumActInfoEngCtx> nextInfo = new WfmAssginCtxBuilder(flowTypePk, taskPk).getAssginCtx(view_assign.getViewModels().getDataset(WfmConstants.DsHUMACT));
+		List<HumActInfoEngCtx> nextInfo = new WfmAssginFlowInfoCtxBuilder(flowTypePk, taskPk).getAssginCtx(view_assign.getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT));
 		ctx.setNextInfo(nextInfo.toArray(new HumActInfoEngCtx[0]));
 	}
 }

@@ -9,20 +9,22 @@ import nc.uap.wfm.model.HumAct;
 import nc.uap.wfm.model.ProDef;
 import nc.uap.wfm.model.Task;
 import nc.uap.wfm.utils.WfmTaskUtil;
-public class WfmFlowInfoCtxBuilder {
-	private String flowTypePk = null;
-	private String taskPk = null;
+public class WfmFlowInfoCtxBuilder implements IWfmFlowInfoBuilder {
+	protected String flowTypePk = null;
+	protected String taskPk = null;
 	public WfmFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
 		this.flowTypePk = flowTypePk;
 		this.taskPk = taskPk;
+	}
+	public WfmFlowInfoCtx builder() {
+		return null;
 	}
 	/**
 	 * 构造流程基本信息
 	 * 
 	 * @param ctx
 	 */
-	public void initFlowInfoCtx(WfmFlowInfoCtx ctx) {
+	public void builder(WfmFlowInfoCtx ctx) {
 		Task task = null;
 		ProDef proDef = null;
 		if (taskPk == null || taskPk.length() == 0) {

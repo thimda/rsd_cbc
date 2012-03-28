@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta flowmode="true" id="editView_um" jquery="0">
     <FlowvLayout autoFill="0" id="flowvlayout8869" widgetId="editView">
+    	<FlowvPanel id="panelv07869" widgetId="editView" height="30">
+    	</FlowvPanel>
         <FlowvPanel id="panelv08869" widgetId="editView">
-            <FormComp height="100%" id="form_template" left="0" position="relative" top="0" widgetId="editView" width="100%">
-            </FormComp>
+        	<FlowhLayout id="flwhlayout001" widgetId="editView">
+        		<FlowhPanel id="flwhpanel0010" widgetId="editView" width="50">
+        		</FlowhPanel>
+        		<FlowhPanel id="flwhpanel0011" widgetId="editView">
+        			<FormComp height="100%" id="form_template" left="0" position="relative" top="0" widgetId="editView" width="100%">
+            		</FormComp>
+        		</FlowhPanel>
+        		<FlowhPanel id="flwhpanel0012" widgetId="editView" width="75">
+        		</FlowhPanel>
+        	</FlowhLayout>
+            
         </FlowvPanel>
         <FlowvPanel height="30" id="panelv18869" widgetId="editView">
             <FlowhLayout id="flowhlayout1868" widgetId="editView">
                 <FlowhPanel id="panelh01868" widgetId="editView">
                 </FlowhPanel>
                 <FlowhPanel id="panelh11868" widgetId="editView">
-                    <Button height="23" id="ok_btn" left="0" position="relative" top="0" widgetId="editView" width="64">
-                    </Button>
                 </FlowhPanel>
                 <FlowhPanel id="panelh21868" widgetId="editView">
-                    <Button height="23" id="cancel_btn" left="0" position="relative" top="0" widgetId="editView" width="64">
-                    </Button>
                 </FlowhPanel>
                 <FlowhPanel id="panelh31868" widgetId="editView">
+                	<Button height="23" id="ok_btn" left="0" position="relative" top="0" widgetId="editView" width="64">
+                    </Button>
+                </FlowhPanel>
+                <FlowhPanel id="panelh41868" widgetId="editView">
+                 	<Button height="23" id="cancel_btn" left="0" position="relative" top="0" widgetId="editView" width="64">
+                    </Button>
                 </FlowhPanel>
             </FlowhLayout>
         </FlowvPanel>

@@ -4,15 +4,20 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import nc.bs.dao.BaseDAO;
 import nc.bs.dao.DAOException;
+import nc.jdbc.framework.SQLParameter;
 import nc.jdbc.framework.processor.ArrayProcessor;
+import nc.uap.cpb.org.util.SecurityUtil;
 import nc.uap.ctrl.tpl.exp.TplBusinessException;
 import nc.uap.ctrl.tpl.qry.ICpQryTemplateInnerQryService;
 import nc.uap.ctrl.tpl.qry.base.CpQueryConditionVO;
 import nc.uap.ctrl.tpl.qry.base.CpQueryTemplateTotalVO;
 import nc.uap.ctrl.tpl.qry.base.CpQueryTemplateVO;
 import nc.uap.ctrl.tpl.qry.base.QuerySchemeVO;
+import nc.uap.lfw.core.exception.LfwRuntimeException;
 import nc.uap.lfw.core.log.LfwLogger;
 import nc.vo.pub.BusinessException;
 
@@ -56,11 +61,48 @@ public class CpQryTemplateInnerQryServiceImpl implements
 	}
 
 	@Override
-	public String getQueryTemplatePkByNode(String nodeCode)
+	public String getQueryTemplatePkByNode(String pk_user, String nodeCode)
 			throws TplBusinessException {
+		BaseDAO dao = new BaseDAO();
+		String sqluser = "select a.pk_template from cp_templateuser as a inner join cp_query_template as b on a.pk_template = b.pk_query_template where a.pk_user = ? " +
+				" and (b.nodecode = ? or b.nodekey = ?)";
+		SQLParameter param = new SQLParameter();
+		param.addParam(pk_user);
+		param.addParam(nodeCode);
+		param.addParam(nodeCode);
+		String pk_template = null;
 		try {
-			BaseDAO dao = new BaseDAO();
-			Object[] objs = (Object[]) dao.executeQuery("select pk_query_template from cp_query_template where nodecode='" + nodeCode + "'", new ArrayProcessor());
+			Object[] objs = (Object[]) dao.executeQuery(sqluser, param, new ArrayProcessor());
+			if(objs != null)
+				pk_template =  (String) objs[0];
+			
+		} catch (DAOException e) {
+			LfwLogger.error(e.getMessage(), e);
+			throw new LfwRuntimeException(e);
+		}
+		if(pk_template != null)
+			return pk_template;
+	
+		//根据角色查询用户关联的模板
+		String [] pk_roles = SecurityUtil.getRolePks(pk_user);
+		String pk_role = StringUtils.join(pk_roles, "','");
+		if(pk_role != null && !"".equals(pk_role)){
+			String sqlrole = "select  a.pk_template from cp_templaterole as a inner join cp_query_template as b on a.pk_template = b.pk_query_template where pk_role in ('" + pk_role + "')";
+			try {
+				Object[] objs = (Object[]) dao.executeQuery(sqlrole, new ArrayProcessor());
+				if(objs != null)
+					pk_template =  (String) objs[0];
+			} catch (DAOException e) {
+				LfwLogger.error(e.getMessage(), e);
+				throw new LfwRuntimeException(e);
+			}
+			
+		}
+		if(pk_template != null)
+			return pk_template;
+		try {
+		
+			Object[] objs = (Object[]) dao.executeQuery("select pk_query_template from cp_query_template where nodecode='" + nodeCode + "' or nodekey ='" + nodeCode + "'", new ArrayProcessor());
 			if(objs == null || objs.length == 0)
 				return null;
 			return (String) objs[0];

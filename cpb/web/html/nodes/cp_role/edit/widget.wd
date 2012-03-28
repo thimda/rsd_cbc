@@ -122,6 +122,8 @@
             </NCRefNode>
             <NCRefNode allowInput="false" dataListener="nc.uap.cpb.org.pubrefrence.UserReferenceController" dialog="true" i18nName="" id="refnode_cp_role_usercreated_user_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/refgridtree.jsp" readDs="masterDs" readFields="cuserid,user_name" refId="" refcode="协同用户" refnodeDelegator="" refresh="false" selLeafOnly="false" text="协同角色_协同用户" usePower="false" writeDs="cp_role" writeFields="usercreated,usercreated_user_name">
             </NCRefNode>
+            <NCRefNode allowInput="false" dataListener="" dialog="true" i18nName="" id="refnode_cp_role_pk_org_name" langDir="" multiSel="false" orgs="false" pagemeta="reference" pagemodel="" path="reference/reftree.jsp" readDs="masterDs" readFields="pk_org,name" refId="" refcode="业务单元+集团" refnodeDelegator="" refresh="false" selLeafOnly="false" text="业务单元+集团" usePower="false" writeDs="cp_usergroup" writeFields="pk_org,pk_org_name">
+            </NCRefNode>
         </RefNodes>
     </Models>
     <Components>
@@ -146,7 +148,7 @@
         </ButtonComp>
         <ButtonComp enabled="true" id="btn_ok" text="确定" visible="true">
         </ButtonComp>
-        <FormComp caption="协同角色" columnCount="2" dataset="cp_role" eleWidth="120" enabled="true" id="form_role" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
+        <FormComp caption="协同角色" columnCount="1" dataset="cp_role" eleWidth="250" enabled="true" id="form_role" labelMinWidth="0" renderHiddenEle="false" renderType="1" rowHeight="22" visible="true">
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="rolename" id="rolename" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色名称" visible="true">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="rolecode" id="rolecode" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色编码" visible="true">
@@ -161,11 +163,15 @@
             </Element>
             <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="usercreated" id="usercreated" imageOnly="false" nextLine="false" nullAble="true"  rowSpan="1" selectOnly="true" text="创建用户" visible="true">
             </Element>
+            <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_org_name" id="pk_org_name" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_role_pk_org_name" rowSpan="1" selectOnly="true" text="所属组织" visible="false">
+            </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="StringText" enabled="true" field="pk_rolegroup" id="pk_rolegroup" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属角色组" visible="false">
             </Element>
             <Element attachNext="false" colSpan="1" editable="true" editorType="Reference" enabled="true" field="pk_rolegroup_groupname" id="pk_rolegroup_groupname" imageOnly="false" nextLine="false" nullAble="true" refNode="refnode_cp_role_pk_rolegroup_groupname" rowSpan="1" selectOnly="true" text="所属角色组" visible="true">
             </Element>
-            <Element attachNext="false" colSpan="2" editable="true" editorType="StringText" enabled="true" field="comments" id="comments" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色备注" visible="true" width="330">
+            <Element attachNext="false" colSpan="2" editable="true" editorType="StringText" enabled="true" field="comments" id="comments" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="角色备注" visible="true">
+            </Element>
+            <Element attachNext="false" colSpan="1" editable="false" editorType="StringText" enabled="true" field="pk_org" id="pk_org" imageOnly="false" nextLine="false" nullAble="true" rowSpan="1" selectOnly="true" text="所属组织" visible="false">
             </Element>
         </FormComp>
     </Components>

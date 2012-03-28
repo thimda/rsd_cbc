@@ -15,6 +15,7 @@ import nc.uap.lfw.core.comp.ButtonComp;
 import nc.uap.lfw.core.comp.FormComp;
 import nc.uap.lfw.core.comp.FormElement;
 import nc.uap.lfw.core.comp.LabelComp;
+import nc.uap.lfw.core.comp.LinkComp;
 import nc.uap.lfw.core.ctx.AppLifeCycleContext;
 import nc.uap.lfw.core.data.Dataset;
 import nc.uap.lfw.core.data.Field;
@@ -47,35 +48,21 @@ public class SimpleQueryWidgetProvider implements IWidgetContentProvider {
 			return widget;
 		}
 		
-//		ITemplateRelationQryService templateQry = NCLocator.getInstance().lookup(ITemplateRelationQryService.class);
-//		String pk_user = LfwRuntimeEnvironment.getLfwSessionBean().getPk_user();
-//		try {
-//			queryNode = templateQry.getTemplatePkByUser(pk_user, TemplateConstant.TEMPLATE_QUERY_TEMPLATE);
-//		} 
-//		catch (TplBusinessException e) {
-//			LfwLogger.error(e.getMessage(), e);
-//		}
-		CpQueryTemplateTotalVO totalVO = null;
-		if(queryNode != null){
-			totalVO = getQueryTotalVOByPk(queryNode);
-		}
-		if(totalVO == null){
-			if (pm != null) {
-				if (conf.getExtendAttribute(PageMeta.$QUERYTEMPLATE) != null)
-					queryNode = (String) conf.getExtendAttribute(
+		if (pm != null) {
+			if (conf.getExtendAttribute(PageMeta.$QUERYTEMPLATE) != null)
+				queryNode = (String) conf.getExtendAttribute(
+						PageMeta.$QUERYTEMPLATE).getValue();
+			if (queryNode == null) {
+				if (pm.getExtendAttribute(PageMeta.$QUERYTEMPLATE) != null) {
+					queryNode = (String) pm.getExtendAttribute(
 							PageMeta.$QUERYTEMPLATE).getValue();
-				if (queryNode == null) {
-					if (pm.getExtendAttribute(PageMeta.$QUERYTEMPLATE) != null) {
-						queryNode = (String) pm.getExtendAttribute(
-								PageMeta.$QUERYTEMPLATE).getValue();
-					}
-				}
-				if((queryNode == null || "".equals(queryNode) ) && AppLifeCycleContext.current() != null){
-					queryNode = (String) AppLifeCycleContext.current().getApplicationContext().getAppAttribute(AppControlPlugin.NODECODE);
 				}
 			}
+			if((queryNode == null || "".equals(queryNode) ) && AppLifeCycleContext.current() != null){
+				queryNode = (String) AppLifeCycleContext.current().getApplicationContext().getAppAttribute(AppControlPlugin.NODECODE);
+			}
 		}
-		totalVO = getQueryTotalVO(queryNode);
+		CpQueryTemplateTotalVO totalVO = getQueryTotalVO(queryNode);
 		if (totalVO == null) {
 			mockNullWidget(widget);
 		} 
@@ -85,7 +72,8 @@ public class SimpleQueryWidgetProvider implements IWidgetContentProvider {
 			List<FilterMeta> defaultMetas = loader.getDefaultMetas();
 			if (defaultMetas == null || defaultMetas.size() == 0) {
 				mockNullWidget(widget);
-			} else {
+			} 
+			else {
 				Dataset ds = new Dataset();
 				ds.setId(MAINDS);
 				widget.getViewModels().addDataset(ds);
@@ -101,14 +89,9 @@ public class SimpleQueryWidgetProvider implements IWidgetContentProvider {
 					f.setId(meta.getFieldCode());
 					f.setText(meta.getFieldCode());
 					ds.getFieldSet().addField(f);
-					FormElement fme = QuerySchemeUtils.setMetaToFormEle(meta,
-							widget);
+					FormElement fme = QuerySchemeUtils.setMetaToFormEle(meta, widget);
 					if (fme == null)
 						continue;
-					// fme.setId(f.getId());
-					// fme.setText(meta.getFieldName());
-					// fme.setField(f.getId());
-					// fme.setEditorType(EditorTypeConst.STRINGTEXT);
 					form.addElement(fme);
 				}
 				ds.setCurrentKey(Dataset.MASTER_KEY);
@@ -117,10 +100,6 @@ public class SimpleQueryWidgetProvider implements IWidgetContentProvider {
 				ds.setRowSelectIndex(0);
 				ds.setEnabled(true);
 
-				// ButtonComp cleanBt = new ButtonComp();
-				// cleanBt.setId("cleanBt");
-				// cleanBt.setText("清空");
-				// widget.getViewComponents().addComponent(cleanBt);
 				ButtonComp qryBt = new ButtonComp();
 				qryBt.setId("queryBt");
 				qryBt.setText("查询");
@@ -130,6 +109,11 @@ public class SimpleQueryWidgetProvider implements IWidgetContentProvider {
 				okClickConf.setName("onclick");
 				okClickConf.setJsEventClaszz(MouseListener.class.getName());
 				qryBt.addEventConf(okClickConf);
+				
+				LinkComp advLink = new LinkComp();
+				advLink.setId("advlink");
+				advLink.setI18nName("高级查询");
+				widget.getViewComponents().addComponent(advLink);
 				// EventConf cleanClickConf = new EventConf();
 				// cleanClickConf.setMethodName("onCleanBtOk");
 				// cleanClickConf.setName("onclick");

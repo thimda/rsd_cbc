@@ -23,6 +23,7 @@ import nc.uap.cpb.org.itf.ICpRoleGroupQry;
 import nc.uap.cpb.org.itf.ICpRoleQry;
 import nc.uap.cpb.org.itf.ICpRoleResourceBill;
 import nc.uap.cpb.org.itf.ICpRoleResourceQry;
+import nc.uap.cpb.org.itf.ICpRoleRespBill;
 import nc.uap.cpb.org.itf.ICpSuperVOBill;
 import nc.uap.cpb.org.itf.ICpSuperVOQry;
 import nc.uap.cpb.org.itf.ICpUserBill;
@@ -123,6 +124,13 @@ public class CpbServiceFacility {
 	}
 	public static ICpRoleQry getCpRoleQry() {
 		return (ICpRoleQry) NCLocator.getInstance().lookup(ICpRoleQry.class.getName());
+	}
+	/**
+	 * 获取角色职责服务接口
+	 * @return
+	 */
+	public static ICpRoleRespBill getCpRoleRespBill() {
+		return NCLocator.getInstance().lookup(ICpRoleRespBill.class);
 	}
 	/**
 	 * 获取职责操作服务接口

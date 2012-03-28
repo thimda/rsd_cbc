@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta chart="0" jquery="0" jsEditor="0" jsExcel="0" flowmode="true">
     <FlowvLayout autoFill="0" id="flow1eee">
+        <FlowvPanel id="flowv456453fd" height="30">   
+          </FlowvPanel> 
         <FlowvPanel  id="flow2eee">
-            <FormComp id="form_user" widgetId="edit">
-            </FormComp>
+            <FlowhLayout autoFill="false" id="flowhlayout8289" widgetId="edit">
+				                <FlowhPanel id="panelh08289" widgetId="edit" width="50">
+				                </FlowhPanel>
+				                <FlowhPanel id="panelh18289" widgetId="edit">
+					                <FormComp id="form_user" widgetId="edit">
+            						</FormComp> 
+				                </FlowhPanel>
+				                <FlowhPanel id="panelh28289" widgetId="edit" width="50">
+				                </FlowhPanel>
+							</FlowhLayout>
         </FlowvPanel>
         <FlowvPanel height="30" id="flow3eee">
             <FlowhLayout id="flow4eee">

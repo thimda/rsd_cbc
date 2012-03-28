@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.Set;
 import nc.uap.lfw.core.exception.LfwRuntimeException;
 import nc.uap.lfw.core.log.LfwLogger;
-import nc.uap.wfm.builder.ModelBuilder;
+import nc.uap.wfm.convert.ModelBuilder;
 import nc.uap.wfm.exception.WfmServiceException;
 import nc.uap.wfm.model.HumAct;
 import nc.uap.wfm.model.HumActIns;

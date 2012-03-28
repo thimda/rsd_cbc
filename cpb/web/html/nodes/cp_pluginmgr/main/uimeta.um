@@ -17,7 +17,7 @@
 		<FlowhPanel id="flowhp3">
             <FlowvLayout autoFill="0" id="flowv3" widgetId="null">
                 <FlowvPanel id="rcanvas">
-	            	<CanvasLayout id="righttitlecanvas" className="rightcanvas">
+	            	<CanvasLayout id="righttitlecanvas" className="rightcanvas" title="">
 						<CanvasPanel id="canvasp1">
 						</CanvasPanel>
 					</CanvasLayout>

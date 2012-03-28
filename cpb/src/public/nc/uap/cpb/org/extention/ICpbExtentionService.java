@@ -13,8 +13,6 @@ public interface ICpbExtentionService {
 	//集团
 	public static final String GROUPMANAGE = "groupmanage";
 	
-	//部门
-	public static final String  DEPTMANAGE = "deptmanage";
 	
 	//角色
 	public static final String ROLEMANAGE = "rolemanage";
@@ -27,6 +25,9 @@ public interface ICpbExtentionService {
 	
 	//用户
 	public static final String USERMANAGE = "usermanage";
+	
+	//职责
+	public static final String RESPMANAGE = "respmanage";
 	
 	//actiontype的类型
 	public static final String ADD = "add";
@@ -44,17 +45,6 @@ public interface ICpbExtentionService {
 	public static final String ROLE_RELATE_USER = "role_relate_user";
 	/**角色删除关联用户*/
 	public static final String ROLE_DELETE_USER = "role_delete_user";
-	
-	//用户组动作类型
-	/**用户组关联角色*/
-	public static final String USERGROUP_RELATE_ROLE = "usergroup_relate_role";
-	/**用户组删除关联角色*/
-	public static final String USERGROUP_DELETE_ROLE = "usergroup_delete_role";
-	
-	/**部门关联角色*/
-	public static final String DEPT_RELATE_ROLE = "dept_relate_role";
-	/**部门删除关联角色*/
-	public static final String DEPT_DELETE_ROLE = "dept_delete_role";
 
 	/**
 	 *和业务关联的逻辑后处理扩展逻辑

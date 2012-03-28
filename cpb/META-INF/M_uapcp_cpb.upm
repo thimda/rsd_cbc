@@ -24,6 +24,11 @@
 		<interface>nc.uap.cpb.org.itf.ICpResponsibilityQry</interface>
 		<implementation>nc.uap.cpb.org.impl.CpResponsibilityQry</implementation>
 	</component>
+<!--角色职责-->	
+	<component singleton="true" tx="CMT" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpRoleRespBill</interface>
+		<implementation>nc.uap.cpb.org.impl.CpRoleRespBill</implementation>
+	</component>
 
   <!--插件-->
 <component singleton="true" tx="CMT" remote="true">
@@ -194,6 +199,11 @@
 		<implementation>nc.uap.cpb.templaterela.impl.TemplateRelationServiceImpl</implementation>
 	</component>
 	
+	<!--参数设置服务-->
+	<component singleton="true" tx="NONE" remote="true">
+		<interface>nc.uap.cpb.org.itf.ICpSysinitQry</interface>
+		<implementation>nc.uap.cpb.org.impl.CpSysinitQry</implementation>
+	</component>	
    </public>
    <private>
    </private>

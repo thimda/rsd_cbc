@@ -15,7 +15,7 @@ public class UpdateFrmNumBillCmd extends AbstractCommand implements ICommand<Voi
 		String frmDefPk = null;
 		String runnum = null;
 		if (task == null) {
-			frmDefPk = LfwRuntimeEnvironment.getWebContext().getParameter(WfmConstants.FlwTypePk);
+			frmDefPk = LfwRuntimeEnvironment.getWebContext().getParameter(WfmConstants.WfmAppAttr_FolwTypePk);
 		} else {
 			frmDefPk = task.getPk_frmdef();
 		}

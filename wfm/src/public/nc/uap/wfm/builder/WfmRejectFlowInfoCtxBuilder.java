@@ -5,30 +5,30 @@ import nc.uap.wfm.constant.WfmConstants;
 import nc.uap.wfm.context.HumActInfoEngCtx;
 import nc.uap.wfm.context.HumActInfoPageCtx;
 import nc.uap.wfm.context.RejectTaskInfoCtx;
+import nc.uap.wfm.context.WfmFlowInfoCtx;
 import nc.uap.wfm.model.Task;
 import nc.uap.wfm.runtime.RejectHumActInfoUtil;
 import nc.uap.wfm.utils.WfmTaskUtil;
-public class WfmRejectFlowInfoCtxBuilder {
-	protected String flowTypePk;
-	protected String taskPk;
+public class WfmRejectFlowInfoCtxBuilder extends WfmFlowInfoCtxBuilder {
 	public WfmRejectFlowInfoCtxBuilder(String flowTypePk, String taskPk) {
-		super();
-		this.flowTypePk = flowTypePk;
-		this.taskPk = taskPk;
+		super(flowTypePk, taskPk);
+	}
+	public WfmFlowInfoCtx builder() {
+		return this.builderRejectFlwInfoCtx();
 	}
 	/**
 	 * 构造驳回信息
 	 * 
 	 * @return
 	 */
-	public RejectTaskInfoCtx builderRejectFlwInfoCtx() {
+	protected RejectTaskInfoCtx builderRejectFlwInfoCtx() {
 		RejectTaskInfoCtx ctx = new RejectTaskInfoCtx();
-		new WfmFlowInfoCtxBuilder(flowTypePk, taskPk).initFlowInfoCtx(ctx);
+		this.builder(ctx);
 		Task task = WfmTaskUtil.getTaskByTaskPk(taskPk);
 		RejectHumActInfoUtil rejectHumActInfo = new RejectHumActInfoUtil();
 		List<HumActInfoPageCtx> rejectInfos = rejectHumActInfo.getRejectHumActInfo(task);
 		if (rejectInfos == null || rejectInfos.size() == 0) {
-			return ctx; 
+			return ctx;
 		}
 		if (rejectInfos.size() == 1 && !rejectInfos.get(0).isAssign()) {
 			this.builderNoRejectAssignFlowInfoCtx(ctx, rejectInfos.get(0));
@@ -44,7 +44,7 @@ public class WfmRejectFlowInfoCtxBuilder {
 	 */
 	protected void builderRejectAssignFlowInfoCtx(RejectTaskInfoCtx ctx) {
 		LfwWidget view_assign = WfmTaskUtil.getAssignView();
-		List<HumActInfoEngCtx> rejectInfo = new WfmAssginCtxBuilder(flowTypePk, taskPk).getAssginCtx(view_assign.getViewModels().getDataset(WfmConstants.DsHUMACT));
+		List<HumActInfoEngCtx> rejectInfo = new WfmAssginFlowInfoCtxBuilder(flowTypePk, taskPk).getAssginCtx(view_assign.getViewModels().getDataset(WfmConstants.WfmDataset_DsHUMACT));
 		ctx.setRejectInfo(rejectInfo.get(0));
 	}
 	/**

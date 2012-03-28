@@ -16,7 +16,8 @@ public class CpQueryTemplatePageModel extends PageModel {
 	@Override
 	protected IUIMeta createUIMeta(PageMeta pm) {
 		UIMeta pageUm = new UIMeta();
-		pageUm.setLfwIncludejs("cpqry/QueryTemplate.js,cpqry/QueryTemplatePanel.js,cpqry/QueryTemplateProcessor.js");
+		pageUm.setLfwIncludejs("cpqry/QueryTemplate.js,cpqry/QueryTemplatePanel.js," +
+				"cpqry/QueryTemplateProcessor.js,cpqry/BetweenPanel.js");
 		pageUm.setId("pageUm");
 		
 		LfwWidget widget = pm.getWidget(MAIN_WIDGET);

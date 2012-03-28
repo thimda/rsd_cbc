@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <UIMeta chart="0" flowmode="true" id="main_um" jquery="0" jsEditor="0" jsExcel="0">
             <FlowvLayout autoFill="0" id="flowvlayout0090" widgetId="main">
-                <FlowvPanel height="10" id="panelv013410" widgetId="main">
+                <FlowvPanel  id="panelv013410" widgetId="main">
+                    <CanvasLayout id="titlecanvas" className="rightcanvas">
+						<CanvasPanel id="canvasp1">
+						     <FlowhLayout id="flowhlayoutcanvas" widgetId="main">
+						     </FlowhLayout>
+				        </CanvasPanel>
+					</CanvasLayout>
+		        </FlowvPanel>
+		        <FlowvPanel height="10" id="panelv013410" widgetId="main">                    
 		        </FlowvPanel>
 		        <FlowvPanel height="30" id="panelv03410" widgetId="main">
 					        <FlowhLayout id="flowhlayouthjk" widgetId="main">

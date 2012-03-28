@@ -15,6 +15,7 @@ import nc.uap.ctrl.tpl.qry.ICpQryTemplateInnerQryService;
 import nc.uap.ctrl.tpl.qry.meta.ConditionVO;
 import nc.uap.ctrl.tpl.qry.meta.FilterMeta;
 import nc.uap.ctrl.tpl.qry.meta.IFilter;
+import nc.uap.lfw.core.LfwRuntimeEnvironment;
 import nc.uap.lfw.core.ctx.AppLifeCycleContext;
 import nc.uap.lfw.core.log.LfwLogger;
 
@@ -339,8 +340,9 @@ public class CpQueryTemplateTranslator {
 			return null;
 		}
 		ICpQryTemplateInnerQryService qryService = NCLocator.getInstance().lookup(ICpQryTemplateInnerQryService.class);
+		String pk_user = LfwRuntimeEnvironment.getLfwSessionBean().getPk_user();
 		try {
-			String pk_template = qryService.getQueryTemplatePkByNode(queryNode);
+			String pk_template = qryService.getQueryTemplatePkByNode(pk_user, queryNode);
 			return pk_template;
 		} 
 		catch (TplBusinessException e) {

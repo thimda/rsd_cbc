@@ -1,22 +1,22 @@
 package nc.uap.cpb.defdoc.defdoclist;
 import nc.uap.lfw.core.event.DialogEvent;
 import nc.uap.lfw.core.ctx.AppLifeCycleContext;
-import nc.uap.lfw.core.ctx.WindowContext;
-
 import java.util.Map;
 import nc.uap.lfw.core.LfwRuntimeEnvironment;
 import nc.uap.lfw.core.comp.FormComp;
-import nc.uap.lfw.core.ctrl.IController;
-import nc.uap.lfw.core.data.Field;
 import nc.uap.lfw.core.data.Row;
+import nc.uap.lfw.core.ctrl.IController;
 import nc.uap.lfw.core.data.Dataset;
+import nc.uap.lfw.core.data.Field;
+import nc.uap.lfw.core.event.MouseEvent;
+import nc.uap.lfw.core.ctx.WindowContext;
 /** 
  * @author chouhl
  */
 public class EditCtrl implements IController {
   private static final long serialVersionUID=1L;
-  public void beforeShow(DialogEvent dialogEvent) {
-		// FormComp fcp =
+  public void beforeShow(  DialogEvent dialogEvent){
+    // FormComp fcp =
 		// (FormComp)AppLifeCycleContext.current().getViewContext().getView().getViewComponents().getComponent("editForm");
 		String edit = (String)getCurrentWinCtx().getAppAttribute("edit");
 		if(edit == null)edit="";
@@ -42,8 +42,11 @@ public class EditCtrl implements IController {
 			ds.setSelectedIndex(ds.getRowIndex(emptyRow));
 			ds.setEnabled(true);
 		}
-	}
+  }
   private WindowContext getCurrentWinCtx(){
-	    return AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext();
-	  }
+    return AppLifeCycleContext.current().getApplicationContext().getCurrentWindowContext();
+  }
+  public void cancelEvent(  MouseEvent mouseEvent){
+	  AppLifeCycleContext.current().getWindowContext().closeView("edit");
+  }
 }

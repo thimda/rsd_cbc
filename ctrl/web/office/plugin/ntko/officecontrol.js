@@ -52,6 +52,10 @@ OfficeControl.prototype.initOfficeControl = function (userSettings) {
 		this.OnSecSignDeleted = function(UserName,SignName,SignUser, SignSN, EkeySN, UserData){};
 		if(userSettings.OnSecSignDeleted)
 			this.OnSecSignDeleted = userSettings.OnSecSignDeleted;
+		this.OnSecSignFinished = function(isOk,SecSignObject){};
+		if(userSettings.OnSecSignFinished)
+			this.OnSecSignFinished = userSettings.OnSecSignFinished;
+		
 		
 	} catch (ex) {		
 		throw ex;
@@ -162,7 +166,7 @@ OfficeControl.prototype.getObjectHTML = function () {
 		+'<!-- 因为微软的ActiveX新机制，需要一个外部引入的js-->   '
 		+'<object id="ntkoofficectl" classid="clsid:A39F1330-3322-4a1d-9BF0-0BA2BB90E970"'
 		+'codebase="'+ this.settings.rootpath 
-		+'/office/plugin/ntko/OfficeControl.cab#version=5,0,1,2" width="' 
+		+'/office/plugin/ntko/OfficeControl.cab#version=5,0,1,8" width="' 
 		+ this.settings.width + '" height="' + this.settings.height +'">'
 		+'<param name="IsUseUTF8URL" value="-1">   '
 		+'<param name="IsUseUTF8Data" value="-1">   '
@@ -381,7 +385,10 @@ OfficeControl.prototype.addEvent= function (){
 			(function(obj){return function(Username, SignType,SecSignObject){return SecSignSetInfo(obj,Username, SignType,SecSignObject);}})(this));
 			
 	this.curobj.attachEvent("OnSecSignDeleted",
-			(function(obj){return function(UserName,SignName,SignUser, SignSN, EkeySN, UserData){return  SecSignDeleted(obj,UserName,SignName,SignUser, SignSN, EkeySN, UserData);}})(this));	
+			(function(obj){return function(UserName,SignName,SignUser, SignSN, EkeySN, UserData){return  SecSignDeleted(obj,UserName,SignName,SignUser, SignSN, EkeySN, UserData);}})(this));
+			
+	this.curobj.attachEvent("OnSecSignFinished",
+			(function(obj){return function(isOk,SecSignObject){return  SecSignFinished(obj,isOk,SecSignObject);}})(this));
 }
 OfficeControl.prototype.addExcelEvent=function(){
 		if(this.curobj.ActiveDocument && this.curobj.ActiveDocument.Application){
@@ -676,13 +683,17 @@ function BeforeDoSecSign(ofctl,UserName,SignName,SignUser,SignSN, IsCancel){
 function BeforeDoSecSignFromEkey(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, IsCancel){
 	ofctl.OnBeforeDoSecSignFromEkey(UserName,SignName,SignUser, SignSN, EkeySN, IsCancel);
 }
-function SecSignSetInfo(Username, SignType,SecSignObject){
+function SecSignSetInfo(ofctl,Username, SignType,SecSignObject){
 	ofctl.OnSecSignSetInfo(Username, SignType,SecSignObject);
 }
 function SecSignDeleted(ofctl,UserName,SignName,SignUser, SignSN, EkeySN, UserData){
 	ofctl.OnSecSignDeleted(UserName,SignName,SignUser, SignSN, EkeySN, UserData);
 }
-			
+function SecSignFinished(ofctl,isOk,SecSignObject){
+	ofctl.OnSecSignFinished(isOk,SecSignObject);
+}			
+
+
 //痕迹隐藏
 OfficeControl.prototype.showRevisions=function(isshow){
 	if(this.settings.isOpened)

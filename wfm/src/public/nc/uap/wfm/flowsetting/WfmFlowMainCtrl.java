@@ -1,5 +1,6 @@
 package nc.uap.wfm.flowsetting;
 import java.util.Map;
+import nc.uap.cpb.org.constant.DialogConstant;
 import nc.uap.cpb.org.querycmd.QueryCmd;
 import nc.uap.lfw.core.InteractionUtil;
 import nc.uap.lfw.core.LfwRuntimeEnvironment;
@@ -28,6 +29,7 @@ import nc.uap.wfm.utils.AppUtil;
 import nc.uap.wfm.vo.WfmFlwTypeVO;
 import nc.uap.wfm.vo.WfmProdefVO;
 import nc.vo.pub.SuperVO;
+import nc.vo.pub.lang.UFBoolean;
 import org.apache.commons.lang.StringUtils;
 /**
  * @author chouhl
@@ -83,7 +85,7 @@ public class WfmFlowMainCtrl implements IController {
 	public void addChildren(MouseEvent<MenuItem> e) {
 		AppUtil.addAppAttr("operator", "addChildren");
 		new UifPlugoutCmd("main", "flowmain_pluginout").execute();
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", "600", "430", "增加业务子类型");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "增加业务子类型");
 	}
 	public void modifyChildren(MouseEvent<MenuItem> e) {
 		LfwWidget widetMain = AppUtil.getWidget("main");
@@ -99,7 +101,7 @@ public class WfmFlowMainCtrl implements IController {
 		}
 		AppUtil.addAppAttr("operator", "modifyChildren");
 		new UifPlugoutCmd("main", "flowmain_pluginout").execute();
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", "600", "430", "修改业务子类型");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改业务子类型");
 	}
 	public void deleteChildern(MouseEvent<MenuItem> e) {
 		LfwWidget widgetMain = AppUtil.getWidget("main");
@@ -111,6 +113,10 @@ public class WfmFlowMainCtrl implements IController {
 		String parentPk = (String) selectedRow.getValue(dsFlowType.nameToIndex(WfmFlwTypeVO.PK_PARENT));
 		if (parentPk == null) {
 			throw new LfwRuntimeException("请选择要删除的业务子类型");
+		}
+		UFBoolean isNotInner = (UFBoolean) selectedRow.getValue(dsFlowType.nameToIndex(WfmFlwTypeVO.ISINNER));
+		if (isNotInner.booleanValue()) {
+			throw new LfwRuntimeException("系统内置业务类型不允许删除");
 		}
 		InteractionUtil.showConfirmDialog("确认删除", "确认要删除这条数据吗?");
 		if (InteractionUtil.getConfirmDialogResult().booleanValue()) {
@@ -137,7 +143,7 @@ public class WfmFlowMainCtrl implements IController {
 		}
 		AppUtil.addAppAttr("operator", "modifyParent");
 		new UifPlugoutCmd("main", "flowmain_pluginout").execute();
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", "600", "430", "修改业务类型");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_flowtype", DialogConstant.FIVE_ELE_WIDTH, DialogConstant.FIVE_ELE_HEIGHT, "修改业务类型");
 	}
 	public void wfmFlowTypeOnAfterRow(DatasetEvent se) {
 		LfwWidget widetMain = AppUtil.getWidget("main");
@@ -172,12 +178,12 @@ public class WfmFlowMainCtrl implements IController {
 		AppUtil.addAppAttr("flowtypepk", (String) selectedRow.getValue(dsFlowType.nameToIndex(WfmFlwTypeVO.PK_FLWTYPE)));
 		AppUtil.addAppAttr("operator", "addProDef");
 		new UifPlugoutCmd("main", "prodef_pluginout").execute();
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_prodef", "600", "430", "增加流程定义");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_prodef", DialogConstant.DEFAULT_WIDTH, DialogConstant.SIX_ELE_HEIGHT, "增加流程定义");
 	}
 	public void modifyProDef(MouseEvent<MenuItem> e) {
 		AppUtil.addAppAttr("operator", "modifyProDef");
 		new UifPlugoutCmd("main", "prodef_pluginout").execute();
-		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_prodef", "600", "430", "修改流程定义");
+		AppUtil.getCntAppCtx().getCurrentWindowContext().popView("edit_prodef", DialogConstant.DEFAULT_WIDTH, DialogConstant.SIX_ELE_HEIGHT, "修改流程定义");
 	}
 	public void deleteProDef(MouseEvent<MenuItem> e) {
 		LfwWidget widgetMain = AppUtil.getWidget("main");

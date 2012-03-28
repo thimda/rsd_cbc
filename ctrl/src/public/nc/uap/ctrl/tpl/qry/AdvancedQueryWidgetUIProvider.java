@@ -3,6 +3,7 @@ package nc.uap.ctrl.tpl.qry;
 import nc.uap.lfw.core.model.IWidgetUIProvider;
 import nc.uap.lfw.core.page.LfwWidget;
 import nc.uap.lfw.jsp.uimeta.UIButton;
+import nc.uap.lfw.jsp.uimeta.UIConstant;
 import nc.uap.lfw.jsp.uimeta.UIDiv;
 import nc.uap.lfw.jsp.uimeta.UIFlowhLayout;
 import nc.uap.lfw.jsp.uimeta.UIFlowhPanel;
@@ -24,6 +25,7 @@ public class AdvancedQueryWidgetUIProvider implements IWidgetUIProvider {
 		UIMeta um = new UIMeta();
 		um.setId(widgetId + "_um");
 		um.setFlowmode(Boolean.FALSE);
+		um.setIncludeId("label,combotext,inputdialog,toolbar");
 		
 		UIFlowvLayout flowvLayout = new UIFlowvLayout();
 		flowvLayout.setId("flowvLayout");
@@ -42,6 +44,7 @@ public class AdvancedQueryWidgetUIProvider implements IWidgetUIProvider {
 		hSplitter.setId("hSpliter");
 		hSplitter.setBoundMode(UISplitter.BOUNDMODE_PX);
 		hSplitter.setDivideSize("220");
+		hSplitter.setOneTouch(UIConstant.TRUE);
 		flowvPanelTop.setElement(hSplitter);
 		
 		UISplitterOne sone = new UISplitterOne();
@@ -62,12 +65,30 @@ public class AdvancedQueryWidgetUIProvider implements IWidgetUIProvider {
 		itemTwo.setId("savedCondition");
 		itemTwo.setText("候选条件");
 		
-		tab.addPanel(itemOne);
 		tab.addPanel(itemTwo);
+		tab.addPanel(itemOne);
+		
+		UIFlowvLayout savedFlowvLayout = new UIFlowvLayout();
+		savedFlowvLayout.setId("savedFlowvLayout");
+		itemOne.setElement(savedFlowvLayout);
+		
+		UIFlowvPanel savedPanel1 = new UIFlowvPanel();
+		savedPanel1.setId("p1");
+		savedPanel1.setHeight("30");
+		savedFlowvLayout.addPanel(savedPanel1);
+		
+		UIDiv savedDiv = new UIDiv();
+		savedDiv.setId("favoritDiv");
+		savedDiv.setStyle("width:100%;height:100%;overflow-y:auto;");
+		savedPanel1.setElement(savedDiv);
+		
+		UIFlowvPanel savedPanel2 = new UIFlowvPanel();
+		savedPanel2.setId("p2");
+		savedFlowvLayout.addPanel(savedPanel2);
 		
 		UITreeComp savedTree = new UITreeComp();
 		savedTree.setId(AdvancedQueryWidgetProvider.SAVED_TREE_ID);
-		itemOne.setElement(savedTree);
+		savedPanel2.setElement(savedTree);
 		
 		UITreeComp qtTree = new UITreeComp();
 		qtTree.setId(AdvancedQueryWidgetProvider.QUERY_TEMPLATE_TREE_ID);
@@ -82,13 +103,15 @@ public class AdvancedQueryWidgetUIProvider implements IWidgetUIProvider {
 		UITabItem sqlTabOne = new UITabItem();
 		sqlTabOne.setId("normalTab");
 		sqlTabOne.setText("普通");
-		
+			
 		UITabItem sqlTabTwo = new UITabItem();
 		sqlTabTwo.setId("adbTab");
 		sqlTabTwo.setText("高级");
 		
 		sqlTab.addPanel(sqlTabOne);
 		sqlTab.addPanel(sqlTabTwo);
+		
+		sqlTab.setCurrentItem(sqlTabOne.getId());
 		
 		//<div id="$d_normalPanel" style="width:100%;height:100%;overflow-y:auto;"></div>
 		UIDiv div = new UIDiv();

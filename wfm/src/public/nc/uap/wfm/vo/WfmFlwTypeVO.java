@@ -26,6 +26,7 @@ public class WfmFlwTypeVO extends SuperVO {
 	private java.lang.String serverclass;
 	private java.lang.String pageid;
 	private java.lang.String pk_group;
+	private nc.vo.pub.lang.UFBoolean isinner;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -38,6 +39,7 @@ public class WfmFlwTypeVO extends SuperVO {
 	public static final String SERVERCLASS = "serverclass";
 	public static final String PAGEID = "pageid";
 	public static final String PK_GROUP = "pk_group";
+	public static final String ISINNER = "isinner";
 			
 	/**
 	 * 属性pk_flwtype的Getter方法.属性名：主键
@@ -182,6 +184,22 @@ public class WfmFlwTypeVO extends SuperVO {
 	 */
 	public void setPk_group (java.lang.String newPk_group ) {
 	 	this.pk_group = newPk_group;
+	} 	  
+	/**
+	 * 属性isinner的Getter方法.属性名：是否是内置
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFBoolean
+	 */
+	public nc.vo.pub.lang.UFBoolean getIsinner () {
+		return isinner;
+	}   
+	/**
+	 * 属性isinner的Setter方法.属性名：是否是内置
+	 * 创建日期:
+	 * @param newIsinner nc.vo.pub.lang.UFBoolean
+	 */
+	public void setIsinner (nc.vo.pub.lang.UFBoolean newIsinner ) {
+	 	this.isinner = newIsinner;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr
